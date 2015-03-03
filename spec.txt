@@ -1,0 +1,9 @@
+5.1	Výkonnostní požadavky
+Aplikace by mìla bez problémù bìžet na každém obyèejném poèítaèi.
+
+5.2	Bezpeènostní požadavky
+U našeho systému nehrozí.
+
+5.3	Kvalitativní parametry
+Program by nemìl uživatele zahltit spoustou technických údajù, ale mìl by být pøehledný a mìl mít základní klikací ovládání.
+Dále by mìl co nejotevøenejší a lehce modifikovatelný.  
