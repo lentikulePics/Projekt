@@ -1,0 +1,43 @@
+2.1
+	- "Název aplikace" je novì vyvíjenı software v rámci projektu semestrální práce z pøedmìtu ZSWI/KIV, 
+	kterı slouí pro prokládání nìkolika obrázkù do takzv. lentikulárního obrázku. Moná vypsat nìkolik podobnıch
+	softwarù, které jsou podobné, ale jsou nevyhovující. Vıstup má míøit na tisková zaøízení s rozlišením typicky mezi 300 a 6000 dpi.
+
+	pøidal bych obrázek nìkolika obrázku jdoucí do aplikace a jeden z aplikace
+
+2.3
+	- Software by mìl slouit hlavnì pro studenty FDU (technicky nepøíliš zdatné  
+	uivatele). Dále to mohou bıt operátoøi produkèního tisku, tj. lidé, kteøí od umìlcù  
+	dostanou vstupní obrázky a proces prokládání udìlají za nì, tøeba proto,  
+	e umìlci neznají konkrétní tiskové podmínky. Program, ale budeme na KIV vyuívat i k technickım experimentùm.
+
+2.4
+	- Podporovaná platforma je Windows(od nejstarší verze WinXP po Win10. Pøedpokládá se pouití notebooku
+	 nebo stolního poèítaèe,  tj. ne mobilní prostøedí. Poèítaè bìné konfigurace (typicky 1-4 GB RAM) by
+	 mìl zpracovat obrázek formátu A4 za nejvıše desítky vteøin. Budeme pøedpokládat, e program zvládne jen takové  
+	 obrázky, na které je k dispozici pamì; nebudeme tedy øešit, jak dìlat 100GB obrázky. Program podporuje jazykové mutace,
+	 proto je pouití mezinárodní.
+2.5
+	Pro správnou funkci programu musí mít uivatel nainstalovanou knihovnu (Dopln =D). Program je urèen vıhradnì
+	pro platformu Windows. Aplikace je naprogramovaná v programovacím jazyce C# a C++
+
+grrrrrrr
+
+4.1
+	Uivatelské rozhraní dovoluje uiveli nahrát standartní typy obrázkù(jpg, png, tif, bmp) pouze se stejnım 
+	rozmìrem. Zvolit si DPI tiskárny a LPI lentikulí (palce nebo cm). Monost zmìny poøadí obrázkù po nahrání do uivatelského rozhraní.
+	Také dovoluje uivateli vybrat interpolaèní algoritmy, horizontální a vertikální prokládání a pøidání pomocnıch èar.
+4.2
+	- asi není potøeba
+4.3
+	- to co potøebuje C# a ta knihovna (víš nejlíp)
+4.4
+	- u nás by nic takového bıt nemìlo, nevím jak je to s komunikací s knihovnou
+5.1
+	- Poèítaè bìné konfigurace (typicky 1-4 GB RAM), další vìci mùeme pøidat v prùbìhu
+5.2
+	- asi bych nepsal
+5.3
+	- napadá mì pouze poadavek na pøehlednost GUI a na snadnou rozšíøitelnost aplikace
+6.x	
+	- smazat podle mì, pøidá se èasem :D
