@@ -4,6 +4,47 @@
         <name>Interlacer</name>
     </assembly>
     <members>
+        <member name="T:GfxlibWrapper.FilterType">
+            <summary>
+            trida reprezentujici typ filteru pouziteho pro resize
+            </summary>
+        </member>
+        <member name="F:GfxlibWrapper.FilterType.None">
+            <summary>
+            zadny filter - nejblizsi soused
+            </summary>
+        </member>
+        <member name="F:GfxlibWrapper.FilterType.Triangle">
+            <summary>
+            trojuhelnikovy filter
+            </summary>
+        </member>
+        <member name="F:GfxlibWrapper.FilterType.Cubic">
+            <summary>
+            kubicky filter
+            </summary>
+        </member>
+        <member name="F:GfxlibWrapper.FilterType.Lanczos">
+            <summary>
+            Lanczos filter
+            </summary>
+        </member>
+        <member name="F:GfxlibWrapper.FilterType.name">
+            <summary>
+            nazev filteru
+            </summary>
+        </member>
+        <member name="F:GfxlibWrapper.FilterType.filterNum">
+            <summary>
+            cislo filteru odpovidajici danemu filteru v knihovne Magick++
+            </summary>
+        </member>
+        <member name="M:GfxlibWrapper.FilterType.ToString">
+            <summary>
+            vraci nazev filteru
+            </summary>
+            <returns>nazev filteru</returns>
+        </member>
         <member name="T:GfxlibWrapper.GfxlibCommunicator">
             <summary>
             staticka trida obsahujici funkce pro komunikaci s grafickou knihovnou prostrednictvim DLL
@@ -141,7 +182,7 @@
             <param name="y">y souradnice</param>
             <returns>hodnota pixelu na danych souradnicich</returns>
         </member>
-        <member name="M:GfxlibWrapper.Picture.Resize(System.Int32,System.Int32,GfxlibWrapper.Picture.FilterType)">
+        <member name="M:GfxlibWrapper.Picture.Resize(System.Int32,System.Int32,GfxlibWrapper.FilterType)">
             <summary>
             zmeni velikost bitmapy
             </summary>
@@ -163,10 +204,34 @@
             <param name="destColumn">index ciloveho sloupce tohoto obrazku</param>
             <param name="destYBegin">index pocatecni y souradnice, od ktere se zacne sloupec kopirovat do tohoto obrazku</param>
         </member>
-        <member name="T:GfxlibWrapper.Picture.FilterType">
+        <member name="F:Interlacer.PictureContainer.indexList">
             <summary>
-            trida reprezentujici typ filteru pouziteho pro resize
+            List indexu - klicem je vzdy cesta k souboru, hodnotou je seznam pozic, na kterych se obrazek ma objevit
             </summary>
+        </member>
+        <member name="F:Interlacer.PictureContainer.outData">
+            <summary>
+            obsahuje informace o vystupnim obrazku
+            </summary>
+        </member>
+        <member name="F:Interlacer.PictureContainer.initialResizeFilter">
+            <summary>
+            filter pro 1. fazi prokladani
+            </summary>
+        </member>
+        <member name="F:Interlacer.PictureContainer.finalResampleFilter">
+            <summary>
+            filter pro 2. fazi prokladani
+            </summary>
+        </member>
+        <member name="M:Interlacer.PictureContainer.#ctor(System.Collections.Generic.List{System.String},Interlacer.OutputPictureData,GfxlibWrapper.FilterType,GfxlibWrapper.FilterType)">
+            <summary>
+            konstruktor, ktery z Listu cest k souborum vytvori List indexu
+            </summary>
+            <param name="paths">List cest k souborum</param>
+            <param name="outData">informace o vystupnim obrazku</param>
+            <param name="initialResizeFilter">filter pro 1. fazi prokladani</param>
+            <param name="finalResampleFilter">filter pro 2. fazi prokladani</param>
         </member>
         <member name="M:Interlacer.Program.Main">
             <summary>

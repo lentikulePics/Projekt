@@ -6,12 +6,9 @@ using System.Threading.Tasks;
 
 namespace GfxlibWrapper
 {
-    namespace GfxlibExceptions
-    {
-        class PictureLoadFailureException : Exception { }
-        class PictureSaveFailureException : Exception { }
-        class PictureCreationFailureException : Exception { }
-        class PictureResizeFailureException : Exception { }
-        class PictureAlreadyCreatedException : Exception { }
-    }
+    class PictureLoadFailureException : Exception { }
+    class PictureSaveFailureException : Exception { }
+    class PictureCreationFailureException : Exception { }
+    class PictureResizeFailureException : Exception { }
+    class PictureAlreadyCreatedException : Exception { }
 }

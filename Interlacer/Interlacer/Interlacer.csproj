@@ -93,6 +93,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="GfxlibWrapper\FilterType.cs" />
     <Compile Include="GfxlibWrapper\GfxlibCommunicator.cs" />
     <Compile Include="GfxlibWrapper\GfxlibExceptions.cs" />
     <Compile Include="MainForm.cs">
@@ -103,6 +104,7 @@
     </Compile>
     <Compile Include="GfxlibWrapper\Picture.cs" />
     <Compile Include="PictureContainer.cs" />
+    <Compile Include="OutputPictureData.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="MainForm.resx">

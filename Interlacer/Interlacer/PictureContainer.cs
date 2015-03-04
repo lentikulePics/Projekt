@@ -10,15 +10,55 @@ namespace Interlacer
 {
     class PictureContainer
     {
-        private List<Picture> pictures = new List<Picture>();
+        /// <summary>
+        /// List indexu - klicem je vzdy cesta k souboru, hodnotou je seznam pozic, na kterych se obrazek ma objevit
+        /// </summary>
+        private List<KeyValuePair<String, List<int>>> indexList = new List<KeyValuePair<String, List<int>>>();
+        /// <summary>
+        /// obsahuje informace o vystupnim obrazku
+        /// </summary>
+        private OutputPictureData outData;
+        /// <summary>
+        /// filter pro 1. fazi prokladani
+        /// </summary>
+        private FilterType initialResizeFilter;
+        /// <summary>
+        /// filter pro 2. fazi prokladani
+        /// </summary>
+        private FilterType finalResampleFilter;
 
-        public void AddPicture(Picture picture)
+        /// <summary>
+        /// konstruktor, ktery z Listu cest k souborum vytvori List indexu
+        /// </summary>
+        /// <param name="paths">List cest k souborum</param>
+        /// <param name="outData">informace o vystupnim obrazku</param>
+        /// <param name="initialResizeFilter">filter pro 1. fazi prokladani</param>
+        /// <param name="finalResampleFilter">filter pro 2. fazi prokladani</param>
+        public PictureContainer(List<String> paths, OutputPictureData outData, FilterType initialResizeFilter, FilterType finalResampleFilter)
         {
-            pictures.Add(picture);
+            this.outData = outData;
+            this.initialResizeFilter = initialResizeFilter;
+            this.finalResampleFilter = finalResampleFilter;
+            Dictionary<String, List<int>> indexTable = new Dictionary<String, List<int>>();
+            for (int i = 0; i < paths.Count; i++)
+            {
+                if (indexTable.ContainsKey(paths[i]))
+                {
+                    indexTable[paths[i]].Add(i);
+                }
+                else
+                {
+                    indexTable.Add(paths[i], new List<int>{i});
+                }
+            }
+            indexList = indexTable.ToList();
         }
 
+
+        /*private List<Picture> pictures = new List<Picture>();
+
         public Picture Interlace(double inchWidth, double inchHeight, double dpi, double lpi,
-            Picture.FilterType initialResizeFilter, Picture.FilterType finalResampleFilter, ProgressBar progressBar)
+            FilterType initialResizeFilter, FilterType finalResampleFilter, ProgressBar progressBar)
         {
             int pxWidth = (int)(inchWidth * dpi);
             int pxHeight = (int)(inchHeight * dpi);
@@ -47,6 +87,6 @@ namespace Interlacer
             result.Resize(pxWidth, pxHeight, finalResampleFilter);
             progressBar.PerformStep();
             return result;
-        }
+        }*/
     }
 }

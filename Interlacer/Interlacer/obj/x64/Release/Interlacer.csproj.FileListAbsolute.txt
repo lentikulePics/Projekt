@@ -18,7 +18,6 @@ C:\Users\Luckin\Desktop\Interlacer Github\Projekt\Interlacer\Interlacer\obj\x64\
 C:\Users\Luckin\Desktop\Interlacer Github\Projekt\Interlacer\bin64bit\Interlacer.exe
 C:\Users\Luckin\Desktop\Interlacer Github\Projekt\Interlacer\bin64bit\Interlacer.pdb
 C:\Users\Luckin\Desktop\Interlacer Github\Projekt\Interlacer\bin64bit\doc.xml
-C:\Users\Luckin\Desktop\Interlacer Github\Projekt\Interlacer\Interlacer\obj\x64\Release\Interlacer.csprojResolveAssemblyReference.cache
 C:\Users\Luckin\Desktop\Interlacer Github\Projekt\Interlacer\Interlacer\obj\x64\Release\Interlacer.MainForm.resources
 C:\Users\Luckin\Desktop\Interlacer Github\Projekt\Interlacer\Interlacer\obj\x64\Release\Interlacer.Properties.Resources.resources
 C:\Users\Luckin\Desktop\Interlacer Github\Projekt\Interlacer\Interlacer\obj\x64\Release\Interlacer.csproj.GenerateResource.Cache

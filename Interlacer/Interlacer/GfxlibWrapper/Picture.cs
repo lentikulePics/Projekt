@@ -7,7 +7,6 @@ using System.Drawing.Imaging;
 using System.Drawing;
 using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
-using GfxlibWrapper.GfxlibExceptions;
 
 namespace GfxlibWrapper
 {
@@ -33,31 +32,6 @@ namespace GfxlibWrapper
         /// ukazatel na objekt C++ tridy Magick::Image
         /// </summary>
         private void* imagePtr = null;
-
-        /// <summary>
-        /// trida reprezentujici typ filteru pouziteho pro resize
-        /// </summary>
-        public class FilterType
-        {
-            public static readonly FilterType None = new FilterType("Nearest neighbour", 1);
-            public static readonly FilterType Triangle = new FilterType("Triangle", 3);
-            public static readonly FilterType Cubic = new FilterType("Cubic", 10);
-            public static readonly FilterType Lanczos = new FilterType("Lanczos", 22);
-
-            private String name;
-            public readonly int filterNum;
-
-            private FilterType(String name, int value)
-            {
-                this.name = name;
-                this.filterNum = value;
-            }
-
-            public override string ToString()
-            {
-                return name;
-            }
-        }
 
         /// <summary>
         /// prevede objekt tridy String na pole znaku a prida terminator
@@ -254,23 +228,6 @@ namespace GfxlibWrapper
                 else
                     throw new PictureCreationFailureException();
             }
-
-            /*void* oldImagePtr = imagePtr;
-            imagePtr = createImage(newWidth, newHeight);
-            Int64* newPixelData = getPixelDataPtr(imagePtr);
-            double xRatio = (double)width / newWidth;
-            double yRatio = (double)height / newHeight;
-            for (int j = 0; j < newHeight; j++)
-            {
-                int newY = j * newWidth;
-                int y = (int)(j * yRatio) * width;
-                for (int i = 0; i < newWidth; i++)
-                    newPixelData[newY + i] = pixelData[y + (int)(i * xRatio)];
-            }
-            width = newWidth;
-            height = newHeight;
-            pixelData = newPixelData;
-            deleteImage(oldImagePtr);*/
         }
 
         /// <summary>
