@@ -27,14 +27,10 @@ namespace Interlacer
 
         private void button1_Click(object sender, EventArgs e)
         {
-            Picture pic = new Picture(20, 20);
-            for (int i = 0; i < pic.GetWidth(); i++)
-            {
-                for (int j = 0; j < pic.GetHeight(); j++)
-                {
-                    pic.SetPixel(i, j, 32700, 0, 65535);
-                }
-            }
+            Picture pic = new Picture("picture.jpg");
+            pic.Load();
+            pic.Resize(300, 300, FilterType.None);
+            pic.SetDpi(601.183, 601.183);
             pic.Save("pic.tif");
             pic.Destroy();
         }

@@ -49,17 +49,16 @@ void* createImage(int w, int h)
 void deleteImage(void* ptr)
 {
 	Magick::Image* imagePtr = (Magick::Image*)ptr;
-	imagePtr->syncPixels();
 	delete imagePtr;
 }
 
-INT64* getPixelDataPtr(void* ptr)
+INTPX* getPixelDataPtr(void* ptr)
 {
 	Magick::Image* imagePtr = (Magick::Image*)ptr;
-	INT64* pxPtr = nullptr;
+	INTPX* pxPtr = nullptr;
 	try
 	{
-		pxPtr = (INT64*)imagePtr->getPixels(0, 0, imagePtr->columns(), imagePtr->rows());
+		pxPtr = (INTPX*)imagePtr->getPixels(0, 0, imagePtr->columns(), imagePtr->rows());
 	}
 	catch (...)
 	{
@@ -84,19 +83,20 @@ void* loadImage(char* filename)
 	return (void*)img;
 }
 
-void getImageSizeWithoutLoading(char* filename, int* width, int* height)
+void* pingImage(char* filename)
 {
+	Magick::Image* img = nullptr;
 	try
 	{
-		Magick::Image img;
-		img.ping(filename);
-		*width = (int)img.columns();
-		*height = (int)img.rows();
+		img = new Magick::Image;
+		img->ping(filename);
 	}
 	catch (...)
 	{
+		delete img;
 		RaiseException(GfxlibErrors::PictureLoadFailure, 0, 0, 0);
 	}
+	return (void*)img;
 }
 
 void saveImage(void* ptr, char* filename)
@@ -123,6 +123,46 @@ int getImageHeight(void* ptr)
 {
 	Magick::Image* imagePtr = (Magick::Image*)ptr;
 	return (int)imagePtr->rows();
+}
+
+double getImageXDpi(void* ptr)
+{
+	Magick::Image* imagePtr = (Magick::Image*)ptr;
+	double resolution = imagePtr->xResolution();
+	MagickCore::ResolutionType resType = imagePtr->resolutionUnits();
+	switch (resType)
+	{
+		case MagickCore::ResolutionType::PixelsPerInchResolution:
+			return resolution;
+		case MagickCore::ResolutionType::PixelsPerCentimeterResolution:
+			return (resolution * 2.54);
+		default:
+			return 0;
+	}
+}
+
+double getImageYDpi(void* ptr)
+{
+	Magick::Image* imagePtr = (Magick::Image*)ptr;
+	double resolution = imagePtr->yResolution();
+	MagickCore::ResolutionType resType = imagePtr->resolutionUnits();
+	switch (resType)
+	{
+	case MagickCore::ResolutionType::PixelsPerInchResolution:
+		return resolution;
+	case MagickCore::ResolutionType::PixelsPerCentimeterResolution:
+		return (resolution * 2.54);
+	default:
+		return 0;
+	}
+}
+
+void setImageDpi(void* ptr, double xDpi, double yDpi)
+{
+	Magick::Image* imagePtr = (Magick::Image*)ptr;
+	imagePtr->resolutionUnits(MagickCore::ResolutionType::PixelsPerInchResolution);
+	imagePtr->image()->x_resolution = xDpi;
+	imagePtr->image()->y_resolution = yDpi;
 }
 
 void resizeImage(void* ptr, int w, int h, int filterType)

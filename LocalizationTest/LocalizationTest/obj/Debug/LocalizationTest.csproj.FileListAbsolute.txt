@@ -13,3 +13,18 @@ c:\users\barat_000\OneDrive\Dokumenty\Visual Studio 2013\LocalizationTest\Locali
 c:\users\barat_000\OneDrive\Dokumenty\Visual Studio 2013\LocalizationTest\LocalizationTest\obj\Debug\fr\LocalizationTest.resources.dll
 c:\users\barat_000\OneDrive\Dokumenty\Visual Studio 2013\LocalizationTest\LocalizationTest\obj\Debug\LocalizationTest.exe
 c:\users\barat_000\OneDrive\Dokumenty\Visual Studio 2013\LocalizationTest\LocalizationTest\obj\Debug\LocalizationTest.pdb
+C:\Users\Luckin\Desktop\Interlacer Github\Projekt\LocalizationTest\LocalizationTest\bin\Debug\LocalizationTest.exe.config
+C:\Users\Luckin\Desktop\Interlacer Github\Projekt\LocalizationTest\LocalizationTest\bin\Debug\LocalizationTest.exe
+C:\Users\Luckin\Desktop\Interlacer Github\Projekt\LocalizationTest\LocalizationTest\bin\Debug\LocalizationTest.pdb
+C:\Users\Luckin\Desktop\Interlacer Github\Projekt\LocalizationTest\LocalizationTest\bin\Debug\es\LocalizationTest.resources.dll
+C:\Users\Luckin\Desktop\Interlacer Github\Projekt\LocalizationTest\LocalizationTest\bin\Debug\fr\LocalizationTest.resources.dll
+C:\Users\Luckin\Desktop\Interlacer Github\Projekt\LocalizationTest\LocalizationTest\obj\Debug\LocalizationTest.csprojResolveAssemblyReference.cache
+C:\Users\Luckin\Desktop\Interlacer Github\Projekt\LocalizationTest\LocalizationTest\obj\Debug\LocalizationTest.Form1.resources
+C:\Users\Luckin\Desktop\Interlacer Github\Projekt\LocalizationTest\LocalizationTest\obj\Debug\LocalizationTest.Properties.Resources.resources
+C:\Users\Luckin\Desktop\Interlacer Github\Projekt\LocalizationTest\LocalizationTest\obj\Debug\LocalizationTest.Form1.es.resources
+C:\Users\Luckin\Desktop\Interlacer Github\Projekt\LocalizationTest\LocalizationTest\obj\Debug\LocalizationTest.Form1.fr.resources
+C:\Users\Luckin\Desktop\Interlacer Github\Projekt\LocalizationTest\LocalizationTest\obj\Debug\LocalizationTest.csproj.GenerateResource.Cache
+C:\Users\Luckin\Desktop\Interlacer Github\Projekt\LocalizationTest\LocalizationTest\obj\Debug\es\LocalizationTest.resources.dll
+C:\Users\Luckin\Desktop\Interlacer Github\Projekt\LocalizationTest\LocalizationTest\obj\Debug\fr\LocalizationTest.resources.dll
+C:\Users\Luckin\Desktop\Interlacer Github\Projekt\LocalizationTest\LocalizationTest\obj\Debug\LocalizationTest.exe
+C:\Users\Luckin\Desktop\Interlacer Github\Projekt\LocalizationTest\LocalizationTest\obj\Debug\LocalizationTest.pdb

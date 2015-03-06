@@ -13,47 +13,47 @@ namespace Interlacer
         /// <summary>
         /// List indexu - klicem je vzdy cesta k souboru, hodnotou je seznam pozic, na kterych se obrazek ma objevit
         /// </summary>
-        private List<KeyValuePair<String, List<int>>> indexList = new List<KeyValuePair<String, List<int>>>();
+        private List<KeyValuePair<Picture, List<int>>> indexList = new List<KeyValuePair<Picture, List<int>>>();
         /// <summary>
         /// obsahuje informace o vystupnim obrazku
         /// </summary>
-        private OutputPictureData outData;
-        /// <summary>
-        /// filter pro 1. fazi prokladani
-        /// </summary>
-        private FilterType initialResizeFilter;
-        /// <summary>
-        /// filter pro 2. fazi prokladani
-        /// </summary>
-        private FilterType finalResampleFilter;
+        private InterlacingData interlacingData;
 
         /// <summary>
         /// konstruktor, ktery z Listu cest k souborum vytvori List indexu
         /// </summary>
-        /// <param name="paths">List cest k souborum</param>
-        /// <param name="outData">informace o vystupnim obrazku</param>
-        /// <param name="initialResizeFilter">filter pro 1. fazi prokladani</param>
-        /// <param name="finalResampleFilter">filter pro 2. fazi prokladani</param>
-        public PictureContainer(List<String> paths, OutputPictureData outData, FilterType initialResizeFilter, FilterType finalResampleFilter)
+        /// <param name="pictures">seznam obrazku, bud nenactenych s nastavenou cestou k souboru nebo vytvorenych programove</param>
+        /// <param name="interlacingData">data potrebna k prolozeni</param>
+        public PictureContainer(List<Picture> pictures, InterlacingData interlacingData)
         {
-            this.outData = outData;
-            this.initialResizeFilter = initialResizeFilter;
-            this.finalResampleFilter = finalResampleFilter;
-            Dictionary<String, List<int>> indexTable = new Dictionary<String, List<int>>();
-            for (int i = 0; i < paths.Count; i++)
+            this.interlacingData = interlacingData;
+            Dictionary<Picture, List<int>> indexTable = new Dictionary<Picture, List<int>>();
+            for (int i = 0; i < pictures.Count; i++)
             {
-                if (indexTable.ContainsKey(paths[i]))
+                if (indexTable.ContainsKey(pictures[i]))
                 {
-                    indexTable[paths[i]].Add(i);
+                    indexTable[pictures[i]].Add(i);
                 }
                 else
                 {
-                    indexTable.Add(paths[i], new List<int>{i});
+                    indexTable.Add(pictures[i], new List<int>{i});
                 }
             }
             indexList = indexTable.ToList();
         }
 
+        public void show()
+        {
+            for (int i = 0; i < indexList.Count; i++)
+            {
+                String str = "";
+                for (int j = 0; j < indexList[i].Value.Count; j++)
+                {
+                    str += indexList[i].Value[j] + ", ";
+                }
+                System.Windows.Forms.MessageBox.Show(indexList[i].Key.ToString() + ": " + str);
+            }
+        }
 
         /*private List<Picture> pictures = new List<Picture>();
 

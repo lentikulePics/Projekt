@@ -87,6 +87,16 @@
             vyska v pixelech
             </summary>
         </member>
+        <member name="F:GfxlibWrapper.Picture.xDpi">
+            <summary>
+            DPI na ose x
+            </summary>
+        </member>
+        <member name="F:GfxlibWrapper.Picture.yDpi">
+            <summary>
+            DPI na ose y
+            </summary>
+        </member>
         <member name="F:GfxlibWrapper.Picture.pixelData">
             <summary>
             pole obsahujici informace o jednotlivych pixelech
@@ -109,6 +119,11 @@
             <param name="str">objekt tridy String k prevedeni</param>
             <returns>pole charu ukoncene terminatorem</returns>
         </member>
+        <member name="M:GfxlibWrapper.Picture.setData">
+            <summary>
+            nastavi vsechny atribury tridy obsahujici informaci o obrazku (vyska/sirka v px, dpi...)
+            </summary>
+        </member>
         <member name="M:GfxlibWrapper.Picture.#cctor">
             <summary>
             nastavi pametove limity knihovny Magick++
@@ -129,13 +144,44 @@
         </member>
         <member name="M:GfxlibWrapper.Picture.Ping">
             <summary>
-            zjisti z obrazku sirku a vysku v pixelech bez jeho kompletniho nacteni
+            zjisti z obrazku dulezita data (vysku/sirku v px, dpi...) bez jeho kompletniho nacteni
             </summary>
         </member>
         <member name="M:GfxlibWrapper.Picture.Load">
             <summary>
             nacte bitmapu ze zadaneho souboru
             </summary>
+        </member>
+        <member name="M:GfxlibWrapper.Picture.IsCreated">
+            <summary>
+            vraci true, pokud je obrazek nacten nebo vytvoren, jinak false
+            </summary>
+            <returns>true, pokud je obrazek nacten nebo vytvoren, jinak false</returns>
+        </member>
+        <member name="M:GfxlibWrapper.Picture.HasFilenameSet">
+            <summary>
+            vraci true, pokud ma objekt nastaven cestu k nejakemu souboru, jinak false
+            </summary>
+            <returns>true, pokud ma objekt nastaven cestu k nejakemu souboru, jinak false</returns>
+        </member>
+        <member name="M:GfxlibWrapper.Picture.GetHashCode">
+            <summary>
+            pokud je nastavena cesta k nejakemu souboru, vraci hash teto cesty jako Stringu, jinak vraci hash kod tridy Object
+            </summary>
+            <returns>hash kod</returns>
+        </member>
+        <member name="M:GfxlibWrapper.Picture.ToString">
+            <summary>
+            pokud je nastavena cesta k nejakemu souboru, vraci tuto cestu, jinak vraci "..." 
+            </summary>
+            <returns>cesta k souboru, pokud je nastavena, jinak "..."</returns>
+        </member>
+        <member name="M:GfxlibWrapper.Picture.Equals(System.Object)">
+            <summary>
+            pokud je nastavena cesta k nejakemu souboru, porovna tuto cestu s parametrm jako String, jiank pouziva base.Equals
+            </summary>
+            <param name="obj">objekt k porovnani</param>
+            <returns>pri shode true, jinak false</returns>
         </member>
         <member name="M:GfxlibWrapper.Picture.GetWidth">
             <summary>
@@ -149,30 +195,49 @@
             </summary>
             <returns>vyska bitmapy v pixelech</returns>
         </member>
+        <member name="M:GfxlibWrapper.Picture.GetXDpi">
+            <summary>
+            vrati DPI na ose x
+            </summary>
+            <returns>dpi na ose x</returns>
+        </member>
+        <member name="M:GfxlibWrapper.Picture.GetYDpi">
+            <summary>
+            vrati DPI na ose y
+            </summary>
+            <returns>dpi na ose y</returns>
+        </member>
+        <member name="M:GfxlibWrapper.Picture.SetDpi(System.Double,System.Double)">
+            <summary>
+            nastavi DPI na obou osach
+            </summary>
+            <param name="xDpi">DPI na ose x</param>
+            <param name="yDpi">DPI na ose y</param>
+        </member>
         <member name="M:GfxlibWrapper.Picture.Save(System.String)">
             <summary>
             ulozi bitmapu
             </summary>
             <param name="saveFilename">nazev vystupniho souboru</param>
         </member>
-        <member name="M:GfxlibWrapper.Picture.SetPixel(System.Int32,System.Int32,System.Int64)">
+        <member name="M:GfxlibWrapper.Picture.SetPixel(System.Int32,System.Int32,System.Int32)">
             <summary>
             nastavi hodnotu konkretniho pixelu
             </summary>
             <param name="x">x souradnice</param>
             <param name="y">y souradnice</param>
             <param name="pxValue">hodnota pixelu ve formatu ORGB, kde O je pruhlednost (opacity),
-            cim je vetsi, tim je pixel pruhlednejsi, hodnota je 8 bytová - napr. 0x0000FFFF00000000 je cervena</param>
+            cim je vetsi, tim je pixel pruhlednejsi, hodnota je 4 bytová - napr. 0x00FF0000 je cervena</param>
         </member>
-        <member name="M:GfxlibWrapper.Picture.SetPixel(System.Int32,System.Int32,System.UInt16,System.UInt16,System.UInt16)">
+        <member name="M:GfxlibWrapper.Picture.SetPixel(System.Int32,System.Int32,System.Byte,System.Byte,System.Byte)">
             <summary>
             nastavi hodnotu konkretniho pixelu
             </summary>
             <param name="x">x souradnice</param>
             <param name="y">y souradnice</param>
-            <param name="red">hodnota cerveneho kanalu (0 - 65535)</param>
-            <param name="green">hodnota zeleneho kanalu (0 - 65535)</param>
-            <param name="blue">hodnota modreho kanalu (0 - 65535)</param>
+            <param name="red">hodnota cerveneho kanalu (0 - 255)</param>
+            <param name="green">hodnota zeleneho kanalu (0 - 255)</param>
+            <param name="blue">hodnota modreho kanalu (0 - 255)</param>
         </member>
         <member name="M:GfxlibWrapper.Picture.GetPixel(System.Int32,System.Int32)">
             <summary>
@@ -209,29 +274,17 @@
             List indexu - klicem je vzdy cesta k souboru, hodnotou je seznam pozic, na kterych se obrazek ma objevit
             </summary>
         </member>
-        <member name="F:Interlacer.PictureContainer.outData">
+        <member name="F:Interlacer.PictureContainer.interlacingData">
             <summary>
             obsahuje informace o vystupnim obrazku
             </summary>
         </member>
-        <member name="F:Interlacer.PictureContainer.initialResizeFilter">
-            <summary>
-            filter pro 1. fazi prokladani
-            </summary>
-        </member>
-        <member name="F:Interlacer.PictureContainer.finalResampleFilter">
-            <summary>
-            filter pro 2. fazi prokladani
-            </summary>
-        </member>
-        <member name="M:Interlacer.PictureContainer.#ctor(System.Collections.Generic.List{System.String},Interlacer.OutputPictureData,GfxlibWrapper.FilterType,GfxlibWrapper.FilterType)">
+        <member name="M:Interlacer.PictureContainer.#ctor(System.Collections.Generic.List{GfxlibWrapper.Picture},Interlacer.InterlacingData)">
             <summary>
             konstruktor, ktery z Listu cest k souborum vytvori List indexu
             </summary>
-            <param name="paths">List cest k souborum</param>
-            <param name="outData">informace o vystupnim obrazku</param>
-            <param name="initialResizeFilter">filter pro 1. fazi prokladani</param>
-            <param name="finalResampleFilter">filter pro 2. fazi prokladani</param>
+            <param name="pictures">seznam obrazku, bud nenactenych s nastavenou cestou k souboru nebo vytvorenych programove</param>
+            <param name="interlacingData">data potrebna k prolozeni</param>
         </member>
         <member name="M:Interlacer.Program.Main">
             <summary>

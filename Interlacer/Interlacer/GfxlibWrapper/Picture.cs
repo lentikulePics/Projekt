@@ -10,6 +10,11 @@ using System.Runtime.InteropServices;
 
 namespace GfxlibWrapper
 {
+    //definuje typ podle velikosti barevneho kanalu (Int32 - 8-bitovy kanal / Int64 - 16-bitovy kanal)
+    using IntPx = Int32;
+    //definuje typ podle velikosti barevneho kanalu pro samostatne kanaly
+    using IntChannel = Byte;
+
     unsafe class Picture
     {
         /// <summary>
@@ -21,9 +26,17 @@ namespace GfxlibWrapper
         /// </summary>
         private int height = 0;
         /// <summary>
+        /// DPI na ose x
+        /// </summary>
+        private double xDpi = 0;
+        /// <summary>
+        /// DPI na ose y
+        /// </summary>
+        private double yDpi = 0;
+        /// <summary>
         /// pole obsahujici informace o jednotlivych pixelech
         /// </summary>
-        private Int64* pixelData = null;
+        private IntPx* pixelData = null;
         /// <summary>
         /// nazev souboru pro nacteni
         /// </summary>
@@ -41,6 +54,17 @@ namespace GfxlibWrapper
         private char[] stringToCharArray(String str)
         {
             return (str + '\0').ToCharArray();
+        }
+
+        /// <summary>
+        /// nastavi vsechny atribury tridy obsahujici informaci o obrazku (vyska/sirka v px, dpi...)
+        /// </summary>
+        private void setData()
+        {
+            width = GfxlibCommunicator.getImageWidth(imagePtr);
+            height = GfxlibCommunicator.getImageHeight(imagePtr);
+            xDpi = GfxlibCommunicator.getImageXDpi(imagePtr);
+            yDpi = GfxlibCommunicator.getImageYDpi(imagePtr);
         }
 
         /// <summary>
@@ -82,7 +106,7 @@ namespace GfxlibWrapper
         }
 
         /// <summary>
-        /// zjisti z obrazku sirku a vysku v pixelech bez jeho kompletniho nacteni
+        /// zjisti z obrazku dulezita data (vysku/sirku v px, dpi...) bez jeho kompletniho nacteni
         /// </summary>
         public void Ping()
         {
@@ -90,10 +114,10 @@ namespace GfxlibWrapper
                 throw new PictureAlreadyCreatedException();
             try
             {
-                fixed (int* wPtr = &width, hPtr = &height)
-                {
-                    GfxlibCommunicator.getImageSizeWithoutLoading(stringToCharArray(filename), wPtr, hPtr);
-                }
+                imagePtr = GfxlibCommunicator.pingImage(stringToCharArray(filename));
+                setData();
+                GfxlibCommunicator.deleteImage(imagePtr);
+                imagePtr = null;
             }
             catch (SEHException)
             {
@@ -111,8 +135,7 @@ namespace GfxlibWrapper
             try
             {
                 imagePtr = GfxlibCommunicator.loadImage(stringToCharArray(filename));
-                width = GfxlibCommunicator.getImageWidth(imagePtr);
-                height = GfxlibCommunicator.getImageHeight(imagePtr);
+                setData();
                 pixelData = GfxlibCommunicator.getPixelDataPtr(imagePtr);
             }
             catch (SEHException)
@@ -126,6 +149,59 @@ namespace GfxlibWrapper
                     throw new PictureCreationFailureException();
                 }
             }
+        }
+
+        /// <summary>
+        /// vraci true, pokud je obrazek nacten nebo vytvoren, jinak false
+        /// </summary>
+        /// <returns>true, pokud je obrazek nacten nebo vytvoren, jinak false</returns>
+        public bool IsCreated()
+        {
+            return imagePtr != null;
+        }
+        
+        /// <summary>
+        /// vraci true, pokud ma objekt nastaven cestu k nejakemu souboru, jinak false
+        /// </summary>
+        /// <returns>true, pokud ma objekt nastaven cestu k nejakemu souboru, jinak false</returns>
+        public bool HasFilenameSet()
+        {
+            return filename != null;
+            
+        }
+
+        /// <summary>
+        /// pokud je nastavena cesta k nejakemu souboru, vraci hash teto cesty jako Stringu, jinak vraci hash kod tridy Object
+        /// </summary>
+        /// <returns>hash kod</returns>
+        public override int GetHashCode()
+        {
+            if (filename != null)
+                return filename.GetHashCode();
+            return base.GetHashCode();
+        }
+
+        /// <summary>
+        /// pokud je nastavena cesta k nejakemu souboru, vraci tuto cestu, jinak vraci "..." 
+        /// </summary>
+        /// <returns>cesta k souboru, pokud je nastavena, jinak "..."</returns>
+        public override string ToString()
+        {
+            if (filename != null)
+                return filename;
+            return "...";
+        }
+
+        /// <summary>
+        /// pokud je nastavena cesta k nejakemu souboru, porovna tuto cestu s parametrm jako String, jiank pouziva base.Equals
+        /// </summary>
+        /// <param name="obj">objekt k porovnani</param>
+        /// <returns>pri shode true, jinak false</returns>
+        public override bool Equals(object obj)
+        {
+            if (filename != null)
+                return filename.Equals(((Picture)obj).filename);
+            return base.Equals(obj);
         }
 
         /// <summary>
@@ -149,6 +225,35 @@ namespace GfxlibWrapper
         }
 
         /// <summary>
+        /// vrati DPI na ose x
+        /// </summary>
+        /// <returns>dpi na ose x</returns>
+        public double GetXDpi()
+        {
+            return xDpi;
+        }
+
+        /// <summary>
+        /// vrati DPI na ose y
+        /// </summary>
+        /// <returns>dpi na ose y</returns>
+        public double GetYDpi()
+        {
+            return yDpi;
+        }
+
+        /// <summary>
+        /// nastavi DPI na obou osach
+        /// </summary>
+        /// <param name="xDpi">DPI na ose x</param>
+        /// <param name="yDpi">DPI na ose y</param>
+        public void SetDpi(double xDpi, double yDpi)
+        {
+            this.xDpi = xDpi;
+            this.yDpi = yDpi;
+        }
+
+        /// <summary>
         /// ulozi bitmapu
         /// </summary>
         /// <param name="saveFilename">nazev vystupniho souboru</param>
@@ -156,6 +261,7 @@ namespace GfxlibWrapper
         {
             try
             {
+                GfxlibCommunicator.setImageDpi(imagePtr, xDpi, yDpi);
                 GfxlibCommunicator.saveImage(imagePtr, stringToCharArray(saveFilename));
             }
             catch (SEHException)
@@ -170,9 +276,9 @@ namespace GfxlibWrapper
         /// <param name="x">x souradnice</param>
         /// <param name="y">y souradnice</param>
         /// <param name="pxValue">hodnota pixelu ve formatu ORGB, kde O je pruhlednost (opacity),
-        /// cim je vetsi, tim je pixel pruhlednejsi, hodnota je 8 bytová - napr. 0x0000FFFF00000000 je cervena</param>
+        /// cim je vetsi, tim je pixel pruhlednejsi, hodnota je 4 bytová - napr. 0x00FF0000 je cervena</param>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public void SetPixel(int x, int y, Int64 pxValue)
+        public void SetPixel(int x, int y, IntPx pxValue)
         {
             pixelData[y * width + x] = pxValue;
         }
@@ -182,12 +288,12 @@ namespace GfxlibWrapper
         /// </summary>
         /// <param name="x">x souradnice</param>
         /// <param name="y">y souradnice</param>
-        /// <param name="red">hodnota cerveneho kanalu (0 - 65535)</param>
-        /// <param name="green">hodnota zeleneho kanalu (0 - 65535)</param>
-        /// <param name="blue">hodnota modreho kanalu (0 - 65535)</param>
-        public void SetPixel(int x, int y, UInt16 red, UInt16 green, UInt16 blue)
+        /// <param name="red">hodnota cerveneho kanalu (0 - 255)</param>
+        /// <param name="green">hodnota zeleneho kanalu (0 - 255)</param>
+        /// <param name="blue">hodnota modreho kanalu (0 - 255)</param>
+        public void SetPixel(int x, int y, IntChannel red, IntChannel green, IntChannel blue)
         {
-            UInt16* pxPtr = (UInt16*)&pixelData[y * width + x];
+            IntChannel* pxPtr = (IntChannel*)&pixelData[y * width + x];
             pxPtr[0] = blue;
             pxPtr[1] = green;
             pxPtr[2] = red;
@@ -200,7 +306,7 @@ namespace GfxlibWrapper
         /// <param name="y">y souradnice</param>
         /// <returns>hodnota pixelu na danych souradnicich</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public Int64 GetPixel(int x, int y)
+        public IntPx GetPixel(int x, int y)
         {
             return pixelData[y * width + x];
         }
