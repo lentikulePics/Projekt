@@ -22,6 +22,7 @@ namespace Interlacer
         /// </summary>
         public MainForm()
         {
+            Environment.SetEnvironmentVariable("PATH", "magick");
             InitializeComponent();
         }
 
