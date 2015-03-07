@@ -9,9 +9,9 @@
 #include <string>
 #include <Magick++.h>
 
-void log(std::string str)
+void writeError(std::string str)
 {
-	std::ofstream file("log.txt");
+	std::ofstream file("MagickError.txt");
 	file << str;
 	file.close();
 }
@@ -38,6 +38,12 @@ void* createImage(int w, int h)
 		img = new Magick::Image;
 		img->size(sizeStr);
 	}
+	catch (Magick::Error & er)
+	{
+		writeError(er.what());
+		delete img;
+		RaiseException(GfxlibErrors::PictureCreationFailure, 0, 0, 0);
+	}
 	catch (...)
 	{
 		delete img;
@@ -60,6 +66,11 @@ INTPX* getPixelDataPtr(void* ptr)
 	{
 		pxPtr = (INTPX*)imagePtr->getPixels(0, 0, imagePtr->columns(), imagePtr->rows());
 	}
+	catch (Magick::Error & er)
+	{
+		writeError(er.what());
+		RaiseException(GfxlibErrors::PictureCreationFailure, 0, 0, 0);
+	}
 	catch (...)
 	{
 		RaiseException(GfxlibErrors::PictureCreationFailure, 0, 0, 0);
@@ -74,6 +85,12 @@ void* loadImage(char* filename)
 	{
 		img = new Magick::Image;
 		img->read(filename);
+	}
+	catch (Magick::Error & er)
+	{
+		writeError(er.what());
+		delete img;
+		RaiseException(GfxlibErrors::PictureLoadFailure, 0, 0, 0);
 	}
 	catch (...)
 	{
@@ -91,6 +108,12 @@ void* pingImage(char* filename)
 		img = new Magick::Image;
 		img->ping(filename);
 	}
+	catch (Magick::Error & er)
+	{
+		writeError(er.what());
+		delete img;
+		RaiseException(GfxlibErrors::PictureLoadFailure, 0, 0, 0);
+	}
 	catch (...)
 	{
 		delete img;
@@ -106,6 +129,11 @@ void saveImage(void* ptr, char* filename)
 		Magick::Image* imagePtr = (Magick::Image*)ptr;
 		imagePtr->syncPixels();
 		imagePtr->write(filename);
+	}
+	catch (Magick::Error & er)
+	{
+		writeError(er.what());
+		RaiseException(GfxlibErrors::PictureSaveFailure, 0, 0, 0);
 	}
 	catch (...)
 	{
@@ -176,6 +204,11 @@ void resizeImage(void* ptr, int w, int h, int filterType)
 		imagePtr->syncPixels();
 		imagePtr->filterType((MagickCore::FilterTypes)filterType);
 		imagePtr->resize(sizeStr);
+	}
+	catch (Magick::Error & er)
+	{
+		writeError(er.what());
+		RaiseException(GfxlibErrors::PictureResizeFilure, 0, 0, 0);
 	}
 	catch (...)
 	{

@@ -227,7 +227,7 @@
             <param name="x">x souradnice</param>
             <param name="y">y souradnice</param>
             <param name="pxValue">hodnota pixelu ve formatu ORGB, kde O je pruhlednost (opacity),
-            cim je vetsi, tim je pixel pruhlednejsi, hodnota je 4 bytová - napr. 0x00FF0000 je cervena</param>
+            cim je vetsi, tim je pixel pruhlednejsi, pro IntPx = Int32 je hodnota 4 bytová - napr. 0x00FF0000 je cervena</param>
         </member>
         <member name="M:GfxlibWrapper.Picture.SetPixel(System.Int32,System.Int32,System.Byte,System.Byte,System.Byte)">
             <summary>

@@ -276,7 +276,7 @@ namespace GfxlibWrapper
         /// <param name="x">x souradnice</param>
         /// <param name="y">y souradnice</param>
         /// <param name="pxValue">hodnota pixelu ve formatu ORGB, kde O je pruhlednost (opacity),
-        /// cim je vetsi, tim je pixel pruhlednejsi, hodnota je 4 bytová - napr. 0x00FF0000 je cervena</param>
+        /// cim je vetsi, tim je pixel pruhlednejsi, pro IntPx = Int32 je hodnota 4 bytová - napr. 0x00FF0000 je cervena</param>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public void SetPixel(int x, int y, IntPx pxValue)
         {
@@ -293,10 +293,11 @@ namespace GfxlibWrapper
         /// <param name="blue">hodnota modreho kanalu (0 - 255)</param>
         public void SetPixel(int x, int y, IntChannel red, IntChannel green, IntChannel blue)
         {
+            Int16 multiplier = sizeof(IntChannel) == 1 ? 1 : 256;
             IntChannel* pxPtr = (IntChannel*)&pixelData[y * width + x];
-            pxPtr[0] = blue;
-            pxPtr[1] = green;
-            pxPtr[2] = red;
+            pxPtr[0] = (IntChannel)(blue * multiplier);
+            pxPtr[1] = (IntChannel)(green * multiplier);
+            pxPtr[2] = (IntChannel)(red * multiplier);
         }
 
         /// <summary>
@@ -347,6 +348,8 @@ namespace GfxlibWrapper
             pixelData = null;
             width = 0;
             height = 0;
+            xDpi = 0;
+            yDpi = 0;
         }
 
         /// <summary>
