@@ -38,7 +38,7 @@
   the built ImageMagick to any directory on any directory on any machine,
   then do not use this setting.
 */
-#define MAGICKCORE_INSTALLED_SUPPORT
+//#define MAGICKCORE_INSTALLED_SUPPORT
 
 /*
   When building ImageMagick using DLLs, include a DllMain()
