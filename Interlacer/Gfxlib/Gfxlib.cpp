@@ -20,11 +20,10 @@ void setResourceLimits()
 {
 #if defined _WIN64
 	Magick::ResourceLimits::memory(68719476736);
-	Magick::ResourceLimits::disk(0);
 #else
 	Magick::ResourceLimits::memory(4294967296);
-	Magick::ResourceLimits::disk(0);
 #endif
+	Magick::ResourceLimits::disk(0);
 }
 
 void* createImage(int w, int h)
