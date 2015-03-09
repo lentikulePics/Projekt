@@ -20,11 +20,16 @@ namespace Interlacer
         private InterlacingData interlacingData;
 
         /// <summary>
+        /// obsahuje informace o pasovacích značkách
+        /// </summary>
+        private LineData lineData;
+
+        /// <summary>
         /// konstruktor, ktery z Listu cest k souborum vytvori List indexu
         /// </summary>
         /// <param name="pictures">seznam obrazku, bud nenactenych s nastavenou cestou k souboru nebo vytvorenych programove</param>
         /// <param name="interlacingData">data potrebna k prolozeni</param>
-        public PictureContainer(List<Picture> pictures, InterlacingData interlacingData)
+        public PictureContainer(List<Picture> pictures, InterlacingData interlacingData, LineData lineData)
         {
             this.interlacingData = interlacingData;
             Dictionary<Picture, List<int>> indexTable = new Dictionary<Picture, List<int>>();
