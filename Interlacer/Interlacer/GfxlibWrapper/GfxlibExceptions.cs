@@ -11,4 +11,5 @@ namespace GfxlibWrapper
     class PictureCreationFailureException : Exception { }
     class PictureResizeFailureException : Exception { }
     class PictureAlreadyCreatedException : Exception { }
+    class PictureClipFailureException : Exception { }
 }

@@ -53,5 +53,8 @@ namespace GfxlibWrapper
 
         [DllImport("Gfxlib.dll", CallingConvention = CallingConvention.Cdecl)]
         public static extern void resizeImage(void* ptr, int w, int h, int filterType);
+
+        [DllImport("Gfxlib.dll", CallingConvention = CallingConvention.Cdecl)]
+        public static extern void clipImage(void* ptr, int x, int y, int w, int h);
     }
 }

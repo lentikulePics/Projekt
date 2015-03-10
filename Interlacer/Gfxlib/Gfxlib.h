@@ -21,6 +21,7 @@ extern "C"
 	__declspec(dllexport) double getImageYDpi(void*);
 	__declspec(dllexport) void setImageDpi(void*, double, double);
 	__declspec(dllexport) void resizeImage(void*, int, int, int);
+	__declspec(dllexport) void clipImage(void*, int, int, int, int);
 }
 
 #endif

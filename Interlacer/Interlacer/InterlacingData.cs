@@ -15,7 +15,7 @@ namespace Interlacer
         private double lenticuleDensity;
         private FilterType initialResizeFilter;
         private FilterType finalResampleFilter;
-        private Units units;
+        private Units units = Units.In;
 
         public void SetUnits(Units units)
         {

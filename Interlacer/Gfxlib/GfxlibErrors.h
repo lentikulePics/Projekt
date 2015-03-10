@@ -5,5 +5,6 @@ enum GfxlibErrors
 	PictureLoadFailure,
 	PictureSaveFailure,
 	PictureCreationFailure,
-	PictureResizeFilure
+	PictureResizeFilure,
+	PictureClipFailure,
 };

@@ -11,5 +11,4 @@ namespace Interlacer
         void SetUnits(Units units);
         Units GetUnits();
     }
-        
 }

@@ -18,11 +18,18 @@ namespace Interlacer
         /// obsahuje informace o vystupnim obrazku
         /// </summary>
         private InterlacingData interlacingData;
-
         /// <summary>
         /// obsahuje informace o pasovacích značkách
         /// </summary>
         private LineData lineData;
+        /// <summary>
+        /// pocet obrazku k prolozeni
+        /// </summary>
+        private int pictureCount;
+        /// <summary>
+        /// vysledny obrazek
+        /// </summary>
+        private Picture result = null;
 
         /// <summary>
         /// konstruktor, ktery z Listu cest k souborum vytvori List indexu
@@ -32,6 +39,7 @@ namespace Interlacer
         /// <param name="lineData">data potrebna k pridani pasovacich znacek</param>
         public PictureContainer(List<Picture> pictures, InterlacingData interlacingData, LineData lineData)
         {
+            pictureCount = pictures.Count;
             this.interlacingData = interlacingData;
             Dictionary<Picture, List<int>> indexTable = new Dictionary<Picture, List<int>>();
             for (int i = 0; i < pictures.Count; i++)
@@ -48,51 +56,38 @@ namespace Interlacer
             indexList = indexTable.ToList();
         }
 
-        public void show()
+        public void Interlace()
         {
+            int pxWidth = (int)(interlacingData.GetWidth() * interlacingData.GetPictureResolution());
+            int pxHeight = (int)(interlacingData.GetHeight() * interlacingData.GetPictureResolution());
+            int lenses = (int)(interlacingData.GetWidth() * interlacingData.GetLenticuleDensity());
             for (int i = 0; i < indexList.Count; i++)
             {
-                String str = "";
-                for (int j = 0; j < indexList[i].Value.Count; j++)
+                Picture currentPic = indexList[i].Key;
+                List<int> indexes = indexList[i].Value;
+                bool loadPic = !currentPic.IsCreated();
+                if (loadPic)
+                    currentPic.Load();
+                if (result == null)
+                    result = new Picture(lenses * pictureCount, currentPic.GetHeight());
+                currentPic.Resize(lenses, currentPic.GetHeight(), interlacingData.GetInitialResizeFilter());
+                for (int j = 0; j < indexes.Count; j++)
                 {
-                    str += indexList[i].Value[j] + ", ";
+                    for (int k = 0; k < lenses; k++)
+                    {
+                        int column = k * pictureCount + (pictureCount - 1 - indexes[j]);
+                        result.CopyColumn(currentPic, k, column, 0);
+                    }
                 }
-                System.Windows.Forms.MessageBox.Show(indexList[i].Key.ToString() + ": " + str);
+                if (loadPic)
+                    currentPic.Destroy();
             }
+            result.Resize(pxWidth, pxHeight, interlacingData.GetFinalResampleFilter());
         }
 
-        /*private List<Picture> pictures = new List<Picture>();
-
-        public Picture Interlace(double inchWidth, double inchHeight, double dpi, double lpi,
-            FilterType initialResizeFilter, FilterType finalResampleFilter, ProgressBar progressBar)
+        public Picture GetResult()
         {
-            int pxWidth = (int)(inchWidth * dpi);
-            int pxHeight = (int)(inchHeight * dpi);
-            int lenses = (int)(inchWidth * lpi);
-            Picture result = null;
-            progressBar.Maximum = pictures.Count * 3 + 1;
-            progressBar.Step = 1;
-            progressBar.Value = 0;
-            for (int i = 0; i < pictures.Count; i++)
-            {
-                pictures[i].Load();
-                if (i == 0)
-                    result = new Picture(lenses * pictures.Count, pictures[i].GetHeight());
-                progressBar.PerformStep();
-                pictures[i].Resize(lenses, pictures[i].GetHeight(), initialResizeFilter);
-                progressBar.PerformStep();
-                for (int j = 0; j < lenses; j++)
-                {
-                    int column = j * pictures.Count + i;
-                    result.CopyColumn(pictures[i], j, column, 0);
-                }
-                pictures[i].Destroy();
-                progressBar.PerformStep();
-                Application.DoEvents();
-            }
-            result.Resize(pxWidth, pxHeight, finalResampleFilter);
-            progressBar.PerformStep();
             return result;
-        }*/
+        }
     }
 }

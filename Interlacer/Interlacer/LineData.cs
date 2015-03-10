@@ -9,14 +9,18 @@ namespace Interlacer
 {
     class LineData : IProcessData
     {
-        // šírka čáry na lentikuli kolik je obrázků
+        /// <summary>
+        ///  šírka čáry na lentikuli kolik je obrázků
+        /// </summary>
         private int lineThickness;
         
         private Color lineColor;
 
         private Color backgroundColor;
 
-        // šířka rámečku čár
+        /// <summary>
+        ///  šířka rámečku čár
+        /// </summary>
         private double frameWidth;
 
         private double indent;
@@ -25,7 +29,7 @@ namespace Interlacer
 
         private bool centerPosition;
 
-        private Units units;
+        private Units units = Units.In;
 
         /// <summary>
         /// 
