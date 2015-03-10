@@ -319,6 +319,16 @@
             vysledny obrazek
             </summary>
         </member>
+        <member name="F:Interlacer.PictureContainer.inputPictureWidth">
+            <summary>
+            sirka vstupnich obrazku
+            </summary>
+        </member>
+        <member name="F:Interlacer.PictureContainer.inputPictureHeight">
+            <summary>
+            vyska vstupnich obrazku
+            </summary>
+        </member>
         <member name="M:Interlacer.PictureContainer.#ctor(System.Collections.Generic.List{GfxlibWrapper.Picture},Interlacer.InterlacingData,Interlacer.LineData)">
             <summary>
             konstruktor, ktery z Listu cest k souborum vytvori List indexu

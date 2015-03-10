@@ -30,6 +30,14 @@ namespace Interlacer
         /// vysledny obrazek
         /// </summary>
         private Picture result = null;
+        /// <summary>
+        /// sirka vstupnich obrazku
+        /// </summary>
+        private int inputPictureWidth = -1;
+        /// <summary>
+        /// vyska vstupnich obrazku
+        /// </summary>
+        private int inputPictureHeight = -1;
 
         /// <summary>
         /// konstruktor, ktery z Listu cest k souborum vytvori List indexu
@@ -56,8 +64,42 @@ namespace Interlacer
             indexList = indexTable.ToList();
         }
 
+        private void adjustPictureSize(Picture picture)
+        {
+            if (picture.GetHeight() > inputPictureHeight || picture.GetWidth() > inputPictureWidth)
+                picture.Clip(0, 0, inputPictureWidth, inputPictureHeight);
+        }
+
+        public bool CheckPictures()
+        {
+            bool sameSizes = true;
+            for (int i = 0; i < indexList.Count; i++)
+            {
+                Picture pic = indexList[i].Key;
+                if (!pic.IsCreated())
+                    pic.Ping();
+                if (i == 0)
+                {
+                    inputPictureHeight = pic.GetHeight();
+                    inputPictureWidth = pic.GetWidth();
+                }
+                else if (pic.GetHeight() != indexList[i - 1].Key.GetHeight() ||
+                         pic.GetWidth() != indexList[i - 1].Key.GetWidth())
+                {
+                    sameSizes = false;
+                    if (pic.GetWidth() < inputPictureWidth)
+                        inputPictureWidth = pic.GetWidth();
+                    if (pic.GetHeight() < inputPictureHeight)
+                        inputPictureHeight = pic.GetHeight();
+                }
+            }
+            return sameSizes;
+        }
+
         public void Interlace()
         {
+            if (inputPictureHeight < 0 || inputPictureWidth < 0)
+                throw new InvalidOperationException("CheckPictures was not called");
             int pxWidth = (int)(interlacingData.GetWidth() * interlacingData.GetPictureResolution());
             int pxHeight = (int)(interlacingData.GetHeight() * interlacingData.GetPictureResolution());
             int lenses = (int)(interlacingData.GetWidth() * interlacingData.GetLenticuleDensity());
@@ -68,6 +110,7 @@ namespace Interlacer
                 bool loadPic = !currentPic.IsCreated();
                 if (loadPic)
                     currentPic.Load();
+                adjustPictureSize(currentPic);
                 if (result == null)
                     result = new Picture(lenses * pictureCount, currentPic.GetHeight());
                 currentPic.Resize(lenses, currentPic.GetHeight(), interlacingData.GetInitialResizeFilter());

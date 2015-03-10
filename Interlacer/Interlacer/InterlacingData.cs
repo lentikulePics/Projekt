@@ -15,6 +15,7 @@ namespace Interlacer
         private double lenticuleDensity;
         private FilterType initialResizeFilter;
         private FilterType finalResampleFilter;
+        bool keepAspectRatio = false;
         private Units units = Units.In;
 
         public void SetUnits(Units units)
@@ -39,12 +40,28 @@ namespace Interlacer
 
         public void SetWidth(double width)
         {
-            this.width = UnitConverter.getInFromUnits(width, units);
+            if (keepAspectRatio && this.width > 0.00001)
+            {
+                double newWidth = UnitConverter.getInFromUnits(width, units);
+                double ratio = newWidth / this.width;
+                this.width = newWidth;
+                height *= ratio;
+            }
+            else
+                this.width = UnitConverter.getInFromUnits(width, units);
         }
 
         public void SetHeight(double height)
         {
-            this.height = UnitConverter.getInFromUnits(height, units);
+            if (keepAspectRatio && this.height > 0.00001)
+            {
+                double newHeight = UnitConverter.getInFromUnits(height, units);
+                double ratio = newHeight / this.height;
+                this.height = newHeight;
+                width *= ratio;
+            }
+            else
+                this.height = UnitConverter.getInFromUnits(height, units);
         }
         
         public double GetPictureResolution()
@@ -85,6 +102,11 @@ namespace Interlacer
         public void SetFinalResampleFilter(FilterType filter)
         {
             finalResampleFilter = filter;
+        }
+
+        public void KeepAspectRaio(bool keepAspectRatio)
+        {
+            this.keepAspectRatio = keepAspectRatio;
         }
     }
 }

@@ -8,3 +8,6 @@ D:\Škola\WorkSpace\ZSWI - projekt\GUINavrh\GUINavrh\bin\Release\GUINavrh.pdb
 D:\Škola\WorkSpace\ZSWI - projekt\GUINavrh\GUINavrh\obj\Release\GUINavrh.exe
 D:\Škola\WorkSpace\ZSWI - projekt\GUINavrh\GUINavrh\obj\Release\GUINavrh.pdb
 D:\Škola\WorkSpace\ZSWI - projekt\GUINavrh\GUINavrh\bin\Release\DragAndDropListView.dll
+C:\Users\Luckin\Desktop\Interlacer Github\Projekt\GUINavrh\GUINavrh\bin\Release\GUINavrh.exe.config
+C:\Users\Luckin\Desktop\Interlacer Github\Projekt\GUINavrh\GUINavrh\obj\Release\GUINavrh.exe
+C:\Users\Luckin\Desktop\Interlacer Github\Projekt\GUINavrh\GUINavrh\obj\Release\GUINavrh.pdb
