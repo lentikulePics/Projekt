@@ -9,3 +9,6 @@ C:\Users\Štěpán\documents\visual studio 2013\Projects\GUINavrh\GUINavrh\obj\D
 C:\Users\Štěpán\documents\visual studio 2013\Projects\GUINavrh\GUINavrh\obj\Debug\GUINavrh.exe
 C:\Users\Štěpán\documents\visual studio 2013\Projects\GUINavrh\GUINavrh\obj\Debug\GUINavrh.pdb
 C:\Users\Štěpán\documents\visual studio 2013\Projects\GUINavrh\GUINavrh\bin\Debug\Ai.Control.dll
+D:\Škola\WorkSpace\ZSWI - projekt\GUINavrh\GUINavrh\bin\Debug\GUINavrh.exe.config
+D:\Škola\WorkSpace\ZSWI - projekt\GUINavrh\GUINavrh\obj\Debug\GUINavrh.exe
+D:\Škola\WorkSpace\ZSWI - projekt\GUINavrh\GUINavrh\obj\Debug\GUINavrh.pdb

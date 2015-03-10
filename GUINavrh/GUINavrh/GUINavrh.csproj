@@ -36,7 +36,7 @@
       <HintPath>..\..\..\..\..\Desktop\Ai.Control.dll</HintPath>
     </Reference>
     <Reference Include="DragAndDropListView">
-      <HintPath>..\..\..\..\..\Desktop\DragAndDropListView.dll</HintPath>
+      <HintPath>..\..\..\..\..\DragAndDropListView.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.VisualBasic" />
     <Reference Include="System" />

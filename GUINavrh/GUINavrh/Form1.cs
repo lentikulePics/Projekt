@@ -19,9 +19,9 @@ namespace GUINavrh
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            listViewEx1.Items.Add("adsfasdsd");
-            listViewEx1.Items.Add("dsadsfasdfasdfsfd");
-            listViewEx1.Items.Add("ad");
+            listViewEx2.Items.Add("adsfasdsd");
+            listViewEx2.Items.Add("dsadsfasdfasdfsfd");
+            listViewEx2.Items.Add("ad");
             
         }
 
@@ -56,6 +56,11 @@ namespace GUINavrh
         }
 
         private void tabPage3_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label3_Click(object sender, EventArgs e)
         {
 
         }

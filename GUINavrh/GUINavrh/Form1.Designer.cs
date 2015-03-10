@@ -49,6 +49,10 @@
             this.outputImageTab = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.numericUpDown4 = new System.Windows.Forms.NumericUpDown();
+            this.numericUpDown3 = new System.Windows.Forms.NumericUpDown();
+            this.label3 = new System.Windows.Forms.Label();
+            this.textBox1 = new System.Windows.Forms.TextBox();
             this.picUnderLenCheckbox = new System.Windows.Forms.CheckBox();
             this.lpiLabel = new System.Windows.Forms.Label();
             this.dpiLabel = new System.Windows.Forms.Label();
@@ -61,6 +65,7 @@
             this.widthInPixels = new System.Windows.Forms.TextBox();
             this.textBox4 = new System.Windows.Forms.TextBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.numericUpDown2 = new System.Windows.Forms.NumericUpDown();
             this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
             this.heightLabel = new System.Windows.Forms.Label();
             this.widthLabel = new System.Windows.Forms.Label();
@@ -72,6 +77,34 @@
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.interpol1Combobox = new System.Windows.Forms.ComboBox();
             this.label5 = new System.Windows.Forms.Label();
+            this.tabPage3 = new System.Windows.Forms.TabPage();
+            this.groupBox13 = new System.Windows.Forms.GroupBox();
+            this.label9 = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
+            this.groupBox12 = new System.Windows.Forms.GroupBox();
+            this.label6 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.groupBox11 = new System.Windows.Forms.GroupBox();
+            this.radioButton2 = new System.Windows.Forms.RadioButton();
+            this.radioButton1 = new System.Windows.Forms.RadioButton();
+            this.groupBox8 = new System.Windows.Forms.GroupBox();
+            this.checkBox5 = new System.Windows.Forms.CheckBox();
+            this.checkBox4 = new System.Windows.Forms.CheckBox();
+            this.checkBox3 = new System.Windows.Forms.CheckBox();
+            this.checkBox1 = new System.Windows.Forms.CheckBox();
+            this.rightLineLabel = new System.Windows.Forms.Label();
+            this.leftLinelabel = new System.Windows.Forms.Label();
+            this.bottomLineLabel = new System.Windows.Forms.Label();
+            this.topLineLabel = new System.Windows.Forms.Label();
+            this.groupBox10 = new System.Windows.Forms.GroupBox();
+            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.indentLabel = new System.Windows.Forms.Label();
+            this.frameWidthLabel = new System.Windows.Forms.Label();
+            this.groupBox9 = new System.Windows.Forms.GroupBox();
+            this.trackBar1 = new System.Windows.Forms.TrackBar();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.groupBox7 = new System.Windows.Forms.GroupBox();
             this.interlaceButton = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
@@ -81,47 +114,40 @@
             this.button3 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
-            this.listViewEx1 = new Bol.WinControls.ListViewEx();
             this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.progressBar1 = new System.Windows.Forms.ProgressBar();
             this.currentStateLabel = new System.Windows.Forms.Label();
             this.checkBox2 = new System.Windows.Forms.CheckBox();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.tabPage3 = new System.Windows.Forms.TabPage();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.label3 = new System.Windows.Forms.Label();
-            this.numericUpDown2 = new System.Windows.Forms.NumericUpDown();
-            this.numericUpDown3 = new System.Windows.Forms.NumericUpDown();
-            this.numericUpDown4 = new System.Windows.Forms.NumericUpDown();
-            this.groupBox8 = new System.Windows.Forms.GroupBox();
-            this.topLineLabel = new System.Windows.Forms.Label();
-            this.bottomLineLabel = new System.Windows.Forms.Label();
-            this.leftLinelabel = new System.Windows.Forms.Label();
-            this.rightLineLabel = new System.Windows.Forms.Label();
-            this.checkBox1 = new System.Windows.Forms.CheckBox();
-            this.checkBox3 = new System.Windows.Forms.CheckBox();
-            this.checkBox4 = new System.Windows.Forms.CheckBox();
-            this.checkBox5 = new System.Windows.Forms.CheckBox();
-            this.groupBox9 = new System.Windows.Forms.GroupBox();
+            this.listViewEx2 = new Bol.WinControls.ListViewEx();
+            this.columnHeader3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader4 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.button7 = new System.Windows.Forms.Button();
+            this.button8 = new System.Windows.Forms.Button();
             this.menuStrip1.SuspendLayout();
             this.toolStrip1.SuspendLayout();
             this.outputImageTab.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.groupBox3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown4)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown3)).BeginInit();
             this.groupBox5.SuspendLayout();
             this.groupBox6.SuspendLayout();
             this.groupBox2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
             this.groupBox4.SuspendLayout();
             this.groupBox1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.tabPage3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown3)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown4)).BeginInit();
+            this.groupBox13.SuspendLayout();
+            this.groupBox12.SuspendLayout();
+            this.groupBox11.SuspendLayout();
             this.groupBox8.SuspendLayout();
+            this.groupBox10.SuspendLayout();
+            this.groupBox9.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.trackBar1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // menuStrip1
@@ -303,10 +329,40 @@
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Rozlišení obrázku";
             // 
+            // numericUpDown4
+            // 
+            this.numericUpDown4.Location = new System.Drawing.Point(37, 48);
+            this.numericUpDown4.Name = "numericUpDown4";
+            this.numericUpDown4.Size = new System.Drawing.Size(42, 20);
+            this.numericUpDown4.TabIndex = 4;
+            // 
+            // numericUpDown3
+            // 
+            this.numericUpDown3.Location = new System.Drawing.Point(37, 19);
+            this.numericUpDown3.Name = "numericUpDown3";
+            this.numericUpDown3.Size = new System.Drawing.Size(42, 20);
+            this.numericUpDown3.TabIndex = 4;
+            // 
+            // label3
+            // 
+            this.label3.Location = new System.Drawing.Point(92, 48);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(68, 32);
+            this.label3.TabIndex = 4;
+            this.label3.Text = "Snímků pod lentikulí";
+            this.label3.Click += new System.EventHandler(this.label3_Click);
+            // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(166, 50);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(36, 20);
+            this.textBox1.TabIndex = 3;
+            // 
             // picUnderLenCheckbox
             // 
             this.picUnderLenCheckbox.AutoSize = true;
-            this.picUnderLenCheckbox.Location = new System.Drawing.Point(95, 20);
+            this.picUnderLenCheckbox.Location = new System.Drawing.Point(95, 23);
             this.picUnderLenCheckbox.Name = "picUnderLenCheckbox";
             this.picUnderLenCheckbox.Size = new System.Drawing.Size(74, 17);
             this.picUnderLenCheckbox.TabIndex = 2;
@@ -345,7 +401,7 @@
             // verticalRadiobutton
             // 
             this.verticalRadiobutton.AutoSize = true;
-            this.verticalRadiobutton.Location = new System.Drawing.Point(95, 20);
+            this.verticalRadiobutton.Location = new System.Drawing.Point(99, 17);
             this.verticalRadiobutton.Name = "verticalRadiobutton";
             this.verticalRadiobutton.Size = new System.Drawing.Size(70, 17);
             this.verticalRadiobutton.TabIndex = 0;
@@ -428,6 +484,13 @@
             this.groupBox2.TabIndex = 5;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Rozměry výstupního obrázku";
+            // 
+            // numericUpDown2
+            // 
+            this.numericUpDown2.Location = new System.Drawing.Point(47, 19);
+            this.numericUpDown2.Name = "numericUpDown2";
+            this.numericUpDown2.Size = new System.Drawing.Size(42, 20);
+            this.numericUpDown2.TabIndex = 4;
             // 
             // numericUpDown1
             // 
@@ -526,6 +589,288 @@
             this.label5.Size = new System.Drawing.Size(0, 13);
             this.label5.TabIndex = 0;
             // 
+            // tabPage3
+            // 
+            this.tabPage3.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.tabPage3.Controls.Add(this.groupBox13);
+            this.tabPage3.Controls.Add(this.groupBox12);
+            this.tabPage3.Controls.Add(this.groupBox11);
+            this.tabPage3.Controls.Add(this.groupBox8);
+            this.tabPage3.Controls.Add(this.groupBox10);
+            this.tabPage3.Controls.Add(this.groupBox9);
+            this.tabPage3.Controls.Add(this.pictureBox2);
+            this.tabPage3.Location = new System.Drawing.Point(4, 22);
+            this.tabPage3.Name = "tabPage3";
+            this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage3.Size = new System.Drawing.Size(504, 212);
+            this.tabPage3.TabIndex = 2;
+            this.tabPage3.Text = "Vodící čáry";
+            this.tabPage3.Click += new System.EventHandler(this.tabPage3_Click);
+            // 
+            // groupBox13
+            // 
+            this.groupBox13.Controls.Add(this.label9);
+            this.groupBox13.Controls.Add(this.label8);
+            this.groupBox13.Controls.Add(this.label7);
+            this.groupBox13.Location = new System.Drawing.Point(329, 166);
+            this.groupBox13.Name = "groupBox13";
+            this.groupBox13.Size = new System.Drawing.Size(169, 40);
+            this.groupBox13.TabIndex = 6;
+            this.groupBox13.TabStop = false;
+            this.groupBox13.Text = "Obsazeno snímků pod lentikulý";
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(94, 20);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(19, 13);
+            this.label9.TabIndex = 0;
+            this.label9.Text = "15";
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(76, 20);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(12, 13);
+            this.label8.TabIndex = 0;
+            this.label8.Text = "/";
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(57, 20);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(13, 13);
+            this.label7.TabIndex = 0;
+            this.label7.Text = "0";
+            // 
+            // groupBox12
+            // 
+            this.groupBox12.Controls.Add(this.label6);
+            this.groupBox12.Controls.Add(this.label4);
+            this.groupBox12.Location = new System.Drawing.Point(208, 121);
+            this.groupBox12.Name = "groupBox12";
+            this.groupBox12.Size = new System.Drawing.Size(115, 85);
+            this.groupBox12.TabIndex = 5;
+            this.groupBox12.TabStop = false;
+            this.groupBox12.Text = "Barva čar a pozadí";
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(6, 56);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(41, 13);
+            this.label6.TabIndex = 1;
+            this.label6.Text = "Pozadí";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(6, 26);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(28, 13);
+            this.label4.TabIndex = 0;
+            this.label4.Text = "Čáry";
+            // 
+            // groupBox11
+            // 
+            this.groupBox11.Controls.Add(this.radioButton2);
+            this.groupBox11.Controls.Add(this.radioButton1);
+            this.groupBox11.Location = new System.Drawing.Point(12, 94);
+            this.groupBox11.Name = "groupBox11";
+            this.groupBox11.Size = new System.Drawing.Size(181, 52);
+            this.groupBox11.TabIndex = 4;
+            this.groupBox11.TabStop = false;
+            this.groupBox11.Text = "Pozice čáry pod lentikulý";
+            // 
+            // radioButton2
+            // 
+            this.radioButton2.AutoSize = true;
+            this.radioButton2.Location = new System.Drawing.Point(91, 19);
+            this.radioButton2.Name = "radioButton2";
+            this.radioButton2.Size = new System.Drawing.Size(43, 17);
+            this.radioButton2.TabIndex = 0;
+            this.radioButton2.TabStop = true;
+            this.radioButton2.Text = "Kraj";
+            this.radioButton2.UseVisualStyleBackColor = true;
+            // 
+            // radioButton1
+            // 
+            this.radioButton1.AutoSize = true;
+            this.radioButton1.Location = new System.Drawing.Point(9, 19);
+            this.radioButton1.Name = "radioButton1";
+            this.radioButton1.Size = new System.Drawing.Size(51, 17);
+            this.radioButton1.TabIndex = 0;
+            this.radioButton1.TabStop = true;
+            this.radioButton1.Text = "Střed";
+            this.radioButton1.UseVisualStyleBackColor = true;
+            // 
+            // groupBox8
+            // 
+            this.groupBox8.Controls.Add(this.checkBox5);
+            this.groupBox8.Controls.Add(this.checkBox4);
+            this.groupBox8.Controls.Add(this.checkBox3);
+            this.groupBox8.Controls.Add(this.checkBox1);
+            this.groupBox8.Controls.Add(this.rightLineLabel);
+            this.groupBox8.Controls.Add(this.leftLinelabel);
+            this.groupBox8.Controls.Add(this.bottomLineLabel);
+            this.groupBox8.Controls.Add(this.topLineLabel);
+            this.groupBox8.Location = new System.Drawing.Point(208, 13);
+            this.groupBox8.Name = "groupBox8";
+            this.groupBox8.Size = new System.Drawing.Size(115, 101);
+            this.groupBox8.TabIndex = 1;
+            this.groupBox8.TabStop = false;
+            this.groupBox8.Text = "Pozice čar";
+            // 
+            // checkBox5
+            // 
+            this.checkBox5.AutoSize = true;
+            this.checkBox5.Location = new System.Drawing.Point(47, 60);
+            this.checkBox5.Name = "checkBox5";
+            this.checkBox5.Size = new System.Drawing.Size(15, 14);
+            this.checkBox5.TabIndex = 6;
+            this.checkBox5.UseVisualStyleBackColor = true;
+            this.checkBox5.CheckedChanged += new System.EventHandler(this.checkBox5_CheckedChanged);
+            // 
+            // checkBox4
+            // 
+            this.checkBox4.AutoSize = true;
+            this.checkBox4.Location = new System.Drawing.Point(47, 80);
+            this.checkBox4.Name = "checkBox4";
+            this.checkBox4.Size = new System.Drawing.Size(15, 14);
+            this.checkBox4.TabIndex = 6;
+            this.checkBox4.UseVisualStyleBackColor = true;
+            // 
+            // checkBox3
+            // 
+            this.checkBox3.AutoSize = true;
+            this.checkBox3.Location = new System.Drawing.Point(47, 40);
+            this.checkBox3.Name = "checkBox3";
+            this.checkBox3.Size = new System.Drawing.Size(15, 14);
+            this.checkBox3.TabIndex = 5;
+            this.checkBox3.UseVisualStyleBackColor = true;
+            this.checkBox3.CheckedChanged += new System.EventHandler(this.checkBox3_CheckedChanged);
+            // 
+            // checkBox1
+            // 
+            this.checkBox1.AutoSize = true;
+            this.checkBox1.Location = new System.Drawing.Point(47, 20);
+            this.checkBox1.Name = "checkBox1";
+            this.checkBox1.Size = new System.Drawing.Size(15, 14);
+            this.checkBox1.TabIndex = 4;
+            this.checkBox1.UseVisualStyleBackColor = true;
+            // 
+            // rightLineLabel
+            // 
+            this.rightLineLabel.AutoSize = true;
+            this.rightLineLabel.Location = new System.Drawing.Point(7, 80);
+            this.rightLineLabel.Name = "rightLineLabel";
+            this.rightLineLabel.Size = new System.Drawing.Size(34, 13);
+            this.rightLineLabel.TabIndex = 3;
+            this.rightLineLabel.Text = "Pravý";
+            this.rightLineLabel.Click += new System.EventHandler(this.label8_Click);
+            // 
+            // leftLinelabel
+            // 
+            this.leftLinelabel.AutoSize = true;
+            this.leftLinelabel.Location = new System.Drawing.Point(8, 59);
+            this.leftLinelabel.Name = "leftLinelabel";
+            this.leftLinelabel.Size = new System.Drawing.Size(30, 13);
+            this.leftLinelabel.TabIndex = 2;
+            this.leftLinelabel.Text = "Levý";
+            // 
+            // bottomLineLabel
+            // 
+            this.bottomLineLabel.AutoSize = true;
+            this.bottomLineLabel.Location = new System.Drawing.Point(8, 39);
+            this.bottomLineLabel.Name = "bottomLineLabel";
+            this.bottomLineLabel.Size = new System.Drawing.Size(33, 13);
+            this.bottomLineLabel.TabIndex = 1;
+            this.bottomLineLabel.Text = "Dolní";
+            // 
+            // topLineLabel
+            // 
+            this.topLineLabel.AutoSize = true;
+            this.topLineLabel.Location = new System.Drawing.Point(7, 20);
+            this.topLineLabel.Name = "topLineLabel";
+            this.topLineLabel.Size = new System.Drawing.Size(34, 13);
+            this.topLineLabel.TabIndex = 0;
+            this.topLineLabel.Text = "Horní";
+            // 
+            // groupBox10
+            // 
+            this.groupBox10.Controls.Add(this.textBox3);
+            this.groupBox10.Controls.Add(this.textBox2);
+            this.groupBox10.Controls.Add(this.indentLabel);
+            this.groupBox10.Controls.Add(this.frameWidthLabel);
+            this.groupBox10.Location = new System.Drawing.Point(12, 13);
+            this.groupBox10.Name = "groupBox10";
+            this.groupBox10.Size = new System.Drawing.Size(181, 74);
+            this.groupBox10.TabIndex = 3;
+            this.groupBox10.TabStop = false;
+            this.groupBox10.Text = "Informace o čárách";
+            // 
+            // textBox3
+            // 
+            this.textBox3.Location = new System.Drawing.Point(91, 46);
+            this.textBox3.Name = "textBox3";
+            this.textBox3.Size = new System.Drawing.Size(59, 20);
+            this.textBox3.TabIndex = 6;
+            // 
+            // textBox2
+            // 
+            this.textBox2.Location = new System.Drawing.Point(91, 23);
+            this.textBox2.Name = "textBox2";
+            this.textBox2.Size = new System.Drawing.Size(59, 20);
+            this.textBox2.TabIndex = 6;
+            // 
+            // indentLabel
+            // 
+            this.indentLabel.AutoSize = true;
+            this.indentLabel.Location = new System.Drawing.Point(6, 53);
+            this.indentLabel.Name = "indentLabel";
+            this.indentLabel.Size = new System.Drawing.Size(53, 13);
+            this.indentLabel.TabIndex = 5;
+            this.indentLabel.Text = "Odsazení";
+            // 
+            // frameWidthLabel
+            // 
+            this.frameWidthLabel.AutoSize = true;
+            this.frameWidthLabel.Location = new System.Drawing.Point(6, 23);
+            this.frameWidthLabel.Name = "frameWidthLabel";
+            this.frameWidthLabel.Size = new System.Drawing.Size(78, 13);
+            this.frameWidthLabel.TabIndex = 4;
+            this.frameWidthLabel.Text = "Šířka rámečku";
+            // 
+            // groupBox9
+            // 
+            this.groupBox9.Controls.Add(this.trackBar1);
+            this.groupBox9.Location = new System.Drawing.Point(12, 152);
+            this.groupBox9.Name = "groupBox9";
+            this.groupBox9.Size = new System.Drawing.Size(181, 54);
+            this.groupBox9.TabIndex = 2;
+            this.groupBox9.TabStop = false;
+            this.groupBox9.Text = "Šířka čáry";
+            // 
+            // trackBar1
+            // 
+            this.trackBar1.AutoSize = false;
+            this.trackBar1.Location = new System.Drawing.Point(9, 19);
+            this.trackBar1.Name = "trackBar1";
+            this.trackBar1.Size = new System.Drawing.Size(166, 28);
+            this.trackBar1.TabIndex = 0;
+            // 
+            // pictureBox2
+            // 
+            this.pictureBox2.Location = new System.Drawing.Point(329, 13);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(169, 147);
+            this.pictureBox2.TabIndex = 0;
+            this.pictureBox2.TabStop = false;
+            // 
             // groupBox7
             // 
             this.groupBox7.Location = new System.Drawing.Point(619, 372);
@@ -551,78 +896,65 @@
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
             this.pictureBox1.Location = new System.Drawing.Point(550, 38);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(316, 303);
+            this.pictureBox1.Size = new System.Drawing.Size(316, 312);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox1.TabIndex = 9;
             this.pictureBox1.TabStop = false;
             // 
             // button6
             // 
-            this.button6.Location = new System.Drawing.Point(487, 503);
+            this.button6.Image = ((System.Drawing.Image)(resources.GetObject("button6.Image")));
+            this.button6.Location = new System.Drawing.Point(212, 292);
             this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(33, 33);
+            this.button6.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.button6.Size = new System.Drawing.Size(34, 34);
             this.button6.TabIndex = 11;
-            this.button6.Text = "button1";
             this.button6.UseVisualStyleBackColor = true;
             // 
             // button5
             // 
-            this.button5.Location = new System.Drawing.Point(487, 464);
+            this.button5.Image = ((System.Drawing.Image)(resources.GetObject("button5.Image")));
+            this.button5.Location = new System.Drawing.Point(172, 292);
             this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(33, 33);
+            this.button5.Size = new System.Drawing.Size(34, 34);
             this.button5.TabIndex = 12;
-            this.button5.Text = "button1";
             this.button5.UseVisualStyleBackColor = true;
             // 
             // button4
             // 
-            this.button4.Location = new System.Drawing.Point(487, 425);
+            this.button4.Image = ((System.Drawing.Image)(resources.GetObject("button4.Image")));
+            this.button4.Location = new System.Drawing.Point(132, 292);
             this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(33, 33);
+            this.button4.Size = new System.Drawing.Size(34, 34);
             this.button4.TabIndex = 13;
-            this.button4.Text = "button1";
             this.button4.UseVisualStyleBackColor = true;
             // 
             // button3
             // 
-            this.button3.Location = new System.Drawing.Point(487, 386);
+            this.button3.Image = ((System.Drawing.Image)(resources.GetObject("button3.Image")));
+            this.button3.Location = new System.Drawing.Point(92, 292);
             this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(33, 33);
+            this.button3.Size = new System.Drawing.Size(34, 34);
             this.button3.TabIndex = 14;
-            this.button3.Text = "button1";
             this.button3.UseVisualStyleBackColor = true;
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(487, 347);
+            this.button2.Image = ((System.Drawing.Image)(resources.GetObject("button2.Image")));
+            this.button2.Location = new System.Drawing.Point(52, 292);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(33, 33);
+            this.button2.Size = new System.Drawing.Size(34, 34);
             this.button2.TabIndex = 15;
-            this.button2.Text = "button1";
             this.button2.UseVisualStyleBackColor = true;
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(487, 308);
+            this.button1.Image = ((System.Drawing.Image)(resources.GetObject("button1.Image")));
+            this.button1.Location = new System.Drawing.Point(12, 292);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(33, 33);
+            this.button1.Size = new System.Drawing.Size(34, 34);
             this.button1.TabIndex = 16;
-            this.button1.Text = "button1";
             this.button1.UseVisualStyleBackColor = true;
-            // 
-            // listViewEx1
-            // 
-            this.listViewEx1.AllowDrop = true;
-            this.listViewEx1.AllowRowReorder = true;
-            this.listViewEx1.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
-            this.columnHeader1,
-            this.columnHeader2});
-            this.listViewEx1.Location = new System.Drawing.Point(12, 308);
-            this.listViewEx1.Name = "listViewEx1";
-            this.listViewEx1.Size = new System.Drawing.Size(469, 237);
-            this.listViewEx1.TabIndex = 10;
-            this.listViewEx1.UseCompatibleStateImageBehavior = false;
-            this.listViewEx1.View = System.Windows.Forms.View.Details;
             // 
             // columnHeader2
             // 
@@ -647,187 +979,71 @@
             // checkBox2
             // 
             this.checkBox2.AutoSize = true;
-            this.checkBox2.Location = new System.Drawing.Point(815, 358);
+            this.checkBox2.Location = new System.Drawing.Point(806, 356);
             this.checkBox2.Name = "checkBox2";
             this.checkBox2.Size = new System.Drawing.Size(60, 17);
             this.checkBox2.TabIndex = 19;
             this.checkBox2.Text = "Náhled";
             this.checkBox2.UseVisualStyleBackColor = true;
             // 
-            // pictureBox2
+            // listViewEx2
             // 
-            this.pictureBox2.Location = new System.Drawing.Point(364, 6);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(134, 200);
-            this.pictureBox2.TabIndex = 0;
-            this.pictureBox2.TabStop = false;
+            this.listViewEx2.AllowDrop = true;
+            this.listViewEx2.AllowRowReorder = true;
+            this.listViewEx2.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.columnHeader3,
+            this.columnHeader4});
+            this.listViewEx2.Location = new System.Drawing.Point(12, 331);
+            this.listViewEx2.Name = "listViewEx2";
+            this.listViewEx2.Size = new System.Drawing.Size(512, 212);
+            this.listViewEx2.TabIndex = 20;
+            this.listViewEx2.UseCompatibleStateImageBehavior = false;
+            this.listViewEx2.View = System.Windows.Forms.View.Details;
             // 
-            // tabPage3
+            // columnHeader3
             // 
-            this.tabPage3.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.tabPage3.Controls.Add(this.groupBox9);
-            this.tabPage3.Controls.Add(this.groupBox8);
-            this.tabPage3.Controls.Add(this.pictureBox2);
-            this.tabPage3.Location = new System.Drawing.Point(4, 22);
-            this.tabPage3.Name = "tabPage3";
-            this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage3.Size = new System.Drawing.Size(504, 212);
-            this.tabPage3.TabIndex = 2;
-            this.tabPage3.Text = "Vodící čáry";
-            this.tabPage3.Click += new System.EventHandler(this.tabPage3_Click);
+            this.columnHeader3.Text = "Pořadí";
             // 
-            // textBox1
+            // columnHeader4
             // 
-            this.textBox1.Location = new System.Drawing.Point(166, 53);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(36, 20);
-            this.textBox1.TabIndex = 3;
+            this.columnHeader4.Text = "Soubor";
+            this.columnHeader4.Width = 385;
             // 
-            // label3
+            // button7
             // 
-            this.label3.Location = new System.Drawing.Point(92, 48);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(68, 32);
-            this.label3.TabIndex = 4;
-            this.label3.Text = "Snímků pod lentikulí";
+            this.button7.Image = ((System.Drawing.Image)(resources.GetObject("button7.Image")));
+            this.button7.Location = new System.Drawing.Point(252, 292);
+            this.button7.Name = "button7";
+            this.button7.Size = new System.Drawing.Size(34, 34);
+            this.button7.TabIndex = 11;
+            this.button7.UseVisualStyleBackColor = true;
             // 
-            // numericUpDown2
+            // button8
             // 
-            this.numericUpDown2.Location = new System.Drawing.Point(47, 19);
-            this.numericUpDown2.Name = "numericUpDown2";
-            this.numericUpDown2.Size = new System.Drawing.Size(42, 20);
-            this.numericUpDown2.TabIndex = 4;
-            // 
-            // numericUpDown3
-            // 
-            this.numericUpDown3.Location = new System.Drawing.Point(37, 19);
-            this.numericUpDown3.Name = "numericUpDown3";
-            this.numericUpDown3.Size = new System.Drawing.Size(42, 20);
-            this.numericUpDown3.TabIndex = 4;
-            // 
-            // numericUpDown4
-            // 
-            this.numericUpDown4.Location = new System.Drawing.Point(37, 48);
-            this.numericUpDown4.Name = "numericUpDown4";
-            this.numericUpDown4.Size = new System.Drawing.Size(42, 20);
-            this.numericUpDown4.TabIndex = 4;
-            // 
-            // groupBox8
-            // 
-            this.groupBox8.Controls.Add(this.checkBox5);
-            this.groupBox8.Controls.Add(this.checkBox4);
-            this.groupBox8.Controls.Add(this.checkBox3);
-            this.groupBox8.Controls.Add(this.checkBox1);
-            this.groupBox8.Controls.Add(this.rightLineLabel);
-            this.groupBox8.Controls.Add(this.leftLinelabel);
-            this.groupBox8.Controls.Add(this.bottomLineLabel);
-            this.groupBox8.Controls.Add(this.topLineLabel);
-            this.groupBox8.Location = new System.Drawing.Point(6, 6);
-            this.groupBox8.Name = "groupBox8";
-            this.groupBox8.Size = new System.Drawing.Size(85, 106);
-            this.groupBox8.TabIndex = 1;
-            this.groupBox8.TabStop = false;
-            this.groupBox8.Text = "Pozice čar";
-            // 
-            // topLineLabel
-            // 
-            this.topLineLabel.AutoSize = true;
-            this.topLineLabel.Location = new System.Drawing.Point(7, 20);
-            this.topLineLabel.Name = "topLineLabel";
-            this.topLineLabel.Size = new System.Drawing.Size(34, 13);
-            this.topLineLabel.TabIndex = 0;
-            this.topLineLabel.Text = "Horní";
-            // 
-            // bottomLineLabel
-            // 
-            this.bottomLineLabel.AutoSize = true;
-            this.bottomLineLabel.Location = new System.Drawing.Point(8, 39);
-            this.bottomLineLabel.Name = "bottomLineLabel";
-            this.bottomLineLabel.Size = new System.Drawing.Size(33, 13);
-            this.bottomLineLabel.TabIndex = 1;
-            this.bottomLineLabel.Text = "Dolní";
-            // 
-            // leftLinelabel
-            // 
-            this.leftLinelabel.AutoSize = true;
-            this.leftLinelabel.Location = new System.Drawing.Point(8, 59);
-            this.leftLinelabel.Name = "leftLinelabel";
-            this.leftLinelabel.Size = new System.Drawing.Size(30, 13);
-            this.leftLinelabel.TabIndex = 2;
-            this.leftLinelabel.Text = "Levý";
-            // 
-            // rightLineLabel
-            // 
-            this.rightLineLabel.AutoSize = true;
-            this.rightLineLabel.Location = new System.Drawing.Point(7, 80);
-            this.rightLineLabel.Name = "rightLineLabel";
-            this.rightLineLabel.Size = new System.Drawing.Size(34, 13);
-            this.rightLineLabel.TabIndex = 3;
-            this.rightLineLabel.Text = "Pravý";
-            this.rightLineLabel.Click += new System.EventHandler(this.label8_Click);
-            // 
-            // checkBox1
-            // 
-            this.checkBox1.AutoSize = true;
-            this.checkBox1.Location = new System.Drawing.Point(47, 20);
-            this.checkBox1.Name = "checkBox1";
-            this.checkBox1.Size = new System.Drawing.Size(15, 14);
-            this.checkBox1.TabIndex = 4;
-            this.checkBox1.UseVisualStyleBackColor = true;
-            // 
-            // checkBox3
-            // 
-            this.checkBox3.AutoSize = true;
-            this.checkBox3.Location = new System.Drawing.Point(47, 40);
-            this.checkBox3.Name = "checkBox3";
-            this.checkBox3.Size = new System.Drawing.Size(15, 14);
-            this.checkBox3.TabIndex = 5;
-            this.checkBox3.UseVisualStyleBackColor = true;
-            this.checkBox3.CheckedChanged += new System.EventHandler(this.checkBox3_CheckedChanged);
-            // 
-            // checkBox4
-            // 
-            this.checkBox4.AutoSize = true;
-            this.checkBox4.Location = new System.Drawing.Point(47, 80);
-            this.checkBox4.Name = "checkBox4";
-            this.checkBox4.Size = new System.Drawing.Size(15, 14);
-            this.checkBox4.TabIndex = 6;
-            this.checkBox4.UseVisualStyleBackColor = true;
-            // 
-            // checkBox5
-            // 
-            this.checkBox5.AutoSize = true;
-            this.checkBox5.Location = new System.Drawing.Point(47, 60);
-            this.checkBox5.Name = "checkBox5";
-            this.checkBox5.Size = new System.Drawing.Size(15, 14);
-            this.checkBox5.TabIndex = 6;
-            this.checkBox5.UseVisualStyleBackColor = true;
-            this.checkBox5.CheckedChanged += new System.EventHandler(this.checkBox5_CheckedChanged);
-            // 
-            // groupBox9
-            // 
-            this.groupBox9.Location = new System.Drawing.Point(97, 11);
-            this.groupBox9.Name = "groupBox9";
-            this.groupBox9.Size = new System.Drawing.Size(120, 89);
-            this.groupBox9.TabIndex = 2;
-            this.groupBox9.TabStop = false;
-            this.groupBox9.Text = "Barva čar a pozadí";
+            this.button8.Image = ((System.Drawing.Image)(resources.GetObject("button8.Image")));
+            this.button8.Location = new System.Drawing.Point(292, 292);
+            this.button8.Name = "button8";
+            this.button8.Size = new System.Drawing.Size(34, 34);
+            this.button8.TabIndex = 11;
+            this.button8.UseVisualStyleBackColor = true;
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(891, 557);
+            this.Controls.Add(this.listViewEx2);
             this.Controls.Add(this.checkBox2);
             this.Controls.Add(this.currentStateLabel);
             this.Controls.Add(this.progressBar1);
+            this.Controls.Add(this.button8);
+            this.Controls.Add(this.button7);
             this.Controls.Add(this.button6);
             this.Controls.Add(this.button5);
             this.Controls.Add(this.button4);
             this.Controls.Add(this.button3);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
-            this.Controls.Add(this.listViewEx1);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.interlaceButton);
             this.Controls.Add(this.groupBox7);
@@ -848,23 +1064,33 @@
             this.tabPage1.PerformLayout();
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown4)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown3)).EndInit();
             this.groupBox5.ResumeLayout(false);
             this.groupBox5.PerformLayout();
             this.groupBox6.ResumeLayout(false);
             this.groupBox6.PerformLayout();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
             this.groupBox4.ResumeLayout(false);
             this.groupBox1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.tabPage3.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown3)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown4)).EndInit();
+            this.groupBox13.ResumeLayout(false);
+            this.groupBox13.PerformLayout();
+            this.groupBox12.ResumeLayout(false);
+            this.groupBox12.PerformLayout();
+            this.groupBox11.ResumeLayout(false);
+            this.groupBox11.PerformLayout();
             this.groupBox8.ResumeLayout(false);
             this.groupBox8.PerformLayout();
+            this.groupBox10.ResumeLayout(false);
+            this.groupBox10.PerformLayout();
+            this.groupBox9.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.trackBar1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -923,7 +1149,6 @@
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button button1;
-        private Bol.WinControls.ListViewEx listViewEx1;
         private System.Windows.Forms.ColumnHeader columnHeader1;
         private System.Windows.Forms.ColumnHeader columnHeader2;
         private System.Windows.Forms.ProgressBar progressBar1;
@@ -947,6 +1172,27 @@
         private System.Windows.Forms.CheckBox checkBox3;
         private System.Windows.Forms.CheckBox checkBox1;
         private System.Windows.Forms.GroupBox groupBox9;
+        private System.Windows.Forms.GroupBox groupBox10;
+        private System.Windows.Forms.Label indentLabel;
+        private System.Windows.Forms.Label frameWidthLabel;
+        private System.Windows.Forms.GroupBox groupBox11;
+        private System.Windows.Forms.RadioButton radioButton2;
+        private System.Windows.Forms.RadioButton radioButton1;
+        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.GroupBox groupBox12;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.TrackBar trackBar1;
+        private System.Windows.Forms.GroupBox groupBox13;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Label label7;
+        private Bol.WinControls.ListViewEx listViewEx2;
+        private System.Windows.Forms.ColumnHeader columnHeader3;
+        private System.Windows.Forms.ColumnHeader columnHeader4;
+        private System.Windows.Forms.Button button7;
+        private System.Windows.Forms.Button button8;
 
     }
 }

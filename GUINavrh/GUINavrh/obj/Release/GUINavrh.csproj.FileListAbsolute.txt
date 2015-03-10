@@ -1,0 +1,10 @@
+D:\Škola\WorkSpace\ZSWI - projekt\GUINavrh\GUINavrh\bin\Release\GUINavrh.exe.config
+D:\Škola\WorkSpace\ZSWI - projekt\GUINavrh\GUINavrh\obj\Release\GUINavrh.csprojResolveAssemblyReference.cache
+D:\Škola\WorkSpace\ZSWI - projekt\GUINavrh\GUINavrh\obj\Release\GUINavrh.Form1.resources
+D:\Škola\WorkSpace\ZSWI - projekt\GUINavrh\GUINavrh\obj\Release\GUINavrh.Properties.Resources.resources
+D:\Škola\WorkSpace\ZSWI - projekt\GUINavrh\GUINavrh\obj\Release\GUINavrh.csproj.GenerateResource.Cache
+D:\Škola\WorkSpace\ZSWI - projekt\GUINavrh\GUINavrh\bin\Release\GUINavrh.exe
+D:\Škola\WorkSpace\ZSWI - projekt\GUINavrh\GUINavrh\bin\Release\GUINavrh.pdb
+D:\Škola\WorkSpace\ZSWI - projekt\GUINavrh\GUINavrh\obj\Release\GUINavrh.exe
+D:\Škola\WorkSpace\ZSWI - projekt\GUINavrh\GUINavrh\obj\Release\GUINavrh.pdb
+D:\Škola\WorkSpace\ZSWI - projekt\GUINavrh\GUINavrh\bin\Release\DragAndDropListView.dll
