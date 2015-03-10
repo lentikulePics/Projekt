@@ -7,36 +7,84 @@ using System.Threading.Tasks;
 
 namespace Interlacer
 {
-    class InterlacingData
+    class InterlacingData : IProcessData
     {
-        public double GetInchWidth()
+        private double width;
+        private double height;
+        private double pictureResolution;
+        private double lenticuleDensity;
+        private FilterType initialResizeFilter;
+        private FilterType finalResampleFilter;
+        private Units units;
+
+        public void SetUnits(Units units)
         {
-            throw new NotImplementedException("Tohle musime nejdriv naprogramovat!!!");
+            this.units = units;
         }
 
-        public double GetInchHeight()
+        public Units GetUnits()
         {
-            throw new NotImplementedException("Tohle musime nejdriv naprogramovat!!!");
+            return this.units;
+        }
+
+        public double GetWidth()
+        {
+            return UnitConverter.getUnitsFromIn(width, units);
+        }
+
+        public double GetHeight()
+        {
+            return UnitConverter.getUnitsFromIn(height, units);
+        }
+
+        public void SetWidth(double width)
+        {
+            this.width = UnitConverter.getInFromUnits(width, units);
+        }
+
+        public void SetHeight(double height)
+        {
+            this.height = UnitConverter.getInFromUnits(height, units);
         }
         
-        public double GetDpi()
+        public double GetPictureResolution()
         {
-            throw new NotImplementedException("Tohle musime nejdriv naprogramovat!!!");
+            return pictureResolution / UnitConverter.getUnitsFromIn(1, units);
         }
 
-        public double GetLpi()
+        public void SetPictureResolution(double resolution)
         {
-            throw new NotImplementedException("Tohle musime nejdriv naprogramovat!!!");
+            pictureResolution = resolution / UnitConverter.getInFromUnits(1, units);
+        }
+
+        public double GetLenticuleDensity()
+        {
+            return lenticuleDensity / UnitConverter.getUnitsFromIn(1, units);
+        }
+
+        public void SetLenticuleDensity(double density)
+        {
+            lenticuleDensity = density / UnitConverter.getInFromUnits(1, units);
         }
         
         public FilterType GetInitialResizeFilter()
         {
-            throw new NotImplementedException("Tohle musime nejdriv naprogramovat!!!");
+            return initialResizeFilter;
         }
 
-        private FilterType GetFinalResampleFilter()
+        public void SetInitialResizeFilter(FilterType filter)
         {
-            throw new NotImplementedException("Tohle musime nejdriv naprogramovat!!!");
+            initialResizeFilter = filter;
+        }
+
+        public FilterType GetFinalResampleFilter()
+        {
+            return finalResampleFilter;
+        }
+
+        public void SetFinalResampleFilter(FilterType filter)
+        {
+            finalResampleFilter = filter;
         }
     }
 }

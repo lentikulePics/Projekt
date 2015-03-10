@@ -29,6 +29,7 @@ namespace Interlacer
         /// </summary>
         /// <param name="pictures">seznam obrazku, bud nenactenych s nastavenou cestou k souboru nebo vytvorenych programove</param>
         /// <param name="interlacingData">data potrebna k prolozeni</param>
+        /// <param name="lineData">data potrebna k pridani pasovacich znacek</param>
         public PictureContainer(List<Picture> pictures, InterlacingData interlacingData, LineData lineData)
         {
             this.interlacingData = interlacingData;

@@ -73,22 +73,22 @@ namespace Interlacer
 
         public double GetFrameWidth()
         {
-            return this.frameWidth;
+            return UnitConverter.getUnitsFromIn(this.frameWidth, units);
         }
 
         public void SetFrameWidth(double frameWidth)
         {
-            this.frameWidth = frameWidth;
+            this.frameWidth = UnitConverter.getInFromUnits(frameWidth, units);
         }
 
         public double GetIndent()
         {
-            return this.indent;
+            return UnitConverter.getUnitsFromIn(this.indent, units);
         }
 
         public void SetIndent(double indent)
         {
-            this.indent = indent;
+            this.indent = UnitConverter.getInFromUnits(indent, units);
         }
 
         //left, top, right, bottom;
