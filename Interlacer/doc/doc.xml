@@ -50,6 +50,22 @@
             staticka trida obsahujici funkce pro komunikaci s grafickou knihovnou prostrednictvim DLL
             </summary>
         </member>
+        <member name="F:Interlacer.LineData.lineThickness">
+            <summary>
+             šírka čáry na lentikuli kolik je obrázků
+            </summary>
+        </member>
+        <member name="F:Interlacer.LineData.frameWidth">
+            <summary>
+             šířka rámečku čár
+            </summary>
+        </member>
+        <member name="M:Interlacer.LineData.SetUnits(Interlacer.Units)">
+            <summary>
+            
+            </summary>
+            <param name="units"></param>
+        </member>
         <member name="T:Interlacer.MainForm">
             <summary>
             Hlavni formular programu
@@ -255,6 +271,15 @@
             <param name="newHeight">nova vyska</param>
             <param name="filterType">typ filteru</param>
         </member>
+        <member name="M:GfxlibWrapper.Picture.Clip(System.Int32,System.Int32,System.Int32,System.Int32)">
+            <summary>
+            orizne obrazek na zadanou velikost
+            </summary>
+            <param name="x">pocatecni x souradnice oriznuteho obrazku</param>
+            <param name="y">pocatecni y souradnice oriznuteho obrazku</param>
+            <param name="newWidth">sirka oriznuteho obrazku</param>
+            <param name="newHeight">vyska oriznuteho obrazku</param>
+        </member>
         <member name="M:GfxlibWrapper.Picture.Destroy">
             <summary>
             znici obrazek a dealokuje pamet, kterou vyuziva
@@ -279,12 +304,28 @@
             obsahuje informace o vystupnim obrazku
             </summary>
         </member>
-        <member name="M:Interlacer.PictureContainer.#ctor(System.Collections.Generic.List{GfxlibWrapper.Picture},Interlacer.InterlacingData)">
+        <member name="F:Interlacer.PictureContainer.lineData">
+            <summary>
+            obsahuje informace o pasovacích značkách
+            </summary>
+        </member>
+        <member name="F:Interlacer.PictureContainer.pictureCount">
+            <summary>
+            pocet obrazku k prolozeni
+            </summary>
+        </member>
+        <member name="F:Interlacer.PictureContainer.result">
+            <summary>
+            vysledny obrazek
+            </summary>
+        </member>
+        <member name="M:Interlacer.PictureContainer.#ctor(System.Collections.Generic.List{GfxlibWrapper.Picture},Interlacer.InterlacingData,Interlacer.LineData)">
             <summary>
             konstruktor, ktery z Listu cest k souborum vytvori List indexu
             </summary>
             <param name="pictures">seznam obrazku, bud nenactenych s nastavenou cestou k souboru nebo vytvorenych programove</param>
             <param name="interlacingData">data potrebna k prolozeni</param>
+            <param name="lineData">data potrebna k pridani pasovacich znacek</param>
         </member>
         <member name="M:Interlacer.Program.Main">
             <summary>

@@ -298,6 +298,7 @@ namespace GfxlibWrapper
             pxPtr[0] = (IntChannel)(blue * multiplier);
             pxPtr[1] = (IntChannel)(green * multiplier);
             pxPtr[2] = (IntChannel)(red * multiplier);
+            pxPtr[3] = 0;
         }
 
         /// <summary>
@@ -334,6 +335,28 @@ namespace GfxlibWrapper
                     throw new PictureResizeFailureException();
                 else
                     throw new PictureCreationFailureException();
+            }
+        }
+
+        /// <summary>
+        /// orizne obrazek na zadanou velikost
+        /// </summary>
+        /// <param name="x">pocatecni x souradnice oriznuteho obrazku</param>
+        /// <param name="y">pocatecni y souradnice oriznuteho obrazku</param>
+        /// <param name="newWidth">sirka oriznuteho obrazku</param>
+        /// <param name="newHeight">vyska oriznuteho obrazku</param>
+        public void Clip(int x, int y, int newWidth, int newHeight)
+        {
+            try
+            {
+                GfxlibCommunicator.clipImage(imagePtr, x, y, newWidth, newHeight);
+                width = newWidth;
+                height = newHeight;
+                pixelData = GfxlibCommunicator.getPixelDataPtr(imagePtr);
+            }
+            catch (SEHException)
+            {
+                throw new PictureClipFailureException();
             }
         }
 

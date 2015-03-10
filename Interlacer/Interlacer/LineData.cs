@@ -9,14 +9,18 @@ namespace Interlacer
 {
     class LineData : IProcessData
     {
-        // šírka čáry na lentikuli kolik je obrázků
+        /// <summary>
+        ///  šírka čáry na lentikuli kolik je obrázků
+        /// </summary>
         private int lineThickness;
         
         private Color lineColor;
 
         private Color backgroundColor;
 
-        // šířka rámečku čár
+        /// <summary>
+        ///  šířka rámečku čár
+        /// </summary>
         private double frameWidth;
 
         private double indent;
@@ -25,7 +29,7 @@ namespace Interlacer
 
         private bool centerPosition;
 
-        private Units units;
+        private Units units = Units.In;
 
         /// <summary>
         /// 
@@ -73,22 +77,22 @@ namespace Interlacer
 
         public double GetFrameWidth()
         {
-            return this.frameWidth;
+            return UnitConverter.getUnitsFromIn(this.frameWidth, units);
         }
 
         public void SetFrameWidth(double frameWidth)
         {
-            this.frameWidth = frameWidth;
+            this.frameWidth = UnitConverter.getInFromUnits(frameWidth, units);
         }
 
         public double GetIndent()
         {
-            return this.indent;
+            return UnitConverter.getUnitsFromIn(this.indent, units);
         }
 
         public void SetIndent(double indent)
         {
-            this.indent = indent;
+            this.indent = UnitConverter.getInFromUnits(indent, units);
         }
 
         //left, top, right, bottom;

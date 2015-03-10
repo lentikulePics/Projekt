@@ -1,7 +1,5 @@
 #include "stdafx.h"
 
-#pragma warning(disable:4251)  //ignorovani varovani o exportu STL trid - tyto tridy mimo toto DLL nebudou pouzity
-
 #include "Gfxlib.h"
 #include "GfxlibErrors.h"
 #include <iostream>
@@ -212,5 +210,24 @@ void resizeImage(void* ptr, int w, int h, int filterType)
 	catch (...)
 	{
 		RaiseException(GfxlibErrors::PictureResizeFilure, 0, 0, 0);
+	}
+}
+
+void clipImage(void* ptr, int x, int y, int w, int h)
+{
+	try
+	{
+		Magick::Image* imagePtr = (Magick::Image*)ptr;
+		imagePtr->syncPixels();
+		imagePtr->crop(Magick::Geometry(w, h, x, y));
+	}
+	catch (Magick::Error & er)
+	{
+		writeError(er.what());
+		RaiseException(GfxlibErrors::PictureClipFailure, 0, 0, 0);
+	}
+	catch (...)
+	{
+		RaiseException(GfxlibErrors::PictureClipFailure, 0, 0, 0);
 	}
 }

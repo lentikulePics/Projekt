@@ -78,6 +78,7 @@
             this.interpol1Combobox = new System.Windows.Forms.ComboBox();
             this.label5 = new System.Windows.Forms.Label();
             this.tabPage3 = new System.Windows.Forms.TabPage();
+<<<<<<< HEAD
             this.groupBox13 = new System.Windows.Forms.GroupBox();
             this.label9 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
@@ -88,6 +89,9 @@
             this.groupBox11 = new System.Windows.Forms.GroupBox();
             this.radioButton2 = new System.Windows.Forms.RadioButton();
             this.radioButton1 = new System.Windows.Forms.RadioButton();
+=======
+            this.groupBox9 = new System.Windows.Forms.GroupBox();
+>>>>>>> origin/master
             this.groupBox8 = new System.Windows.Forms.GroupBox();
             this.checkBox5 = new System.Windows.Forms.CheckBox();
             this.checkBox4 = new System.Windows.Forms.CheckBox();
@@ -97,6 +101,7 @@
             this.leftLinelabel = new System.Windows.Forms.Label();
             this.bottomLineLabel = new System.Windows.Forms.Label();
             this.topLineLabel = new System.Windows.Forms.Label();
+<<<<<<< HEAD
             this.groupBox10 = new System.Windows.Forms.GroupBox();
             this.textBox3 = new System.Windows.Forms.TextBox();
             this.textBox2 = new System.Windows.Forms.TextBox();
@@ -104,6 +109,8 @@
             this.frameWidthLabel = new System.Windows.Forms.Label();
             this.groupBox9 = new System.Windows.Forms.GroupBox();
             this.trackBar1 = new System.Windows.Forms.TrackBar();
+=======
+>>>>>>> origin/master
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.groupBox7 = new System.Windows.Forms.GroupBox();
             this.interlaceButton = new System.Windows.Forms.Button();
@@ -119,11 +126,14 @@
             this.progressBar1 = new System.Windows.Forms.ProgressBar();
             this.currentStateLabel = new System.Windows.Forms.Label();
             this.checkBox2 = new System.Windows.Forms.CheckBox();
+<<<<<<< HEAD
             this.listViewEx2 = new Bol.WinControls.ListViewEx();
             this.columnHeader3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader4 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.button7 = new System.Windows.Forms.Button();
             this.button8 = new System.Windows.Forms.Button();
+=======
+>>>>>>> origin/master
             this.menuStrip1.SuspendLayout();
             this.toolStrip1.SuspendLayout();
             this.outputImageTab.SuspendLayout();
@@ -139,6 +149,7 @@
             this.groupBox4.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.tabPage3.SuspendLayout();
+<<<<<<< HEAD
             this.groupBox13.SuspendLayout();
             this.groupBox12.SuspendLayout();
             this.groupBox11.SuspendLayout();
@@ -146,6 +157,9 @@
             this.groupBox10.SuspendLayout();
             this.groupBox9.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.trackBar1)).BeginInit();
+=======
+            this.groupBox8.SuspendLayout();
+>>>>>>> origin/master
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
@@ -350,11 +364,18 @@
             this.label3.Size = new System.Drawing.Size(68, 32);
             this.label3.TabIndex = 4;
             this.label3.Text = "Snímků pod lentikulí";
+<<<<<<< HEAD
             this.label3.Click += new System.EventHandler(this.label3_Click);
             // 
             // textBox1
             // 
             this.textBox1.Location = new System.Drawing.Point(166, 50);
+=======
+            // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(166, 53);
+>>>>>>> origin/master
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(36, 20);
             this.textBox1.TabIndex = 3;
@@ -592,12 +613,17 @@
             // tabPage3
             // 
             this.tabPage3.BackColor = System.Drawing.Color.WhiteSmoke;
+<<<<<<< HEAD
             this.tabPage3.Controls.Add(this.groupBox13);
             this.tabPage3.Controls.Add(this.groupBox12);
             this.tabPage3.Controls.Add(this.groupBox11);
             this.tabPage3.Controls.Add(this.groupBox8);
             this.tabPage3.Controls.Add(this.groupBox10);
             this.tabPage3.Controls.Add(this.groupBox9);
+=======
+            this.tabPage3.Controls.Add(this.groupBox9);
+            this.tabPage3.Controls.Add(this.groupBox8);
+>>>>>>> origin/master
             this.tabPage3.Controls.Add(this.pictureBox2);
             this.tabPage3.Location = new System.Drawing.Point(4, 22);
             this.tabPage3.Name = "tabPage3";
@@ -607,6 +633,7 @@
             this.tabPage3.Text = "Vodící čáry";
             this.tabPage3.Click += new System.EventHandler(this.tabPage3_Click);
             // 
+<<<<<<< HEAD
             // groupBox13
             // 
             this.groupBox13.Controls.Add(this.label9);
@@ -707,6 +734,16 @@
             this.radioButton1.TabStop = true;
             this.radioButton1.Text = "Střed";
             this.radioButton1.UseVisualStyleBackColor = true;
+=======
+            // groupBox9
+            // 
+            this.groupBox9.Location = new System.Drawing.Point(97, 11);
+            this.groupBox9.Name = "groupBox9";
+            this.groupBox9.Size = new System.Drawing.Size(120, 89);
+            this.groupBox9.TabIndex = 2;
+            this.groupBox9.TabStop = false;
+            this.groupBox9.Text = "Barva čar a pozadí";
+>>>>>>> origin/master
             // 
             // groupBox8
             // 
@@ -718,9 +755,15 @@
             this.groupBox8.Controls.Add(this.leftLinelabel);
             this.groupBox8.Controls.Add(this.bottomLineLabel);
             this.groupBox8.Controls.Add(this.topLineLabel);
+<<<<<<< HEAD
             this.groupBox8.Location = new System.Drawing.Point(208, 13);
             this.groupBox8.Name = "groupBox8";
             this.groupBox8.Size = new System.Drawing.Size(115, 101);
+=======
+            this.groupBox8.Location = new System.Drawing.Point(6, 6);
+            this.groupBox8.Name = "groupBox8";
+            this.groupBox8.Size = new System.Drawing.Size(85, 106);
+>>>>>>> origin/master
             this.groupBox8.TabIndex = 1;
             this.groupBox8.TabStop = false;
             this.groupBox8.Text = "Pozice čar";
@@ -800,6 +843,7 @@
             this.topLineLabel.TabIndex = 0;
             this.topLineLabel.Text = "Horní";
             // 
+<<<<<<< HEAD
             // groupBox10
             // 
             this.groupBox10.Controls.Add(this.textBox3);
@@ -868,6 +912,13 @@
             this.pictureBox2.Location = new System.Drawing.Point(329, 13);
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Size = new System.Drawing.Size(169, 147);
+=======
+            // pictureBox2
+            // 
+            this.pictureBox2.Location = new System.Drawing.Point(364, 6);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(134, 200);
+>>>>>>> origin/master
             this.pictureBox2.TabIndex = 0;
             this.pictureBox2.TabStop = false;
             // 
@@ -986,6 +1037,7 @@
             this.checkBox2.Text = "Náhled";
             this.checkBox2.UseVisualStyleBackColor = true;
             // 
+<<<<<<< HEAD
             // listViewEx2
             // 
             this.listViewEx2.AllowDrop = true;
@@ -1027,6 +1079,8 @@
             this.button8.TabIndex = 11;
             this.button8.UseVisualStyleBackColor = true;
             // 
+=======
+>>>>>>> origin/master
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1077,6 +1131,7 @@
             this.groupBox4.ResumeLayout(false);
             this.groupBox1.ResumeLayout(false);
             this.tabPage3.ResumeLayout(false);
+<<<<<<< HEAD
             this.groupBox13.ResumeLayout(false);
             this.groupBox13.PerformLayout();
             this.groupBox12.ResumeLayout(false);
@@ -1089,6 +1144,10 @@
             this.groupBox10.PerformLayout();
             this.groupBox9.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.trackBar1)).EndInit();
+=======
+            this.groupBox8.ResumeLayout(false);
+            this.groupBox8.PerformLayout();
+>>>>>>> origin/master
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
