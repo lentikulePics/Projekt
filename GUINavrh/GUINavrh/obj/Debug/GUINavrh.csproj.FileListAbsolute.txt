@@ -9,18 +9,6 @@ C:\Users\Štěpán\documents\visual studio 2013\Projects\GUINavrh\GUINavrh\obj\D
 C:\Users\Štěpán\documents\visual studio 2013\Projects\GUINavrh\GUINavrh\obj\Debug\GUINavrh.exe
 C:\Users\Štěpán\documents\visual studio 2013\Projects\GUINavrh\GUINavrh\obj\Debug\GUINavrh.pdb
 C:\Users\Štěpán\documents\visual studio 2013\Projects\GUINavrh\GUINavrh\bin\Debug\Ai.Control.dll
-<<<<<<< HEAD
 D:\Škola\WorkSpace\ZSWI - projekt\GUINavrh\GUINavrh\bin\Debug\GUINavrh.exe.config
 D:\Škola\WorkSpace\ZSWI - projekt\GUINavrh\GUINavrh\obj\Debug\GUINavrh.exe
 D:\Škola\WorkSpace\ZSWI - projekt\GUINavrh\GUINavrh\obj\Debug\GUINavrh.pdb
-=======
-C:\Users\Luckin\Desktop\Interlacer Github\Projekt\GUINavrh\GUINavrh\bin\Debug\GUINavrh.exe.config
-C:\Users\Luckin\Desktop\Interlacer Github\Projekt\GUINavrh\GUINavrh\obj\Debug\GUINavrh.exe
-C:\Users\Luckin\Desktop\Interlacer Github\Projekt\GUINavrh\GUINavrh\obj\Debug\GUINavrh.pdb
-C:\Users\Luckin\Desktop\Interlacer Github\Projekt\GUINavrh\GUINavrh\bin\Debug\GUINavrh.exe
-C:\Users\Luckin\Desktop\Interlacer Github\Projekt\GUINavrh\GUINavrh\bin\Debug\GUINavrh.pdb
-C:\Users\Luckin\Desktop\Interlacer Github\Projekt\GUINavrh\GUINavrh\obj\Debug\GUINavrh.csprojResolveAssemblyReference.cache
-C:\Users\Luckin\Desktop\Interlacer Github\Projekt\GUINavrh\GUINavrh\obj\Debug\GUINavrh.Form1.resources
-C:\Users\Luckin\Desktop\Interlacer Github\Projekt\GUINavrh\GUINavrh\obj\Debug\GUINavrh.Properties.Resources.resources
-C:\Users\Luckin\Desktop\Interlacer Github\Projekt\GUINavrh\GUINavrh\obj\Debug\GUINavrh.csproj.GenerateResource.Cache
->>>>>>> origin/master
