@@ -11,3 +11,13 @@ D:\Škola\WorkSpace\ZSWI - projekt\GUINavrh\GUINavrh\bin\Release\DragAndDropList
 C:\Users\Luckin\Desktop\Interlacer Github\Projekt\GUINavrh\GUINavrh\bin\Release\GUINavrh.exe.config
 C:\Users\Luckin\Desktop\Interlacer Github\Projekt\GUINavrh\GUINavrh\obj\Release\GUINavrh.exe
 C:\Users\Luckin\Desktop\Interlacer Github\Projekt\GUINavrh\GUINavrh\obj\Release\GUINavrh.pdb
+C:\Users\Štěpán\Documents\GitHub\Projekt\GUINavrh\GUINavrh\bin\Release\GUINavrh.exe.config
+C:\Users\Štěpán\Documents\GitHub\Projekt\GUINavrh\GUINavrh\obj\Release\GUINavrh.exe
+C:\Users\Štěpán\Documents\GitHub\Projekt\GUINavrh\GUINavrh\obj\Release\GUINavrh.pdb
+C:\Users\Štěpán\Documents\GitHub\Projekt\GUINavrh\GUINavrh\bin\Release\GUINavrh.exe
+C:\Users\Štěpán\Documents\GitHub\Projekt\GUINavrh\GUINavrh\bin\Release\GUINavrh.pdb
+C:\Users\Štěpán\Documents\GitHub\Projekt\GUINavrh\GUINavrh\bin\Release\Ai.Control.dll
+C:\Users\Štěpán\Documents\GitHub\Projekt\GUINavrh\GUINavrh\obj\Release\GUINavrh.csprojResolveAssemblyReference.cache
+C:\Users\Štěpán\Documents\GitHub\Projekt\GUINavrh\GUINavrh\obj\Release\GUINavrh.Form1.resources
+C:\Users\Štěpán\Documents\GitHub\Projekt\GUINavrh\GUINavrh\obj\Release\GUINavrh.Properties.Resources.resources
+C:\Users\Štěpán\Documents\GitHub\Projekt\GUINavrh\GUINavrh\obj\Release\GUINavrh.csproj.GenerateResource.Cache
