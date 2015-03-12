@@ -35,6 +35,10 @@ namespace Interlacer
         /// sirka samotneho obrazku bez ramecku pred poslednim resizem
         /// </summary>
         private int preResamplePictureWidth = -1;
+        /// <summary>y
+        /// vyska samotneho obrazku bez ramecku pred poslednim resizem
+        /// </summary>
+        private int preResamplePictureHeight = -1;
         /// <summary>
         /// sirka vystupniho obrzazku bez ramecku
         /// </summary>
@@ -51,6 +55,10 @@ namespace Interlacer
         /// vyska vstupnich obrazku
         /// </summary>
         private int inputPictureHeight = -1;
+        /// <summary>
+        /// instance progress baru, ktery bude pouzit pro zobrazeni postupu prokladani
+        /// </summary>
+        private ProgressBar progressBar;
 
         /// <summary>
         /// konstruktor, ktery z Listu cest k souborum vytvori List indexu
@@ -58,11 +66,13 @@ namespace Interlacer
         /// <param name="pictures">seznam obrazku, bud nenactenych s nastavenou cestou k souboru nebo vytvorenych programove</param>
         /// <param name="interlacingData">data potrebna k prolozeni</param>
         /// <param name="lineData">data potrebna k pridani pasovacich znacek</param>
-        public PictureContainer(List<Picture> pictures, InterlacingData interlacingData, LineData lineData)
+        /// <param name="progressBar">instance progress baru, ktery bude pouzit pro zobrazeni postupu prokladani</param>
+        public PictureContainer(List<Picture> pictures, InterlacingData interlacingData, LineData lineData, ProgressBar progressBar = null)
         {
             pictureCount = pictures.Count;
             this.interlacingData = interlacingData;
             this.lineData = lineData;
+            this.progressBar = progressBar;
             Dictionary<Picture, List<int>> indexTable = new Dictionary<Picture, List<int>>();
             for (int i = 0; i < pictures.Count; i++)
             {
@@ -76,6 +86,22 @@ namespace Interlacer
                 }
             }
             indexList = indexTable.ToList();
+        }
+
+        private void resetProgressBar()
+        {
+            if (progressBar != null)
+            {
+                progressBar.Maximum = pictureCount + 1;
+                progressBar.Step = 1;
+                progressBar.Value = 0;
+            }
+        }
+
+        private void makeProgressBarStep()
+        {
+            if (progressBar != null)
+                progressBar.PerformStep();
         }
 
         private void adjustPictureSize(Picture picture)
@@ -116,7 +142,7 @@ namespace Interlacer
             int addWidth = 0;
             int addHeight = 0;
             if (lineData == null)
-                return new Picture(preResamplePictureWidth, inputPictureHeight);
+                return new Picture(preResamplePictureWidth, preResamplePictureHeight);
             
             if (lineData.GetLeft())
                 addWidth = getAddWidthForLineAndIndent();
@@ -127,7 +153,7 @@ namespace Interlacer
             if (lineData.GetBottom())
                 addHeight = addHeight + getAddHeightForLineAndIndent();
 
-            return new Picture(preResamplePictureWidth + addWidth, inputPictureHeight + addHeight);
+            return new Picture(preResamplePictureWidth + addWidth, preResamplePictureHeight + addHeight);
         }
 
         /// <summary>
@@ -183,8 +209,8 @@ namespace Interlacer
         /// <returns>výšku rámečku s pomocnými čarami v px</returns>
         public int getAddHeightForLineAndIndent()
         {
-             double ratio = outputPictureHeight / (double)(inputPictureHeight);
-             return getAddSizeForLineAndIndentRadio(ratio);
+            double ratio = outputPictureHeight / (double)(preResamplePictureHeight);
+            return getAddSizeForLineAndIndentRadio(ratio);
         }
 
         /// <summary>
@@ -205,7 +231,7 @@ namespace Interlacer
         /// <returns>výšku rámečku s pomocnými čarami v px</returns>
         public int getAddHeightForLineTop()
         {
-            double ratio = outputPictureHeight / (double)(inputPictureHeight);
+            double ratio = outputPictureHeight / (double)(preResamplePictureHeight);
             return getAddSizeForLineRadio(ratio);
         }
         /// <summary>
@@ -226,10 +252,10 @@ namespace Interlacer
                 throw new InvalidOperationException("CheckPictures was not called");
             this.outputPictureWidth = interlacingData.GetWidth() * interlacingData.GetPictureResolution();
             this.outputPictureHeight = interlacingData.GetHeight() * interlacingData.GetPictureResolution();
-            //System.Windows.Forms.MessageBox.Show("" + pxHeight);
             int lenses = (int)(interlacingData.GetWidth() * interlacingData.GetLenticuleDensity());
             this.preResamplePictureWidth = lenses * pictureCount;
-
+            this.preResamplePictureHeight = inputPictureHeight;
+            resetProgressBar();
             for (int i = 0; i < indexList.Count; i++)
             {
                 Picture currentPic = indexList[i].Key;
@@ -240,8 +266,7 @@ namespace Interlacer
                 adjustPictureSize(currentPic);
                 if (result == null)
                     result = getPictureForMarkToLine();
-
-                currentPic.Resize(lenses, currentPic.GetHeight(), interlacingData.GetInitialResizeFilter());
+                currentPic.Resize(lenses, preResamplePictureHeight, interlacingData.GetInitialResizeFilter());
                 for (int j = 0; j < indexes.Count; j++)
                 {
                     for (int k = 0; k < lenses; k++)
@@ -249,13 +274,14 @@ namespace Interlacer
                         int column = k * pictureCount + (pictureCount - 1 - indexes[j]) + this.getAddWidthForLineAndIndentLeft();
                         result.CopyColumn(currentPic, k, column, this.getAddHeightForLineAndIndentTop());
                     }
+                    makeProgressBarStep();
                 }
                 if (loadPic)
                     currentPic.Destroy();
             }
-            drawLine();
-            result.Save("mezi.tif");
+            drawLines();
             ResizeResult((int)outputPictureWidth, (int)outputPictureHeight);
+            makeProgressBarStep();
         }
 
         private bool getCanBeLine(int index)
@@ -278,152 +304,99 @@ namespace Interlacer
             }
         }
 
-        private void drawLineLeft()
+        private void drawLinesLeft()
         {
             int colorValue;
-
             if (lineData.GetLeft())
             {
                 for (int i = 0; i < this.getAddWidthForLineAndIndent(); i++)
                 {
                     if (i < this.getAddWidthForLine() && getCanBeLine(i))
-                    {
                         colorValue = lineData.GetLineColor().ToArgb();
-                    }
                     else
-                    {
                         colorValue = lineData.GetBackgroundColor().ToArgb();
-                    }
-
                     for (int j = 0; j < result.GetHeight(); j++)
-                    {
                         result.SetPixel(i, j, colorValue);
-                    }
-
                 }
             } 
         }
-        private void drawLineRight()
+
+        private void drawLinesRight()
         {
             int colorValue = 0;
-
             if (lineData.GetRight())
             {
                 for (int i = result.GetWidth(); i >= (preResamplePictureWidth + this.getAddWidthForLineAndIndentLeft()); i--)
                 {
                     if (i > (result.GetWidth() - this.getAddWidthForLine()) && getCanBeLine(i))
-                    {
                         colorValue = lineData.GetLineColor().ToArgb();
-                    }
                     else
-                    {
                         colorValue = lineData.GetBackgroundColor().ToArgb();
-                    }
-
                     for (int j = 0; j < result.GetHeight(); j++)
-                    {
                         result.SetPixel(i, j, colorValue);
-                    }
-
                 }
             }
         }
 
-        private void drawLineTop(){
-            
+        private void drawLinesTop(){
             int colorValue = 0;
-
             if (lineData.GetTop())
+            {
+                int pomLeft = 0;
+                int pomRight = 0;
+                if (lineData.GetLeft())
+                    pomLeft = this.getAddWidthForLine();
+                if (lineData.GetRight())
+                    pomRight = this.getAddWidthForLine();
+                for (int i = pomLeft; i < result.GetWidth() - pomRight; i++)
                 {
-                    int pomLeft = 0;
-                    int pomRight = 0;
-                    if (lineData.GetLeft())
-                    {
-                        pomLeft = this.getAddWidthForLine();
-                    }
-                     if (lineData.GetRight())
-                    {
-                        pomRight = this.getAddWidthForLine();
-                    }
-                     for (int i = pomLeft; i < result.GetWidth() - pomRight; i++)
-                    {
-                        if (getCanBeLine(i))
-                        {
-                            colorValue = lineData.GetLineColor().ToArgb();
-                        }
-                        else
-                        {
-                            colorValue = lineData.GetBackgroundColor().ToArgb();
-                        }
-
-                        for (int j = 0; j < getAddHeightForLineTop(); j++)
-                        {
-                            result.SetPixel(i, j, colorValue);
-                        }
-
+                    if (getCanBeLine(i))
+                        colorValue = lineData.GetLineColor().ToArgb();
+                    else
                         colorValue = lineData.GetBackgroundColor().ToArgb();
-
-                        for (int j = getAddHeightForLineTop(); j < getAddHeightForLineAndIndent(); j++)
-                        {
-                            result.SetPixel(i, j, colorValue);
-                        }
-
-                    }
+                    for (int j = 0; j < getAddHeightForLineTop(); j++)
+                        result.SetPixel(i, j, colorValue);
+                    colorValue = lineData.GetBackgroundColor().ToArgb();
+                    for (int j = getAddHeightForLineTop(); j < getAddHeightForLineAndIndent(); j++)
+                        result.SetPixel(i, j, colorValue);
                 }
+            }
         }
 
-        private void drawLineBottom()
+        private void drawLinesBottom()
         {
             int colorValue = 0;
-
             if (lineData.GetBottom())
             {
                 int pomLeft = 0;
                 int pomRight = 0;
                 if (lineData.GetLeft())
-                {
                     pomLeft = this.getAddWidthForLine();
-                }
                 if (lineData.GetRight())
-                {
                     pomRight = this.getAddWidthForLine();
-                }
-
                 for (int i = pomLeft; i < result.GetWidth() - pomRight; i++)
                 {
                     if (getCanBeLine(i))
-                    {
                         colorValue = lineData.GetLineColor().ToArgb();
-                    }
                     else
-                    {
                         colorValue = lineData.GetBackgroundColor().ToArgb();
-                    }
-
                     for (int j = result.GetHeight() - 1; j > (result.GetHeight() - getAddHeightForLineTop()); j--)
-                    {
                         result.SetPixel(i, j, colorValue);
-                    }
-
                     colorValue = lineData.GetBackgroundColor().ToArgb();
-
                     for (int j = (result.GetHeight() - getAddHeightForLineTop()); j >= (result.GetHeight() - getAddHeightForLineAndIndent()); j--)
-                    {
                         result.SetPixel(i, j, colorValue);
-                    }
-
                 }
             }
         }
 
-        private void drawLine()
+        private void drawLines()
         {
             if (lineData != null)
             {
-                drawLineLeft();
-                drawLineRight();
-                drawLineTop();
-                drawLineBottom();
+                drawLinesLeft();
+                drawLinesRight();
+                drawLinesTop();
+                drawLinesBottom();
             }
         }
 
@@ -433,30 +406,23 @@ namespace Interlacer
                 result.Resize(pxWidth, pxHeight, interlacingData.GetFinalResampleFilter());
             else
             {
-
                 if (lineData.GetTop())
                 {
                     pxHeight += (int)((lineData.GetFrameWidth() + lineData.GetIndent()) * interlacingData.GetPictureResolution());
                 }
-
                 if (lineData.GetBottom())
                 {
                     pxHeight += (int)((lineData.GetFrameWidth() + lineData.GetIndent()) * interlacingData.GetPictureResolution());
                 }
-
                 if (lineData.GetLeft())
                 {
                     pxWidth += (int)((lineData.GetFrameWidth() + lineData.GetIndent()) * interlacingData.GetPictureResolution());
                 }
-
                 if (lineData.GetRight())
                 {
-                    pxWidth += (int)((lineData.GetFrameWidth() + lineData.GetIndent())* interlacingData.GetPictureResolution());
+                    pxWidth += (int)((lineData.GetFrameWidth() + lineData.GetIndent()) * interlacingData.GetPictureResolution());
                 }
-
                 result.Resize(pxWidth, pxHeight, interlacingData.GetFinalResampleFilter());
-                //System.Windows.Forms.MessageBox.Show("" + lineData.GetFrameWidth() * interlacingData.GetPictureResolution());
-                
             }
         }
 

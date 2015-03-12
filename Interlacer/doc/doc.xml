@@ -319,6 +319,26 @@
             vysledny obrazek
             </summary>
         </member>
+        <member name="F:Interlacer.PictureContainer.preResamplePictureWidth">
+            <summary>y
+            sirka samotneho obrazku bez ramecku pred poslednim resizem
+            </summary>
+        </member>
+        <member name="F:Interlacer.PictureContainer.preResamplePictureHeight">
+            <summary>y
+            vyska samotneho obrazku bez ramecku pred poslednim resizem
+            </summary>
+        </member>
+        <member name="F:Interlacer.PictureContainer.outputPictureWidth">
+            <summary>
+            sirka vystupniho obrzazku bez ramecku
+            </summary>
+        </member>
+        <member name="F:Interlacer.PictureContainer.outputPictureHeight">
+            <summary>
+            vyska vystupniho obrzazku bez ramecku
+            </summary>
+        </member>
         <member name="F:Interlacer.PictureContainer.inputPictureWidth">
             <summary>
             sirka vstupnich obrazku
@@ -329,13 +349,69 @@
             vyska vstupnich obrazku
             </summary>
         </member>
-        <member name="M:Interlacer.PictureContainer.#ctor(System.Collections.Generic.List{GfxlibWrapper.Picture},Interlacer.InterlacingData,Interlacer.LineData)">
+        <member name="F:Interlacer.PictureContainer.progressBar">
+            <summary>
+            instance progress baru, ktery bude pouzit pro zobrazeni postupu prokladani
+            </summary>
+        </member>
+        <member name="M:Interlacer.PictureContainer.#ctor(System.Collections.Generic.List{GfxlibWrapper.Picture},Interlacer.InterlacingData,Interlacer.LineData,System.Windows.Forms.ProgressBar)">
             <summary>
             konstruktor, ktery z Listu cest k souborum vytvori List indexu
             </summary>
             <param name="pictures">seznam obrazku, bud nenactenych s nastavenou cestou k souboru nebo vytvorenych programove</param>
             <param name="interlacingData">data potrebna k prolozeni</param>
             <param name="lineData">data potrebna k pridani pasovacich znacek</param>
+            <param name="progressBar">instance progress baru, ktery bude pouzit pro zobrazeni postupu prokladani</param>
+        </member>
+        <member name="M:Interlacer.PictureContainer.getAddSizeForLineAndIndentRadio(System.Double)">
+            <summary>
+             vrací šířku rámečku s odsazením v px pro pridani pred finalnim resizem vydeleny pomerem
+            </summary>
+            <param name="ratio">parametr dělení vysledné šířky rámečku</param>
+            <returns>poměr šířky rámečku / parametr</returns>
+        </member>
+        <member name="M:Interlacer.PictureContainer.getAddSizeForLineRadio(System.Double)">
+            <summary>
+             vrací šířku rámečku bez odsazením v px pro pridani pred finalnim resizem vydeleny pomerem
+            </summary>
+            <param name="ratio">parametr dělení vysledné šířky rámečku</param>
+            <returns>poměr šířky rámečku / parametr</returns>
+        </member>
+        <member name="M:Interlacer.PictureContainer.getAddWidthForLineAndIndent">
+            <summary>
+             vrací šířku postraního rámečku s pomocnými čarami v px pro pridani pred finalnim resizem
+            </summary>
+            <returns>šířku rámečku s pomocnými čarami v px</returns>
+        </member>
+        <member name="M:Interlacer.PictureContainer.getAddWidthForLineAndIndentLeft">
+            <summary>
+             vrací šířku postraního rámečku na levé straně s pomocnými čarami v px pro pridani pred finalnim resizem
+            </summary>
+            <returns>šířku rámečku s pomocnými čarami v px</returns>
+        </member>
+        <member name="M:Interlacer.PictureContainer.getAddHeightForLineAndIndent">
+            <summary>
+             vrací výšku horního nebo spodního rámečku s pomocnými čarami v px pro pridani pred finalnim resizem
+            </summary>
+            <returns>výšku rámečku s pomocnými čarami v px</returns>
+        </member>
+        <member name="M:Interlacer.PictureContainer.getAddHeightForLineAndIndentTop">
+            <summary>
+             vrací výšku horního rámečku na levé straně s pomocnými čarami v px pro pridani pred finalnim resizem
+            </summary>
+            <returns>výšku rámečku s pomocnými čarami v px</returns>
+        </member>
+        <member name="M:Interlacer.PictureContainer.getAddHeightForLineTop">
+            <summary>
+             vrací výšku čar horního rámečku bez osazení v px pro pridani pred finalnim resizem
+            </summary>
+            <returns>výšku rámečku s pomocnými čarami v px</returns>
+        </member>
+        <member name="M:Interlacer.PictureContainer.getAddWidthForLine">
+            <summary>
+             vrací šířku čar na stranách bez odsazení v px pro pridani pred finalnim resizem
+            </summary>
+            <returns>výšku rámečku s pomocnými čarami v px</returns>
         </member>
         <member name="M:Interlacer.Program.Main">
             <summary>

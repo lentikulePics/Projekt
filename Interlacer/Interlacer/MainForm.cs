@@ -50,13 +50,13 @@ namespace Interlacer
             intData.SetWidth(210);
             intData.SetHeight(297);
             intData.SetUnits(Units.In);
-            intData.SetPictureResolution(400);
+            intData.SetPictureResolution(600);
             intData.SetLenticuleDensity(40);
-            intData.SetInitialResizeFilter(FilterType.None);
-            intData.SetFinalResampleFilter(FilterType.Triangle);
+            intData.SetInitialResizeFilter(FilterType.Cubic);
+            intData.SetFinalResampleFilter(FilterType.None);
              
             LineData linedata = new LineData();
-            linedata.SetLeft(false);
+            linedata.SetLeft(true);
             linedata.SetTop(true);
             linedata.SetBottom(true);
             linedata.SetRight(true);
@@ -68,14 +68,13 @@ namespace Interlacer
             linedata.SetBackgroundColor(Color.White);
             linedata.SetLineColor(Color.Black);
 
-            PictureContainer picCon = new PictureContainer(pics, intData, linedata);
+            PictureContainer picCon = new PictureContainer(pics, intData, linedata, progressBar);
             if (picCon.CheckPictures())
                 MessageBox.Show("Pictures are OK");
             else
                 MessageBox.Show("Pictures will be clipped");
             picCon.Interlace();
             MessageBox.Show("Done!");
-            picCon.GetResult().SetDpi(600, 600);
             picCon.GetResult().Save("result.tif");
             picCon.GetResult().Destroy();
         }
