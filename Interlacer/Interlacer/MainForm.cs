@@ -43,18 +43,32 @@ namespace Interlacer
                 new Picture("pics/s12.jpg"),
                 new Picture("pics/s13.jpg"),
                 new Picture("pics/s14.jpg"),
-                new Picture("pics/s15.jpg")
+                new Picture("pics/s15.jpg"),
             };
             InterlacingData intData = new InterlacingData();
             intData.SetUnits(Units.Mm);
             intData.SetWidth(210);
             intData.SetHeight(297);
             intData.SetUnits(Units.In);
-            intData.SetPictureResolution(600);
+            intData.SetPictureResolution(400);
             intData.SetLenticuleDensity(40);
             intData.SetInitialResizeFilter(FilterType.None);
-            intData.SetFinalResampleFilter(FilterType.None);
-            PictureContainer picCon = new PictureContainer(pics, intData, null);
+            intData.SetFinalResampleFilter(FilterType.Triangle);
+             
+            LineData linedata = new LineData();
+            linedata.SetLeft(false);
+            linedata.SetTop(true);
+            linedata.SetBottom(true);
+            linedata.SetRight(true);
+            linedata.SetLineThickness(1);
+            intData.SetUnits(Units.Cm);
+            linedata.SetIndent(0.2);
+            linedata.SetFrameWidth(1);
+            linedata.SetCenterPosition(false);
+            linedata.SetBackgroundColor(Color.White);
+            linedata.SetLineColor(Color.Black);
+
+            PictureContainer picCon = new PictureContainer(pics, intData, linedata);
             if (picCon.CheckPictures())
                 MessageBox.Show("Pictures are OK");
             else
