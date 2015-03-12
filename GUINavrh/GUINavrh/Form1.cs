@@ -5,6 +5,7 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -15,59 +16,25 @@ namespace GUINavrh
         public Form1()
         {
             InitializeComponent();
+            unitsComboBox.SelectedItem = unitsComboBox.Items[0];
+            interpol1ComboBox.SelectedItem = interpol1ComboBox.Items[0];
+            interpol2ComboBox.SelectedItem = interpol2ComboBox.Items[0];
         }
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            listViewEx2.Items.Add("adsfasdsd");
-            listViewEx2.Items.Add("dsadsfasdfasdfsfd");
-            listViewEx2.Items.Add("ad");
+            picListViewEx.Items.Add("adsfasdsd");
+            picListViewEx.Items.Add("dsadsfasdfasdfsfd");
+            picListViewEx.Items.Add("ad");
             
         }
 
-        private void toolStripMenuItem1_Click(object sender, EventArgs e)
+        private void interlaceButton_Click(object sender, EventArgs e)
         {
+            //PictureContainer pc = new PictureContainer(progressBar, label, co dal??);
 
-        }
-
-        private void button7_Click(object sender, EventArgs e)
-        {
-            pictureBox1.Load("balcony.JPG");
-        }
-
-        private void label4_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label8_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void checkBox3_CheckedChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void checkBox5_CheckedChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void tabPage3_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label3_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-
+            //Thread t = new Thread(pc.interlace);
+            //t.start();
         }
     }
 }
