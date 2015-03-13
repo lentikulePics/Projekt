@@ -401,7 +401,7 @@
             this.groupBox5.Size = new System.Drawing.Size(237, 49);
             this.groupBox5.TabIndex = 5;
             this.groupBox5.TabStop = false;
-            this.groupBox5.Text = "Směr interpolace";
+            this.groupBox5.Text = "Směr prokládání";
             // 
             // verticalRadiobutton
             // 
@@ -631,7 +631,7 @@
             this.groupBox13.Size = new System.Drawing.Size(169, 40);
             this.groupBox13.TabIndex = 6;
             this.groupBox13.TabStop = false;
-            this.groupBox13.Text = "Obsazeno snímků pod lentikulý";
+            this.groupBox13.Text = "Obsazeno snímků pod lentikulí";
             // 
             // maxPicsUnderLenLabel
             // 
@@ -698,7 +698,7 @@
             this.groupBox11.Size = new System.Drawing.Size(181, 52);
             this.groupBox11.TabIndex = 4;
             this.groupBox11.TabStop = false;
-            this.groupBox11.Text = "Pozice čáry pod lentikulý";
+            this.groupBox11.Text = "Pozice čáry pod lentikulí";
             // 
             // edgeRadioButton
             // 
