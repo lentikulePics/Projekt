@@ -161,10 +161,10 @@ namespace Interlacer
         /// </summary>
         /// <param name="ratio">parametr dělení vysledné šířky rámečku</param>
         /// <returns>poměr šířky rámečku / parametr</returns>
-        private int getAddSizeForLineAndIndentRadio(double ratio)
+        private int getAddSizeForLineAndIndentRatio(double ratio)
         {
-            double widthFL = lineData.GetFrameWidth() + lineData.GetIndent();
-            double widthFLpixel = widthFL * interlacingData.GetPictureResolution();
+            double widthFL = lineData.GetFrameInchWidth() + lineData.GetInchIndent();
+            double widthFLpixel = widthFL * interlacingData.GetDPI();
             return (int)(widthFLpixel / ratio);
         }
 
@@ -173,10 +173,10 @@ namespace Interlacer
         /// </summary>
         /// <param name="ratio">parametr dělení vysledné šířky rámečku</param>
         /// <returns>poměr šířky rámečku / parametr</returns>
-        private int getAddSizeForLineRadio(double ratio)
+        private int getAddSizeForLineRatio(double ratio)
         {
-            double widthFL = lineData.GetFrameWidth();
-            double widthFLpixel = widthFL * interlacingData.GetPictureResolution();
+            double widthFL = lineData.GetFrameInchWidth();
+            double widthFLpixel = widthFL * interlacingData.GetDPI();
             return (int)(widthFLpixel / ratio);
         }
 
@@ -188,7 +188,7 @@ namespace Interlacer
         public int getAddWidthForLineAndIndent()
         {
             double ratio = outputPictureWidth / (double)(preResamplePictureWidth);
-            return getAddSizeForLineAndIndentRadio(ratio);
+            return getAddSizeForLineAndIndentRatio(ratio);
         }
 
         /// <summary>
@@ -210,7 +210,7 @@ namespace Interlacer
         public int getAddHeightForLineAndIndent()
         {
             double ratio = outputPictureHeight / (double)(preResamplePictureHeight);
-            return getAddSizeForLineAndIndentRadio(ratio);
+            return getAddSizeForLineAndIndentRatio(ratio);
         }
 
         /// <summary>
@@ -232,7 +232,7 @@ namespace Interlacer
         public int getAddHeightForLineTop()
         {
             double ratio = outputPictureHeight / (double)(preResamplePictureHeight);
-            return getAddSizeForLineRadio(ratio);
+            return getAddSizeForLineRatio(ratio);
         }
         /// <summary>
         ///  vrací šířku čar na stranách bez odsazení v px pro pridani pred finalnim resizem
@@ -241,20 +241,23 @@ namespace Interlacer
         public int getAddWidthForLine()
         {
             double ratio = outputPictureWidth / (double)(preResamplePictureWidth);
-            return getAddSizeForLineRadio(ratio);
+            return getAddSizeForLineRatio(ratio);
         }
-
 
 
         public void Interlace()
         {
             if (inputPictureHeight < 0 || inputPictureWidth < 0)
                 throw new InvalidOperationException("CheckPictures was not called");
-            this.outputPictureWidth = interlacingData.GetWidth() * interlacingData.GetPictureResolution();
-            this.outputPictureHeight = interlacingData.GetHeight() * interlacingData.GetPictureResolution();
-            int lenses = (int)(interlacingData.GetWidth() * interlacingData.GetLenticuleDensity());
-            this.preResamplePictureWidth = lenses * pictureCount;
-            this.preResamplePictureHeight = inputPictureHeight;
+            int lenses = (int)(interlacingData.GetInchWidth() * interlacingData.GetLPI());
+            double lensesError = (interlacingData.GetInchWidth() * interlacingData.GetLPI() - lenses) * pictureCount;
+            double errorRatio = lensesError / (lenses * pictureCount);
+            outputPictureWidth = interlacingData.GetInchWidth() * interlacingData.GetDPI();
+            double finalError = outputPictureWidth * errorRatio;
+            outputPictureWidth -= finalError;
+            outputPictureHeight = interlacingData.GetInchHeight() * interlacingData.GetDPI();
+            preResamplePictureWidth = lenses * pictureCount;
+            preResamplePictureHeight = inputPictureHeight;
             resetProgressBar();
             for (int i = 0; i < indexList.Count; i++)
             {
@@ -402,27 +405,31 @@ namespace Interlacer
 
         public void ResizeResult(int pxWidth, int pxHeight)
         {
+            double newWidth = pxWidth;
+            double newHeight = pxHeight;
             if (lineData == null)
                 result.Resize(pxWidth, pxHeight, interlacingData.GetFinalResampleFilter());
             else
             {
                 if (lineData.GetTop())
                 {
-                    pxHeight += (int)((lineData.GetFrameWidth() + lineData.GetIndent()) * interlacingData.GetPictureResolution());
+                    newHeight += (lineData.GetFrameInchWidth() + lineData.GetInchIndent()) * interlacingData.GetDPI();
                 }
                 if (lineData.GetBottom())
                 {
-                    pxHeight += (int)((lineData.GetFrameWidth() + lineData.GetIndent()) * interlacingData.GetPictureResolution());
+                    newHeight += (lineData.GetFrameInchWidth() + lineData.GetInchIndent()) * interlacingData.GetDPI();
                 }
                 if (lineData.GetLeft())
                 {
-                    pxWidth += (int)((lineData.GetFrameWidth() + lineData.GetIndent()) * interlacingData.GetPictureResolution());
+                    newWidth += (lineData.GetFrameInchWidth() + lineData.GetInchIndent()) * interlacingData.GetDPI();
                 }
                 if (lineData.GetRight())
                 {
-                    pxWidth += (int)((lineData.GetFrameWidth() + lineData.GetIndent()) * interlacingData.GetPictureResolution());
+                    newWidth += (lineData.GetFrameInchWidth() + lineData.GetInchIndent()) * interlacingData.GetDPI();
                 }
-                result.Resize(pxWidth, pxHeight, interlacingData.GetFinalResampleFilter());
+                result.Resize((int)newWidth, result.GetHeight(), interlacingData.GetFinalResampleFilter());
+                result.Resize((int)newWidth, (int)newHeight,
+                    interlacingData.GetInitialResizeFilter() == FilterType.None ? FilterType.None : FilterType.Triangle);
             }
         }
 

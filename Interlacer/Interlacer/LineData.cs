@@ -75,24 +75,34 @@ namespace Interlacer
             this.backgroundColor = backgroundColor;
         }
 
-        public double GetFrameWidth()
+        public double GetFrameInchWidth()
         {
-            return UnitConverter.getUnitsFromIn(this.frameWidth, units);
+            return UnitConverter.getInFromUnits(frameWidth, units);
         }
 
         public void SetFrameWidth(double frameWidth)
         {
-            this.frameWidth = UnitConverter.getInFromUnits(frameWidth, units);
+            this.frameWidth = frameWidth;
         }
 
-        public double GetIndent()
+        public double GetFrameWidth()
         {
-            return UnitConverter.getUnitsFromIn(this.indent, units);
+            return frameWidth;
+        }
+
+        public double GetInchIndent()
+        {
+            return UnitConverter.getInFromUnits(indent, units);
         }
 
         public void SetIndent(double indent)
         {
-            this.indent = UnitConverter.getInFromUnits(indent, units);
+            this.indent = indent;
+        }
+
+        public double GetIndent()
+        {
+            return indent;
         }
 
         //left, top, right, bottom;

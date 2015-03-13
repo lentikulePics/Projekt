@@ -363,14 +363,14 @@
             <param name="lineData">data potrebna k pridani pasovacich znacek</param>
             <param name="progressBar">instance progress baru, ktery bude pouzit pro zobrazeni postupu prokladani</param>
         </member>
-        <member name="M:Interlacer.PictureContainer.getAddSizeForLineAndIndentRadio(System.Double)">
+        <member name="M:Interlacer.PictureContainer.getAddSizeForLineAndIndentRatio(System.Double)">
             <summary>
              vrací šířku rámečku s odsazením v px pro pridani pred finalnim resizem vydeleny pomerem
             </summary>
             <param name="ratio">parametr dělení vysledné šířky rámečku</param>
             <returns>poměr šířky rámečku / parametr</returns>
         </member>
-        <member name="M:Interlacer.PictureContainer.getAddSizeForLineRadio(System.Double)">
+        <member name="M:Interlacer.PictureContainer.getAddSizeForLineRatio(System.Double)">
             <summary>
              vrací šířku rámečku bez odsazením v px pro pridani pred finalnim resizem vydeleny pomerem
             </summary>

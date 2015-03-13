@@ -17,6 +17,7 @@ namespace Interlacer
         private FilterType finalResampleFilter;
         bool keepAspectRatio = false;
         private Units units = Units.In;
+        private Units resolutionUnits = Units.In;
 
         public void SetUnits(Units units)
         {
@@ -25,63 +26,93 @@ namespace Interlacer
 
         public Units GetUnits()
         {
-            return this.units;
+            return units;
         }
 
-        public double GetWidth()
+        public void SetResolutionUnits(Units units)
         {
-            return UnitConverter.getUnitsFromIn(width, units);
+            this.resolutionUnits = units;
         }
 
-        public double GetHeight()
+        public Units GetResolutionUnits()
         {
-            return UnitConverter.getUnitsFromIn(height, units);
+            return resolutionUnits;
+        }
+
+        public double GetInchWidth()
+        {
+            return UnitConverter.getInFromUnits(width, units);
+        }
+
+        public double GetInchHeight()
+        {
+            return UnitConverter.getInFromUnits(height, units);
         }
 
         public void SetWidth(double width)
         {
             if (keepAspectRatio && this.width > 0.00001)
             {
-                double newWidth = UnitConverter.getInFromUnits(width, units);
+                double newWidth = width;
                 double ratio = newWidth / this.width;
                 this.width = newWidth;
                 height *= ratio;
             }
             else
-                this.width = UnitConverter.getInFromUnits(width, units);
+                this.width = width;
+        }
+
+        public double GetWidth()
+        {
+            return width;
         }
 
         public void SetHeight(double height)
         {
             if (keepAspectRatio && this.height > 0.00001)
             {
-                double newHeight = UnitConverter.getInFromUnits(height, units);
+                double newHeight = height;
                 double ratio = newHeight / this.height;
                 this.height = newHeight;
                 width *= ratio;
             }
             else
-                this.height = UnitConverter.getInFromUnits(height, units);
+                this.height = height;
+        }
+
+        public double GetHeight()
+        {
+            return height;
         }
         
-        public double GetPictureResolution()
+        public double GetDPI()
         {
-            return pictureResolution / UnitConverter.getUnitsFromIn(1, units);
+            return pictureResolution / UnitConverter.getInFromUnits(1, resolutionUnits);
         }
 
         public void SetPictureResolution(double resolution)
         {
-            pictureResolution = resolution / UnitConverter.getInFromUnits(1, units);
+            pictureResolution = resolution;
         }
 
-        public double GetLenticuleDensity()
+        public double GetPictureResolution()
         {
-            return lenticuleDensity / UnitConverter.getUnitsFromIn(1, units);
+            return pictureResolution;
+        }
+
+        public double GetLPI()
+        {
+            return lenticuleDensity / UnitConverter.getInFromUnits(1, resolutionUnits);
         }
 
         public void SetLenticuleDensity(double density)
         {
-            lenticuleDensity = density / UnitConverter.getInFromUnits(1, units);
+            lenticuleDensity = density;
+        }
+
+        public double GetLenticuleDensity()
+        {
+            return lenticuleDensity;
         }
         
         public FilterType GetInitialResizeFilter()

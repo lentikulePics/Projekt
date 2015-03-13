@@ -47,21 +47,21 @@ namespace Interlacer
             };
             InterlacingData intData = new InterlacingData();
             intData.SetUnits(Units.Mm);
+            intData.SetResolutionUnits(Units.In);
             intData.SetWidth(210);
             intData.SetHeight(297);
-            intData.SetUnits(Units.In);
             intData.SetPictureResolution(600);
-            intData.SetLenticuleDensity(40);
-            intData.SetInitialResizeFilter(FilterType.Cubic);
-            intData.SetFinalResampleFilter(FilterType.None);
-             
+            intData.SetLenticuleDensity(39.85);
+            intData.SetInitialResizeFilter(FilterType.None);
+            intData.SetFinalResampleFilter(FilterType.Triangle);
+
             LineData linedata = new LineData();
             linedata.SetLeft(true);
             linedata.SetTop(true);
-            linedata.SetBottom(true);
+            linedata.SetBottom(false);
             linedata.SetRight(true);
             linedata.SetLineThickness(1);
-            intData.SetUnits(Units.Cm);
+            linedata.SetUnits(Units.Cm);
             linedata.SetIndent(0.2);
             linedata.SetFrameWidth(1);
             linedata.SetCenterPosition(false);

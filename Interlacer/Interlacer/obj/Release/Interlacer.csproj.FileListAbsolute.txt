@@ -25,3 +25,4 @@ C:\Users\Luckin\Desktop\Interlacer Github\Projekt\Interlacer\bin32bit\doc.xml
 C:\Users\Luckin\Desktop\Interlacer Github\Projekt\Interlacer\Interlacer\obj\Release\Interlacer.MainForm.resources
 C:\Users\Luckin\Desktop\Interlacer Github\Projekt\Interlacer\Interlacer\obj\Release\Interlacer.Properties.Resources.resources
 C:\Users\Luckin\Desktop\Interlacer Github\Projekt\Interlacer\Interlacer\obj\Release\Interlacer.csproj.GenerateResource.Cache
+C:\Users\Luckin\Desktop\Interlacer Github\Projekt\Interlacer\Interlacer\obj\Release\Interlacer.csprojResolveAssemblyReference.cache
