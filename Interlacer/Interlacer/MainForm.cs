@@ -48,10 +48,10 @@ namespace Interlacer
             InterlacingData intData = new InterlacingData();
             intData.SetUnits(Units.Mm);
             intData.SetResolutionUnits(Units.In);
-            intData.SetWidth(210);
-            intData.SetHeight(297);
-            intData.SetPictureResolution(600);
-            intData.SetLenticuleDensity(39.85);
+            intData.SetWidth(350);
+            intData.SetHeight(30);
+            intData.SetPictureResolution(720);
+            intData.SetLenticuleDensity(24.87);
             intData.SetInitialResizeFilter(FilterType.None);
             intData.SetFinalResampleFilter(FilterType.Triangle);
 
@@ -62,8 +62,8 @@ namespace Interlacer
             linedata.SetRight(true);
             linedata.SetLineThickness(1);
             linedata.SetUnits(Units.Cm);
-            linedata.SetIndent(0.2);
-            linedata.SetFrameWidth(1);
+            linedata.SetIndent(1);
+            linedata.SetFrameWidth(7);
             linedata.SetCenterPosition(false);
             linedata.SetBackgroundColor(Color.White);
             linedata.SetLineColor(Color.Black);

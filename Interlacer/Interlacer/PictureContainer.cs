@@ -92,7 +92,7 @@ namespace Interlacer
         {
             if (progressBar != null)
             {
-                progressBar.Maximum = pictureCount + 1;
+                progressBar.Maximum = pictureCount + 3;
                 progressBar.Step = 1;
                 progressBar.Value = 0;
             }
@@ -251,7 +251,7 @@ namespace Interlacer
                 throw new InvalidOperationException("CheckPictures was not called");
             int lenses = (int)(interlacingData.GetInchWidth() * interlacingData.GetLPI());
             double lensesError = (interlacingData.GetInchWidth() * interlacingData.GetLPI() - lenses) * pictureCount;
-            double errorRatio = lensesError / (lenses * pictureCount);
+            double errorRatio = lensesError / ((lenses * pictureCount) + lensesError);
             outputPictureWidth = interlacingData.GetInchWidth() * interlacingData.GetDPI();
             double finalError = outputPictureWidth * errorRatio;
             outputPictureWidth -= finalError;
@@ -283,6 +283,7 @@ namespace Interlacer
                     currentPic.Destroy();
             }
             drawLines();
+            makeProgressBarStep();
             ResizeResult((int)outputPictureWidth, (int)outputPictureHeight);
             makeProgressBarStep();
         }
@@ -428,6 +429,7 @@ namespace Interlacer
                     newWidth += (lineData.GetFrameInchWidth() + lineData.GetInchIndent()) * interlacingData.GetDPI();
                 }
                 result.Resize((int)newWidth, result.GetHeight(), interlacingData.GetFinalResampleFilter());
+                makeProgressBarStep();
                 result.Resize((int)newWidth, (int)newHeight,
                     interlacingData.GetInitialResizeFilter() == FilterType.None ? FilterType.None : FilterType.Triangle);
             }
