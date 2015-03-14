@@ -43,27 +43,27 @@ namespace Interlacer
                 new Picture("pics/s12.jpg"),
                 new Picture("pics/s13.jpg"),
                 new Picture("pics/s14.jpg"),
-                new Picture("pics/s15.jpg"),
+                new Picture("pics/s15.jpg")
             };
             InterlacingData intData = new InterlacingData();
-            intData.SetUnits(Units.Mm);
+            intData.SetUnits(Units.Cm);
             intData.SetResolutionUnits(Units.In);
-            intData.SetWidth(350);
-            intData.SetHeight(30);
-            intData.SetPictureResolution(720);
-            intData.SetLenticuleDensity(24.87);
+            intData.SetWidth(21);
+            intData.SetHeight(29.7);
+            intData.SetPictureResolution(600);
+            intData.SetLenticuleDensity(39.85);
             intData.SetInitialResizeFilter(FilterType.None);
             intData.SetFinalResampleFilter(FilterType.Triangle);
 
             LineData linedata = new LineData();
             linedata.SetLeft(true);
             linedata.SetTop(true);
-            linedata.SetBottom(false);
+            linedata.SetBottom(true);
             linedata.SetRight(true);
             linedata.SetLineThickness(1);
             linedata.SetUnits(Units.Cm);
-            linedata.SetIndent(1);
-            linedata.SetFrameWidth(7);
+            linedata.SetIndent(0.2);
+            linedata.SetFrameWidth(1);
             linedata.SetCenterPosition(false);
             linedata.SetBackgroundColor(Color.White);
             linedata.SetLineColor(Color.Black);
