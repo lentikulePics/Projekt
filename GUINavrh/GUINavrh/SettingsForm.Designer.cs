@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SettingsForm));
             this.panel1 = new System.Windows.Forms.Panel();
             this.applyButton = new System.Windows.Forms.Button();
@@ -38,6 +39,9 @@
             this.languageGroup = new System.Windows.Forms.GroupBox();
             this.languageCombobox = new System.Windows.Forms.ComboBox();
             this.advancedTab = new System.Windows.Forms.TabPage();
+            this.cancelButton = new System.Windows.Forms.Button();
+            this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
+            this.label1 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.generalTab.SuspendLayout();
@@ -46,6 +50,7 @@
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.cancelButton);
             this.panel1.Controls.Add(this.applyButton);
             this.panel1.Controls.Add(this.okButton);
             resources.ApplyResources(this.panel1, "panel1");
@@ -89,6 +94,7 @@
             // 
             // languageGroup
             // 
+            this.languageGroup.Controls.Add(this.label1);
             this.languageGroup.Controls.Add(this.languageCombobox);
             resources.ApplyResources(this.languageGroup, "languageGroup");
             this.languageGroup.Name = "languageGroup";
@@ -109,18 +115,34 @@
             resources.ApplyResources(this.advancedTab, "advancedTab");
             this.advancedTab.Name = "advancedTab";
             // 
+            // cancelButton
+            // 
+            this.cancelButton.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            resources.ApplyResources(this.cancelButton, "cancelButton");
+            this.cancelButton.Name = "cancelButton";
+            this.cancelButton.UseVisualStyleBackColor = true;
+            // 
+            // label1
+            // 
+            resources.ApplyResources(this.label1, "label1");
+            this.label1.Name = "label1";
+            // 
             // SettingsForm
             // 
             resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.CancelButton = this.cancelButton;
             this.Controls.Add(this.tabControl1);
             this.Controls.Add(this.panel1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.MaximizeBox = false;
             this.Name = "SettingsForm";
             this.Load += new System.EventHandler(this.SettingsForm_Load);
             this.panel1.ResumeLayout(false);
             this.tabControl1.ResumeLayout(false);
             this.generalTab.ResumeLayout(false);
             this.languageGroup.ResumeLayout(false);
+            this.languageGroup.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -136,6 +158,9 @@
         private System.Windows.Forms.GroupBox languageGroup;
         private System.Windows.Forms.ComboBox languageCombobox;
         private System.Windows.Forms.TabPage advancedTab;
+        private System.Windows.Forms.Button cancelButton;
+        private System.Windows.Forms.ToolTip toolTip1;
+        private System.Windows.Forms.Label label1;
 
     }
 }

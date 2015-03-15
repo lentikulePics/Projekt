@@ -56,29 +56,25 @@ namespace GUINavrh
 
         public void changeLanguage(String lang)
         {
-            foreach (Control c in this.Controls)
-            {
-                ComponentResourceManager resources = new ComponentResourceManager(typeof(Form1));
-                resources.ApplyResources(c, c.Name, new CultureInfo(lang));
-            }
+            loop(this, lang);
         }
 
-        private void loop(Control parent)
+        private void loop(Control parent, string lang)
         {
 
-            /*foreach (Control c in parent.Controls)
+            foreach (Control c in parent.Controls)
             {
-                if (c.GetType() == typeof(TextBox))
+                ComponentResourceManager resources = new ComponentResourceManager(typeof(Form1));
+                    resources.ApplyResources(c, c.Name, new CultureInfo(lang));    
+                if (c.GetType() == typeof(GroupBox))
                 {
-                    c.TextChanged += new EventHandler(C_TextChanged);
+                      loop(c, lang);
                 }
                 else
                 {
-                    AddTextChangedHandler(c);
+                    loop(c, lang);
                 }
-            }*/
-
-            
+            }            
         }
     }
 }
