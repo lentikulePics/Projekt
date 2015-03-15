@@ -16,6 +16,10 @@ namespace GUINavrh
     {
         public Form1()
         {
+            Thread.CurrentThread.CurrentCulture = new CultureInfo("cs-CZ");
+            // Sets the UI culture to French (France)
+            Thread.CurrentThread.CurrentUICulture = new CultureInfo("cs-CZ");
+
             InitializeComponent();
             unitsComboBox.SelectedItem = unitsComboBox.Items[0];
             interpol1ComboBox.SelectedItem = interpol1ComboBox.Items[0];
