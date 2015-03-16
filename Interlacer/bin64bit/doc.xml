@@ -66,33 +66,6 @@
             </summary>
             <param name="units"></param>
         </member>
-        <member name="T:Interlacer.MainForm">
-            <summary>
-            Hlavni formular programu
-            </summary>
-        </member>
-        <member name="M:Interlacer.MainForm.#ctor">
-            <summary>
-            konstruktor pro inicializaci formulare
-            </summary>
-        </member>
-        <member name="F:Interlacer.MainForm.components">
-            <summary>
-            Required designer variable.
-            </summary>
-        </member>
-        <member name="M:Interlacer.MainForm.Dispose(System.Boolean)">
-            <summary>
-            Clean up any resources being used.
-            </summary>
-            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
-        </member>
-        <member name="M:Interlacer.MainForm.InitializeComponent">
-            <summary>
-            Required method for Designer support - do not modify
-            the contents of this method with the code editor.
-            </summary>
-        </member>
         <member name="F:GfxlibWrapper.Picture.width">
             <summary>
             sirka v pixelech
@@ -294,6 +267,23 @@
             <param name="destColumn">index ciloveho sloupce tohoto obrazku</param>
             <param name="destYBegin">index pocatecni y souradnice, od ktere se zacne sloupec kopirovat do tohoto obrazku</param>
         </member>
+        <member name="F:Interlacer.MainForm.components">
+            <summary>
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:Interlacer.MainForm.Dispose(System.Boolean)">
+            <summary>
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:Interlacer.MainForm.InitializeComponent">
+            <summary>
+            Required method for Designer support - do not modify
+            the contents of this method with the code editor.
+            </summary>
+        </member>
         <member name="F:Interlacer.PictureContainer.indexList">
             <summary>
             List indexu - klicem je vzdy cesta k souboru, hodnotou je seznam pozic, na kterych se obrazek ma objevit
@@ -416,6 +406,23 @@
         <member name="M:Interlacer.Program.Main">
             <summary>
             The main entry point for the application.
+            </summary>
+        </member>
+        <member name="F:Interlacer.SettingsForm.components">
+            <summary>
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:Interlacer.SettingsForm.Dispose(System.Boolean)">
+            <summary>
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:Interlacer.SettingsForm.InitializeComponent">
+            <summary>
+            Required method for Designer support - do not modify
+            the contents of this method with the code editor.
             </summary>
         </member>
         <member name="T:Interlacer.Properties.Resources">

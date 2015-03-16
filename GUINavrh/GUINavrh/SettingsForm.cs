@@ -12,9 +12,9 @@ namespace GUINavrh
 {
     public partial class SettingsForm : Form
     {
-        private Form1 parent;
+        private MainForm parent;
 
-        public SettingsForm(Form1 parent)
+        public SettingsForm(MainForm parent)
         {
             InitializeComponent();
             this.parent = parent;

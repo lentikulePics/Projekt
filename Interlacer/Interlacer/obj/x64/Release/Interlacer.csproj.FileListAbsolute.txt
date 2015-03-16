@@ -21,3 +21,17 @@ C:\Users\Luckin\Desktop\Interlacer Github\Projekt\Interlacer\bin64bit\doc.xml
 C:\Users\Luckin\Desktop\Interlacer Github\Projekt\Interlacer\Interlacer\obj\x64\Release\Interlacer.MainForm.resources
 C:\Users\Luckin\Desktop\Interlacer Github\Projekt\Interlacer\Interlacer\obj\x64\Release\Interlacer.Properties.Resources.resources
 C:\Users\Luckin\Desktop\Interlacer Github\Projekt\Interlacer\Interlacer\obj\x64\Release\Interlacer.csproj.GenerateResource.Cache
+C:\Users\Štěpán\Documents\GitHub\Projekt\Interlacer\Interlacer\obj\x64\Release\Interlacer.Properties.Resources.resources
+C:\Users\Štěpán\Documents\GitHub\Projekt\Interlacer\Interlacer\obj\x64\Release\Interlacer.csproj.GenerateResource.Cache
+C:\Users\Štěpán\Documents\GitHub\Projekt\Interlacer\bin64bit\Interlacer.exe.config
+C:\Users\Štěpán\Documents\GitHub\Projekt\Interlacer\bin64bit\Interlacer.exe
+C:\Users\Štěpán\Documents\GitHub\Projekt\Interlacer\bin64bit\Interlacer.pdb
+C:\Users\Štěpán\Documents\GitHub\Projekt\Interlacer\bin64bit\doc.xml
+C:\Users\Štěpán\Documents\GitHub\Projekt\Interlacer\bin64bit\cs-CZ\Interlacer.resources.dll
+C:\Users\Štěpán\Documents\GitHub\Projekt\Interlacer\Interlacer\obj\x64\Release\cs-CZ\Interlacer.resources.dll
+C:\Users\Štěpán\Documents\GitHub\Projekt\Interlacer\Interlacer\obj\x64\Release\Interlacer.exe
+C:\Users\Štěpán\Documents\GitHub\Projekt\Interlacer\Interlacer\obj\x64\Release\Interlacer.pdb
+C:\Users\Štěpán\Documents\GitHub\Projekt\Interlacer\Interlacer\obj\x64\Release\Interlacer.MainForm.resources
+C:\Users\Štěpán\Documents\GitHub\Projekt\Interlacer\Interlacer\obj\x64\Release\Interlacer.SettingsForm.resources
+C:\Users\Štěpán\Documents\GitHub\Projekt\Interlacer\Interlacer\obj\x64\Release\Interlacer.MainForm.cs-CZ.resources
+C:\Users\Štěpán\Documents\GitHub\Projekt\Interlacer\Interlacer\obj\x64\Release\Interlacer.csprojResolveAssemblyReference.cache

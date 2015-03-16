@@ -16,9 +16,7 @@ C:\Users\Štěpán\Documents\GitHub\Projekt\GUINavrh\GUINavrh\obj\Release\GUINav
 C:\Users\Štěpán\Documents\GitHub\Projekt\GUINavrh\GUINavrh\obj\Release\GUINavrh.pdb
 C:\Users\Štěpán\Documents\GitHub\Projekt\GUINavrh\GUINavrh\bin\Release\GUINavrh.exe
 C:\Users\Štěpán\Documents\GitHub\Projekt\GUINavrh\GUINavrh\bin\Release\GUINavrh.pdb
-C:\Users\Štěpán\Documents\GitHub\Projekt\GUINavrh\GUINavrh\bin\Release\Ai.Control.dll
 C:\Users\Štěpán\Documents\GitHub\Projekt\GUINavrh\GUINavrh\obj\Release\GUINavrh.csprojResolveAssemblyReference.cache
-C:\Users\Štěpán\Documents\GitHub\Projekt\GUINavrh\GUINavrh\obj\Release\GUINavrh.Form1.resources
 C:\Users\Štěpán\Documents\GitHub\Projekt\GUINavrh\GUINavrh\obj\Release\GUINavrh.Properties.Resources.resources
 C:\Users\Štěpán\Documents\GitHub\Projekt\GUINavrh\GUINavrh\obj\Release\GUINavrh.csproj.GenerateResource.Cache
 C:\Users\Barat_000\OneDrive\Dokumenty\@ZSWI\Project\Projekt\GUINavrh\GUINavrh\bin\Release\GUINavrh.exe.config
@@ -47,3 +45,8 @@ C:\Users\Barat_000\Desktop\zswi\GUINavrh\obj\Release\GUINavrh.SettingsForm.resou
 C:\Users\Barat_000\Desktop\zswi\GUINavrh\obj\Release\GUINavrh.Form1.cs-CZ.resources
 C:\Users\Barat_000\Desktop\zswi\GUINavrh\obj\Release\GUINavrh.csproj.GenerateResource.Cache
 C:\Users\Barat_000\Desktop\zswi\GUINavrh\obj\Release\cs-CZ\GUINavrh.resources.dll
+C:\Users\Štěpán\Documents\GitHub\Projekt\GUINavrh\GUINavrh\bin\Release\cs-CZ\GUINavrh.resources.dll
+C:\Users\Štěpán\Documents\GitHub\Projekt\GUINavrh\GUINavrh\obj\Release\GUINavrh.MainForm.resources
+C:\Users\Štěpán\Documents\GitHub\Projekt\GUINavrh\GUINavrh\obj\Release\GUINavrh.SettingsForm.resources
+C:\Users\Štěpán\Documents\GitHub\Projekt\GUINavrh\GUINavrh\obj\Release\GUINavrh.MainForm.cs-CZ.resources
+C:\Users\Štěpán\Documents\GitHub\Projekt\GUINavrh\GUINavrh\obj\Release\cs-CZ\GUINavrh.resources.dll
