@@ -49,7 +49,9 @@
             this.unitsComboBox = new System.Windows.Forms.ToolStripComboBox();
             this.outputImageTab = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
-            this.listViewEx1 = new Bol.WinControls.ListViewEx();
+            this.pictureListViewEx = new Bol.WinControls.ListViewEx();
+            this.orderHeader = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.pathHeader = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.button8 = new System.Windows.Forms.Button();
             this.button7 = new System.Windows.Forms.Button();
             this.button6 = new System.Windows.Forms.Button();
@@ -57,7 +59,7 @@
             this.button4 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
+            this.addPicButton = new System.Windows.Forms.Button();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.lpiNumeric = new System.Windows.Forms.NumericUpDown();
             this.dpiNumeric = new System.Windows.Forms.NumericUpDown();
@@ -125,6 +127,7 @@
             this.columnHeader3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader4 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
+            this.addPicFileDialog = new System.Windows.Forms.OpenFileDialog();
             this.menuStrip1.SuspendLayout();
             this.toolStrip1.SuspendLayout();
             this.outputImageTab.SuspendLayout();
@@ -155,6 +158,7 @@
             // 
             // menuStrip1
             // 
+            this.menuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.souborMenuItem,
             this.nastaeníToolStripMenuItem,
@@ -240,13 +244,13 @@
             // 
             // toolStrip1
             // 
+            this.toolStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.ulozToolStripButton,
             this.nahrajToolStripButton,
             this.unitsComboBox});
             resources.ApplyResources(this.toolStrip1, "toolStrip1");
             this.toolStrip1.Name = "toolStrip1";
-            this.toolStrip1.ItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.toolStrip1_ItemClicked);
             // 
             // ulozToolStripButton
             // 
@@ -281,7 +285,7 @@
             // tabPage1
             // 
             this.tabPage1.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.tabPage1.Controls.Add(this.listViewEx1);
+            this.tabPage1.Controls.Add(this.pictureListViewEx);
             this.tabPage1.Controls.Add(this.button8);
             this.tabPage1.Controls.Add(this.button7);
             this.tabPage1.Controls.Add(this.button6);
@@ -289,7 +293,7 @@
             this.tabPage1.Controls.Add(this.button4);
             this.tabPage1.Controls.Add(this.button3);
             this.tabPage1.Controls.Add(this.button2);
-            this.tabPage1.Controls.Add(this.button1);
+            this.tabPage1.Controls.Add(this.addPicButton);
             this.tabPage1.Controls.Add(this.groupBox3);
             this.tabPage1.Controls.Add(this.groupBox5);
             this.tabPage1.Controls.Add(this.groupBox6);
@@ -300,13 +304,25 @@
             resources.ApplyResources(this.tabPage1, "tabPage1");
             this.tabPage1.Name = "tabPage1";
             // 
-            // listViewEx1
+            // pictureListViewEx
             // 
-            this.listViewEx1.AllowDrop = true;
-            this.listViewEx1.AllowRowReorder = true;
-            resources.ApplyResources(this.listViewEx1, "listViewEx1");
-            this.listViewEx1.Name = "listViewEx1";
-            this.listViewEx1.UseCompatibleStateImageBehavior = false;
+            this.pictureListViewEx.AllowDrop = true;
+            this.pictureListViewEx.AllowRowReorder = true;
+            this.pictureListViewEx.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.orderHeader,
+            this.pathHeader});
+            resources.ApplyResources(this.pictureListViewEx, "pictureListViewEx");
+            this.pictureListViewEx.Name = "pictureListViewEx";
+            this.pictureListViewEx.UseCompatibleStateImageBehavior = false;
+            this.pictureListViewEx.View = System.Windows.Forms.View.Details;
+            // 
+            // orderHeader
+            // 
+            resources.ApplyResources(this.orderHeader, "orderHeader");
+            // 
+            // pathHeader
+            // 
+            resources.ApplyResources(this.pathHeader, "pathHeader");
             // 
             // button8
             // 
@@ -355,12 +371,13 @@
             this.toolTip1.SetToolTip(this.button2, resources.GetString("button2.ToolTip"));
             this.button2.UseVisualStyleBackColor = true;
             // 
-            // button1
+            // addPicButton
             // 
-            resources.ApplyResources(this.button1, "button1");
-            this.button1.Name = "button1";
-            this.toolTip1.SetToolTip(this.button1, resources.GetString("button1.ToolTip"));
-            this.button1.UseVisualStyleBackColor = true;
+            resources.ApplyResources(this.addPicButton, "addPicButton");
+            this.addPicButton.Name = "addPicButton";
+            this.toolTip1.SetToolTip(this.addPicButton, resources.GetString("addPicButton.ToolTip"));
+            this.addPicButton.UseVisualStyleBackColor = true;
+            this.addPicButton.Click += new System.EventHandler(this.addPicButton_Click);
             // 
             // groupBox3
             // 
@@ -935,7 +952,7 @@
         private System.Windows.Forms.TextBox widthInPixelsTextBox;
         private System.Windows.Forms.ToolStripMenuItem předvolbyToolStripMenuItem;
         private System.Windows.Forms.ToolTip toolTip1;
-        private Bol.WinControls.ListViewEx listViewEx1;
+        private Bol.WinControls.ListViewEx pictureListViewEx;
         private System.Windows.Forms.Button button8;
         private System.Windows.Forms.Button button7;
         private System.Windows.Forms.Button button6;
@@ -943,7 +960,10 @@
         private System.Windows.Forms.Button button4;
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button addPicButton;
+        private System.Windows.Forms.ColumnHeader orderHeader;
+        private System.Windows.Forms.OpenFileDialog addPicFileDialog;
+        private System.Windows.Forms.ColumnHeader pathHeader;
 
     }
 }

@@ -17,6 +17,7 @@ namespace Interlacer
     {
         private Settings settings;
 
+        private int order = 1;
         public MainForm()
         {
             //prozatimni reseni, pak bude potreba dodat retezce z recource filu
@@ -64,7 +65,8 @@ namespace Interlacer
 
         private void interlaceButton_Click(object sender, EventArgs e)
         {
-            List<Picture> pics = new List<Picture>
+            harvestPicList();
+            /*List<Picture> pics = new List<Picture>
             {
                 new Picture("pics/red.jpg"),
                 new Picture("pics/blue.jpg"),
@@ -97,16 +99,11 @@ namespace Interlacer
             picCon.Interlace();
             picCon.GetResult().Save("result.tif");
             picCon.GetResult().Destroy();
-            MessageBox.Show("Done!");
+            MessageBox.Show("Done!");*/
             //PictureContainer pc = new PictureContainer(progressBar, label, co dal??);
 
             //Thread t = new Thread(pc.interlace);
             //t.start();
-        }
-
-        private void toolStrip1_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
-        {
-
         }
 
         private void předvolbyToolStripMenuItem_Click(object sender, EventArgs e)
@@ -137,34 +134,31 @@ namespace Interlacer
             }            
         }
 
-        private void button6_Click(object sender, EventArgs e)
+        private void addPicButton_Click(object sender, EventArgs e)
         {
+            DialogResult result = addPicFileDialog.ShowDialog();
 
+            if (result == DialogResult.OK)
+            {
+                string chosenPicture = addPicFileDialog.FileName;
+
+                pictureListViewEx.Items.Add(Convert.ToString(order)).SubItems.Add(chosenPicture);
+                order += 1;
+            }
         }
 
-        private void button5_Click(object sender, EventArgs e)
+        private List<Picture> harvestPicList()
         {
+            String path;
+            List<Picture> picList = new List<Picture>();
 
-        }
-
-        private void button4_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void button3_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void button2_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-
+            for (int i = 0; i < pictureListViewEx.Items.Count; i++)
+            {
+                path = pictureListViewEx.Items[i].SubItems[1].Text;
+                picList.Add(new Picture(path));
+                Console.WriteLine("Pridavam obrazek: " + path);
+            }
+            return picList;
         }
     }
 }
