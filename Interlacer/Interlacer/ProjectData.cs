@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Interlacer
 {
-    class ProjectData
+    public class ProjectData
     {
         private InterlacingData interlacingData = new InterlacingData();
         private LineData lineData = new LineData();

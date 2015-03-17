@@ -9,7 +9,7 @@ using GfxlibWrapper;
 
 namespace Interlacer
 {
-    class PictureContainer
+    public class PictureContainer
     {
         /// <summary>
         /// List indexu - klicem je vzdy cesta k souboru, hodnotou je seznam pozic, na kterych se obrazek ma objevit

@@ -15,8 +15,33 @@ namespace Interlacer
 {
     public partial class MainForm : Form
     {
+        private Settings settings;
+
         public MainForm()
         {
+            //prozatimni reseni, pak bude potreba dodat retezce z recource filu
+            SettingOptions settingOptions = new SettingOptions();
+            settingOptions.languageOptions = new List<StringValuePair<String>>
+            {
+                new StringValuePair<String>("Čeština", "cs-CZ"),
+                new StringValuePair<String>("Angličtina", "en")
+            };
+            settingOptions.unitsOptions = new List<StringValuePair<Units>>
+            {
+                new StringValuePair<Units>("cm", Units.Cm),
+                new StringValuePair<Units>("mm", Units.Mm),
+                new StringValuePair<Units>("palce", Units.In)
+            };
+            settingOptions.resolutionUnitsOptions = new List<StringValuePair<Units>>
+            {
+                new StringValuePair<Units>("DPI, LPI", Units.In),
+                new StringValuePair<Units>("DPCM, LPCM", Units.Cm)
+            };
+            settings = new Settings(settingOptions);
+            settings.SetSelectedLanguageIndex(0);
+            settings.SetSelectedUnitsIndex(0);
+            settings.SetSelectedResolutionUnitsIndex(0);
+
             Thread.CurrentThread.CurrentCulture = new CultureInfo("cs-CZ");
             // Sets the UI culture to French (France)
             Thread.CurrentThread.CurrentUICulture = new CultureInfo("cs-CZ");
@@ -86,7 +111,7 @@ namespace Interlacer
 
         private void předvolbyToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            SettingsForm settingsForm = new SettingsForm(this);
+            SettingsForm settingsForm = new SettingsForm(this, settings);
             settingsForm.ShowDialog();
         }
 

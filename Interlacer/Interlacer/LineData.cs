@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Interlacer
 {
-    class LineData : IProcessData
+    public class LineData : IProcessData
     {
         /// <summary>
         ///  šírka čáry na lentikuli kolik je obrázků

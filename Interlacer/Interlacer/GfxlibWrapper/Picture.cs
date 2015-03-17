@@ -15,7 +15,10 @@ namespace GfxlibWrapper
     //definuje typ podle velikosti barevneho kanalu pro samostatne kanaly
     using IntChannel = Byte;
 
-    unsafe class Picture
+    /// <summary>
+    /// trida reprezentujici obrazek jako bitmapu
+    /// </summary>
+    unsafe public class Picture
     {
         /// <summary>
         /// sirka v pixelech

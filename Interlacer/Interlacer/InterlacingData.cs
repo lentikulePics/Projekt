@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Interlacer
 {
-    class InterlacingData : IProcessData
+    public class InterlacingData : IProcessData
     {
         private double width;
         private double height;

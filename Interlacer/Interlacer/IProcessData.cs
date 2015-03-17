@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Interlacer
 {
-    interface IProcessData
+    public interface IProcessData
     {
         void SetUnits(Units units);
         Units GetUnits();

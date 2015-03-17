@@ -13,40 +13,40 @@ namespace Interlacer
     public partial class SettingsForm : Form
     {
         private MainForm parent;
+        private Settings settings;
 
-        public SettingsForm(MainForm parent)
+        public SettingsForm(MainForm parent, Settings settings)
         {
             InitializeComponent();
             this.parent = parent;
+            this.settings = settings;
         }
 
         private void SettingsForm_Load(object sender, EventArgs e)
         {
-            languageCombobox.SelectedIndex = 0;
+            languageCombobox.Items.Add(settings.GetSettingOptions().languageOptions[0]);
+            languageCombobox.Items.Add(settings.GetSettingOptions().languageOptions[1]);
 
-            comboBox1.Items.Add(new KeyValuePair<String, Units>("cm", Units.Cm));
-            comboBox1.Items.Add(new KeyValuePair<String, Units>("mm", Units.Mm));
-            comboBox1.Items.Add(new KeyValuePair<String, Units>("in", Units.In));
+            comboBox1.Items.Add(settings.GetSettingOptions().unitsOptions[0]);
+            comboBox1.Items.Add(settings.GetSettingOptions().unitsOptions[1]);
+            comboBox1.Items.Add(settings.GetSettingOptions().unitsOptions[2]);
 
-            comboBox2.Items.Add(new KeyValuePair<String, Units>("DPI / LPI", Units.In));
-            comboBox2.Items.Add(new KeyValuePair<String, Units>("DPCM / LPCM", Units.Cm));
+            comboBox2.Items.Add(settings.GetSettingOptions().resolutionUnitsOptions[0]);
+            comboBox2.Items.Add(settings.GetSettingOptions().resolutionUnitsOptions[1]);
 
-            comboBox1.SelectedIndex = 0;
-            comboBox2.SelectedIndex = 0;
+            comboBox1.SelectedIndex = settings.GetSelectedUnitsIndex();
+            comboBox2.SelectedIndex = settings.GetSelectedResolutionUnitsIndex();
+            languageCombobox.SelectedIndex = settings.GetSelectedLanguageIndex();
         }
 
         private void applyButton_Click(object sender, EventArgs e)
         {
-            string selectedLanguage = languageCombobox.SelectedItem.ToString();
+            String selectedLanguage = ((StringValuePair<String>)languageCombobox.SelectedItem).value;
+            parent.changeLanguage(selectedLanguage);
 
-            if (selectedLanguage == "Čeština")
-            {
-                parent.changeLanguage("cs-CZ");
-            }
-            else if (selectedLanguage == "Angličtina")
-            {
-                parent.changeLanguage("en");
-            }
+            settings.SetSelectedLanguageIndex(languageCombobox.SelectedIndex);
+            settings.SetSelectedUnitsIndex(comboBox1.SelectedIndex);
+            settings.SetSelectedResolutionUnitsIndex(comboBox2.SelectedIndex);
         }
 
         private void okButton_Click(object sender, EventArgs e)
