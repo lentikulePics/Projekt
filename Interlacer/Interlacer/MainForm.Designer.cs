@@ -49,6 +49,15 @@
             this.unitsComboBox = new System.Windows.Forms.ToolStripComboBox();
             this.outputImageTab = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.listViewEx1 = new Bol.WinControls.ListViewEx();
+            this.button8 = new System.Windows.Forms.Button();
+            this.button7 = new System.Windows.Forms.Button();
+            this.button6 = new System.Windows.Forms.Button();
+            this.button5 = new System.Windows.Forms.Button();
+            this.button4 = new System.Windows.Forms.Button();
+            this.button3 = new System.Windows.Forms.Button();
+            this.button2 = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.lpiNumeric = new System.Windows.Forms.NumericUpDown();
             this.dpiNumeric = new System.Windows.Forms.NumericUpDown();
@@ -116,15 +125,6 @@
             this.columnHeader3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader4 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
-            this.listViewEx1 = new Bol.WinControls.ListViewEx();
-            this.button8 = new System.Windows.Forms.Button();
-            this.button7 = new System.Windows.Forms.Button();
-            this.button6 = new System.Windows.Forms.Button();
-            this.button5 = new System.Windows.Forms.Button();
-            this.button4 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
             this.menuStrip1.SuspendLayout();
             this.toolStrip1.SuspendLayout();
             this.outputImageTab.SuspendLayout();
@@ -299,6 +299,68 @@
             this.tabPage1.Controls.Add(this.label5);
             resources.ApplyResources(this.tabPage1, "tabPage1");
             this.tabPage1.Name = "tabPage1";
+            // 
+            // listViewEx1
+            // 
+            this.listViewEx1.AllowDrop = true;
+            this.listViewEx1.AllowRowReorder = true;
+            resources.ApplyResources(this.listViewEx1, "listViewEx1");
+            this.listViewEx1.Name = "listViewEx1";
+            this.listViewEx1.UseCompatibleStateImageBehavior = false;
+            // 
+            // button8
+            // 
+            resources.ApplyResources(this.button8, "button8");
+            this.button8.Name = "button8";
+            this.toolTip1.SetToolTip(this.button8, resources.GetString("button8.ToolTip"));
+            this.button8.UseVisualStyleBackColor = true;
+            // 
+            // button7
+            // 
+            resources.ApplyResources(this.button7, "button7");
+            this.button7.Name = "button7";
+            this.toolTip1.SetToolTip(this.button7, resources.GetString("button7.ToolTip"));
+            this.button7.UseVisualStyleBackColor = true;
+            // 
+            // button6
+            // 
+            resources.ApplyResources(this.button6, "button6");
+            this.button6.Name = "button6";
+            this.toolTip1.SetToolTip(this.button6, resources.GetString("button6.ToolTip"));
+            this.button6.UseVisualStyleBackColor = true;
+            // 
+            // button5
+            // 
+            resources.ApplyResources(this.button5, "button5");
+            this.button5.Name = "button5";
+            this.button5.UseVisualStyleBackColor = true;
+            // 
+            // button4
+            // 
+            resources.ApplyResources(this.button4, "button4");
+            this.button4.Name = "button4";
+            this.button4.UseVisualStyleBackColor = true;
+            // 
+            // button3
+            // 
+            resources.ApplyResources(this.button3, "button3");
+            this.button3.Name = "button3";
+            this.toolTip1.SetToolTip(this.button3, resources.GetString("button3.ToolTip"));
+            this.button3.UseVisualStyleBackColor = true;
+            // 
+            // button2
+            // 
+            resources.ApplyResources(this.button2, "button2");
+            this.button2.Name = "button2";
+            this.toolTip1.SetToolTip(this.button2, resources.GetString("button2.ToolTip"));
+            this.button2.UseVisualStyleBackColor = true;
+            // 
+            // button1
+            // 
+            resources.ApplyResources(this.button1, "button1");
+            this.button1.Name = "button1";
+            this.toolTip1.SetToolTip(this.button1, resources.GetString("button1.ToolTip"));
+            this.button1.UseVisualStyleBackColor = true;
             // 
             // groupBox3
             // 
@@ -723,68 +785,6 @@
             // columnHeader4
             // 
             resources.ApplyResources(this.columnHeader4, "columnHeader4");
-            // 
-            // listViewEx1
-            // 
-            this.listViewEx1.AllowDrop = true;
-            this.listViewEx1.AllowRowReorder = true;
-            resources.ApplyResources(this.listViewEx1, "listViewEx1");
-            this.listViewEx1.Name = "listViewEx1";
-            this.listViewEx1.UseCompatibleStateImageBehavior = false;
-            // 
-            // button8
-            // 
-            resources.ApplyResources(this.button8, "button8");
-            this.button8.Name = "button8";
-            this.toolTip1.SetToolTip(this.button8, resources.GetString("button8.ToolTip"));
-            this.button8.UseVisualStyleBackColor = true;
-            // 
-            // button7
-            // 
-            resources.ApplyResources(this.button7, "button7");
-            this.button7.Name = "button7";
-            this.toolTip1.SetToolTip(this.button7, resources.GetString("button7.ToolTip"));
-            this.button7.UseVisualStyleBackColor = true;
-            // 
-            // button6
-            // 
-            resources.ApplyResources(this.button6, "button6");
-            this.button6.Name = "button6";
-            this.toolTip1.SetToolTip(this.button6, resources.GetString("button6.ToolTip"));
-            this.button6.UseVisualStyleBackColor = true;
-            // 
-            // button5
-            // 
-            resources.ApplyResources(this.button5, "button5");
-            this.button5.Name = "button5";
-            this.button5.UseVisualStyleBackColor = true;
-            // 
-            // button4
-            // 
-            resources.ApplyResources(this.button4, "button4");
-            this.button4.Name = "button4";
-            this.button4.UseVisualStyleBackColor = true;
-            // 
-            // button3
-            // 
-            resources.ApplyResources(this.button3, "button3");
-            this.button3.Name = "button3";
-            this.toolTip1.SetToolTip(this.button3, resources.GetString("button3.ToolTip"));
-            this.button3.UseVisualStyleBackColor = true;
-            // 
-            // button2
-            // 
-            resources.ApplyResources(this.button2, "button2");
-            this.button2.Name = "button2";
-            this.toolTip1.SetToolTip(this.button2, resources.GetString("button2.ToolTip"));
-            this.button2.UseVisualStyleBackColor = true;
-            // 
-            // button1
-            // 
-            resources.ApplyResources(this.button1, "button1");
-            this.button1.Name = "button1";
-            this.toolTip1.SetToolTip(this.button1, resources.GetString("button1.ToolTip"));
-            this.button1.UseVisualStyleBackColor = true;
             // 
             // MainForm
             // 

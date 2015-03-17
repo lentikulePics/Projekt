@@ -35,3 +35,7 @@ C:\Users\Štěpán\Documents\GitHub\Projekt\Interlacer\Interlacer\obj\x64\Releas
 C:\Users\Štěpán\Documents\GitHub\Projekt\Interlacer\Interlacer\obj\x64\Release\Interlacer.SettingsForm.resources
 C:\Users\Štěpán\Documents\GitHub\Projekt\Interlacer\Interlacer\obj\x64\Release\Interlacer.MainForm.cs-CZ.resources
 C:\Users\Štěpán\Documents\GitHub\Projekt\Interlacer\Interlacer\obj\x64\Release\Interlacer.csprojResolveAssemblyReference.cache
+C:\Users\Luckin\Desktop\Interlacer Github\Projekt\Interlacer\bin64bit\cs-CZ\Interlacer.resources.dll
+C:\Users\Luckin\Desktop\Interlacer Github\Projekt\Interlacer\Interlacer\obj\x64\Release\Interlacer.SettingsForm.resources
+C:\Users\Luckin\Desktop\Interlacer Github\Projekt\Interlacer\Interlacer\obj\x64\Release\Interlacer.MainForm.cs-CZ.resources
+C:\Users\Luckin\Desktop\Interlacer Github\Projekt\Interlacer\Interlacer\obj\x64\Release\cs-CZ\Interlacer.resources.dll

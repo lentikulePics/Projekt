@@ -109,7 +109,7 @@
     <Compile Include="MainForm.designer.cs">
       <DependentUpon>MainForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="UnitPair.cs" />
+    <Compile Include="StringValuePair.cs" />
     <Compile Include="PictureContainer.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

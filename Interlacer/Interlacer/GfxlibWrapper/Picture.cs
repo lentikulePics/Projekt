@@ -92,7 +92,7 @@ namespace GfxlibWrapper
             catch (SEHException)
             {
                 Destroy();
-                throw new PictureCreationFailureException();
+                throw new PictureCreationFailureException(width, height);
             }
         }
 
@@ -121,7 +121,7 @@ namespace GfxlibWrapper
             }
             catch (SEHException)
             {
-                throw new PictureLoadFailureException();
+                throw new PictureLoadFailureException(filename);
             }
         }
 
@@ -142,11 +142,11 @@ namespace GfxlibWrapper
             {
                 int errorCode = Marshal.GetExceptionCode();
                 if (errorCode == (int)GfxlibErrors.PictureLoadFailure)
-                    throw new PictureLoadFailureException();
+                    throw new PictureLoadFailureException(filename);
                 else
                 {
                     Destroy();
-                    throw new PictureCreationFailureException();
+                    throw new PictureCreationFailureException(width, height);
                 }
             }
         }
@@ -251,6 +251,7 @@ namespace GfxlibWrapper
         {
             this.xDpi = xDpi;
             this.yDpi = yDpi;
+            GfxlibCommunicator.setImageDpi(imagePtr, xDpi, yDpi);
         }
 
         /// <summary>
@@ -261,12 +262,11 @@ namespace GfxlibWrapper
         {
             try
             {
-                GfxlibCommunicator.setImageDpi(imagePtr, xDpi, yDpi);
                 GfxlibCommunicator.saveImage(imagePtr, stringToCharArray(saveFilename));
             }
             catch (SEHException)
             {
-                throw new PictureSaveFailureException();
+                throw new PictureSaveFailureException(saveFilename);
             }
         }
 
@@ -332,9 +332,9 @@ namespace GfxlibWrapper
             {
                 int errorCode = Marshal.GetExceptionCode();
                 if (errorCode == (int)GfxlibErrors.PictureResizeFilure)
-                    throw new PictureResizeFailureException();
+                    throw new PictureResizeFailureException(newWidth, newHeight);
                 else
-                    throw new PictureCreationFailureException();
+                    throw new PictureCreationFailureException(newWidth, newHeight);
             }
         }
 
@@ -356,7 +356,7 @@ namespace GfxlibWrapper
             }
             catch (SEHException)
             {
-                throw new PictureClipFailureException();
+                throw new PictureClipFailureException(newWidth, newHeight);
             }
         }
 
