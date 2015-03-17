@@ -53,12 +53,12 @@
             this.orderHeader = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.pathHeader = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.button8 = new System.Windows.Forms.Button();
-            this.button7 = new System.Windows.Forms.Button();
-            this.button6 = new System.Windows.Forms.Button();
-            this.button5 = new System.Windows.Forms.Button();
-            this.button4 = new System.Windows.Forms.Button();
+            this.clearAllButton = new System.Windows.Forms.Button();
+            this.revertButton = new System.Windows.Forms.Button();
+            this.moveDownButton = new System.Windows.Forms.Button();
+            this.moveUpButton = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
+            this.removePicButton = new System.Windows.Forms.Button();
             this.addPicButton = new System.Windows.Forms.Button();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.lpiNumeric = new System.Windows.Forms.NumericUpDown();
@@ -287,12 +287,12 @@
             this.tabPage1.BackColor = System.Drawing.Color.WhiteSmoke;
             this.tabPage1.Controls.Add(this.pictureListViewEx);
             this.tabPage1.Controls.Add(this.button8);
-            this.tabPage1.Controls.Add(this.button7);
-            this.tabPage1.Controls.Add(this.button6);
-            this.tabPage1.Controls.Add(this.button5);
-            this.tabPage1.Controls.Add(this.button4);
+            this.tabPage1.Controls.Add(this.clearAllButton);
+            this.tabPage1.Controls.Add(this.revertButton);
+            this.tabPage1.Controls.Add(this.moveDownButton);
+            this.tabPage1.Controls.Add(this.moveUpButton);
             this.tabPage1.Controls.Add(this.button3);
-            this.tabPage1.Controls.Add(this.button2);
+            this.tabPage1.Controls.Add(this.removePicButton);
             this.tabPage1.Controls.Add(this.addPicButton);
             this.tabPage1.Controls.Add(this.groupBox3);
             this.tabPage1.Controls.Add(this.groupBox5);
@@ -311,6 +311,7 @@
             this.pictureListViewEx.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.orderHeader,
             this.pathHeader});
+            this.pictureListViewEx.FullRowSelect = true;
             resources.ApplyResources(this.pictureListViewEx, "pictureListViewEx");
             this.pictureListViewEx.Name = "pictureListViewEx";
             this.pictureListViewEx.UseCompatibleStateImageBehavior = false;
@@ -331,31 +332,34 @@
             this.toolTip1.SetToolTip(this.button8, resources.GetString("button8.ToolTip"));
             this.button8.UseVisualStyleBackColor = true;
             // 
-            // button7
+            // clearAllButton
             // 
-            resources.ApplyResources(this.button7, "button7");
-            this.button7.Name = "button7";
-            this.toolTip1.SetToolTip(this.button7, resources.GetString("button7.ToolTip"));
-            this.button7.UseVisualStyleBackColor = true;
+            resources.ApplyResources(this.clearAllButton, "clearAllButton");
+            this.clearAllButton.Name = "clearAllButton";
+            this.toolTip1.SetToolTip(this.clearAllButton, resources.GetString("clearAllButton.ToolTip"));
+            this.clearAllButton.UseVisualStyleBackColor = true;
+            this.clearAllButton.Click += new System.EventHandler(this.clearAllButton_Click);
             // 
-            // button6
+            // revertButton
             // 
-            resources.ApplyResources(this.button6, "button6");
-            this.button6.Name = "button6";
-            this.toolTip1.SetToolTip(this.button6, resources.GetString("button6.ToolTip"));
-            this.button6.UseVisualStyleBackColor = true;
+            resources.ApplyResources(this.revertButton, "revertButton");
+            this.revertButton.Name = "revertButton";
+            this.toolTip1.SetToolTip(this.revertButton, resources.GetString("revertButton.ToolTip"));
+            this.revertButton.UseVisualStyleBackColor = true;
+            this.revertButton.Click += new System.EventHandler(this.revertButton_Click);
             // 
-            // button5
+            // moveDownButton
             // 
-            resources.ApplyResources(this.button5, "button5");
-            this.button5.Name = "button5";
-            this.button5.UseVisualStyleBackColor = true;
+            resources.ApplyResources(this.moveDownButton, "moveDownButton");
+            this.moveDownButton.Name = "moveDownButton";
+            this.moveDownButton.UseVisualStyleBackColor = true;
             // 
-            // button4
+            // moveUpButton
             // 
-            resources.ApplyResources(this.button4, "button4");
-            this.button4.Name = "button4";
-            this.button4.UseVisualStyleBackColor = true;
+            resources.ApplyResources(this.moveUpButton, "moveUpButton");
+            this.moveUpButton.Name = "moveUpButton";
+            this.moveUpButton.UseVisualStyleBackColor = true;
+            this.moveUpButton.Click += new System.EventHandler(this.moveUpButton_Click);
             // 
             // button3
             // 
@@ -364,12 +368,13 @@
             this.toolTip1.SetToolTip(this.button3, resources.GetString("button3.ToolTip"));
             this.button3.UseVisualStyleBackColor = true;
             // 
-            // button2
+            // removePicButton
             // 
-            resources.ApplyResources(this.button2, "button2");
-            this.button2.Name = "button2";
-            this.toolTip1.SetToolTip(this.button2, resources.GetString("button2.ToolTip"));
-            this.button2.UseVisualStyleBackColor = true;
+            resources.ApplyResources(this.removePicButton, "removePicButton");
+            this.removePicButton.Name = "removePicButton";
+            this.toolTip1.SetToolTip(this.removePicButton, resources.GetString("removePicButton.ToolTip"));
+            this.removePicButton.UseVisualStyleBackColor = true;
+            this.removePicButton.Click += new System.EventHandler(this.removePicButton_Click);
             // 
             // addPicButton
             // 
@@ -494,11 +499,13 @@
             // 
             resources.ApplyResources(this.widthNumeric, "widthNumeric");
             this.widthNumeric.Name = "widthNumeric";
+            this.widthNumeric.ValueChanged += new System.EventHandler(this.widthNumeric_ValueChanged);
             // 
             // heightNumeric
             // 
             resources.ApplyResources(this.heightNumeric, "heightNumeric");
             this.heightNumeric.Name = "heightNumeric";
+            this.heightNumeric.ValueChanged += new System.EventHandler(this.heightNumeric_ValueChanged);
             // 
             // heightLabel
             // 
@@ -518,6 +525,7 @@
             resources.ApplyResources(this.keepRatioCheckbox, "keepRatioCheckbox");
             this.keepRatioCheckbox.Name = "keepRatioCheckbox";
             this.keepRatioCheckbox.UseVisualStyleBackColor = true;
+            this.keepRatioCheckbox.CheckedChanged += new System.EventHandler(this.keepRatioCheckbox_CheckedChanged);
             // 
             // unitsLabel2
             // 
@@ -954,12 +962,12 @@
         private System.Windows.Forms.ToolTip toolTip1;
         private Bol.WinControls.ListViewEx pictureListViewEx;
         private System.Windows.Forms.Button button8;
-        private System.Windows.Forms.Button button7;
-        private System.Windows.Forms.Button button6;
-        private System.Windows.Forms.Button button5;
-        private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.Button clearAllButton;
+        private System.Windows.Forms.Button revertButton;
+        private System.Windows.Forms.Button moveDownButton;
+        private System.Windows.Forms.Button moveUpButton;
         private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button removePicButton;
         private System.Windows.Forms.Button addPicButton;
         private System.Windows.Forms.ColumnHeader orderHeader;
         private System.Windows.Forms.OpenFileDialog addPicFileDialog;

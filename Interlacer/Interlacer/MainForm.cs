@@ -53,6 +53,8 @@ namespace Interlacer
             unitsComboBox.SelectedItem = unitsComboBox.Items[0];
             interpol1ComboBox.SelectedItem = interpol1ComboBox.Items[0];
             interpol2ComboBox.SelectedItem = interpol2ComboBox.Items[0];
+
+            pictureListViewEx.MultiSelect = true;
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -162,9 +164,68 @@ namespace Interlacer
             {
                 path = pictureListViewEx.Items[i].SubItems[1].Text;
                 picList.Add(new Picture(path));
-                Console.WriteLine("Pridavam obrazek: " + path);
             }
             return picList;
+        }
+
+        private void clearAllButton_Click(object sender, EventArgs e)
+        {
+               pictureListViewEx.Items.Clear();
+        }
+
+        private void removePicButton_Click(object sender, EventArgs e)
+        {
+            int count = pictureListViewEx.SelectedItems.Count;
+            for(int i = 0; i < count; i++) {
+                pictureListViewEx.SelectedItems[0].Remove();
+            }
+
+            reOrder();
+        }
+
+        private void reOrder()
+        {
+            order = 1;
+
+            for (int i = 0; i < pictureListViewEx.Items.Count; i++)
+            {
+                pictureListViewEx.Items[i].SubItems[0].Text = Convert.ToString(order);
+                order += 1;
+            }
+        }
+
+        private void moveUpButton_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void revertButton_Click(object sender, EventArgs e)
+        {
+            List<String> tmp_paths = new List<String>();
+            for (int i = 0; i < pictureListViewEx.Items.Count; i++)
+            {
+                tmp_paths.Add(pictureListViewEx.Items[i].SubItems[1].Text);
+            }
+
+            for (int i = 0; i < pictureListViewEx.Items.Count; i++)
+            {
+                pictureListViewEx.Items[i].SubItems[1].Text = tmp_paths[tmp_paths.Count - i - 1];
+            }
+        }
+
+        private void widthNumeric_ValueChanged(object sender, EventArgs e)
+        {
+            projectData.GetInterlacingData().SetWidth(Convert.ToDouble(widthNumeric.Value));
+        }
+
+        private void heightNumeric_ValueChanged(object sender, EventArgs e)
+        {
+            projectData.GetInterlacingData().SetHeight(Convert.ToDouble(heightNumeric.Value));
+        }
+
+        private void keepRatioCheckbox_CheckedChanged(object sender, EventArgs e)
+        {
+            projectData.GetInterlacingData().KeepAspectRatio(keepRatioCheckbox.Checked);
         }
     }
 }
