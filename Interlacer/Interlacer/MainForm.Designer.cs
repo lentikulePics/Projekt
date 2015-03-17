@@ -312,6 +312,7 @@
             this.orderHeader,
             this.pathHeader});
             this.pictureListViewEx.FullRowSelect = true;
+            this.pictureListViewEx.GridLines = true;
             resources.ApplyResources(this.pictureListViewEx, "pictureListViewEx");
             this.pictureListViewEx.Name = "pictureListViewEx";
             this.pictureListViewEx.UseCompatibleStateImageBehavior = false;
