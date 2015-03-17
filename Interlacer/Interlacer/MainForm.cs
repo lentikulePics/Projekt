@@ -18,6 +18,8 @@ namespace Interlacer
         private Settings settings;
 
         private int order = 1;
+        public ProjectData projectData = new ProjectData();
+
         public MainForm()
         {
             //prozatimni reseni, pak bude potreba dodat retezce z recource filu
@@ -136,14 +138,18 @@ namespace Interlacer
 
         private void addPicButton_Click(object sender, EventArgs e)
         {
+            addPicFileDialog.Multiselect = true;
             DialogResult result = addPicFileDialog.ShowDialog();
 
             if (result == DialogResult.OK)
             {
-                string chosenPicture = addPicFileDialog.FileName;
+                string [] chosenPictures = addPicFileDialog.FileNames;
 
-                pictureListViewEx.Items.Add(Convert.ToString(order)).SubItems.Add(chosenPicture);
-                order += 1;
+                for (int i = 0; i < chosenPictures.Length; i++)
+                {
+                    pictureListViewEx.Items.Add(Convert.ToString(order)).SubItems.Add(chosenPictures[i]);
+                    order += 1;
+                }
             }
         }
 
