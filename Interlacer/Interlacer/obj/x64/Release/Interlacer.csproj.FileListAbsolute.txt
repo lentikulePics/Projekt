@@ -53,3 +53,4 @@ D:\Škola\WorkSpace\ZSWI - projekt\Interlacer\bin64bit\Interlacer.pdb
 D:\Škola\WorkSpace\ZSWI - projekt\Interlacer\bin64bit\doc.xml
 D:\Škola\WorkSpace\ZSWI - projekt\Interlacer\bin64bit\cs-CZ\Interlacer.resources.dll
 D:\Škola\WorkSpace\ZSWI - projekt\Interlacer\Interlacer\obj\x64\Release\cs-CZ\Interlacer.resources.dll
+C:\Users\Luckin\Desktop\Interlacer Github\Projekt\Interlacer\Interlacer\obj\x64\Release\Interlacer.csprojResolveAssemblyReference.cache
