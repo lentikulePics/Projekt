@@ -118,22 +118,29 @@ namespace Interlacer
 
         public void changeLanguage(String lang)
         {
-            loop(this, lang);
+            iterateOverControls(this, lang);
         }
 
-        private void loop(Control parent, string lang)
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="parent"></param>
+        /// <param name="lang"></param>
+        private void iterateOverControls(Control parent, string lang)
         {
+            ComponentResourceManager resources = new ComponentResourceManager(typeof(MainForm));
+
             foreach (Control c in parent.Controls)
             {
-                ComponentResourceManager resources = new ComponentResourceManager(typeof(MainForm));
+                
                     resources.ApplyResources(c, c.Name, new CultureInfo(lang));    
                 if (c.GetType() == typeof(GroupBox))
                 {
-                      loop(c, lang);
+                      iterateOverControls(c, lang);
                 }
                 else
                 {
-                    loop(c, lang);
+                    iterateOverControls(c, lang);
                 }
             }            
         }

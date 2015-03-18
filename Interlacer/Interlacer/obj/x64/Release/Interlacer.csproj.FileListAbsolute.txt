@@ -54,3 +54,17 @@ D:\Škola\WorkSpace\ZSWI - projekt\Interlacer\bin64bit\doc.xml
 D:\Škola\WorkSpace\ZSWI - projekt\Interlacer\bin64bit\cs-CZ\Interlacer.resources.dll
 D:\Škola\WorkSpace\ZSWI - projekt\Interlacer\Interlacer\obj\x64\Release\cs-CZ\Interlacer.resources.dll
 C:\Users\Luckin\Desktop\Interlacer Github\Projekt\Interlacer\Interlacer\obj\x64\Release\Interlacer.csprojResolveAssemblyReference.cache
+C:\Users\Barat_000\OneDrive\Dokumenty\@ZSWI\Project\Projekt\Projekt\Interlacer\bin64bit\Interlacer.exe.config
+C:\Users\Barat_000\OneDrive\Dokumenty\@ZSWI\Project\Projekt\Projekt\Interlacer\Interlacer\obj\x64\Release\Interlacer.exe
+C:\Users\Barat_000\OneDrive\Dokumenty\@ZSWI\Project\Projekt\Projekt\Interlacer\Interlacer\obj\x64\Release\Interlacer.pdb
+C:\Users\Barat_000\OneDrive\Dokumenty\@ZSWI\Project\Projekt\Projekt\Interlacer\bin64bit\Interlacer.exe
+C:\Users\Barat_000\OneDrive\Dokumenty\@ZSWI\Project\Projekt\Projekt\Interlacer\bin64bit\Interlacer.pdb
+C:\Users\Barat_000\OneDrive\Dokumenty\@ZSWI\Project\Projekt\Projekt\Interlacer\bin64bit\doc.xml
+C:\Users\Barat_000\OneDrive\Dokumenty\@ZSWI\Project\Projekt\Projekt\Interlacer\bin64bit\cs-CZ\Interlacer.resources.dll
+C:\Users\Barat_000\OneDrive\Dokumenty\@ZSWI\Project\Projekt\Projekt\Interlacer\Interlacer\obj\x64\Release\Interlacer.csprojResolveAssemblyReference.cache
+C:\Users\Barat_000\OneDrive\Dokumenty\@ZSWI\Project\Projekt\Projekt\Interlacer\Interlacer\obj\x64\Release\Interlacer.MainForm.resources
+C:\Users\Barat_000\OneDrive\Dokumenty\@ZSWI\Project\Projekt\Projekt\Interlacer\Interlacer\obj\x64\Release\Interlacer.Properties.Resources.resources
+C:\Users\Barat_000\OneDrive\Dokumenty\@ZSWI\Project\Projekt\Projekt\Interlacer\Interlacer\obj\x64\Release\Interlacer.SettingsForm.resources
+C:\Users\Barat_000\OneDrive\Dokumenty\@ZSWI\Project\Projekt\Projekt\Interlacer\Interlacer\obj\x64\Release\Interlacer.MainForm.cs-CZ.resources
+C:\Users\Barat_000\OneDrive\Dokumenty\@ZSWI\Project\Projekt\Projekt\Interlacer\Interlacer\obj\x64\Release\Interlacer.csproj.GenerateResource.Cache
+C:\Users\Barat_000\OneDrive\Dokumenty\@ZSWI\Project\Projekt\Projekt\Interlacer\Interlacer\obj\x64\Release\cs-CZ\Interlacer.resources.dll
