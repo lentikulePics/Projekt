@@ -17,6 +17,8 @@ namespace Interlacer
 
         public SettingsForm(MainForm parent, Settings settings)
         {
+            Localization.changeCulture();
+            
             InitializeComponent();
             this.parent = parent;
             this.settings = settings;
@@ -24,6 +26,7 @@ namespace Interlacer
 
         private void SettingsForm_Load(object sender, EventArgs e)
         {
+            
             languageCombobox.Items.Add(settings.GetSettingOptions().languageOptions[0]);
             languageCombobox.Items.Add(settings.GetSettingOptions().languageOptions[1]);
 

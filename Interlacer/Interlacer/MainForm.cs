@@ -23,6 +23,7 @@ namespace Interlacer
 
         public MainForm()
         {
+            //Nastaveni jazyka na vychozi hodnotu(Cestina)
             Localization.changeCulture();
 
             //prozatimni reseni, pak bude potreba dodat retezce z recource filu
@@ -48,8 +49,6 @@ namespace Interlacer
             settings.SetSelectedUnitsIndex(0);
             settings.SetSelectedResolutionUnitsIndex(0);
 
-            
-
             InitializeComponent();
 
             unitsComboBox.SelectedItem = unitsComboBox.Items[0];
@@ -60,9 +59,7 @@ namespace Interlacer
         }
 
         private void Form1_Load(object sender, EventArgs e)
-        {
-            // Zmeni jazyk na vychozi(Cestina)
-            
+        {           
 
             /*picListViewEx.Items.Add("adsfasdsd");
             picListViewEx.Items.Add("dsadsfasdfasdfsfd");
@@ -82,6 +79,7 @@ namespace Interlacer
         private void interlaceButton_Click(object sender, EventArgs e)
         {
             harvestPicList();
+
             /*List<Picture> pics = new List<Picture>
             {
                 new Picture("pics/red.jpg"),
