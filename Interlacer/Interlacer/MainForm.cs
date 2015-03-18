@@ -24,20 +24,19 @@ namespace Interlacer
         public MainForm()
         {
             Localization.changeCulture();
-            Localization.resources = new ComponentResourceManager(typeof(MainForm));
 
             //prozatimni reseni, pak bude potreba dodat retezce z recource filu
             SettingOptions settingOptions = new SettingOptions();
             settingOptions.languageOptions = new List<StringValuePair<String>>
             {
-                new StringValuePair<String>(Localization.resources.GetString("langCzech"), "cs-CZ"),
-                new StringValuePair<String>(Localization.resources.GetString("langEnglish"), "en")
+                new StringValuePair<String>(Localization.resourcesMain.GetString("langCzech"), "cs-CZ"),
+                new StringValuePair<String>(Localization.resourcesMain.GetString("langEnglish"), "en")
             };
             settingOptions.unitsOptions = new List<StringValuePair<Units>>
             {
                 new StringValuePair<Units>("cm", Units.Cm),
                 new StringValuePair<Units>("mm", Units.Mm),
-                new StringValuePair<Units>(Localization.resources.GetString("unitsInches"), Units.In)
+                new StringValuePair<Units>(Localization.resourcesMain.GetString("unitsInches"), Units.In)
             };
             settingOptions.resolutionUnitsOptions = new List<StringValuePair<Units>>
             {
@@ -75,8 +74,7 @@ namespace Interlacer
         /// </summary>
         public void changeLanguage()
         {
-            Localization.iterateOverControls(this);
-            Localization.iterateOverControls(settingsForm);
+            Localization.iterateOverControls(this, Localization.resourcesMain);
         }
 
         
@@ -128,9 +126,7 @@ namespace Interlacer
         {
             settingsForm = new SettingsForm(this, settings);
             settingsForm.ShowDialog();
-        }
-
-        
+        }        
 
         private void addPicButton_Click(object sender, EventArgs e)
         {

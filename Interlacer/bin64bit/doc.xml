@@ -14,7 +14,7 @@
             Meni nastaveni kultury programu podle promenne currentLanguage
             </summary>
         </member>
-        <member name="M:Interlacer.Localization.iterateOverControls(System.Windows.Forms.Control)">
+        <member name="M:Interlacer.Localization.iterateOverControls(System.Windows.Forms.Control,System.ComponentModel.ComponentResourceManager)">
             <summary>
             Rekurzivne projde vsechny komponenty formu a nastavi jim aktualne pouzivany jazyk
             </summary>

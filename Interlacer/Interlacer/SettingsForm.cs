@@ -59,8 +59,7 @@ namespace Interlacer
 
         private void changeLanguage()
         {
-            Localization.resources = new ComponentResourceManager(typeof(SettingsForm));
-            Localization.iterateOverControls(this);
+            Localization.iterateOverControls(this, Localization.resourcesSettings);
         }
 
         private void label2_Click(object sender, EventArgs e)

@@ -16,8 +16,9 @@ namespace Interlacer
         /// Udava, na jaky jazyk je program nastaven
         /// </summary>
         public static string currentLanguage = "cs-CZ";
-        
-        public static ComponentResourceManager resources;
+
+        public static ComponentResourceManager resourcesMain = new ComponentResourceManager(typeof(MainForm));
+        public static ComponentResourceManager resourcesSettings = new ComponentResourceManager(typeof(SettingsForm));
 
         /// <summary>
         /// Meni nastaveni kultury programu podle promenne currentLanguage
@@ -32,19 +33,19 @@ namespace Interlacer
         /// Rekurzivne projde vsechny komponenty formu a nastavi jim aktualne pouzivany jazyk
         /// </summary>
         /// <param name="parent">Kopmonenta pres kterou se bude iterovat</param>
-        public static void iterateOverControls(Control parent)
+        public static void iterateOverControls(Control parent, ComponentResourceManager res)
         {            
 
             foreach (Control c in parent.Controls)
             {
-                resources.ApplyResources(c, c.Name, new CultureInfo(Localization.currentLanguage));
+                res.ApplyResources(c, c.Name, new CultureInfo(Localization.currentLanguage));
                 if (c.GetType() == typeof(GroupBox))
                 {
-                    iterateOverControls(c);
+                    iterateOverControls(c, res);
                 }
                 else
                 {
-                    iterateOverControls(c);
+                    iterateOverControls(c, res);
                 }
             }
         }
