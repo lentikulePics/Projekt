@@ -60,37 +60,15 @@
              šířka rámečku čár
             </summary>
         </member>
-        <member name="M:Interlacer.LineData.SetUnits(Interlacer.Units)">
+        <member name="M:Interlacer.LineData.SetUnits(GfxlibWrapper.Units)">
             <summary>
             
             </summary>
             <param name="units"></param>
         </member>
-        <member name="T:Interlacer.MainForm">
+        <member name="T:GfxlibWrapper.Picture">
             <summary>
-            Hlavni formular programu
-            </summary>
-        </member>
-        <member name="M:Interlacer.MainForm.#ctor">
-            <summary>
-            konstruktor pro inicializaci formulare
-            </summary>
-        </member>
-        <member name="F:Interlacer.MainForm.components">
-            <summary>
-            Required designer variable.
-            </summary>
-        </member>
-        <member name="M:Interlacer.MainForm.Dispose(System.Boolean)">
-            <summary>
-            Clean up any resources being used.
-            </summary>
-            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
-        </member>
-        <member name="M:Interlacer.MainForm.InitializeComponent">
-            <summary>
-            Required method for Designer support - do not modify
-            the contents of this method with the code editor.
+            trida reprezentujici obrazek jako bitmapu
             </summary>
         </member>
         <member name="F:GfxlibWrapper.Picture.width">
@@ -103,14 +81,19 @@
             vyska v pixelech
             </summary>
         </member>
-        <member name="F:GfxlibWrapper.Picture.xDpi">
+        <member name="F:GfxlibWrapper.Picture.xResolution">
             <summary>
-            DPI na ose x
+            rozliseni na ose x
             </summary>
         </member>
-        <member name="F:GfxlibWrapper.Picture.yDpi">
+        <member name="F:GfxlibWrapper.Picture.yResolution">
             <summary>
-            DPI na ose y
+            rozliseni na ose y
+            </summary>
+        </member>
+        <member name="F:GfxlibWrapper.Picture.resolutionUnits">
+            <summary>
+            jednotky pro rozliseni
             </summary>
         </member>
         <member name="F:GfxlibWrapper.Picture.pixelData">
@@ -230,6 +213,13 @@
             <param name="xDpi">DPI na ose x</param>
             <param name="yDpi">DPI na ose y</param>
         </member>
+        <member name="M:GfxlibWrapper.Picture.SetDpcm(System.Double,System.Double)">
+            <summary>
+            nastavi DPCM na obou osach
+            </summary>
+            <param name="xDpcm">DPCM na ose x</param>
+            <param name="yDpcm">DPCM na ose y</param>
+        </member>
         <member name="M:GfxlibWrapper.Picture.Save(System.String)">
             <summary>
             ulozi bitmapu
@@ -293,6 +283,165 @@
             <param name="sourceColumn">index zdrojoveho sloupce</param>
             <param name="destColumn">index ciloveho sloupce tohoto obrazku</param>
             <param name="destYBegin">index pocatecni y souradnice, od ktere se zacne sloupec kopirovat do tohoto obrazku</param>
+        </member>
+        <member name="F:Interlacer.MainForm.components">
+            <summary>
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:Interlacer.MainForm.Dispose(System.Boolean)">
+            <summary>
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:Interlacer.MainForm.InitializeComponent">
+            <summary>
+            Required method for Designer support - do not modify
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="T:Interlacer.SettingOptions">
+            <summary>
+            struktura, ktera obsahuje vsechny moznosti nastaveni
+            </summary>
+        </member>
+        <member name="F:Interlacer.SettingOptions.unitsOptions">
+            <summary>
+            moznosti nastaveni delkovych jednotek
+            </summary>
+        </member>
+        <member name="F:Interlacer.SettingOptions.resolutionUnitsOptions">
+            <summary>
+            moznosti nastaveni jednotek pro obrazove rozliseni a hustotu cocek
+            </summary>
+        </member>
+        <member name="F:Interlacer.SettingOptions.languageOptions">
+            <summary>
+            moznosti nastaveni jazyka
+            </summary>
+        </member>
+        <member name="T:Interlacer.Settings">
+            <summary>
+            obsahuje informace o aktualnim nastaveni
+            </summary>
+        </member>
+        <member name="F:Interlacer.Settings.settingOptions">
+            <summary>
+            informace o vsech moznostech nastaveni
+            </summary>
+        </member>
+        <member name="F:Interlacer.Settings.selectedUnitsIndex">
+            <summary>
+            aktualne vybrany index v nastaveni delkovych jednotek
+            </summary>
+        </member>
+        <member name="F:Interlacer.Settings.selectedResolutionUnitsIndex">
+            <summary>
+            aktualne vybrany index v nastaveni jednotek pro rozliseni
+            </summary>
+        </member>
+        <member name="F:Interlacer.Settings.selectedLanguageIndex">
+            <summary>
+            aktualne vybrany index v nastaveni jazyka
+            </summary>
+        </member>
+        <member name="M:Interlacer.Settings.#ctor(Interlacer.SettingOptions)">
+            <summary>
+            konstruktor, ktery nastavi moznosti nastaveni
+            </summary>
+            <param name="settingOptions">moznosti nastaveni</param>
+        </member>
+        <member name="M:Interlacer.Settings.GetSettingOptions">
+            <summary>
+            vrati moznosti nastaveni
+            </summary>
+            <returns>moznosti nastaveni</returns>
+        </member>
+        <member name="M:Interlacer.Settings.SetSelectedUnitsIndex(System.Int32)">
+            <summary>
+            nastavi index nastaveni delkovych jednotek
+            </summary>
+            <param name="index">novy index nastaveni delkovych jednotek</param>
+        </member>
+        <member name="M:Interlacer.Settings.GetSelectedUnitsIndex">
+            <summary>
+            vrati aktualne vybrany index nastaveni delkovych jednotek 
+            </summary>
+            <returns>aktualne vybrany index nastaveni delkovych jednotek</returns>
+        </member>
+        <member name="M:Interlacer.Settings.SetSelectedResolutionUnitsIndex(System.Int32)">
+            <summary>
+            nastavi index nastaveni jednotek pro rozliseni
+            </summary>
+            <param name="index">novy index nastaveni jednotek pro rozliseni</param>
+        </member>
+        <member name="M:Interlacer.Settings.GetSelectedResolutionUnitsIndex">
+            <summary>
+            vrati aktualne vybrany index nastaveni jednotek pro rozliseni
+            </summary>
+            <returns>aktualne vybrany index nastaveni jednotek pro rozliseni</returns>
+        </member>
+        <member name="M:Interlacer.Settings.SetSelectedLanguageIndex(System.Int32)">
+            <summary>
+            nastavi index nastaveni jazyka
+            </summary>
+            <param name="index">novy index nastaveni jazyka</param>
+        </member>
+        <member name="M:Interlacer.Settings.GetSelectedLanguageIndex">
+            <summary>
+            vrati aktualne vybrany index nastaveni jazyka
+            </summary>
+            <returns>aktualne vybrany index nastaveni jazyka</returns>
+        </member>
+        <member name="M:Interlacer.Settings.GetSelectedUnits">
+            <summary>
+            vrati aktualne vybrane nastaveni delkovych jednotek
+            </summary>
+            <returns>aktualne vybrane nastaveni delkovych jednotek</returns>
+        </member>
+        <member name="M:Interlacer.Settings.GetSelectedResolutionUnits">
+            <summary>
+            vrati aktualne vybrane nastaveni jednotek pro rozliseni
+            </summary>
+            <returns>aktualne vybrane nastaveni jednotek pro rozliseni</returns>
+        </member>
+        <member name="M:Interlacer.Settings.GetSelectedLanguage">
+            <summary>
+            vrati aktualne vybrane nastaveni jazyka
+            </summary>
+            <returns>aktualne vybrane nastaveni jazyka</returns>
+        </member>
+        <member name="T:Interlacer.StringValuePair`1">
+            <summary>
+            umoznuje vytvorit pojmenovani libovolne promenne ci objektu, obsahuje atribut "name" typu String a atribut "value",
+            ktery je generickeho typu
+            metoda ToString vraci hodnotu atributu "name"
+            </summary>
+            <typeparam name="ValueType">typ hodnoty prirazene danemu retezci</typeparam>
+        </member>
+        <member name="F:Interlacer.StringValuePair`1.name">
+            <summary>
+            jmeno
+            </summary>
+        </member>
+        <member name="F:Interlacer.StringValuePair`1.value">
+            <summary>
+            hodnota
+            </summary>
+        </member>
+        <member name="M:Interlacer.StringValuePair`1.#ctor(System.String,`0)">
+            <summary>
+            kontruktor nastavujici jmeno a hodnotu
+            </summary>
+            <param name="name">jmeno</param>
+            <param name="value">hodnota</param>
+        </member>
+        <member name="M:Interlacer.StringValuePair`1.ToString">
+            <summary>
+            vraci jmeno ulozene v atributu "name"
+            </summary>
+            <returns>jmeno</returns>
         </member>
         <member name="F:Interlacer.PictureContainer.indexList">
             <summary>
@@ -417,6 +566,64 @@
             <summary>
             The main entry point for the application.
             </summary>
+        </member>
+        <member name="F:Interlacer.SettingsForm.components">
+            <summary>
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:Interlacer.SettingsForm.Dispose(System.Boolean)">
+            <summary>
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:Interlacer.SettingsForm.InitializeComponent">
+            <summary>
+            Required method for Designer support - do not modify
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="T:GfxlibWrapper.Units">
+            <summary>
+            reprezentuje jednotky
+            </summary>
+        </member>
+        <member name="F:GfxlibWrapper.Units.In">
+            <summary>
+            palce
+            </summary>
+        </member>
+        <member name="F:GfxlibWrapper.Units.Cm">
+            <summary>
+            centimetry
+            </summary>
+        </member>
+        <member name="F:GfxlibWrapper.Units.Mm">
+            <summary>
+            milimetry
+            </summary>
+        </member>
+        <member name="T:GfxlibWrapper.UnitConverter">
+            <summary>
+            staticka trida, ktera provadi prevod z palcu na jine jednoty a obracene
+            </summary>
+        </member>
+        <member name="M:GfxlibWrapper.UnitConverter.getUnitsFromIn(System.Double,GfxlibWrapper.Units)">
+            <summary>
+            prevede hodnotu v palcich na hodnotu o zadanych jednotkach
+            </summary>
+            <param name="param">hodnota v palcich</param>
+            <param name="units">jednotky, do kterych ma byt hodnota prevedena</param>
+            <returns>prevedena hodnota</returns>
+        </member>
+        <member name="M:GfxlibWrapper.UnitConverter.getInFromUnits(System.Double,GfxlibWrapper.Units)">
+            <summary>
+            prevede hodnotu v zadanych jednotkach na hodnotu v palcich
+            </summary>
+            <param name="param">hodnota v zadanych jednotkach</param>
+            <param name="units">jednotky, ve kterych je zadana hodnota</param>
+            <returns>prevedena hodnota</returns>
         </member>
         <member name="T:Interlacer.Properties.Resources">
             <summary>

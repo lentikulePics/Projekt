@@ -40,13 +40,13 @@ namespace GfxlibWrapper
         public static extern int getImageWidth(void* ptr);
 
         [DllImport("Gfxlib.dll", CallingConvention = CallingConvention.Cdecl)]
-        public static extern double getImageXDpi(void* ptr);
+        public static extern double getImageXResolution(void* ptr, int* unitType);
 
         [DllImport("Gfxlib.dll", CallingConvention = CallingConvention.Cdecl)]
-        public static extern double getImageYDpi(void* ptr);
+        public static extern double getImageYResolution(void* ptr, int* unitType);
 
         [DllImport("Gfxlib.dll", CallingConvention = CallingConvention.Cdecl)]
-        public static extern void setImageDpi(void* ptr, double xDpi, double yDpi);
+        public static extern void setImageResolution(void* ptr, double xRes, double yRes, int unitType);
 
         [DllImport("Gfxlib.dll", CallingConvention = CallingConvention.Cdecl)]
         public static extern int getImageHeight(void* ptr);

@@ -28,3 +28,5 @@ C:\Users\Luckin\Desktop\Interlacer Github\Projekt\Interlacer\Interlacer\obj\Rele
 C:\Users\Luckin\Desktop\Interlacer Github\Projekt\Interlacer\Interlacer\obj\Release\Interlacer.csprojResolveAssemblyReference.cache
 C:\Users\Luckin\Desktop\Interlacer Github\Projekt\Interlacer\Interlacer\obj\Release\Interlacer.SettingsForm.resources
 C:\Users\Luckin\Desktop\Interlacer Github\Projekt\Interlacer\Interlacer\obj\Release\Interlacer.MainForm.cs-CZ.resources
+C:\Users\Luckin\Desktop\Interlacer Github\Projekt\Interlacer\bin32bit\cs-CZ\Interlacer.resources.dll
+C:\Users\Luckin\Desktop\Interlacer Github\Projekt\Interlacer\Interlacer\obj\Release\cs-CZ\Interlacer.resources.dll

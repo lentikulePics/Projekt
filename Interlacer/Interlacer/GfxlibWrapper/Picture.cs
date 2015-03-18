@@ -29,13 +29,17 @@ namespace GfxlibWrapper
         /// </summary>
         private int height = 0;
         /// <summary>
-        /// DPI na ose x
+        /// rozliseni na ose x
         /// </summary>
-        private double xDpi = 0;
+        private double xResolution = 0;
         /// <summary>
-        /// DPI na ose y
+        /// rozliseni na ose y
         /// </summary>
-        private double yDpi = 0;
+        private double yResolution = 0;
+        /// <summary>
+        /// jednotky pro rozliseni
+        /// </summary>
+        private Units resolutionUnits;
         /// <summary>
         /// pole obsahujici informace o jednotlivych pixelech
         /// </summary>
@@ -64,10 +68,12 @@ namespace GfxlibWrapper
         /// </summary>
         private void setData()
         {
+            int unitType;
             width = GfxlibCommunicator.getImageWidth(imagePtr);
             height = GfxlibCommunicator.getImageHeight(imagePtr);
-            xDpi = GfxlibCommunicator.getImageXDpi(imagePtr);
-            yDpi = GfxlibCommunicator.getImageYDpi(imagePtr);
+            xResolution = GfxlibCommunicator.getImageXResolution(imagePtr, &unitType);
+            yResolution = GfxlibCommunicator.getImageYResolution(imagePtr, &unitType);
+            resolutionUnits = unitType == 1 ? Units.In : Units.Cm;
         }
 
         /// <summary>
@@ -233,7 +239,7 @@ namespace GfxlibWrapper
         /// <returns>dpi na ose x</returns>
         public double GetXDpi()
         {
-            return xDpi;
+            return xResolution;
         }
 
         /// <summary>
@@ -242,7 +248,7 @@ namespace GfxlibWrapper
         /// <returns>dpi na ose y</returns>
         public double GetYDpi()
         {
-            return yDpi;
+            return yResolution;
         }
 
         /// <summary>
@@ -252,9 +258,21 @@ namespace GfxlibWrapper
         /// <param name="yDpi">DPI na ose y</param>
         public void SetDpi(double xDpi, double yDpi)
         {
-            this.xDpi = xDpi;
-            this.yDpi = yDpi;
-            GfxlibCommunicator.setImageDpi(imagePtr, xDpi, yDpi);
+            xResolution = xDpi;
+            yResolution = yDpi;
+            resolutionUnits = Units.In;
+        }
+
+        /// <summary>
+        /// nastavi DPCM na obou osach
+        /// </summary>
+        /// <param name="xDpcm">DPCM na ose x</param>
+        /// <param name="yDpcm">DPCM na ose y</param>
+        public void SetDpcm(double xDpcm, double yDpcm)
+        {
+            xResolution = xDpcm;
+            yResolution = yDpcm;
+            resolutionUnits = Units.Cm;
         }
 
         /// <summary>
@@ -265,6 +283,7 @@ namespace GfxlibWrapper
         {
             try
             {
+                GfxlibCommunicator.setImageResolution(imagePtr, xResolution, yResolution, resolutionUnits == Units.In ? 1 : 2);
                 GfxlibCommunicator.saveImage(imagePtr, stringToCharArray(saveFilename));
             }
             catch (SEHException)
@@ -374,8 +393,8 @@ namespace GfxlibWrapper
             pixelData = null;
             width = 0;
             height = 0;
-            xDpi = 0;
-            yDpi = 0;
+            xResolution = 0;
+            yResolution = 0;
         }
 
         /// <summary>

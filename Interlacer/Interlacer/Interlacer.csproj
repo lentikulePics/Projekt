@@ -122,7 +122,7 @@
     <Compile Include="SettingsForm.designer.cs">
       <DependentUpon>SettingsForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Units.cs" />
+    <Compile Include="GfxlibWrapper\Units.cs" />
     <EmbeddedResource Include="MainForm.cs-CZ.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
     </EmbeddedResource>

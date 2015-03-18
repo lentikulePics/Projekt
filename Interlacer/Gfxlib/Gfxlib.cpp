@@ -150,7 +150,7 @@ int getImageHeight(void* ptr)
 	return (int)imagePtr->rows();
 }
 
-double getImageXDpi(void* ptr)
+double getImageXResolution(void* ptr, int* unitType)
 {
 	Magick::Image* imagePtr = (Magick::Image*)ptr;
 	double resolution = imagePtr->xResolution();
@@ -158,15 +158,17 @@ double getImageXDpi(void* ptr)
 	switch (resType)
 	{
 		case MagickCore::ResolutionType::PixelsPerInchResolution:
+			*unitType = 1;
 			return resolution;
 		case MagickCore::ResolutionType::PixelsPerCentimeterResolution:
-			return (resolution * 2.54);
+			*unitType = 2;
+			return resolution;
 		default:
 			return 0;
 	}
 }
 
-double getImageYDpi(void* ptr)
+double getImageYResolution(void* ptr, int* unitType)
 {
 	Magick::Image* imagePtr = (Magick::Image*)ptr;
 	double resolution = imagePtr->yResolution();
@@ -174,20 +176,23 @@ double getImageYDpi(void* ptr)
 	switch (resType)
 	{
 	case MagickCore::ResolutionType::PixelsPerInchResolution:
+		*unitType = 1;
 		return resolution;
 	case MagickCore::ResolutionType::PixelsPerCentimeterResolution:
-		return (resolution * 2.54);
+		*unitType = 2;
+		return resolution;
 	default:
 		return 0;
 	}
 }
 
-void setImageDpi(void* ptr, double xDpi, double yDpi)
+void setImageResolution(void* ptr, double xRes, double yRes, int unitType)
 {
 	Magick::Image* imagePtr = (Magick::Image*)ptr;
-	imagePtr->resolutionUnits(MagickCore::ResolutionType::PixelsPerInchResolution);
-	imagePtr->image()->x_resolution = xDpi;
-	imagePtr->image()->y_resolution = yDpi;
+	imagePtr->resolutionUnits(unitType == 1 ?
+		MagickCore::ResolutionType::PixelsPerInchResolution : MagickCore::ResolutionType::PixelsPerCentimeterResolution);
+	imagePtr->image()->x_resolution = xRes;
+	imagePtr->image()->y_resolution = yRes;
 }
 
 void resizeImage(void* ptr, int w, int h, int filterType)
