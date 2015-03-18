@@ -16,24 +16,28 @@ namespace Interlacer
     public partial class MainForm : Form
     {
         private Settings settings;
+        private SettingsForm settingsForm;
 
         private int order = 1;
         public ProjectData projectData = new ProjectData();
 
         public MainForm()
         {
+            Localization.changeCulture();
+            Localization.resources = new ComponentResourceManager(typeof(MainForm));
+
             //prozatimni reseni, pak bude potreba dodat retezce z recource filu
             SettingOptions settingOptions = new SettingOptions();
             settingOptions.languageOptions = new List<StringValuePair<String>>
             {
-                new StringValuePair<String>("Čeština", "cs-CZ"),
-                new StringValuePair<String>("Angličtina", "en")
+                new StringValuePair<String>(Localization.resources.GetString("langCzech"), "cs-CZ"),
+                new StringValuePair<String>(Localization.resources.GetString("langEnglish"), "en")
             };
             settingOptions.unitsOptions = new List<StringValuePair<Units>>
             {
                 new StringValuePair<Units>("cm", Units.Cm),
                 new StringValuePair<Units>("mm", Units.Mm),
-                new StringValuePair<Units>("palce", Units.In)
+                new StringValuePair<Units>(Localization.resources.GetString("unitsInches"), Units.In)
             };
             settingOptions.resolutionUnitsOptions = new List<StringValuePair<Units>>
             {
@@ -45,11 +49,10 @@ namespace Interlacer
             settings.SetSelectedUnitsIndex(0);
             settings.SetSelectedResolutionUnitsIndex(0);
 
-            Thread.CurrentThread.CurrentCulture = new CultureInfo("cs-CZ");
-            // Sets the UI culture to French (France)
-            Thread.CurrentThread.CurrentUICulture = new CultureInfo("cs-CZ");
+            
 
             InitializeComponent();
+
             unitsComboBox.SelectedItem = unitsComboBox.Items[0];
             interpol1ComboBox.SelectedItem = interpol1ComboBox.Items[0];
             interpol2ComboBox.SelectedItem = interpol2ComboBox.Items[0];
@@ -59,13 +62,24 @@ namespace Interlacer
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            Thread.CurrentThread.CurrentCulture = new CultureInfo("cs");
+            // Zmeni jazyk na vychozi(Cestina)
+            
 
             /*picListViewEx.Items.Add("adsfasdsd");
             picListViewEx.Items.Add("dsadsfasdfasdfsfd");
-            picListViewEx.Items.Add("ad");*/
-            
+            picListViewEx.Items.Add("ad");*/            
         }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public void changeLanguage()
+        {
+            Localization.iterateOverControls(this);
+            Localization.iterateOverControls(settingsForm);
+        }
+
+        
 
         private void interlaceButton_Click(object sender, EventArgs e)
         {
@@ -112,38 +126,11 @@ namespace Interlacer
 
         private void předvolbyToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            SettingsForm settingsForm = new SettingsForm(this, settings);
+            settingsForm = new SettingsForm(this, settings);
             settingsForm.ShowDialog();
         }
 
-        public void changeLanguage(String lang)
-        {
-            iterateOverControls(this, lang);
-        }
-
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="parent"></param>
-        /// <param name="lang"></param>
-        private void iterateOverControls(Control parent, string lang)
-        {
-            ComponentResourceManager resources = new ComponentResourceManager(typeof(MainForm));
-
-            foreach (Control c in parent.Controls)
-            {
-                
-                    resources.ApplyResources(c, c.Name, new CultureInfo(lang));    
-                if (c.GetType() == typeof(GroupBox))
-                {
-                      iterateOverControls(c, lang);
-                }
-                else
-                {
-                    iterateOverControls(c, lang);
-                }
-            }            
-        }
+        
 
         private void addPicButton_Click(object sender, EventArgs e)
         {

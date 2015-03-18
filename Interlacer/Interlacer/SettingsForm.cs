@@ -41,8 +41,11 @@ namespace Interlacer
 
         private void applyButton_Click(object sender, EventArgs e)
         {
-            String selectedLanguage = ((StringValuePair<String>)languageCombobox.SelectedItem).value;
-            parent.changeLanguage(selectedLanguage);
+            Localization.currentLanguage = ((StringValuePair<String>)languageCombobox.SelectedItem).value;
+            // Zmeni jazyk pro MainForm
+            parent.changeLanguage();
+            //Zmeni jazyk pro SettingsForm
+            changeLanguage();
 
             settings.SetSelectedLanguageIndex(languageCombobox.SelectedIndex);
             settings.SetSelectedUnitsIndex(comboBox1.SelectedIndex);
@@ -52,6 +55,12 @@ namespace Interlacer
         private void okButton_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void changeLanguage()
+        {
+            Localization.resources = new ComponentResourceManager(typeof(SettingsForm));
+            Localization.iterateOverControls(this);
         }
 
         private void label2_Click(object sender, EventArgs e)
