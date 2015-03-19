@@ -24,7 +24,7 @@ namespace Interlacer
         public MainForm()
         {
             //Nastaveni jazyka na vychozi hodnotu(Cestina)
-            Localization.changeCulture();
+            Localization.changeCulture(Localization.currentLanguage);
 
             InitializeComponent();
 

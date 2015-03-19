@@ -72,3 +72,5 @@ C:\Users\Barat_000\OneDrive\Dokumenty\@ZSWI\Project\Projekt\Projekt\Interlacer\I
 C:\Users\Štěpán\Documents\GitHub\Projekt\Interlacer\Interlacer\obj\x64\Release\Interlacer.SettingsForm.cs-CZ.resources
 C:\Users\Štěpán\Documents\GitHub\Projekt\Interlacer\Interlacer\obj\x64\Release\Interlacer.StringRes_EN.resources
 C:\Users\Štěpán\Documents\GitHub\Projekt\Interlacer\Interlacer\obj\x64\Release\Interlacer.StringRes_CZ.resources
+C:\Users\Barat_000\OneDrive\Dokumenty\@ZSWI\Project\Projekt\Projekt\Interlacer\Interlacer\obj\x64\Release\Interlacer.StringRes_CZ.resources
+C:\Users\Barat_000\OneDrive\Dokumenty\@ZSWI\Project\Projekt\Projekt\Interlacer\Interlacer\obj\x64\Release\Interlacer.StringRes_EN.resources
