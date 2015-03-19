@@ -51,11 +51,14 @@ namespace Interlacer
             // Zmeni jazyk pro SettingsForm
             changeLanguage();
 
+            //this.parent.initSettings();
+
             settings.SetSelectedLanguageIndex(languageCombobox.SelectedIndex);
             settings.SetSelectedUnitsIndex(comboBox1.SelectedIndex);
             settings.SetSelectedResolutionUnitsIndex(comboBox2.SelectedIndex);
 
-            
+            languageCombobox.SelectedItem = settings.GetSelectedLanguage().ToString();
+                        
 
             this.parent.changeUnits();
            

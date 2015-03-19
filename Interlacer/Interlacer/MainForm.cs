@@ -28,8 +28,42 @@ namespace Interlacer
 
             InitializeComponent();
 
-            //prozatimni reseni, pak bude potreba dodat retezce z recource filu
+            initSettings();
+
+            interpol1ComboBox.Items.Add(new StringValuePair<FilterType>("Nejbližší soused", FilterType.None));
+            interpol1ComboBox.Items.Add(new StringValuePair<FilterType>("Lineární", FilterType.Triangle));
+            interpol1ComboBox.Items.Add(new StringValuePair<FilterType>("Kubický", FilterType.Cubic));
+            interpol1ComboBox.Items.Add(new StringValuePair<FilterType>("Lanczos", FilterType.Lanczos));
+
+            interpol2ComboBox.Items.Add(new StringValuePair<FilterType>("Nejbližší soused", FilterType.None));
+            interpol2ComboBox.Items.Add(new StringValuePair<FilterType>("Lineární", FilterType.Triangle));
+            interpol2ComboBox.Items.Add(new StringValuePair<FilterType>("Kubický", FilterType.Cubic));
+            interpol2ComboBox.Items.Add(new StringValuePair<FilterType>("Lanczos", FilterType.Lanczos));
+
+            
+
+                       
+
+            //unitsComboBox.SelectedItem = unitsComboBox.Items[0];
+            interpol1ComboBox.SelectedItem = interpol1ComboBox.Items[0];
+            interpol2ComboBox.SelectedItem = interpol2ComboBox.Items[0];
+
+            changeUnits();
+
+            pictureListViewEx.MultiSelect = true;
+        }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+            /*picListViewEx.Items.Add("adsfasdsd");
+            picListViewEx.Items.Add("dsadsfasdfasdfsfd");
+            picListViewEx.Items.Add("ad");*/            
+        }
+
+        public void initSettings()
+        {
             SettingOptions settingOptions = new SettingOptions();
+
             settingOptions.languageOptions = new List<StringValuePair<String>>
             {
                 new StringValuePair<String>(Localization.resourcesStrings.GetString("langCzech"), "cs-CZ"),
@@ -47,37 +81,11 @@ namespace Interlacer
                 new StringValuePair<Units>("DPCM, LPCM", Units.Cm)
             };
 
-            interpol1ComboBox.Items.Add(new StringValuePair<FilterType>("Nejbližší soused", FilterType.None));
-            interpol1ComboBox.Items.Add(new StringValuePair<FilterType>("Lineární", FilterType.Triangle));
-            interpol1ComboBox.Items.Add(new StringValuePair<FilterType>("Kubický", FilterType.Cubic));
-            interpol1ComboBox.Items.Add(new StringValuePair<FilterType>("Lanczos", FilterType.Lanczos));
-
-            interpol2ComboBox.Items.Add(new StringValuePair<FilterType>("Nejbližší soused", FilterType.None));
-            interpol2ComboBox.Items.Add(new StringValuePair<FilterType>("Lineární", FilterType.Triangle));
-            interpol2ComboBox.Items.Add(new StringValuePair<FilterType>("Kubický", FilterType.Cubic));
-            interpol2ComboBox.Items.Add(new StringValuePair<FilterType>("Lanczos", FilterType.Lanczos));
-
-            
-
+            // Nastaveni defaultnich hodnot, potreba oddelit
             settings = new Settings(settingOptions);
             settings.SetSelectedLanguageIndex(0);
             settings.SetSelectedUnitsIndex(0);
-            settings.SetSelectedResolutionUnitsIndex(0);           
-
-            //unitsComboBox.SelectedItem = unitsComboBox.Items[0];
-            interpol1ComboBox.SelectedItem = interpol1ComboBox.Items[0];
-            interpol2ComboBox.SelectedItem = interpol2ComboBox.Items[0];
-
-            changeUnits();
-
-            pictureListViewEx.MultiSelect = true;
-        }
-
-        private void Form1_Load(object sender, EventArgs e)
-        {
-            /*picListViewEx.Items.Add("adsfasdsd");
-            picListViewEx.Items.Add("dsadsfasdfasdfsfd");
-            picListViewEx.Items.Add("ad");*/            
+            settings.SetSelectedResolutionUnitsIndex(0);
         }
 
         /// <summary>
