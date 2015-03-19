@@ -756,13 +756,30 @@
             // 
             // indentNumeric
             // 
+            this.indentNumeric.DecimalPlaces = 1;
+            this.indentNumeric.Increment = new decimal(new int[] {
+            1,
+            0,
+            0,
+            65536});
             resources.ApplyResources(this.indentNumeric, "indentNumeric");
             this.indentNumeric.Name = "indentNumeric";
             this.indentNumeric.ValueChanged += new System.EventHandler(this.indentNumeric_ValueChanged);
             // 
             // frameWidthNumeric
             // 
+            this.frameWidthNumeric.DecimalPlaces = 1;
+            this.frameWidthNumeric.Increment = new decimal(new int[] {
+            1,
+            0,
+            0,
+            65536});
             resources.ApplyResources(this.frameWidthNumeric, "frameWidthNumeric");
+            this.frameWidthNumeric.Maximum = new decimal(new int[] {
+            1000,
+            0,
+            0,
+            0});
             this.frameWidthNumeric.Name = "frameWidthNumeric";
             this.frameWidthNumeric.ValueChanged += new System.EventHandler(this.frameWidthNumeric_ValueChanged);
             // 

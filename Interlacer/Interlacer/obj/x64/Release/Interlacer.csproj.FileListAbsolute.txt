@@ -53,7 +53,6 @@ D:\Škola\WorkSpace\ZSWI - projekt\Interlacer\bin64bit\Interlacer.pdb
 D:\Škola\WorkSpace\ZSWI - projekt\Interlacer\bin64bit\doc.xml
 D:\Škola\WorkSpace\ZSWI - projekt\Interlacer\bin64bit\cs-CZ\Interlacer.resources.dll
 D:\Škola\WorkSpace\ZSWI - projekt\Interlacer\Interlacer\obj\x64\Release\cs-CZ\Interlacer.resources.dll
-C:\Users\Luckin\Desktop\Interlacer Github\Projekt\Interlacer\Interlacer\obj\x64\Release\Interlacer.csprojResolveAssemblyReference.cache
 C:\Users\Barat_000\OneDrive\Dokumenty\@ZSWI\Project\Projekt\Projekt\Interlacer\bin64bit\Interlacer.exe.config
 C:\Users\Barat_000\OneDrive\Dokumenty\@ZSWI\Project\Projekt\Projekt\Interlacer\Interlacer\obj\x64\Release\Interlacer.exe
 C:\Users\Barat_000\OneDrive\Dokumenty\@ZSWI\Project\Projekt\Projekt\Interlacer\Interlacer\obj\x64\Release\Interlacer.pdb
@@ -75,3 +74,7 @@ C:\Users\Štěpán\Documents\GitHub\Projekt\Interlacer\Interlacer\obj\x64\Releas
 D:\Škola\WorkSpace\ZSWI - projekt\Interlacer\Interlacer\obj\x64\Release\Interlacer.StringRes_CZ.resources
 D:\Škola\WorkSpace\ZSWI - projekt\Interlacer\Interlacer\obj\x64\Release\Interlacer.StringRes_EN.resources
 D:\Škola\WorkSpace\ZSWI - projekt\Interlacer\Interlacer\obj\x64\Release\Interlacer.SettingsForm.cs-CZ.resources
+C:\Users\Luckin\Desktop\Interlacer Github\Projekt\Interlacer\Interlacer\obj\x64\Release\Interlacer.StringRes_CZ.resources
+C:\Users\Luckin\Desktop\Interlacer Github\Projekt\Interlacer\Interlacer\obj\x64\Release\Interlacer.StringRes_EN.resources
+C:\Users\Luckin\Desktop\Interlacer Github\Projekt\Interlacer\Interlacer\obj\x64\Release\Interlacer.SettingsForm.cs-CZ.resources
+C:\Users\Luckin\Desktop\Interlacer Github\Projekt\Interlacer\Interlacer\obj\x64\Release\Interlacer.csprojResolveAssemblyReference.cache

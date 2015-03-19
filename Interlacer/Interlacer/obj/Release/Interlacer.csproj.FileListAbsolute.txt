@@ -25,7 +25,6 @@ C:\Users\Luckin\Desktop\Interlacer Github\Projekt\Interlacer\bin32bit\doc.xml
 C:\Users\Luckin\Desktop\Interlacer Github\Projekt\Interlacer\Interlacer\obj\Release\Interlacer.MainForm.resources
 C:\Users\Luckin\Desktop\Interlacer Github\Projekt\Interlacer\Interlacer\obj\Release\Interlacer.Properties.Resources.resources
 C:\Users\Luckin\Desktop\Interlacer Github\Projekt\Interlacer\Interlacer\obj\Release\Interlacer.csproj.GenerateResource.Cache
-C:\Users\Luckin\Desktop\Interlacer Github\Projekt\Interlacer\Interlacer\obj\Release\Interlacer.csprojResolveAssemblyReference.cache
 C:\Users\Luckin\Desktop\Interlacer Github\Projekt\Interlacer\Interlacer\obj\Release\Interlacer.SettingsForm.resources
 C:\Users\Luckin\Desktop\Interlacer Github\Projekt\Interlacer\Interlacer\obj\Release\Interlacer.MainForm.cs-CZ.resources
 C:\Users\Luckin\Desktop\Interlacer Github\Projekt\Interlacer\bin32bit\cs-CZ\Interlacer.resources.dll
@@ -47,3 +46,6 @@ D:\Škola\WorkSpace\ZSWI - projekt\Interlacer\bin32bit\Interlacer.pdb
 D:\Škola\WorkSpace\ZSWI - projekt\Interlacer\bin32bit\doc.xml
 D:\Škola\WorkSpace\ZSWI - projekt\Interlacer\bin32bit\cs-CZ\Interlacer.resources.dll
 D:\Škola\WorkSpace\ZSWI - projekt\Interlacer\Interlacer\obj\Release\cs-CZ\Interlacer.resources.dll
+C:\Users\Luckin\Desktop\Interlacer Github\Projekt\Interlacer\Interlacer\obj\Release\Interlacer.StringRes_CZ.resources
+C:\Users\Luckin\Desktop\Interlacer Github\Projekt\Interlacer\Interlacer\obj\Release\Interlacer.StringRes_EN.resources
+C:\Users\Luckin\Desktop\Interlacer Github\Projekt\Interlacer\Interlacer\obj\Release\Interlacer.SettingsForm.cs-CZ.resources

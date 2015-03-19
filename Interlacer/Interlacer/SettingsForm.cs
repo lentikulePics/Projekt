@@ -56,8 +56,6 @@ namespace Interlacer
             settings.SetSelectedResolutionUnitsIndex(comboBox2.SelectedIndex);
 
             this.parent.changeUnits();
-            MessageBox.Show("jazyk je " + Localization.currentLanguage + ",  " +  Localization.resourcesStrings.GetString("langCzech"));
-           
         }
 
         private void okButton_Click(object sender, EventArgs e)

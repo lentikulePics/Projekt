@@ -93,11 +93,16 @@ namespace Interlacer
         private void interlaceButton_Click(object sender, EventArgs e)
         {
             List<Picture> picL = harvestPicList();
+            projectData.GetLineData().SetBackgroundColor(Color.White);
+            projectData.GetLineData().SetLineColor(Color.Black);
             PictureContainer picCon = new PictureContainer(picL, projectData.GetInterlacingData(), projectData.GetLineData(), interlaceProgressBar);
             picCon.CheckPictures();
             picCon.Interlace();
             Picture result = picCon.GetResult();
-            result.Save("resut.tif");
+            result.Save("result.tif");
+            result.Destroy();
+
+            MessageBox.Show("Hotovo!");
             
             //PictureContainer pc = new PictureContainer(progressBar, label, co dal??);
 

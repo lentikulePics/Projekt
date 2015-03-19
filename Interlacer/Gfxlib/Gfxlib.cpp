@@ -4,6 +4,7 @@
 #include "GfxlibErrors.h"
 #include <iostream>
 #include <fstream>
+#include <sstream>
 #include <string>
 #include <Magick++.h>
 
@@ -78,29 +79,34 @@ INTPX* getPixelDataPtr(void* ptr)
 void* loadImage(char* filename)
 {
 	Magick::Image* img = nullptr;
+	char* data = nullptr;
+	std::ifstream file;
 	try
 	{
-		std::ifstream file(filename, std::ios::binary);
+		file.open(filename, std::ios::binary);
 		file.seekg(0, std::ios::end);
 		long length = (long)file.tellg();
 		file.seekg(0, std::ios::beg);
-		char* data = new char[length];
+		data = new char[length];
 		file.read(data, length);
 		file.close();
-
 		img = new Magick::Image;
 		img->read(Magick::Blob(data, length));
+		delete[] data;
 	}
 	catch (Magick::Error & er)
 	{
 		writeError(er.what());
+		delete[] data;
+		file.close();
 		delete img;
 		RaiseException(GfxlibErrors::PictureLoadFailure, 0, 0, 0);
 	}
 	catch (...)
 	{
 		delete img;
-		writeError("...");
+		delete[] data;
+		file.close();
 		RaiseException(GfxlibErrors::PictureLoadFailure, 0, 0, 0);
 	}
 	return (void*)img;
@@ -109,28 +115,34 @@ void* loadImage(char* filename)
 void* pingImage(char* filename)
 {
 	Magick::Image* img = nullptr;
+	char* data = nullptr;
+	std::ifstream file;
 	try
 	{
-		std::ifstream file(filename);
+		file.open(filename, std::ios::binary);
 		file.seekg(0, std::ios::end);
 		long length = (long)file.tellg();
 		file.seekg(0, std::ios::beg);
-		char* data = new char[length];
+		data = new char[length];
 		file.read(data, length);
 		file.close();
-		writeError(std::to_string(length));
 		img = new Magick::Image;
 		img->ping(Magick::Blob(data, length));
+		delete[] data;
 	}
 	catch (Magick::Error & er)
 	{
 		writeError(er.what());
+		delete[] data;
+		file.close();
 		delete img;
 		RaiseException(GfxlibErrors::PictureLoadFailure, 0, 0, 0);
 	}
 	catch (...)
 	{
 		delete img;
+		delete[] data;
+		file.close();
 		RaiseException(GfxlibErrors::PictureLoadFailure, 0, 0, 0);
 	}
 	return (void*)img;

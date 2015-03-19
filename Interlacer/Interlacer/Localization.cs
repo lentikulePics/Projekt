@@ -32,7 +32,6 @@ namespace Interlacer
             }
             else if (currentLanguage == "en")
             {
-                MessageBox.Show("aj");
                 resourcesStrings = new ComponentResourceManager(typeof(StringRes_EN));
             }
            
