@@ -1,1 +1,1 @@
-Magick: NoDecodeDelegateForThisImageFormat `MPP' @ error/constitute.c/ReadImage/501
+Magick: Failed to read directory at offset 4866. `TIFFReadDirectory' @ error/tiff.c/TIFFErrors/552

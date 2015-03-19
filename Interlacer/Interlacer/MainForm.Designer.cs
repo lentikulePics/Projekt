@@ -99,10 +99,10 @@
             this.edgeRadioButton = new System.Windows.Forms.RadioButton();
             this.centerRadioButton = new System.Windows.Forms.RadioButton();
             this.groupBox8 = new System.Windows.Forms.GroupBox();
-            this.checkBox5 = new System.Windows.Forms.CheckBox();
-            this.checkBox4 = new System.Windows.Forms.CheckBox();
-            this.checkBox3 = new System.Windows.Forms.CheckBox();
-            this.checkBox1 = new System.Windows.Forms.CheckBox();
+            this.leftLineCheckBox = new System.Windows.Forms.CheckBox();
+            this.rightLineCheckBox = new System.Windows.Forms.CheckBox();
+            this.bottomLineCheckBox = new System.Windows.Forms.CheckBox();
+            this.topLineCheckBox = new System.Windows.Forms.CheckBox();
             this.rightLineLabel = new System.Windows.Forms.Label();
             this.leftLinelabel = new System.Windows.Forms.Label();
             this.bottomLineLabel = new System.Windows.Forms.Label();
@@ -393,13 +393,27 @@
             // 
             // lpiNumeric
             // 
+            this.lpiNumeric.DecimalPlaces = 3;
             resources.ApplyResources(this.lpiNumeric, "lpiNumeric");
+            this.lpiNumeric.Maximum = new decimal(new int[] {
+            10000,
+            0,
+            0,
+            0});
             this.lpiNumeric.Name = "lpiNumeric";
+            this.lpiNumeric.ValueChanged += new System.EventHandler(this.lpiNumeric_ValueChanged);
             // 
             // dpiNumeric
             // 
+            this.dpiNumeric.DecimalPlaces = 3;
             resources.ApplyResources(this.dpiNumeric, "dpiNumeric");
+            this.dpiNumeric.Maximum = new decimal(new int[] {
+            10000,
+            0,
+            0,
+            0});
             this.dpiNumeric.Name = "dpiNumeric";
+            this.dpiNumeric.ValueChanged += new System.EventHandler(this.dpiNumeric_ValueChanged);
             // 
             // picUnderLenLabel
             // 
@@ -492,13 +506,25 @@
             // 
             // widthNumeric
             // 
+            this.widthNumeric.DecimalPlaces = 3;
             resources.ApplyResources(this.widthNumeric, "widthNumeric");
+            this.widthNumeric.Maximum = new decimal(new int[] {
+            1000,
+            0,
+            0,
+            0});
             this.widthNumeric.Name = "widthNumeric";
             this.widthNumeric.ValueChanged += new System.EventHandler(this.widthNumeric_ValueChanged);
             // 
             // heightNumeric
             // 
+            this.heightNumeric.DecimalPlaces = 3;
             resources.ApplyResources(this.heightNumeric, "heightNumeric");
+            this.heightNumeric.Maximum = new decimal(new int[] {
+            1000,
+            0,
+            0,
+            0});
             this.heightNumeric.Name = "heightNumeric";
             this.heightNumeric.ValueChanged += new System.EventHandler(this.heightNumeric_ValueChanged);
             // 
@@ -579,7 +605,6 @@
             this.tabPage3.Controls.Add(this.linePictureBox);
             resources.ApplyResources(this.tabPage3, "tabPage3");
             this.tabPage3.Name = "tabPage3";
-            this.tabPage3.Click += new System.EventHandler(this.tabPage3_Click);
             // 
             // groupBox13
             // 
@@ -647,10 +672,10 @@
             // 
             // groupBox8
             // 
-            this.groupBox8.Controls.Add(this.checkBox5);
-            this.groupBox8.Controls.Add(this.checkBox4);
-            this.groupBox8.Controls.Add(this.checkBox3);
-            this.groupBox8.Controls.Add(this.checkBox1);
+            this.groupBox8.Controls.Add(this.leftLineCheckBox);
+            this.groupBox8.Controls.Add(this.rightLineCheckBox);
+            this.groupBox8.Controls.Add(this.bottomLineCheckBox);
+            this.groupBox8.Controls.Add(this.topLineCheckBox);
             this.groupBox8.Controls.Add(this.rightLineLabel);
             this.groupBox8.Controls.Add(this.leftLinelabel);
             this.groupBox8.Controls.Add(this.bottomLineLabel);
@@ -659,29 +684,33 @@
             this.groupBox8.Name = "groupBox8";
             this.groupBox8.TabStop = false;
             // 
-            // checkBox5
+            // leftLineCheckBox
             // 
-            resources.ApplyResources(this.checkBox5, "checkBox5");
-            this.checkBox5.Name = "checkBox5";
-            this.checkBox5.UseVisualStyleBackColor = true;
+            resources.ApplyResources(this.leftLineCheckBox, "leftLineCheckBox");
+            this.leftLineCheckBox.Name = "leftLineCheckBox";
+            this.leftLineCheckBox.UseVisualStyleBackColor = true;
+            this.leftLineCheckBox.CheckedChanged += new System.EventHandler(this.leftLineCheckBox_CheckedChanged);
             // 
-            // checkBox4
+            // rightLineCheckBox
             // 
-            resources.ApplyResources(this.checkBox4, "checkBox4");
-            this.checkBox4.Name = "checkBox4";
-            this.checkBox4.UseVisualStyleBackColor = true;
+            resources.ApplyResources(this.rightLineCheckBox, "rightLineCheckBox");
+            this.rightLineCheckBox.Name = "rightLineCheckBox";
+            this.rightLineCheckBox.UseVisualStyleBackColor = true;
+            this.rightLineCheckBox.CheckedChanged += new System.EventHandler(this.rightLineCheckBox_CheckedChanged);
             // 
-            // checkBox3
+            // bottomLineCheckBox
             // 
-            resources.ApplyResources(this.checkBox3, "checkBox3");
-            this.checkBox3.Name = "checkBox3";
-            this.checkBox3.UseVisualStyleBackColor = true;
+            resources.ApplyResources(this.bottomLineCheckBox, "bottomLineCheckBox");
+            this.bottomLineCheckBox.Name = "bottomLineCheckBox";
+            this.bottomLineCheckBox.UseVisualStyleBackColor = true;
+            this.bottomLineCheckBox.CheckedChanged += new System.EventHandler(this.bottomLineCheckBox_CheckedChanged);
             // 
-            // checkBox1
+            // topLineCheckBox
             // 
-            resources.ApplyResources(this.checkBox1, "checkBox1");
-            this.checkBox1.Name = "checkBox1";
-            this.checkBox1.UseVisualStyleBackColor = true;
+            resources.ApplyResources(this.topLineCheckBox, "topLineCheckBox");
+            this.topLineCheckBox.Name = "topLineCheckBox";
+            this.topLineCheckBox.UseVisualStyleBackColor = true;
+            this.topLineCheckBox.CheckedChanged += new System.EventHandler(this.topLineCheckBox_CheckedChanged);
             // 
             // rightLineLabel
             // 
@@ -729,11 +758,13 @@
             // 
             resources.ApplyResources(this.indentNumeric, "indentNumeric");
             this.indentNumeric.Name = "indentNumeric";
+            this.indentNumeric.ValueChanged += new System.EventHandler(this.indentNumeric_ValueChanged);
             // 
             // frameWidthNumeric
             // 
             resources.ApplyResources(this.frameWidthNumeric, "frameWidthNumeric");
             this.frameWidthNumeric.Name = "frameWidthNumeric";
+            this.frameWidthNumeric.ValueChanged += new System.EventHandler(this.frameWidthNumeric_ValueChanged);
             // 
             // indentLabel
             // 
@@ -756,6 +787,7 @@
             // 
             resources.ApplyResources(this.lineThicknessTrackbar, "lineThicknessTrackbar");
             this.lineThicknessTrackbar.Name = "lineThicknessTrackbar";
+            this.lineThicknessTrackbar.Scroll += new System.EventHandler(this.lineThicknessTrackbar_Scroll);
             // 
             // linePictureBox
             // 
@@ -937,10 +969,10 @@
         private System.Windows.Forms.Label leftLinelabel;
         private System.Windows.Forms.Label bottomLineLabel;
         private System.Windows.Forms.Label topLineLabel;
-        private System.Windows.Forms.CheckBox checkBox5;
-        private System.Windows.Forms.CheckBox checkBox4;
-        private System.Windows.Forms.CheckBox checkBox3;
-        private System.Windows.Forms.CheckBox checkBox1;
+        private System.Windows.Forms.CheckBox leftLineCheckBox;
+        private System.Windows.Forms.CheckBox rightLineCheckBox;
+        private System.Windows.Forms.CheckBox bottomLineCheckBox;
+        private System.Windows.Forms.CheckBox topLineCheckBox;
         private System.Windows.Forms.GroupBox groupBox9;
         private System.Windows.Forms.GroupBox groupBox10;
         private System.Windows.Forms.Label indentLabel;

@@ -24,46 +24,14 @@ namespace Interlacer
         public MainForm()
         {
             //Nastaveni jazyka na vychozi hodnotu(Cestina)
-            Localization.changeCulture(Localization.currentLanguage);
+            Localization.changeCulture();
 
             InitializeComponent();
 
-            initSettings();
+            projectData.GetLineData().SetLineThickness(1);
 
-            interpol1ComboBox.Items.Add(new StringValuePair<FilterType>("Nejbližší soused", FilterType.None));
-            interpol1ComboBox.Items.Add(new StringValuePair<FilterType>("Lineární", FilterType.Triangle));
-            interpol1ComboBox.Items.Add(new StringValuePair<FilterType>("Kubický", FilterType.Cubic));
-            interpol1ComboBox.Items.Add(new StringValuePair<FilterType>("Lanczos", FilterType.Lanczos));
-
-            interpol2ComboBox.Items.Add(new StringValuePair<FilterType>("Nejbližší soused", FilterType.None));
-            interpol2ComboBox.Items.Add(new StringValuePair<FilterType>("Lineární", FilterType.Triangle));
-            interpol2ComboBox.Items.Add(new StringValuePair<FilterType>("Kubický", FilterType.Cubic));
-            interpol2ComboBox.Items.Add(new StringValuePair<FilterType>("Lanczos", FilterType.Lanczos));
-
-            
-
-                       
-
-            //unitsComboBox.SelectedItem = unitsComboBox.Items[0];
-            interpol1ComboBox.SelectedItem = interpol1ComboBox.Items[0];
-            interpol2ComboBox.SelectedItem = interpol2ComboBox.Items[0];
-
-            changeUnits();
-
-            pictureListViewEx.MultiSelect = true;
-        }
-
-        private void Form1_Load(object sender, EventArgs e)
-        {
-            /*picListViewEx.Items.Add("adsfasdsd");
-            picListViewEx.Items.Add("dsadsfasdfasdfsfd");
-            picListViewEx.Items.Add("ad");*/            
-        }
-
-        public void initSettings()
-        {
+            //prozatimni reseni, pak bude potreba dodat retezce z recource filu
             SettingOptions settingOptions = new SettingOptions();
-
             settingOptions.languageOptions = new List<StringValuePair<String>>
             {
                 new StringValuePair<String>(Localization.resourcesStrings.GetString("langCzech"), "cs-CZ"),
@@ -81,11 +49,37 @@ namespace Interlacer
                 new StringValuePair<Units>("DPCM, LPCM", Units.Cm)
             };
 
-            // Nastaveni defaultnich hodnot, potreba oddelit
+            interpol1ComboBox.Items.Add(new StringValuePair<FilterType>("Nejbližší soused", FilterType.None));
+            interpol1ComboBox.Items.Add(new StringValuePair<FilterType>("Lineární", FilterType.Triangle));
+            interpol1ComboBox.Items.Add(new StringValuePair<FilterType>("Kubický", FilterType.Cubic));
+            interpol1ComboBox.Items.Add(new StringValuePair<FilterType>("Lanczos", FilterType.Lanczos));
+
+            interpol2ComboBox.Items.Add(new StringValuePair<FilterType>("Nejbližší soused", FilterType.None));
+            interpol2ComboBox.Items.Add(new StringValuePair<FilterType>("Lineární", FilterType.Triangle));
+            interpol2ComboBox.Items.Add(new StringValuePair<FilterType>("Kubický", FilterType.Cubic));
+            interpol2ComboBox.Items.Add(new StringValuePair<FilterType>("Lanczos", FilterType.Lanczos));
+
+            
+
             settings = new Settings(settingOptions);
             settings.SetSelectedLanguageIndex(0);
             settings.SetSelectedUnitsIndex(0);
-            settings.SetSelectedResolutionUnitsIndex(0);
+            settings.SetSelectedResolutionUnitsIndex(0);           
+
+            //unitsComboBox.SelectedItem = unitsComboBox.Items[0];
+            interpol1ComboBox.SelectedItem = interpol1ComboBox.Items[0];
+            interpol2ComboBox.SelectedItem = interpol2ComboBox.Items[0];
+
+            changeUnits();
+
+            pictureListViewEx.MultiSelect = true;
+        }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+            /*picListViewEx.Items.Add("adsfasdsd");
+            picListViewEx.Items.Add("dsadsfasdfasdfsfd");
+            picListViewEx.Items.Add("ad");*/            
         }
 
         /// <summary>
@@ -98,42 +92,13 @@ namespace Interlacer
 
         private void interlaceButton_Click(object sender, EventArgs e)
         {
-            harvestPicList();
-
-            /*List<Picture> pics = new List<Picture>
-            {
-                new Picture("pics/red.jpg"),
-                new Picture("pics/blue.jpg"),
-                new Picture("pics/green.jpg")
-            };
-
-            InterlacingData intData = new InterlacingData();
-            intData.SetUnits(Units.Cm);
-            intData.SetResolutionUnits(Units.In);
-            intData.SetWidth(21);
-            intData.SetHeight(29.7);
-            intData.SetPictureResolution(1200);
-            intData.SetLenticuleDensity(39.85);
-            intData.SetInitialResizeFilter(FilterType.Cubic);
-            intData.SetFinalResampleFilter(FilterType.Cubic);
-            LineData lineData = new LineData();
-            lineData.SetUnits(Units.Cm);
-            lineData.SetTop(true);
-            lineData.SetRight(true);
-            lineData.SetBottom(true);
-            lineData.SetLeft(true);
-            lineData.SetIndent(0.5);
-            lineData.SetFrameWidth(1);
-            lineData.SetLineThickness(1);
-            lineData.SetBackgroundColor(Color.White);
-            lineData.SetLineColor(Color.Black);
-            PictureContainer picCon = new PictureContainer(pics, intData, lineData, interlaceProgressBar);
-
+            List<Picture> picL = harvestPicList();
+            PictureContainer picCon = new PictureContainer(picL, projectData.GetInterlacingData(), projectData.GetLineData(), interlaceProgressBar);
             picCon.CheckPictures();
             picCon.Interlace();
-            picCon.GetResult().Save("result.tif");
-            picCon.GetResult().Destroy();
-            MessageBox.Show("Done!");*/
+            Picture result = picCon.GetResult();
+            result.Save("resut.tif");
+            
             //PictureContainer pc = new PictureContainer(progressBar, label, co dal??);
 
             //Thread t = new Thread(pc.interlace);
@@ -225,16 +190,34 @@ namespace Interlacer
         private void widthNumeric_ValueChanged(object sender, EventArgs e)
         {
             projectData.GetInterlacingData().SetWidth(Convert.ToDouble(widthNumeric.Value));
+            updateAllComponents();
         }
 
         private void heightNumeric_ValueChanged(object sender, EventArgs e)
         {
             projectData.GetInterlacingData().SetHeight(Convert.ToDouble(heightNumeric.Value));
+            updateAllComponents();
+        }
+
+        private void updateAllComponents()
+        {
+            widthNumeric.Text = Convert.ToString(projectData.GetInterlacingData().GetWidth());
+            heightNumeric.Text = Convert.ToString(projectData.GetInterlacingData().GetHeight());
+
+            double pictureResolution = projectData.GetInterlacingData().GetPictureResolution();
+            double lenticuleDensity = projectData.GetInterlacingData().GetLenticuleDensity();
+
+            if (lenticuleDensity != 0)
+            {
+                picUnderLenTextBox.Text = Convert.ToString(pictureResolution / lenticuleDensity);
+            }
+                 
         }
 
         private void keepRatioCheckbox_CheckedChanged(object sender, EventArgs e)
         {
             projectData.GetInterlacingData().KeepAspectRatio(keepRatioCheckbox.Checked);
+
         }
 
         private void reorderTimer_Tick(object sender, EventArgs e)
@@ -271,7 +254,7 @@ namespace Interlacer
             ComboBox c = (ComboBox) sender;
 
             FilterType filter = ((StringValuePair<FilterType>)c.SelectedItem).value;
-            projectData.GetInterlacingData().SetInitialResizeFilter(filter);
+            projectData.GetInterlacingData().SetFinalResampleFilter(filter);
         }
 
         public void changeUnits()
@@ -295,9 +278,51 @@ namespace Interlacer
             lpiLabel.Text = resolutionUnits[2];            
         }
 
-        private void tabPage3_Click(object sender, EventArgs e)
+        private void dpiNumeric_ValueChanged(object sender, EventArgs e)
         {
+            projectData.GetInterlacingData().SetPictureResolution(Convert.ToDouble(dpiNumeric.Value));
+            updateAllComponents();
+        }
 
+        private void lpiNumeric_ValueChanged(object sender, EventArgs e)
+        {
+            projectData.GetInterlacingData().SetLenticuleDensity(Convert.ToDouble(lpiNumeric.Value));
+            updateAllComponents();
+        }
+
+        private void frameWidthNumeric_ValueChanged(object sender, EventArgs e)
+        {
+            projectData.GetLineData().SetFrameWidth(Convert.ToDouble(frameWidthNumeric.Value));
+        }
+
+        private void indentNumeric_ValueChanged(object sender, EventArgs e)
+        {
+            projectData.GetLineData().SetIndent(Convert.ToDouble(indentNumeric.Value));
+        }
+
+        private void topLineCheckBox_CheckedChanged(object sender, EventArgs e)
+        {
+            projectData.GetLineData().SetTop(topLineCheckBox.Checked);
+        }
+
+        private void bottomLineCheckBox_CheckedChanged(object sender, EventArgs e)
+        {
+            projectData.GetLineData().SetBottom(bottomLineCheckBox.Checked);
+        }
+
+        private void leftLineCheckBox_CheckedChanged(object sender, EventArgs e)
+        {
+            projectData.GetLineData().SetLeft(leftLineCheckBox.Checked);
+        }
+
+        private void rightLineCheckBox_CheckedChanged(object sender, EventArgs e)
+        {
+            projectData.GetLineData().SetRight(rightLineCheckBox.Checked);
+        }
+
+        private void lineThicknessTrackbar_Scroll(object sender, EventArgs e)
+        {
+            //TODO
         }
     }
 }

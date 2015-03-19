@@ -80,8 +80,16 @@ void* loadImage(char* filename)
 	Magick::Image* img = nullptr;
 	try
 	{
+		std::ifstream file(filename, std::ios::binary);
+		file.seekg(0, std::ios::end);
+		long length = (long)file.tellg();
+		file.seekg(0, std::ios::beg);
+		char* data = new char[length];
+		file.read(data, length);
+		file.close();
+
 		img = new Magick::Image;
-		img->read(filename);
+		img->read(Magick::Blob(data, length));
 	}
 	catch (Magick::Error & er)
 	{
@@ -92,6 +100,7 @@ void* loadImage(char* filename)
 	catch (...)
 	{
 		delete img;
+		writeError("...");
 		RaiseException(GfxlibErrors::PictureLoadFailure, 0, 0, 0);
 	}
 	return (void*)img;
@@ -102,8 +111,16 @@ void* pingImage(char* filename)
 	Magick::Image* img = nullptr;
 	try
 	{
+		std::ifstream file(filename);
+		file.seekg(0, std::ios::end);
+		long length = (long)file.tellg();
+		file.seekg(0, std::ios::beg);
+		char* data = new char[length];
+		file.read(data, length);
+		file.close();
+		writeError(std::to_string(length));
 		img = new Magick::Image;
-		img->ping(filename);
+		img->ping(Magick::Blob(data, length));
 	}
 	catch (Magick::Error & er)
 	{

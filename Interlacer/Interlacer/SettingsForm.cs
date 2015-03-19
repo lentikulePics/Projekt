@@ -17,7 +17,7 @@ namespace Interlacer
 
         public SettingsForm(MainForm parent, Settings settings)
         {
-            Localization.changeCulture(Localization.currentLanguage);
+            Localization.changeCulture();
             
             InitializeComponent();
             this.parent = parent;
@@ -44,23 +44,19 @@ namespace Interlacer
 
         private void applyButton_Click(object sender, EventArgs e)
         {
-            // Zmeni nastaveni kultury programu
-            Localization.changeCulture(((StringValuePair<String>)languageCombobox.SelectedItem).value);
+            Localization.currentLanguage = ((StringValuePair<String>)languageCombobox.SelectedItem).value;
+            Localization.changeCulture();
             // Zmeni jazyk pro MainForm
             parent.changeLanguage();
             // Zmeni jazyk pro SettingsForm
             changeLanguage();
 
-            //this.parent.initSettings();
-
             settings.SetSelectedLanguageIndex(languageCombobox.SelectedIndex);
             settings.SetSelectedUnitsIndex(comboBox1.SelectedIndex);
             settings.SetSelectedResolutionUnitsIndex(comboBox2.SelectedIndex);
 
-            languageCombobox.SelectedItem = settings.GetSelectedLanguage().ToString();
-                        
-
             this.parent.changeUnits();
+            MessageBox.Show("jazyk je " + Localization.currentLanguage + ",  " +  Localization.resourcesStrings.GetString("langCzech"));
            
         }
 

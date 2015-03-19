@@ -9,9 +9,9 @@
             Udava, na jaky jazyk je program nastaven
             </summary>
         </member>
-        <member name="M:Interlacer.Localization.changeCulture(System.String)">
+        <member name="M:Interlacer.Localization.changeCulture">
             <summary>
-            Meni nastaveni kultury programu
+            Meni nastaveni kultury programu podle promenne currentLanguage
             </summary>
         </member>
         <member name="M:Interlacer.Localization.iterateOverControls(System.Windows.Forms.Control,System.ComponentModel.ComponentResourceManager)">

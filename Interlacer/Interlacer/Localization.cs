@@ -22,23 +22,22 @@ namespace Interlacer
         public static ComponentResourceManager resourcesStrings;
 
         /// <summary>
-        /// Meni nastaveni kultury programu
+        /// Meni nastaveni kultury programu podle promenne currentLanguage
         /// </summary>
-        public static void changeCulture(string language)
+        public static void changeCulture()
         {
-            currentLanguage = language;
-
-            if(language == "cs-CZ")
+            if(currentLanguage == "cs-CZ")
             {
                 resourcesStrings = new ComponentResourceManager(typeof(StringRes_CZ));
             }
-            else if (language == "en")
+            else if (currentLanguage == "en")
             {
+                MessageBox.Show("aj");
                 resourcesStrings = new ComponentResourceManager(typeof(StringRes_EN));
             }
            
-            Thread.CurrentThread.CurrentCulture = new CultureInfo(language);
-            Thread.CurrentThread.CurrentUICulture = new CultureInfo(language);
+            Thread.CurrentThread.CurrentCulture = new CultureInfo(currentLanguage);
+            Thread.CurrentThread.CurrentUICulture = new CultureInfo(currentLanguage);
         }
 
         /// <summary>
@@ -46,12 +45,19 @@ namespace Interlacer
         /// </summary>
         /// <param name="parent">Kopmonenta pres kterou se bude iterovat</param>
         public static void iterateOverControls(Control parent, ComponentResourceManager res)
-        {
+        {            
+
             foreach (Control c in parent.Controls)
             {
                 res.ApplyResources(c, c.Name, new CultureInfo(Localization.currentLanguage));
-
-                iterateOverControls(c, res);
+                if (c.GetType() == typeof(GroupBox))
+                {
+                    iterateOverControls(c, res);
+                }
+                else
+                {
+                    iterateOverControls(c, res);
+                }
             }
         }
     }

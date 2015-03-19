@@ -4,6 +4,22 @@
         <name>Interlacer</name>
     </assembly>
     <members>
+        <member name="F:Interlacer.Localization.currentLanguage">
+            <summary>
+            Udava, na jaky jazyk je program nastaven
+            </summary>
+        </member>
+        <member name="M:Interlacer.Localization.changeCulture">
+            <summary>
+            Meni nastaveni kultury programu podle promenne currentLanguage
+            </summary>
+        </member>
+        <member name="M:Interlacer.Localization.iterateOverControls(System.Windows.Forms.Control,System.ComponentModel.ComponentResourceManager)">
+            <summary>
+            Rekurzivne projde vsechny komponenty formu a nastavi jim aktualne pouzivany jazyk
+            </summary>
+            <param name="parent">Kopmonenta pres kterou se bude iterovat</param>
+        </member>
         <member name="T:GfxlibWrapper.FilterType">
             <summary>
             trida reprezentujici typ filteru pouziteho pro resize
@@ -284,6 +300,11 @@
             <param name="destColumn">index ciloveho sloupce tohoto obrazku</param>
             <param name="destYBegin">index pocatecni y souradnice, od ktere se zacne sloupec kopirovat do tohoto obrazku</param>
         </member>
+        <member name="M:Interlacer.MainForm.changeLanguage">
+            <summary>
+            
+            </summary>
+        </member>
         <member name="F:Interlacer.MainForm.components">
             <summary>
             Required designer variable.
@@ -411,6 +432,58 @@
             vrati aktualne vybrane nastaveni jazyka
             </summary>
             <returns>aktualne vybrane nastaveni jazyka</returns>
+        </member>
+        <member name="T:Interlacer.StringRes_CZ">
+            <summary>
+              A strongly-typed resource class, for looking up localized strings, etc.
+            </summary>
+        </member>
+        <member name="P:Interlacer.StringRes_CZ.ResourceManager">
+            <summary>
+              Returns the cached ResourceManager instance used by this class.
+            </summary>
+        </member>
+        <member name="P:Interlacer.StringRes_CZ.Culture">
+            <summary>
+              Overrides the current thread's CurrentUICulture property for all
+              resource lookups using this strongly typed resource class.
+            </summary>
+        </member>
+        <member name="P:Interlacer.StringRes_CZ.langCzech">
+            <summary>
+              Looks up a localized string similar to Čeština.
+            </summary>
+        </member>
+        <member name="P:Interlacer.StringRes_CZ.langEnglish">
+            <summary>
+              Looks up a localized string similar to Angličtina.
+            </summary>
+        </member>
+        <member name="T:Interlacer.StringRes_EN">
+            <summary>
+              A strongly-typed resource class, for looking up localized strings, etc.
+            </summary>
+        </member>
+        <member name="P:Interlacer.StringRes_EN.ResourceManager">
+            <summary>
+              Returns the cached ResourceManager instance used by this class.
+            </summary>
+        </member>
+        <member name="P:Interlacer.StringRes_EN.Culture">
+            <summary>
+              Overrides the current thread's CurrentUICulture property for all
+              resource lookups using this strongly typed resource class.
+            </summary>
+        </member>
+        <member name="P:Interlacer.StringRes_EN.langCzech">
+            <summary>
+              Looks up a localized string similar to Czech.
+            </summary>
+        </member>
+        <member name="P:Interlacer.StringRes_EN.langEnglish">
+            <summary>
+              Looks up a localized string similar to English.
+            </summary>
         </member>
         <member name="T:Interlacer.StringValuePair`1">
             <summary>
