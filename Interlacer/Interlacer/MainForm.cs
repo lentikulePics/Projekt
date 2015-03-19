@@ -26,12 +26,14 @@ namespace Interlacer
             //Nastaveni jazyka na vychozi hodnotu(Cestina)
             Localization.changeCulture();
 
+            InitializeComponent();
+
             //prozatimni reseni, pak bude potreba dodat retezce z recource filu
             SettingOptions settingOptions = new SettingOptions();
             settingOptions.languageOptions = new List<StringValuePair<String>>
             {
-                new StringValuePair<String>(Localization.resourcesMain.GetString("langCzech"), "cs-CZ"),
-                new StringValuePair<String>(Localization.resourcesMain.GetString("langEnglish"), "en")
+                new StringValuePair<String>(Localization.resourcesStrings.GetString("langCzech"), "cs-CZ"),
+                new StringValuePair<String>(Localization.resourcesStrings.GetString("langEnglish"), "en")
             };
             settingOptions.unitsOptions = new List<StringValuePair<Units>>
             {
@@ -44,23 +46,35 @@ namespace Interlacer
                 new StringValuePair<Units>("DPI, LPI", Units.In),
                 new StringValuePair<Units>("DPCM, LPCM", Units.Cm)
             };
+
+            interpol1ComboBox.Items.Add(new StringValuePair<FilterType>("Nejbližší soused", FilterType.None));
+            interpol1ComboBox.Items.Add(new StringValuePair<FilterType>("Lineární", FilterType.Triangle));
+            interpol1ComboBox.Items.Add(new StringValuePair<FilterType>("Kubický", FilterType.Cubic));
+            interpol1ComboBox.Items.Add(new StringValuePair<FilterType>("Lanczos", FilterType.Lanczos));
+
+            interpol2ComboBox.Items.Add(new StringValuePair<FilterType>("Nejbližší soused", FilterType.None));
+            interpol2ComboBox.Items.Add(new StringValuePair<FilterType>("Lineární", FilterType.Triangle));
+            interpol2ComboBox.Items.Add(new StringValuePair<FilterType>("Kubický", FilterType.Cubic));
+            interpol2ComboBox.Items.Add(new StringValuePair<FilterType>("Lanczos", FilterType.Lanczos));
+
+            
+
             settings = new Settings(settingOptions);
             settings.SetSelectedLanguageIndex(0);
             settings.SetSelectedUnitsIndex(0);
-            settings.SetSelectedResolutionUnitsIndex(0);
+            settings.SetSelectedResolutionUnitsIndex(0);           
 
-            InitializeComponent();
-
-            unitsComboBox.SelectedItem = unitsComboBox.Items[0];
+            //unitsComboBox.SelectedItem = unitsComboBox.Items[0];
             interpol1ComboBox.SelectedItem = interpol1ComboBox.Items[0];
             interpol2ComboBox.SelectedItem = interpol2ComboBox.Items[0];
+
+            changeUnits();
 
             pictureListViewEx.MultiSelect = true;
         }
 
         private void Form1_Load(object sender, EventArgs e)
-        {           
-
+        {
             /*picListViewEx.Items.Add("adsfasdsd");
             picListViewEx.Items.Add("dsadsfasdfasdfsfd");
             picListViewEx.Items.Add("ad");*/            
@@ -73,8 +87,6 @@ namespace Interlacer
         {
             Localization.iterateOverControls(this, Localization.resourcesMain);
         }
-
-        
 
         private void interlaceButton_Click(object sender, EventArgs e)
         {
@@ -159,6 +171,7 @@ namespace Interlacer
         private void clearAllButton_Click(object sender, EventArgs e)
         {
                pictureListViewEx.Items.Clear();
+               order = 1;
         }
 
         private void removePicButton_Click(object sender, EventArgs e)
@@ -214,6 +227,69 @@ namespace Interlacer
         private void keepRatioCheckbox_CheckedChanged(object sender, EventArgs e)
         {
             projectData.GetInterlacingData().KeepAspectRatio(keepRatioCheckbox.Checked);
+        }
+
+        private void reorderTimer_Tick(object sender, EventArgs e)
+        {
+            //reOrder();
+        }
+
+        private void pictureListViewEx_DragDrop(object sender, DragEventArgs e)
+        {
+            //e.Effect = DragDropEffects.All;
+            //reOrder();
+        }
+
+        private void pictureListViewEx_ItemSelectionChanged(object sender, ListViewItemSelectionChangedEventArgs e)
+        {
+            //reOrder();
+        }
+
+        private void pokus(object sender, EventArgs e)
+        {
+            reOrder();
+        }
+
+        private void interpol1ComboBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            ComboBox c = (ComboBox)sender;
+
+            FilterType filter = ((StringValuePair<FilterType>)c.SelectedItem).value;
+            projectData.GetInterlacingData().SetInitialResizeFilter(filter);
+        }
+
+        private void interpol2ComboBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            ComboBox c = (ComboBox) sender;
+
+            FilterType filter = ((StringValuePair<FilterType>)c.SelectedItem).value;
+            projectData.GetInterlacingData().SetInitialResizeFilter(filter);
+        }
+
+        public void changeUnits()
+        {
+            projectData.GetInterlacingData().SetUnits(((StringValuePair<Units>)settings.GetSelectedUnits()).value);
+            projectData.GetLineData().SetUnits(((StringValuePair<Units>)settings.GetSelectedUnits()).value);
+            projectData.GetInterlacingData().SetResolutionUnits(((StringValuePair<Units>)settings.GetSelectedResolutionUnits()).value);
+
+            string measureUnits = settings.GetSelectedUnits().ToString();
+            string[] resolutionUnits = settings.GetSelectedResolutionUnits().ToString().Split(new char[] { ',', ' ' });
+
+            //musime splitnout
+
+            unitsLabel.Text = measureUnits;
+            unitsLabel2.Text = measureUnits;
+
+            unitsLabel3.Text = measureUnits;
+            unitsLabel4.Text = measureUnits;
+
+            dpiLabel.Text = resolutionUnits[0];
+            lpiLabel.Text = resolutionUnits[2];            
+        }
+
+        private void tabPage3_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

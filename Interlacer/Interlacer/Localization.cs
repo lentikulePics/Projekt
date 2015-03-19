@@ -19,12 +19,23 @@ namespace Interlacer
 
         public static ComponentResourceManager resourcesMain = new ComponentResourceManager(typeof(MainForm));
         public static ComponentResourceManager resourcesSettings = new ComponentResourceManager(typeof(SettingsForm));
+        public static ComponentResourceManager resourcesStrings;
 
         /// <summary>
         /// Meni nastaveni kultury programu podle promenne currentLanguage
         /// </summary>
         public static void changeCulture()
         {
+            if(currentLanguage == "cs-CZ")
+            {
+                resourcesStrings = new ComponentResourceManager(typeof(StringRes_CZ));
+            }
+            else if (currentLanguage == "en")
+            {
+                MessageBox.Show("aj");
+                resourcesStrings = new ComponentResourceManager(typeof(StringRes_EN));
+            }
+           
             Thread.CurrentThread.CurrentCulture = new CultureInfo(currentLanguage);
             Thread.CurrentThread.CurrentUICulture = new CultureInfo(currentLanguage);
         }

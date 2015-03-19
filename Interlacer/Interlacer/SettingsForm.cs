@@ -45,14 +45,19 @@ namespace Interlacer
         private void applyButton_Click(object sender, EventArgs e)
         {
             Localization.currentLanguage = ((StringValuePair<String>)languageCombobox.SelectedItem).value;
+            Localization.changeCulture();
             // Zmeni jazyk pro MainForm
             parent.changeLanguage();
-            //Zmeni jazyk pro SettingsForm
+            // Zmeni jazyk pro SettingsForm
             changeLanguage();
 
             settings.SetSelectedLanguageIndex(languageCombobox.SelectedIndex);
             settings.SetSelectedUnitsIndex(comboBox1.SelectedIndex);
             settings.SetSelectedResolutionUnitsIndex(comboBox2.SelectedIndex);
+
+            this.parent.changeUnits();
+            MessageBox.Show("jazyk je " + Localization.currentLanguage + ",  " +  Localization.resourcesStrings.GetString("langCzech"));
+           
         }
 
         private void okButton_Click(object sender, EventArgs e)

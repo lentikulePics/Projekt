@@ -433,6 +433,58 @@
             </summary>
             <returns>aktualne vybrane nastaveni jazyka</returns>
         </member>
+        <member name="T:Interlacer.StringRes_CZ">
+            <summary>
+              A strongly-typed resource class, for looking up localized strings, etc.
+            </summary>
+        </member>
+        <member name="P:Interlacer.StringRes_CZ.ResourceManager">
+            <summary>
+              Returns the cached ResourceManager instance used by this class.
+            </summary>
+        </member>
+        <member name="P:Interlacer.StringRes_CZ.Culture">
+            <summary>
+              Overrides the current thread's CurrentUICulture property for all
+              resource lookups using this strongly typed resource class.
+            </summary>
+        </member>
+        <member name="P:Interlacer.StringRes_CZ.langCzech">
+            <summary>
+              Looks up a localized string similar to Čeština.
+            </summary>
+        </member>
+        <member name="P:Interlacer.StringRes_CZ.langEnglish">
+            <summary>
+              Looks up a localized string similar to Angličtina.
+            </summary>
+        </member>
+        <member name="T:Interlacer.StringRes_EN">
+            <summary>
+              A strongly-typed resource class, for looking up localized strings, etc.
+            </summary>
+        </member>
+        <member name="P:Interlacer.StringRes_EN.ResourceManager">
+            <summary>
+              Returns the cached ResourceManager instance used by this class.
+            </summary>
+        </member>
+        <member name="P:Interlacer.StringRes_EN.Culture">
+            <summary>
+              Overrides the current thread's CurrentUICulture property for all
+              resource lookups using this strongly typed resource class.
+            </summary>
+        </member>
+        <member name="P:Interlacer.StringRes_EN.langCzech">
+            <summary>
+              Looks up a localized string similar to Czech.
+            </summary>
+        </member>
+        <member name="P:Interlacer.StringRes_EN.langEnglish">
+            <summary>
+              Looks up a localized string similar to English.
+            </summary>
+        </member>
         <member name="T:Interlacer.StringValuePair`1">
             <summary>
             umoznuje vytvorit pojmenovani libovolne promenne ci objektu, obsahuje atribut "name" typu String a atribut "value",

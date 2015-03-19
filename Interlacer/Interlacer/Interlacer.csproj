@@ -117,6 +117,16 @@
     <Compile Include="ProjectData.cs" />
     <Compile Include="SettingOptions.cs" />
     <Compile Include="Settings.cs" />
+    <Compile Include="StringRes_CZ.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>StringRes_CZ.resx</DependentUpon>
+    </Compile>
+    <Compile Include="StringRes_EN.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>StringRes_EN.resx</DependentUpon>
+    </Compile>
     <Compile Include="StringValuePair.cs" />
     <Compile Include="PictureContainer.cs" />
     <Compile Include="Program.cs" />
@@ -149,6 +159,14 @@
     </EmbeddedResource>
     <EmbeddedResource Include="SettingsForm.resx">
       <DependentUpon>SettingsForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="StringRes_CZ.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>StringRes_CZ.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="StringRes_EN.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>StringRes_EN.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
