@@ -114,7 +114,7 @@ namespace Interlacer
         {
             settingsForm = new SettingsForm(this, settings);
             settingsForm.ShowDialog();
-        }        
+        }
 
         private void addPicButton_Click(object sender, EventArgs e)
         {
@@ -123,12 +123,35 @@ namespace Interlacer
 
             if (result == DialogResult.OK)
             {
-                string [] chosenPictures = addPicFileDialog.FileNames;
+                string[] chosenPictures = addPicFileDialog.FileNames;
 
                 for (int i = 0; i < chosenPictures.Length; i++)
                 {
-                    pictureListViewEx.Items.Add(Convert.ToString(order)).SubItems.Add(chosenPictures[i]);
-                    order += 1;
+                    var indeces = pictureListViewEx.SelectedIndices;
+                    int selectedIndex;
+
+                    // Pokud je vybrano vic, tak posuneme ten nad tim pod vybrane
+
+                    // Pokud neni v listu nic vybrano
+                    if (indeces.Count == 0)
+                    {
+                        selectedIndex = Convert.ToInt32(order - 1);
+                    }
+                    // Pokud je v listu neco vybrano
+                    else
+                    {
+                        selectedIndex = Convert.ToInt32(indeces[0]) + 1;
+                    }
+
+                    int numOfPics = chosenPictures.Count();
+
+                    //                    pictureListViewEx.Items.Add(Convert.ToString(order)).SubItems.Add(chosenPictures[i]);
+                    pictureListViewEx.Items.Insert(selectedIndex, Convert.ToString(order)).SubItems.Add(chosenPictures[i]);
+
+                    reOrder();
+
+                    pictureListViewEx.Focus();
+                    pictureListViewEx.Items[selectedIndex].Selected = false;
                 }
             }
         }
@@ -175,7 +198,59 @@ namespace Interlacer
 
         private void moveUpButton_Click(object sender, EventArgs e)
         {
+            var indeces = pictureListViewEx.SelectedIndices;
 
+            // Pokud neni nic vybrano, return
+
+            if (indeces.Count == 0)
+            {
+                return;
+            }
+
+            int selectedIndex = Convert.ToInt32(indeces[0]);
+
+            pictureListViewEx.Focus();
+            pictureListViewEx.Items[selectedIndex].Selected = true;
+
+            if (selectedIndex == 0)
+            {
+                return;
+            }
+
+            string tmp = pictureListViewEx.Items[selectedIndex - 1].SubItems[1].Text;
+
+            pictureListViewEx.Items[selectedIndex - 1].SubItems[1].Text = pictureListViewEx.Items[selectedIndex].SubItems[1].Text;
+            pictureListViewEx.Items[selectedIndex].SubItems[1].Text = tmp;
+
+            pictureListViewEx.Items[selectedIndex - 1].Selected = true;
+            pictureListViewEx.Items[selectedIndex].Selected = false;
+        }
+        private void moveDownButton_Click(object sender, EventArgs e)
+        {
+            var indeces = pictureListViewEx.SelectedIndices;
+
+            if (indeces.Count == 0)
+            {
+                return;
+            }
+
+            int selectedIndex = Convert.ToInt32(indeces[0]);
+
+            pictureListViewEx.Focus();
+            pictureListViewEx.Items[selectedIndex].Selected = true;
+
+            if (selectedIndex == pictureListViewEx.Items.Count - 1)
+            {
+                return;
+            }
+
+            string tmp = pictureListViewEx.Items[selectedIndex + 1].SubItems[1].Text;
+
+            pictureListViewEx.Items[selectedIndex + 1].SubItems[1].Text = pictureListViewEx.Items[selectedIndex].SubItems[1].Text;
+            pictureListViewEx.Items[selectedIndex].SubItems[1].Text = tmp;
+
+            pictureListViewEx.Items[selectedIndex + 1].Selected = true;
+            pictureListViewEx.Items[selectedIndex].Selected = false;
         }
 
         private void revertButton_Click(object sender, EventArgs e)
@@ -329,5 +404,7 @@ namespace Interlacer
         {
             //TODO
         }
+
+        
     }
 }

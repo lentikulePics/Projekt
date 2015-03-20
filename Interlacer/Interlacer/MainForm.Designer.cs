@@ -348,6 +348,7 @@
             resources.ApplyResources(this.moveDownButton, "moveDownButton");
             this.moveDownButton.Name = "moveDownButton";
             this.moveDownButton.UseVisualStyleBackColor = true;
+            this.moveDownButton.Click += new System.EventHandler(this.moveDownButton_Click);
             // 
             // moveUpButton
             // 
