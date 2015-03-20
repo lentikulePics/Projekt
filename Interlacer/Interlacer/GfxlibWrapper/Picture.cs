@@ -14,6 +14,7 @@ namespace GfxlibWrapper
     using IntPx = Int32;
     //definuje typ podle velikosti barevneho kanalu pro samostatne kanaly
     using IntChannel = Byte;
+    using System.IO;
 
     /// <summary>
     /// trida reprezentujici obrazek jako bitmapu
@@ -76,6 +77,46 @@ namespace GfxlibWrapper
             resolutionUnits = unitType == 1 ? Units.In : Units.Cm;
         }
 
+        private void loadTiff()
+        {
+            Image img = Image.FromFile(filename);
+            Bitmap bmp = new Bitmap(img);
+            BitmapData bmpData = bmp.LockBits(new Rectangle(new Point(0, 0), new Size(bmp.Width, bmp.Height)),
+                ImageLockMode.ReadWrite, PixelFormat.Format32bppArgb);
+            IntPx* pixels = (IntPx*)bmpData.Scan0;
+            imagePtr = GfxlibCommunicator.createImage(bmp.Width, bmp.Height);
+            pixelData = GfxlibCommunicator.getPixelDataPtr(imagePtr);
+            width = bmp.Width;
+            height = bmp.Height;
+            SetDpi(img.HorizontalResolution, img.VerticalResolution);
+            for (int i = 0; i < width * height; i++)
+            {
+                pixelData[i] = pixels[i];
+            }
+            bmp.UnlockBits(bmpData);
+        }
+
+        private void pingTiff()
+        {
+            using (FileStream stream = new System.IO.FileStream(filename, FileMode.Open, FileAccess.Read))
+            {
+                using (Image img = Image.FromStream(stream, false, false))
+                {
+                    width = img.Width;
+                    height = img.Height;
+                    SetDpi(img.HorizontalResolution, img.VerticalResolution);
+                }
+            }
+        }
+
+        private bool isTiff()
+        {
+            String[] strings = filename.Split(new char[]{'.'});
+            String ext = strings[strings.Length - 1];
+            ext = ext.ToLower();
+            return ext.Equals("tif") || ext.Equals("tiff");
+        }
+
         /// <summary>
         /// nastavi pametove limity knihovny Magick++
         /// </summary>
@@ -121,6 +162,11 @@ namespace GfxlibWrapper
         {
             if (imagePtr != null)
                 throw new PictureAlreadyCreatedException();
+            if (isTiff())
+            {
+                pingTiff();
+                return;
+            }
             try
             {
                 imagePtr = GfxlibCommunicator.pingImage(stringToCharArray(filename));
@@ -141,6 +187,11 @@ namespace GfxlibWrapper
         {
             if (imagePtr != null)
                 throw new PictureAlreadyCreatedException();
+            if (isTiff())
+            {
+                loadTiff();
+                return;
+            }
             try
             {
                 imagePtr = GfxlibCommunicator.loadImage(stringToCharArray(filename));
