@@ -10,7 +10,7 @@ using System.ComponentModel;
 
 namespace Interlacer
 {
-    class Localization
+    static class Localization
     {
         /// <summary>
         /// Udava, na jaky jazyk je program nastaven
