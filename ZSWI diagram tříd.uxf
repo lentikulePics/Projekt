@@ -1,0 +1,512 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<diagram program="umlet" version="11.5.1">
+  <zoom_level>7</zoom_level>
+  <element>
+    <type>com.umlet.element.Class</type>
+    <coordinates>
+      <x>553</x>
+      <y>483</y>
+      <w>336</w>
+      <h>175</h>
+    </coordinates>
+    <panel_attributes>GfxlibCommunicator
+--
+_+ setResourceLimits(): void_
+_+ createImage(int w, int h): void*_
+_+ deleteImage(void* ptr): void_
+_+ getPixelDataPtr(void* ptr): IntPx_
+_+ loadImage(char[] filename): void*_
+_+ pingImage(char[] filename): void*_
+_+ saveImage(void* ptr, char[] filename): void_
+_+ getImageWidth(void* ptr): int_
+_+ getImageHeight(void* ptr): int_
+_+ getImageXResolution(void* ptr, int* unitType): double_
+_+ getImageYResolution(void* ptr, int* unitType): double_
+_+ setImageResolution(void* ptr, double xRes, double yRes, int unitType): void_
+_+ resizeImage(void* ptr, int w, int h, int filterType): void_
+_+ clipImage(void* ptr, int x, int y, int w, int h): void_</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <type>com.umlet.element.Class</type>
+    <coordinates>
+      <x>238</x>
+      <y>497</y>
+      <w>266</w>
+      <h>154</h>
+    </coordinates>
+    <panel_attributes>Picture
+--
+- width: int
+- height: int
+- xResolution: double
+- yResolution: double
+- filename: String
+--
++ Picture(int width, int height)
++ Picture(String filename)
++ Ping(): void
++ Load(): void
++ Save(String saveFilename): void
++ Resize(int newWidth, int newHeight, FilterType filterType): void
++ Clip(int x, int y, int newWidth, int newHeight): void</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <type>com.umlet.element.Relation</type>
+    <coordinates>
+      <x>483</x>
+      <y>539</y>
+      <w>83</w>
+      <h>49</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;.
+používá</panel_attributes>
+    <additional_attributes>70;35;21;35</additional_attributes>
+  </element>
+  <element>
+    <type>com.umlet.element.Class</type>
+    <coordinates>
+      <x>42</x>
+      <y>532</y>
+      <w>147</w>
+      <h>91</h>
+    </coordinates>
+    <panel_attributes>FilterType
+--
+_+ None: FilterType {readOnly}_
+_+ Triangle: FilterType {readOnly}_
+_+ Cubic: FilterType {readOnly}_
+_+ Lanczos: FilterType {readOnly}_
+--
+- FilterType(String name, int value)
++ ToString(): String</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <type>com.umlet.element.Relation</type>
+    <coordinates>
+      <x>168</x>
+      <y>546</y>
+      <w>83</w>
+      <h>49</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;.
+Používá</panel_attributes>
+    <additional_attributes>21;35;70;35</additional_attributes>
+  </element>
+  <element>
+    <type>com.umlet.element.Class</type>
+    <coordinates>
+      <x>329</x>
+      <y>364</y>
+      <w>308</w>
+      <h>84</h>
+    </coordinates>
+    <panel_attributes>PictureContainer
+--
+- result: Picture
+- interlacingData: InterlacingData
+- lineData: LineData
+--
++ PictureContainer(List&lt;Picture&gt;, InterlacingData, LineData, ProgressBar)
++ CheckPictures(): bool
++ Interlace(): void</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <type>com.umlet.element.Relation</type>
+    <coordinates>
+      <x>427</x>
+      <y>427</y>
+      <w>86</w>
+      <h>83</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;-&gt;
+	
+zpracovává</panel_attributes>
+    <additional_attributes>49;21;49;70</additional_attributes>
+  </element>
+  <element>
+    <type>com.umlet.element.Class</type>
+    <coordinates>
+      <x>98</x>
+      <y>350</y>
+      <w>140</w>
+      <h>105</h>
+    </coordinates>
+    <panel_attributes>InterlacingData
+--
+- width: double
+- height: double
+- pictureResolution: double
+- lenticuleDensity: double
+- initialResizeFilter: FilterType
+- finalResampleFilter: FilterType
+- units: Units
+- resolutionUnits: Units</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <type>com.umlet.element.Class</type>
+    <coordinates>
+      <x>119</x>
+      <y>497</y>
+      <w>49</w>
+      <h>28</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;enum&gt;&gt;
+Units
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <type>com.umlet.element.Relation</type>
+    <coordinates>
+      <x>147</x>
+      <y>476</y>
+      <w>104</w>
+      <h>49</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;.
+používá</panel_attributes>
+    <additional_attributes>21;35;91;35</additional_attributes>
+  </element>
+  <element>
+    <type>com.umlet.element.Relation</type>
+    <coordinates>
+      <x>217</x>
+      <y>371</y>
+      <w>125</w>
+      <h>64</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;-&gt;
+používá ke
+zpracování</panel_attributes>
+    <additional_attributes>112;35;21;35</additional_attributes>
+  </element>
+  <element>
+    <type>com.umlet.element.Relation</type>
+    <coordinates>
+      <x>105</x>
+      <y>434</y>
+      <w>72</w>
+      <h>76</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;-&gt;
+	
+používá</panel_attributes>
+    <additional_attributes>42;21;42;63</additional_attributes>
+  </element>
+  <element>
+    <type>com.umlet.element.Class</type>
+    <coordinates>
+      <x>742</x>
+      <y>336</y>
+      <w>126</w>
+      <h>140</h>
+    </coordinates>
+    <panel_attributes>LineData
+--
+- lineThickness: int
+- lineColor: Color
+- backgroundColor: Color
+- frameWidth: double
+- indent: double
+- left: bool
+- top: bool
+- right: bool
+- bottom: bool
+- centerPosition: bool
+- units: Units</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <type>com.umlet.element.Relation</type>
+    <coordinates>
+      <x>616</x>
+      <y>371</y>
+      <w>139</w>
+      <h>64</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;-&gt;
+používá k přidání
+pasovacích značek</panel_attributes>
+    <additional_attributes>21;35;126;35</additional_attributes>
+  </element>
+  <element>
+    <type>com.umlet.element.Relation</type>
+    <coordinates>
+      <x>63</x>
+      <y>434</y>
+      <w>76</w>
+      <h>111</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;-&gt;
+obsahuje</panel_attributes>
+    <additional_attributes>42;21;42;98</additional_attributes>
+  </element>
+  <element>
+    <type>com.umlet.element.Class</type>
+    <coordinates>
+      <x>413</x>
+      <y>287</y>
+      <w>147</w>
+      <h>63</h>
+    </coordinates>
+    <panel_attributes>ProjectData
+--
+- interlacingData: InterlacingData
+- lineData: LineData
+--
++ Save(String filename): void
++ Load(String filename): void</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <type>com.umlet.element.Relation</type>
+    <coordinates>
+      <x>539</x>
+      <y>287</y>
+      <w>286</w>
+      <h>62</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;-&gt;
+obsahuje</panel_attributes>
+    <additional_attributes>21;35;252;35;252;49</additional_attributes>
+  </element>
+  <element>
+    <type>com.umlet.element.Relation</type>
+    <coordinates>
+      <x>126</x>
+      <y>287</y>
+      <w>300</w>
+      <h>76</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;-&gt;
+obsahuje</panel_attributes>
+    <additional_attributes>287;35;42;35;42;63</additional_attributes>
+  </element>
+  <element>
+    <type>com.umlet.element.Class</type>
+    <coordinates>
+      <x>371</x>
+      <y>140</y>
+      <w>133</w>
+      <h>91</h>
+    </coordinates>
+    <panel_attributes>MainForm
+--
+- settings: Settings
+- settingsForm: SettingsForm
+- projectData: ProjectData
+- previewData: PreviewData
+--
++ MainForm()
++ ApplySettings(): void
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <type>com.umlet.element.Relation</type>
+    <coordinates>
+      <x>399</x>
+      <y>210</y>
+      <w>76</w>
+      <h>90</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;-&gt;
+obsahuje</panel_attributes>
+    <additional_attributes>42;21;42;77</additional_attributes>
+  </element>
+  <element>
+    <type>com.umlet.element.Class</type>
+    <coordinates>
+      <x>616</x>
+      <y>154</y>
+      <w>217</w>
+      <h>56</h>
+    </coordinates>
+    <panel_attributes>SettingsForm
+--
+- parent: MainForm
+- settings: Settings
+--
++ SettingsForm(MainForm parent, Settings settings)
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <type>com.umlet.element.Relation</type>
+    <coordinates>
+      <x>483</x>
+      <y>126</y>
+      <w>146</w>
+      <h>49</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;-&gt;
+otevírá</panel_attributes>
+    <additional_attributes>21;35;133;35</additional_attributes>
+  </element>
+  <element>
+    <type>com.umlet.element.Relation</type>
+    <coordinates>
+      <x>483</x>
+      <y>161</y>
+      <w>146</w>
+      <h>64</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;-&gt;
+přebírá
+odkaz</panel_attributes>
+    <additional_attributes>133;35;21;35</additional_attributes>
+  </element>
+  <element>
+    <type>com.umlet.element.Class</type>
+    <coordinates>
+      <x>644</x>
+      <y>14</y>
+      <w>175</w>
+      <h>77</h>
+    </coordinates>
+    <panel_attributes>Settings
+--
+- settingOptions: SettingOptions
+- selectedUnitsIndex: int
+- selectedResolutionUnitsIndex: int
+- selectedLanguageIndex: int
+--
++ Settings(SettingOptions settingOptions)</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <type>com.umlet.element.Relation</type>
+    <coordinates>
+      <x>679</x>
+      <y>70</y>
+      <w>96</w>
+      <h>97</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;-&gt;
+přebírá odkaz</panel_attributes>
+    <additional_attributes>49;84;49;21</additional_attributes>
+  </element>
+  <element>
+    <type>com.umlet.element.Relation</type>
+    <coordinates>
+      <x>378</x>
+      <y>0</y>
+      <w>279</w>
+      <h>153</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;-&gt;
+obsahuje</panel_attributes>
+    <additional_attributes>42;140;42;35;266;35</additional_attributes>
+  </element>
+  <element>
+    <type>com.umlet.element.Class</type>
+    <coordinates>
+      <x>490</x>
+      <y>70</y>
+      <w>140</w>
+      <h>56</h>
+    </coordinates>
+    <panel_attributes>SettingsOptions
+--
++ unitsOptions: List&lt;&gt;
++ resolutionUnitsOptions: List&lt;&gt;
++ languageOptions: List&lt;&gt;</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <type>com.umlet.element.Relation</type>
+    <coordinates>
+      <x>504</x>
+      <y>14</y>
+      <w>153</w>
+      <h>69</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;-&gt;
+obsahuje</panel_attributes>
+    <additional_attributes>140;35;42;35;42;56</additional_attributes>
+  </element>
+  <element>
+    <type>com.umlet.element.Relation</type>
+    <coordinates>
+      <x>301</x>
+      <y>161</y>
+      <w>83</w>
+      <h>216</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;.
+používá</panel_attributes>
+    <additional_attributes>42;203;42;35;70;35</additional_attributes>
+  </element>
+  <element>
+    <type>com.umlet.element.Class</type>
+    <coordinates>
+      <x>567</x>
+      <y>252</y>
+      <w>322</w>
+      <h>56</h>
+    </coordinates>
+    <panel_attributes>Localization
+--
+_+ currentLanguage: String_
+--
+_+ ChangeCulture(): void_
+_+ iterateOverControls(Control parent, ComponentResourceManager res): void_</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <type>com.umlet.element.Relation</type>
+    <coordinates>
+      <x>686</x>
+      <y>189</y>
+      <w>72</w>
+      <h>76</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;.
+používá</panel_attributes>
+    <additional_attributes>42;63;42;21</additional_attributes>
+  </element>
+  <element>
+    <type>com.umlet.element.Relation</type>
+    <coordinates>
+      <x>441</x>
+      <y>210</y>
+      <w>139</w>
+      <h>70</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;.
+používá</panel_attributes>
+    <additional_attributes>126;56;42;56;42;21</additional_attributes>
+  </element>
+  <element>
+    <type>com.umlet.element.Class</type>
+    <coordinates>
+      <x>119</x>
+      <y>140</y>
+      <w>161</w>
+      <h>49</h>
+    </coordinates>
+    <panel_attributes>PreviewData
+--
+- pictures: Dictionary&lt;String, Picture&gt;
+--
++ AddPicture(String path): void</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <type>com.umlet.element.Relation</type>
+    <coordinates>
+      <x>259</x>
+      <y>133</y>
+      <w>125</w>
+      <h>49</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;-&gt;
+obsahuje</panel_attributes>
+    <additional_attributes>112;35;21;35</additional_attributes>
+  </element>
+</diagram>
