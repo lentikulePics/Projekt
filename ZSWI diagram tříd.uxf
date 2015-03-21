@@ -367,7 +367,7 @@ odkaz</panel_attributes>
       <x>644</x>
       <y>14</y>
       <w>175</w>
-      <h>77</h>
+      <h>98</h>
     </coordinates>
     <panel_attributes>Settings
 --
@@ -376,20 +376,22 @@ odkaz</panel_attributes>
 - selectedResolutionUnitsIndex: int
 - selectedLanguageIndex: int
 --
-+ Settings(SettingOptions settingOptions)</panel_attributes>
++ Settings(SettingOptions settingOptions)
++ Save(String filename): void
++ Load(String filename): void</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
     <type>com.umlet.element.Relation</type>
     <coordinates>
       <x>679</x>
-      <y>70</y>
+      <y>91</y>
       <w>96</w>
-      <h>97</h>
+      <h>76</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;&lt;-&gt;
 přebírá odkaz</panel_attributes>
-    <additional_attributes>49;84;49;21</additional_attributes>
+    <additional_attributes>49;63;49;21</additional_attributes>
   </element>
   <element>
     <type>com.umlet.element.Relation</type>
