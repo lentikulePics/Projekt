@@ -44,7 +44,7 @@ namespace Interlacer
         /// </summary>
         /// <param name="parent">Kopmonenta pres kterou se bude iterovat</param>
         public static void iterateOverControls(Control parent, ComponentResourceManager res)
-        {            
+        {
 
             foreach (Control c in parent.Controls)
             {
@@ -52,6 +52,21 @@ namespace Interlacer
                 if (c.GetType() == typeof(GroupBox))
                 {
                     iterateOverControls(c, res);
+                }
+
+                if (c.GetType() == typeof(MenuStrip))
+                {
+                    foreach (ToolStripMenuItem it in ((MenuStrip)c).Items)
+                    {
+                        res.ApplyResources(it, it.Name, new CultureInfo(Localization.currentLanguage));
+
+                        foreach (ToolStripItem f in it.DropDownItems)
+                        {
+                            if (typeof(ToolStripSeparator) != f.GetType())
+                                res.ApplyResources(f, f.Name, new CultureInfo(Localization.currentLanguage));
+
+                        }
+                    }
                 }
                 else
                 {

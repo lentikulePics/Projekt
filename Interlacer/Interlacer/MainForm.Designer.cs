@@ -36,9 +36,6 @@
             this.načtiToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.zavřítToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.nastaeníToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.jazykToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.češtinaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.angličtinaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.předvolbyToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.oProgramuToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.nápovědaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -195,30 +192,9 @@
             // nastaeníToolStripMenuItem
             // 
             this.nastaeníToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.jazykToolStripMenuItem,
             this.předvolbyToolStripMenuItem});
             this.nastaeníToolStripMenuItem.Name = "nastaeníToolStripMenuItem";
             resources.ApplyResources(this.nastaeníToolStripMenuItem, "nastaeníToolStripMenuItem");
-            // 
-            // jazykToolStripMenuItem
-            // 
-            this.jazykToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.češtinaToolStripMenuItem,
-            this.angličtinaToolStripMenuItem});
-            this.jazykToolStripMenuItem.Name = "jazykToolStripMenuItem";
-            resources.ApplyResources(this.jazykToolStripMenuItem, "jazykToolStripMenuItem");
-            // 
-            // češtinaToolStripMenuItem
-            // 
-            this.češtinaToolStripMenuItem.CheckOnClick = true;
-            this.češtinaToolStripMenuItem.Name = "češtinaToolStripMenuItem";
-            resources.ApplyResources(this.češtinaToolStripMenuItem, "češtinaToolStripMenuItem");
-            // 
-            // angličtinaToolStripMenuItem
-            // 
-            this.angličtinaToolStripMenuItem.CheckOnClick = true;
-            this.angličtinaToolStripMenuItem.Name = "angličtinaToolStripMenuItem";
-            resources.ApplyResources(this.angličtinaToolStripMenuItem, "angličtinaToolStripMenuItem");
             // 
             // předvolbyToolStripMenuItem
             // 
@@ -938,9 +914,6 @@
         private System.Windows.Forms.ToolStripMenuItem načtiToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem nastaeníToolStripMenuItem;
         private System.Windows.Forms.ToolStrip toolStrip1;
-        private System.Windows.Forms.ToolStripMenuItem jazykToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem češtinaToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem angličtinaToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem oProgramuToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem nápovědaToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem oProgramuToolStripMenuItem1;
