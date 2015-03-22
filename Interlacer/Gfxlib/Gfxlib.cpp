@@ -150,19 +150,29 @@ void* pingImage(char* filename)
 
 void saveImage(void* ptr, char* filename)
 {
+	std::ofstream file;
 	try
 	{
 		Magick::Image* imagePtr = (Magick::Image*)ptr;
 		imagePtr->syncPixels();
-		imagePtr->write(filename);
+		Magick::Blob blob;
+		imagePtr->compressType(MagickCore::CompressionType::LZWCompression);
+		std::string filenameStr = std::string(filename);
+		std::string ext = filenameStr.substr(filenameStr.find_last_of(".") + 1);
+		imagePtr->write(&blob, ext);
+		file.open(filename, std::ios::binary);
+		file.write((const char*)blob.data(), blob.length());
+		file.close();
 	}
 	catch (Magick::Error & er)
 	{
 		writeError(er.what());
+		file.close();
 		RaiseException(GfxlibErrors::PictureSaveFailure, 0, 0, 0);
 	}
 	catch (...)
 	{
+		file.close();
 		RaiseException(GfxlibErrors::PictureSaveFailure, 0, 0, 0);
 	}
 }
