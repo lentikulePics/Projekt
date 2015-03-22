@@ -185,7 +185,7 @@ namespace Interlacer
         ///  vrací šířku postraního rámečku s pomocnými čarami v px pro pridani pred finalnim resizem
         /// </summary>
         /// <returns>šířku rámečku s pomocnými čarami v px</returns>
-        public int getAddWidthForLineAndIndent()
+        private int getAddWidthForLineAndIndent()
         {
             double ratio = outputPictureWidth / (double)(preResamplePictureWidth);
             return getAddSizeForLineAndIndentRatio(ratio);
@@ -195,7 +195,7 @@ namespace Interlacer
         ///  vrací šířku postraního rámečku na levé straně s pomocnými čarami v px pro pridani pred finalnim resizem
         /// </summary>
         /// <returns>šířku rámečku s pomocnými čarami v px</returns>
-        public int getAddWidthForLineAndIndentLeft()
+        private int getAddWidthForLineAndIndentLeft()
         {
             if (lineData.GetLeft())
                 return this.getAddWidthForLineAndIndent();
@@ -207,7 +207,7 @@ namespace Interlacer
         ///  vrací výšku horního nebo spodního rámečku s pomocnými čarami v px pro pridani pred finalnim resizem
         /// </summary>
         /// <returns>výšku rámečku s pomocnými čarami v px</returns>
-        public int getAddHeightForLineAndIndent()
+        private int getAddHeightForLineAndIndent()
         {
             double ratio = outputPictureHeight / (double)(preResamplePictureHeight);
             return getAddSizeForLineAndIndentRatio(ratio);
@@ -217,7 +217,7 @@ namespace Interlacer
         ///  vrací výšku horního rámečku na levé straně s pomocnými čarami v px pro pridani pred finalnim resizem
         /// </summary>
         /// <returns>výšku rámečku s pomocnými čarami v px</returns>
-        public int getAddHeightForLineAndIndentTop()
+        private int getAddHeightForLineAndIndentTop()
         {
             if (lineData.GetTop())
                 return this.getAddHeightForLineAndIndent();
@@ -229,7 +229,7 @@ namespace Interlacer
         ///  vrací výšku čar horního rámečku bez osazení v px pro pridani pred finalnim resizem
         /// </summary>
         /// <returns>výšku rámečku s pomocnými čarami v px</returns>
-        public int getAddHeightForLineTop()
+        private int getAddHeightForLineTop()
         {
             double ratio = outputPictureHeight / (double)(preResamplePictureHeight);
             return getAddSizeForLineRatio(ratio);
@@ -238,7 +238,7 @@ namespace Interlacer
         ///  vrací šířku čar na stranách bez odsazení v px pro pridani pred finalnim resizem
         /// </summary>
         /// <returns>výšku rámečku s pomocnými čarami v px</returns>
-        public int getAddWidthForLine()
+        private int getAddWidthForLine()
         {
             double ratio = outputPictureWidth / (double)(preResamplePictureWidth);
             return getAddSizeForLineRatio(ratio);
@@ -404,7 +404,7 @@ namespace Interlacer
             }
         }
 
-        public void ResizeResult()
+        private void ResizeResult()
         {
             int outputHeight = (int)outputPictureHeight;
             if (lineData != null)

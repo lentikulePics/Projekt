@@ -15,7 +15,7 @@ namespace Interlacer
         private double lenticuleDensity;
         private FilterType initialResizeFilter;
         private FilterType finalResampleFilter;
-        public bool keepAspectRatio = false;
+        private bool keepAspectRatio = false;
         private Units units = Units.In;
         private Units resolutionUnits = Units.In;
 

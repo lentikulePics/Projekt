@@ -67,8 +67,8 @@ používá</panel_attributes>
   <element>
     <type>com.umlet.element.Class</type>
     <coordinates>
-      <x>42</x>
-      <y>532</y>
+      <x>84</x>
+      <y>518</y>
       <w>147</w>
       <h>91</h>
     </coordinates>
@@ -86,14 +86,14 @@ _+ Lanczos: FilterType {readOnly}_
   <element>
     <type>com.umlet.element.Relation</type>
     <coordinates>
-      <x>168</x>
-      <y>546</y>
-      <w>83</w>
-      <h>49</h>
+      <x>105</x>
+      <y>588</y>
+      <w>146</w>
+      <h>70</h>
     </coordinates>
     <panel_attributes>lt=&lt;.
-Používá</panel_attributes>
-    <additional_attributes>21;35;70;35</additional_attributes>
+používá</panel_attributes>
+    <additional_attributes>42;21;42;56;133;56</additional_attributes>
   </element>
   <element>
     <type>com.umlet.element.Class</type>
@@ -148,31 +148,6 @@ zpracovává</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
-    <type>com.umlet.element.Class</type>
-    <coordinates>
-      <x>119</x>
-      <y>497</y>
-      <w>49</w>
-      <h>28</h>
-    </coordinates>
-    <panel_attributes>&lt;&lt;enum&gt;&gt;
-Units
-</panel_attributes>
-    <additional_attributes/>
-  </element>
-  <element>
-    <type>com.umlet.element.Relation</type>
-    <coordinates>
-      <x>147</x>
-      <y>476</y>
-      <w>104</w>
-      <h>49</h>
-    </coordinates>
-    <panel_attributes>lt=&lt;.
-používá</panel_attributes>
-    <additional_attributes>21;35;91;35</additional_attributes>
-  </element>
-  <element>
     <type>com.umlet.element.Relation</type>
     <coordinates>
       <x>217</x>
@@ -184,19 +159,6 @@ používá</panel_attributes>
 používá ke
 zpracování</panel_attributes>
     <additional_attributes>112;35;21;35</additional_attributes>
-  </element>
-  <element>
-    <type>com.umlet.element.Relation</type>
-    <coordinates>
-      <x>105</x>
-      <y>434</y>
-      <w>72</w>
-      <h>76</h>
-    </coordinates>
-    <panel_attributes>lt=&lt;&lt;&lt;-&gt;
-	
-používá</panel_attributes>
-    <additional_attributes>42;21;42;63</additional_attributes>
   </element>
   <element>
     <type>com.umlet.element.Class</type>
@@ -237,14 +199,14 @@ pasovacích značek</panel_attributes>
   <element>
     <type>com.umlet.element.Relation</type>
     <coordinates>
-      <x>63</x>
+      <x>105</x>
       <y>434</y>
       <w>76</w>
-      <h>111</h>
+      <h>97</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;&lt;-&gt;
 obsahuje</panel_attributes>
-    <additional_attributes>42;21;42;98</additional_attributes>
+    <additional_attributes>42;21;42;84</additional_attributes>
   </element>
   <element>
     <type>com.umlet.element.Class</type>
@@ -450,13 +412,11 @@ používá</panel_attributes>
       <x>567</x>
       <y>252</y>
       <w>322</w>
-      <h>56</h>
+      <h>42</h>
     </coordinates>
     <panel_attributes>Localization
 --
-_+ currentLanguage: String_
---
-_+ ChangeCulture(): void_
+_+ ChangeCulture(culture): void_
 _+ iterateOverControls(Control parent, ComponentResourceManager res): void_</panel_attributes>
     <additional_attributes/>
   </element>
@@ -490,13 +450,16 @@ používá</panel_attributes>
       <x>119</x>
       <y>140</y>
       <w>161</w>
-      <h>49</h>
+      <h>77</h>
     </coordinates>
     <panel_attributes>PreviewData
 --
 - pictures: Dictionary&lt;String, Picture&gt;
+- pictureBox: PictureBox
 --
-+ AddPicture(String path): void</panel_attributes>
++ PreviewData(PictureBox pictureBox)
++ AddPicture(String path): void
++ ShowPicture(String path): void</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
