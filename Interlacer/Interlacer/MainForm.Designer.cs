@@ -127,6 +127,7 @@
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.addPicFileDialog = new System.Windows.Forms.OpenFileDialog();
             this.reorderTimer = new System.Windows.Forms.Timer(this.components);
+            this.savePictureFileDialog = new System.Windows.Forms.SaveFileDialog();
             this.menuStrip1.SuspendLayout();
             this.toolStrip1.SuspendLayout();
             this.outputImageTab.SuspendLayout();
@@ -1007,6 +1008,7 @@
         private System.Windows.Forms.ComboBox interpol1ComboBox;
         private System.Windows.Forms.Label unitsLabel4;
         private System.Windows.Forms.Label unitsLabel3;
+        private System.Windows.Forms.SaveFileDialog savePictureFileDialog;
 
     }
 }
