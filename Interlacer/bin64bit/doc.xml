@@ -4,6 +4,21 @@
         <name>Interlacer</name>
     </assembly>
     <members>
+        <member name="T:Interlacer.Direction">
+            <summary>
+            urcuje smer
+            </summary>
+        </member>
+        <member name="F:Interlacer.Direction.Horizontal">
+            <summary>
+            horizontalni
+            </summary>
+        </member>
+        <member name="F:Interlacer.Direction.Vertical">
+            <summary>
+            vertikalni
+            </summary>
+        </member>
         <member name="F:Interlacer.Localization.currentLanguage">
             <summary>
             Udava, na jaky jazyk je program nastaven

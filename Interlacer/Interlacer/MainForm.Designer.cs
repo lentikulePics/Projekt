@@ -129,6 +129,7 @@
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.addPicFileDialog = new System.Windows.Forms.OpenFileDialog();
             this.reorderTimer = new System.Windows.Forms.Timer(this.components);
+            this.savePicFileDialog = new System.Windows.Forms.SaveFileDialog();
             this.menuStrip1.SuspendLayout();
             this.toolStrip1.SuspendLayout();
             this.outputImageTab.SuspendLayout();
@@ -425,10 +426,12 @@
             // verticalRadiobutton
             // 
             resources.ApplyResources(this.verticalRadiobutton, "verticalRadiobutton");
+            this.verticalRadiobutton.Checked = true;
             this.verticalRadiobutton.Name = "verticalRadiobutton";
             this.verticalRadiobutton.TabStop = true;
             this.toolTip1.SetToolTip(this.verticalRadiobutton, resources.GetString("verticalRadiobutton.ToolTip"));
             this.verticalRadiobutton.UseVisualStyleBackColor = true;
+            this.verticalRadiobutton.CheckedChanged += new System.EventHandler(this.verticalRadiobutton_CheckedChanged);
             // 
             // horizontalRadiobutton
             // 
@@ -437,6 +440,7 @@
             this.horizontalRadiobutton.TabStop = true;
             this.toolTip1.SetToolTip(this.horizontalRadiobutton, resources.GetString("horizontalRadiobutton.ToolTip"));
             this.horizontalRadiobutton.UseVisualStyleBackColor = true;
+            this.horizontalRadiobutton.CheckedChanged += new System.EventHandler(this.horizontalRadiobutton_CheckedChanged);
             // 
             // groupBox6
             // 
@@ -1028,6 +1032,7 @@
         private System.Windows.Forms.Label unitsLabel3;
         private System.Windows.Forms.Button lineColorButton;
         private System.Windows.Forms.Button backgroundColorButton;
+        private System.Windows.Forms.SaveFileDialog savePicFileDialog;
 
     }
 }

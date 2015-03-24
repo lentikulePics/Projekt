@@ -460,5 +460,11 @@ namespace GfxlibWrapper
             for (int i = 0; i < source.height; i++)
                 SetPixel(destColumn, i + destYBegin, source.GetPixel(sourceColumn, i));
         }
+
+        public void CopyRow(Picture source, int sourceRow, int destRow, int destXBegin)
+        {
+            for (int i = 0; i < source.width; i++)
+                SetPixel(i + destXBegin, destRow, source.GetPixel(i, sourceRow));
+        }
     }
 }

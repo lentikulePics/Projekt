@@ -99,6 +99,10 @@ namespace Interlacer
 
         private void interlaceButton_Click(object sender, EventArgs e)
         {
+            String filename;
+            if (savePicFileDialog.ShowDialog() == DialogResult.OK)
+                filename = savePicFileDialog.FileName;
+            else return;
             List<Picture> picL = harvestPicList();
             projectData.GetLineData().SetBackgroundColor(Color.White);
             projectData.GetLineData().SetLineColor(Color.Black);
@@ -106,7 +110,7 @@ namespace Interlacer
             picCon.CheckPictures();
             picCon.Interlace();
             Picture result = picCon.GetResult();
-            result.Save("result.tif");
+            result.Save(filename);
             result.Destroy();
 
             MessageBox.Show("Hotovo!");
@@ -449,6 +453,15 @@ namespace Interlacer
             actualPicsUnderLenLabel.Text = Convert.ToString(lineThicknessTrackbar.Value);
             projectData.GetLineData().SetLineThickness(lineThicknessTrackbar.Value);
         }
-        
+
+        private void verticalRadiobutton_CheckedChanged(object sender, EventArgs e)
+        {
+            projectData.GetInterlacingData().SetDirection(Direction.Vertical);
+        }
+
+        private void horizontalRadiobutton_CheckedChanged(object sender, EventArgs e)
+        {
+            projectData.GetInterlacingData().SetDirection(Direction.Horizontal);
+        }
     }
 }
