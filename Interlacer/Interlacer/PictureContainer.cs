@@ -244,8 +244,20 @@ namespace Interlacer
             return getAddSizeForLineRatio(ratio);
         }
 
-
         public void Interlace()
+        {
+            switch (interlacingData.GetDirection())
+            {
+                case Direction.Vertical:
+                    InterlaceV();
+                    break;
+                case Direction.Horizontal:
+                    InterlaceH();
+                    break;
+            }
+        }
+
+        private void InterlaceV()
         {
             if (inputPictureHeight < 0 || inputPictureWidth < 0)
                 throw new InvalidOperationException("CheckPictures was not called");
@@ -284,7 +296,50 @@ namespace Interlacer
             }
             drawLines();
             makeProgressBarStep();
-            ResizeResult();
+            ResizeResultV();
+            makeProgressBarStep();
+        }
+
+        private void InterlaceH()
+        {
+            if (inputPictureHeight < 0 || inputPictureWidth < 0)
+                throw new InvalidOperationException("CheckPictures was not called");
+            int lenses = (int)(interlacingData.GetInchHeight() * interlacingData.GetLPI());
+            double lensesError = (interlacingData.GetInchHeight() * interlacingData.GetLPI() - lenses) * pictureCount;
+            double errorRatio = lensesError / ((lenses * pictureCount) + lensesError);
+            outputPictureHeight = interlacingData.GetInchHeight() * interlacingData.GetDPI();
+            double finalError = outputPictureHeight * errorRatio;
+            outputPictureHeight -= finalError;
+            outputPictureWidth = interlacingData.GetInchWidth() * interlacingData.GetDPI();
+            preResamplePictureHeight = lenses * pictureCount;
+            preResamplePictureWidth = inputPictureWidth;
+            resetProgressBar();
+            for (int i = 0; i < indexList.Count; i++)
+            {
+                Picture currentPic = indexList[i].Key;
+                List<int> indexes = indexList[i].Value;
+                bool loadPic = !currentPic.IsCreated();
+                if (loadPic)
+                    currentPic.Load();
+                adjustPictureSize(currentPic);
+                if (result == null)
+                    result = getPictureForMarkToLine();
+                currentPic.Resize(preResamplePictureWidth, lenses, interlacingData.GetInitialResizeFilter());
+                for (int j = 0; j < indexes.Count; j++)
+                {
+                    for (int k = 0; k < lenses; k++)
+                    {
+                        int row = k * pictureCount + (pictureCount - 1 - indexes[j]) + this.getAddHeightForLineAndIndentTop();
+                        result.CopyRow(currentPic, k, row, this.getAddWidthForLineAndIndentLeft());
+                    }
+                    makeProgressBarStep();
+                }
+                if (loadPic)
+                    currentPic.Destroy();
+            }
+            drawLines();
+            makeProgressBarStep();
+            ResizeResultH();
             makeProgressBarStep();
         }
 
@@ -404,7 +459,7 @@ namespace Interlacer
             }
         }
 
-        private void ResizeResult()
+        private void ResizeResultV()
         {
             int outputHeight = (int)outputPictureHeight;
             if (lineData != null)
@@ -419,7 +474,26 @@ namespace Interlacer
             int outputWidth = (int)(result.GetWidth() * widthRatio);
             result.Resize(outputWidth, result.GetHeight(), interlacingData.GetFinalResampleFilter());
             makeProgressBarStep();
-            result.Resize(outputWidth, (int)outputHeight,
+            result.Resize(outputWidth, outputHeight,
+                interlacingData.GetInitialResizeFilter() == FilterType.None ? FilterType.None : FilterType.Triangle);
+        }
+
+        private void ResizeResultH()
+        {
+            int outputWidth = (int)outputPictureWidth;
+            if (lineData != null)
+            {
+                if (lineData.GetLeft())
+                    outputWidth += (int)((lineData.GetFrameInchWidth() + lineData.GetInchIndent()) * interlacingData.GetDPI());
+                if (lineData.GetRight())
+                    outputWidth += (int)((lineData.GetFrameInchWidth() + lineData.GetInchIndent()) * interlacingData.GetDPI());
+            }
+            int originalHeight = (int)(interlacingData.GetInchHeight() * interlacingData.GetLPI()) * pictureCount;
+            double heightRatio = outputPictureHeight / originalHeight;
+            int outputHeight = (int)(result.GetHeight() * heightRatio);
+            result.Resize(result.GetWidth(), outputHeight, interlacingData.GetFinalResampleFilter());
+            makeProgressBarStep();
+            result.Resize(outputWidth, outputHeight,
                 interlacingData.GetInitialResizeFilter() == FilterType.None ? FilterType.None : FilterType.Triangle);
         }
 

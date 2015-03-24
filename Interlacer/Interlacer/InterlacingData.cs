@@ -18,6 +18,7 @@ namespace Interlacer
         private bool keepAspectRatio = false;
         private Units units = Units.In;
         private Units resolutionUnits = Units.In;
+        private Direction direction = Direction.Vertical;
 
         public void SetUnits(Units units)
         {
@@ -138,6 +139,16 @@ namespace Interlacer
         public void KeepAspectRatio(bool keepAspectRatio)
         {
             this.keepAspectRatio = keepAspectRatio;
+        }
+
+        public void SetDirection(Direction direction)
+        {
+            this.direction = direction;
+        }
+
+        public Direction GetDirection()
+        {
+            return direction;
         }
     }
 }

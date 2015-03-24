@@ -423,18 +423,20 @@
             // verticalRadiobutton
             // 
             resources.ApplyResources(this.verticalRadiobutton, "verticalRadiobutton");
+            this.verticalRadiobutton.Checked = true;
             this.verticalRadiobutton.Name = "verticalRadiobutton";
             this.verticalRadiobutton.TabStop = true;
             this.toolTip1.SetToolTip(this.verticalRadiobutton, resources.GetString("verticalRadiobutton.ToolTip"));
             this.verticalRadiobutton.UseVisualStyleBackColor = true;
+            this.verticalRadiobutton.CheckedChanged += new System.EventHandler(this.verticalRadiobutton_CheckedChanged);
             // 
             // horizontalRadiobutton
             // 
             resources.ApplyResources(this.horizontalRadiobutton, "horizontalRadiobutton");
             this.horizontalRadiobutton.Name = "horizontalRadiobutton";
-            this.horizontalRadiobutton.TabStop = true;
             this.toolTip1.SetToolTip(this.horizontalRadiobutton, resources.GetString("horizontalRadiobutton.ToolTip"));
             this.horizontalRadiobutton.UseVisualStyleBackColor = true;
+            this.horizontalRadiobutton.CheckedChanged += new System.EventHandler(this.horizontalRadiobutton_CheckedChanged);
             // 
             // groupBox6
             // 

@@ -405,6 +405,14 @@ namespace Interlacer
             //TODO
         }
 
-        
+        private void verticalRadiobutton_CheckedChanged(object sender, EventArgs e)
+        {
+            projectData.GetInterlacingData().SetDirection(Direction.Vertical);
+        }
+
+        private void horizontalRadiobutton_CheckedChanged(object sender, EventArgs e)
+        {
+            projectData.GetInterlacingData().SetDirection(Direction.Horizontal);
+        }
     }
 }
