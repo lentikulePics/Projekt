@@ -30,13 +30,13 @@ namespace Interlacer
 
 
             lineColorButton.BackColor = Color.Black;
-            backgroundColorButton.BackColor = Color.Black;
+            backgroundColorButton.BackColor = Color.White;
             projectData.GetLineData().SetLineColor(Color.Black);
-            projectData.GetLineData().SetBackgroundColor(Color.Black);
+            projectData.GetLineData().SetBackgroundColor(Color.White);
             edgeRadioButton.Checked = true;
-
             projectData.GetLineData().SetLineThickness(1);
-
+            lineThicknessTrackbar.Value = 1;
+            actualPicsUnderLenLabel.Text = Convert.ToString(lineThicknessTrackbar.Value);
             //prozatimni reseni, pak bude potreba dodat retezce z recource filu
             SettingOptions settingOptions = new SettingOptions();
             settingOptions.languageOptions = new List<StringValuePair<String>>
@@ -103,9 +103,8 @@ namespace Interlacer
             if (savePicFileDialog.ShowDialog() == DialogResult.OK)
                 filename = savePicFileDialog.FileName;
             else return;
+
             List<Picture> picL = harvestPicList();
-            projectData.GetLineData().SetBackgroundColor(Color.White);
-            projectData.GetLineData().SetLineColor(Color.Black);
             PictureContainer picCon = new PictureContainer(picL, projectData.GetInterlacingData(), projectData.GetLineData(), interlaceProgressBar);
             picCon.CheckPictures();
             picCon.Interlace();
@@ -309,7 +308,9 @@ namespace Interlacer
                     actualPicsUnderLenLabel.Text = Convert.ToString(lineThicknessTrackbar.Value);
                 }
             }
-                 
+
+            widthInPixelsTextBox.Text = Convert.ToString(projectData.GetInterlacingData().GetInchWidth() * projectData.GetInterlacingData().GetDPI());
+            heightInPixelsTextBox.Text = Convert.ToString(projectData.GetInterlacingData().GetInchHeight() * projectData.GetInterlacingData().GetDPI());
         }
 
         private void keepRatioCheckbox_CheckedChanged(object sender, EventArgs e)
@@ -463,5 +464,7 @@ namespace Interlacer
         {
             projectData.GetInterlacingData().SetDirection(Direction.Horizontal);
         }
+
+
     }
 }
