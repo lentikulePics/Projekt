@@ -99,7 +99,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Direction.cs" />
     <Compile Include="Localization.cs" />
     <Compile Include="GfxlibWrapper\FilterType.cs" />
     <Compile Include="GfxlibWrapper\GfxlibCommunicator.cs" />

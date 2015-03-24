@@ -90,6 +90,8 @@
             this.separatorLabel = new System.Windows.Forms.Label();
             this.actualPicsUnderLenLabel = new System.Windows.Forms.Label();
             this.groupBox12 = new System.Windows.Forms.GroupBox();
+            this.backgroundColorButton = new System.Windows.Forms.Button();
+            this.lineColorButton = new System.Windows.Forms.Button();
             this.lineBackgroundColorLabel = new System.Windows.Forms.Label();
             this.lineColorLabel = new System.Windows.Forms.Label();
             this.groupBox11 = new System.Windows.Forms.GroupBox();
@@ -127,7 +129,6 @@
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.addPicFileDialog = new System.Windows.Forms.OpenFileDialog();
             this.reorderTimer = new System.Windows.Forms.Timer(this.components);
-            this.savePictureFileDialog = new System.Windows.Forms.SaveFileDialog();
             this.menuStrip1.SuspendLayout();
             this.toolStrip1.SuspendLayout();
             this.outputImageTab.SuspendLayout();
@@ -424,20 +425,18 @@
             // verticalRadiobutton
             // 
             resources.ApplyResources(this.verticalRadiobutton, "verticalRadiobutton");
-            this.verticalRadiobutton.Checked = true;
             this.verticalRadiobutton.Name = "verticalRadiobutton";
             this.verticalRadiobutton.TabStop = true;
             this.toolTip1.SetToolTip(this.verticalRadiobutton, resources.GetString("verticalRadiobutton.ToolTip"));
             this.verticalRadiobutton.UseVisualStyleBackColor = true;
-            this.verticalRadiobutton.CheckedChanged += new System.EventHandler(this.verticalRadiobutton_CheckedChanged);
             // 
             // horizontalRadiobutton
             // 
             resources.ApplyResources(this.horizontalRadiobutton, "horizontalRadiobutton");
             this.horizontalRadiobutton.Name = "horizontalRadiobutton";
+            this.horizontalRadiobutton.TabStop = true;
             this.toolTip1.SetToolTip(this.horizontalRadiobutton, resources.GetString("horizontalRadiobutton.ToolTip"));
             this.horizontalRadiobutton.UseVisualStyleBackColor = true;
-            this.horizontalRadiobutton.CheckedChanged += new System.EventHandler(this.horizontalRadiobutton_CheckedChanged);
             // 
             // groupBox6
             // 
@@ -612,11 +611,27 @@
             // 
             // groupBox12
             // 
+            this.groupBox12.Controls.Add(this.backgroundColorButton);
+            this.groupBox12.Controls.Add(this.lineColorButton);
             this.groupBox12.Controls.Add(this.lineBackgroundColorLabel);
             this.groupBox12.Controls.Add(this.lineColorLabel);
             resources.ApplyResources(this.groupBox12, "groupBox12");
             this.groupBox12.Name = "groupBox12";
             this.groupBox12.TabStop = false;
+            // 
+            // backgroundColorButton
+            // 
+            resources.ApplyResources(this.backgroundColorButton, "backgroundColorButton");
+            this.backgroundColorButton.Name = "backgroundColorButton";
+            this.backgroundColorButton.UseVisualStyleBackColor = true;
+            this.backgroundColorButton.Click += new System.EventHandler(this.backgroundColorButton_Click);
+            // 
+            // lineColorButton
+            // 
+            resources.ApplyResources(this.lineColorButton, "lineColorButton");
+            this.lineColorButton.Name = "lineColorButton";
+            this.lineColorButton.UseVisualStyleBackColor = true;
+            this.lineColorButton.Click += new System.EventHandler(this.lineColorButton_Click);
             // 
             // lineBackgroundColorLabel
             // 
@@ -642,6 +657,7 @@
             this.edgeRadioButton.Name = "edgeRadioButton";
             this.edgeRadioButton.TabStop = true;
             this.edgeRadioButton.UseVisualStyleBackColor = true;
+            this.edgeRadioButton.CheckedChanged += new System.EventHandler(this.edgeRadioButton_CheckedChanged);
             // 
             // centerRadioButton
             // 
@@ -649,6 +665,7 @@
             this.centerRadioButton.Name = "centerRadioButton";
             this.centerRadioButton.TabStop = true;
             this.centerRadioButton.UseVisualStyleBackColor = true;
+            this.centerRadioButton.CheckedChanged += new System.EventHandler(this.centerRadioButton_CheckedChanged);
             // 
             // groupBox8
             // 
@@ -783,8 +800,9 @@
             // lineThicknessTrackbar
             // 
             resources.ApplyResources(this.lineThicknessTrackbar, "lineThicknessTrackbar");
+            this.lineThicknessTrackbar.Maximum = 0;
             this.lineThicknessTrackbar.Name = "lineThicknessTrackbar";
-            this.lineThicknessTrackbar.Scroll += new System.EventHandler(this.lineThicknessTrackbar_Scroll);
+            this.lineThicknessTrackbar.ValueChanged += new System.EventHandler(this.lineThicknessTrackbar_ValueChanged);
             // 
             // linePictureBox
             // 
@@ -1008,7 +1026,8 @@
         private System.Windows.Forms.ComboBox interpol1ComboBox;
         private System.Windows.Forms.Label unitsLabel4;
         private System.Windows.Forms.Label unitsLabel3;
-        private System.Windows.Forms.SaveFileDialog savePictureFileDialog;
+        private System.Windows.Forms.Button lineColorButton;
+        private System.Windows.Forms.Button backgroundColorButton;
 
     }
 }

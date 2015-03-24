@@ -28,6 +28,13 @@ namespace Interlacer
 
             InitializeComponent();
 
+
+            lineColorButton.BackColor = Color.Black;
+            backgroundColorButton.BackColor = Color.Black;
+            projectData.GetLineData().SetLineColor(Color.Black);
+            projectData.GetLineData().SetBackgroundColor(Color.Black);
+            edgeRadioButton.Checked = true;
+
             projectData.GetLineData().SetLineThickness(1);
 
             //prozatimni reseni, pak bude potreba dodat retezce z recource filu
@@ -92,10 +99,6 @@ namespace Interlacer
 
         private void interlaceButton_Click(object sender, EventArgs e)
         {
-            String filename;
-            if (savePictureFileDialog.ShowDialog() == DialogResult.OK)
-                filename = savePictureFileDialog.FileName;
-            else return;
             List<Picture> picL = harvestPicList();
             projectData.GetLineData().SetBackgroundColor(Color.White);
             projectData.GetLineData().SetLineColor(Color.Black);
@@ -103,7 +106,7 @@ namespace Interlacer
             picCon.CheckPictures();
             picCon.Interlace();
             Picture result = picCon.GetResult();
-            result.Save(filename);
+            result.Save("result.tif");
             result.Destroy();
 
             MessageBox.Show("Hotovo!");
@@ -294,6 +297,13 @@ namespace Interlacer
             if (lenticuleDensity != 0)
             {
                 picUnderLenTextBox.Text = Convert.ToString(pictureResolution / lenticuleDensity);
+                maxPicsUnderLenLabel.Text = Convert.ToString(pictureResolution / lenticuleDensity);
+                lineThicknessTrackbar.Maximum = (int)(pictureResolution / lenticuleDensity);
+                if (Convert.ToInt32(actualPicsUnderLenLabel.Text) > lineThicknessTrackbar.Maximum)
+                {
+                    lineThicknessTrackbar.Value = lineThicknessTrackbar.Maximum;
+                    actualPicsUnderLenLabel.Text = Convert.ToString(lineThicknessTrackbar.Value);
+                }
             }
                  
         }
@@ -404,19 +414,41 @@ namespace Interlacer
             projectData.GetLineData().SetRight(rightLineCheckBox.Checked);
         }
 
-        private void lineThicknessTrackbar_Scroll(object sender, EventArgs e)
+        private void centerRadioButton_CheckedChanged(object sender, EventArgs e)
         {
-            //TODO
+            projectData.GetLineData().SetCenterPosition(true);
         }
 
-        private void verticalRadiobutton_CheckedChanged(object sender, EventArgs e)
+        private void edgeRadioButton_CheckedChanged(object sender, EventArgs e)
         {
-            projectData.GetInterlacingData().SetDirection(Direction.Vertical);
+            projectData.GetLineData().SetCenterPosition(false);
         }
 
-        private void horizontalRadiobutton_CheckedChanged(object sender, EventArgs e)
+        private void lineColorButton_Click(object sender, EventArgs e)
         {
-            projectData.GetInterlacingData().SetDirection(Direction.Horizontal);
+            ColorDialog lc = new ColorDialog();
+
+            if(lc.ShowDialog() == DialogResult.OK) {
+                lineColorButton.BackColor = lc.Color;
+                projectData.GetLineData().SetLineColor(lc.Color);
+            }
         }
+
+        private void backgroundColorButton_Click(object sender, EventArgs e)
+        {
+            ColorDialog bc = new ColorDialog();
+
+            if(bc.ShowDialog() == DialogResult.OK) {
+                backgroundColorButton.BackColor = bc.Color;
+                projectData.GetLineData().SetBackgroundColor(bc.Color);
+            }
+        }
+
+        private void lineThicknessTrackbar_ValueChanged(object sender, EventArgs e)
+        {
+            actualPicsUnderLenLabel.Text = Convert.ToString(lineThicknessTrackbar.Value);
+            projectData.GetLineData().SetLineThickness(lineThicknessTrackbar.Value);
+        }
+        
     }
 }
