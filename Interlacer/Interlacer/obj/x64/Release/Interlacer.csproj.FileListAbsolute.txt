@@ -77,3 +77,6 @@ D:\Škola\WorkSpace\ZSWI - projekt\Interlacer\Interlacer\obj\x64\Release\Interla
 C:\Users\Luckin\Desktop\Interlacer Github\Projekt\Interlacer\Interlacer\obj\x64\Release\Interlacer.StringRes_CZ.resources
 C:\Users\Luckin\Desktop\Interlacer Github\Projekt\Interlacer\Interlacer\obj\x64\Release\Interlacer.StringRes_EN.resources
 C:\Users\Luckin\Desktop\Interlacer Github\Projekt\Interlacer\Interlacer\obj\x64\Release\Interlacer.SettingsForm.cs-CZ.resources
+D:\GitHub\Projekt\Interlacer\bin64bit\Interlacer.exe.config
+D:\GitHub\Projekt\Interlacer\Interlacer\obj\x64\Release\Interlacer.exe
+D:\GitHub\Projekt\Interlacer\Interlacer\obj\x64\Release\Interlacer.pdb
