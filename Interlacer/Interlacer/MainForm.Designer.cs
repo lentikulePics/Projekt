@@ -53,7 +53,7 @@
             this.revertButton = new System.Windows.Forms.Button();
             this.moveDownButton = new System.Windows.Forms.Button();
             this.moveUpButton = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
+            this.copyPicButton = new System.Windows.Forms.Button();
             this.removePicButton = new System.Windows.Forms.Button();
             this.addPicButton = new System.Windows.Forms.Button();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
@@ -262,7 +262,7 @@
             this.tabPage1.Controls.Add(this.revertButton);
             this.tabPage1.Controls.Add(this.moveDownButton);
             this.tabPage1.Controls.Add(this.moveUpButton);
-            this.tabPage1.Controls.Add(this.button3);
+            this.tabPage1.Controls.Add(this.copyPicButton);
             this.tabPage1.Controls.Add(this.removePicButton);
             this.tabPage1.Controls.Add(this.addPicButton);
             this.tabPage1.Controls.Add(this.groupBox3);
@@ -336,12 +336,13 @@
             this.moveUpButton.UseVisualStyleBackColor = true;
             this.moveUpButton.Click += new System.EventHandler(this.moveUpButton_Click);
             // 
-            // button3
+            // copyPicButton
             // 
-            resources.ApplyResources(this.button3, "button3");
-            this.button3.Name = "button3";
-            this.toolTip1.SetToolTip(this.button3, resources.GetString("button3.ToolTip"));
-            this.button3.UseVisualStyleBackColor = true;
+            resources.ApplyResources(this.copyPicButton, "copyPicButton");
+            this.copyPicButton.Name = "copyPicButton";
+            this.toolTip1.SetToolTip(this.copyPicButton, resources.GetString("copyPicButton.ToolTip"));
+            this.copyPicButton.UseVisualStyleBackColor = true;
+            this.copyPicButton.Click += new System.EventHandler(this.copyPicButton_Click);
             // 
             // removePicButton
             // 
@@ -804,10 +805,8 @@
             // lineThicknessTrackbar
             // 
             resources.ApplyResources(this.lineThicknessTrackbar, "lineThicknessTrackbar");
-            this.lineThicknessTrackbar.Maximum = 1;
-            this.lineThicknessTrackbar.Minimum = 1;
+            this.lineThicknessTrackbar.Maximum = 0;
             this.lineThicknessTrackbar.Name = "lineThicknessTrackbar";
-            this.lineThicknessTrackbar.Value = 1;
             this.lineThicknessTrackbar.ValueChanged += new System.EventHandler(this.lineThicknessTrackbar_ValueChanged);
             // 
             // linePictureBox
@@ -1021,7 +1020,7 @@
         private System.Windows.Forms.Button revertButton;
         private System.Windows.Forms.Button moveDownButton;
         private System.Windows.Forms.Button moveUpButton;
-        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button copyPicButton;
         private System.Windows.Forms.Button removePicButton;
         private System.Windows.Forms.Button addPicButton;
         private System.Windows.Forms.ColumnHeader orderHeader;

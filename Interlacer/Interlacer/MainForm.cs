@@ -35,7 +35,6 @@ namespace Interlacer
             projectData.GetLineData().SetBackgroundColor(Color.White);
             edgeRadioButton.Checked = true;
             projectData.GetLineData().SetLineThickness(1);
-            lineThicknessTrackbar.Value = 1;
             actualPicsUnderLenLabel.Text = Convert.ToString(lineThicknessTrackbar.Value);
             //prozatimni reseni, pak bude potreba dodat retezce z recource filu
             SettingOptions settingOptions = new SettingOptions();
@@ -126,6 +125,13 @@ namespace Interlacer
             settingsForm.ShowDialog();
         }
 
+        private void changeMaxLineThickness()
+        {
+            lineThicknessTrackbar.Maximum = pictureListViewEx.Items.Count - 1;
+            maxPicsUnderLenLabel.Text = Convert.ToString(lineThicknessTrackbar.Maximum);
+            updateAllComponents();
+        }
+
         private void addPicButton_Click(object sender, EventArgs e)
         {
             addPicFileDialog.Multiselect = true;
@@ -162,6 +168,8 @@ namespace Interlacer
 
                     pictureListViewEx.Focus();
                     pictureListViewEx.Items[selectedIndex].Selected = false;
+
+                    changeMaxLineThickness();
                 }
             }
         }
@@ -183,6 +191,7 @@ namespace Interlacer
         {
                pictureListViewEx.Items.Clear();
                order = 1;
+               changeMaxLineThickness();
         }
 
         private void removePicButton_Click(object sender, EventArgs e)
@@ -192,6 +201,7 @@ namespace Interlacer
                 pictureListViewEx.SelectedItems[0].Remove();
             }
 
+            changeMaxLineThickness();
             reOrder();
         }
 
@@ -305,17 +315,16 @@ namespace Interlacer
             if (lenticuleDensity != 0)
             {
                 picUnderLenTextBox.Text = Convert.ToString(pictureResolution / lenticuleDensity);
-                maxPicsUnderLenLabel.Text = Convert.ToString(pictureResolution / lenticuleDensity);
-                lineThicknessTrackbar.Maximum = (int)(pictureResolution / lenticuleDensity);
-                if (Convert.ToInt32(actualPicsUnderLenLabel.Text) > lineThicknessTrackbar.Maximum)
-                {
-                    lineThicknessTrackbar.Value = lineThicknessTrackbar.Maximum;
-                    actualPicsUnderLenLabel.Text = Convert.ToString(lineThicknessTrackbar.Value);
-                }
             }
 
-            widthInPixelsTextBox.Text = Convert.ToString(projectData.GetInterlacingData().GetInchWidth() * projectData.GetInterlacingData().GetDPI());
-            heightInPixelsTextBox.Text = Convert.ToString(projectData.GetInterlacingData().GetInchHeight() * projectData.GetInterlacingData().GetDPI());
+            if (Convert.ToInt32(actualPicsUnderLenLabel.Text) > lineThicknessTrackbar.Maximum)
+            {
+                lineThicknessTrackbar.Value = lineThicknessTrackbar.Maximum;
+                actualPicsUnderLenLabel.Text = Convert.ToString(lineThicknessTrackbar.Value);
+            }
+
+            widthInPixelsTextBox.Text = Convert.ToString((int)(projectData.GetInterlacingData().GetInchWidth() * projectData.GetInterlacingData().GetDPI()));
+            heightInPixelsTextBox.Text = Convert.ToString((int)(projectData.GetInterlacingData().GetInchHeight() * projectData.GetInterlacingData().GetDPI()));
         }
 
         private void keepRatioCheckbox_CheckedChanged(object sender, EventArgs e)
@@ -473,6 +482,10 @@ namespace Interlacer
             projectData.GetInterlacingData().SetDirection(Direction.Horizontal);
         }
 
+        private void copyPicButton_Click(object sender, EventArgs e)
+        {
+            changeMaxLineThickness();
+        }
 
     }
 }
