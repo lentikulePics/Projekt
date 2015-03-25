@@ -38,6 +38,8 @@ namespace Interlacer
         /// <param name="units"></param>
         public void SetUnits(Units units)
         {
+            frameWidth = UnitConverter.Transfer(frameWidth, this.units, units);
+            indent = UnitConverter.Transfer(indent, this.units, units);
             this.units = units;
         }
 
@@ -78,7 +80,7 @@ namespace Interlacer
 
         public double GetFrameInchWidth()
         {
-            return UnitConverter.getInFromUnits(frameWidth, units);
+            return UnitConverter.GetInFromUnits(frameWidth, units);
         }
 
         public void SetFrameWidth(double frameWidth)
@@ -93,7 +95,7 @@ namespace Interlacer
 
         public double GetInchIndent()
         {
-            return UnitConverter.getInFromUnits(indent, units);
+            return UnitConverter.GetInFromUnits(indent, units);
         }
 
         public void SetIndent(double indent)

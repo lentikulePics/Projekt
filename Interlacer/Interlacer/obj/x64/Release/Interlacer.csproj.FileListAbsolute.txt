@@ -80,3 +80,4 @@ C:\Users\Luckin\Desktop\Interlacer Github\Projekt\Interlacer\Interlacer\obj\x64\
 D:\GitHub\Projekt\Interlacer\bin64bit\Interlacer.exe.config
 D:\GitHub\Projekt\Interlacer\Interlacer\obj\x64\Release\Interlacer.exe
 D:\GitHub\Projekt\Interlacer\Interlacer\obj\x64\Release\Interlacer.pdb
+C:\Users\Luckin\Desktop\Interlacer Github\Projekt\Interlacer\Interlacer\obj\x64\Release\Interlacer.csprojResolveAssemblyReference.cache

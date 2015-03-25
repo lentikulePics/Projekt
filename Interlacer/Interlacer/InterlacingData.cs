@@ -22,6 +22,8 @@ namespace Interlacer
 
         public void SetUnits(Units units)
         {
+            width = UnitConverter.Transfer(width, this.units, units);
+            height = UnitConverter.Transfer(height, this.units, units);
             this.units = units;
         }
 
@@ -32,6 +34,8 @@ namespace Interlacer
 
         public void SetResolutionUnits(Units units)
         {
+            pictureResolution = UnitConverter.Transfer(pictureResolution, units, this.resolutionUnits);
+            lenticuleDensity = UnitConverter.Transfer(lenticuleDensity, units, this.resolutionUnits);
             this.resolutionUnits = units;
         }
 
@@ -42,12 +46,12 @@ namespace Interlacer
 
         public double GetInchWidth()
         {
-            return UnitConverter.getInFromUnits(width, units);
+            return UnitConverter.GetInFromUnits(width, units);
         }
 
         public double GetInchHeight()
         {
-            return UnitConverter.getInFromUnits(height, units);
+            return UnitConverter.GetInFromUnits(height, units);
         }
 
         public void SetWidth(double width)
@@ -88,7 +92,7 @@ namespace Interlacer
         
         public double GetDPI()
         {
-            return pictureResolution / UnitConverter.getInFromUnits(1, resolutionUnits);
+            return pictureResolution / UnitConverter.GetInFromUnits(1, resolutionUnits);
         }
 
         public void SetPictureResolution(double resolution)
@@ -103,7 +107,7 @@ namespace Interlacer
 
         public double GetLPI()
         {
-            return lenticuleDensity / UnitConverter.getInFromUnits(1, resolutionUnits);
+            return lenticuleDensity / UnitConverter.GetInFromUnits(1, resolutionUnits);
         }
 
         public void SetLenticuleDensity(double density)

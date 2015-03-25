@@ -697,7 +697,7 @@
             staticka trida, ktera provadi prevod z palcu na jine jednoty a obracene
             </summary>
         </member>
-        <member name="M:GfxlibWrapper.UnitConverter.getUnitsFromIn(System.Double,GfxlibWrapper.Units)">
+        <member name="M:GfxlibWrapper.UnitConverter.GetUnitsFromIn(System.Double,GfxlibWrapper.Units)">
             <summary>
             prevede hodnotu v palcich na hodnotu o zadanych jednotkach
             </summary>
@@ -705,12 +705,63 @@
             <param name="units">jednotky, do kterych ma byt hodnota prevedena</param>
             <returns>prevedena hodnota</returns>
         </member>
-        <member name="M:GfxlibWrapper.UnitConverter.getInFromUnits(System.Double,GfxlibWrapper.Units)">
+        <member name="M:GfxlibWrapper.UnitConverter.GetInFromUnits(System.Double,GfxlibWrapper.Units)">
             <summary>
             prevede hodnotu v zadanych jednotkach na hodnotu v palcich
             </summary>
             <param name="param">hodnota v zadanych jednotkach</param>
             <param name="units">jednotky, ve kterych je zadana hodnota</param>
+            <returns>prevedena hodnota</returns>
+        </member>
+        <member name="M:GfxlibWrapper.UnitConverter.cmToIn(System.Double)">
+            <summary>
+            prevede centimetry na palce
+            </summary>
+            <param name="param">hodnota v cm</param>
+            <returns>hodnota v palcich</returns>
+        </member>
+        <member name="M:GfxlibWrapper.UnitConverter.cmToMm(System.Double)">
+            <summary>
+            prevede centimetry na milimetry
+            </summary>
+            <param name="param">hodnota v cm</param>
+            <returns>hodnota v mm</returns>
+        </member>
+        <member name="M:GfxlibWrapper.UnitConverter.inToCm(System.Double)">
+            <summary>
+            prevede palce na centimetry
+            </summary>
+            <param name="param">hodnota v palcich</param>
+            <returns>hodnota v cm</returns>
+        </member>
+        <member name="M:GfxlibWrapper.UnitConverter.inToMm(System.Double)">
+            <summary>
+            prevede palce na milimetry
+            </summary>
+            <param name="param">hodnota v palcich</param>
+            <returns>hodnota v mm</returns>
+        </member>
+        <member name="M:GfxlibWrapper.UnitConverter.mmToIn(System.Double)">
+            <summary>
+            prevede milimetry na palce
+            </summary>
+            <param name="param">hodnota v mm</param>
+            <returns>hodnota v palcich</returns>
+        </member>
+        <member name="M:GfxlibWrapper.UnitConverter.mmToCm(System.Double)">
+            <summary>
+            prevede milimetry na centimetry
+            </summary>
+            <param name="param">hodnota v milimetrech</param>
+            <returns>hodnota v centimetrech</returns>
+        </member>
+        <member name="M:GfxlibWrapper.UnitConverter.Transfer(System.Double,GfxlibWrapper.Units,GfxlibWrapper.Units)">
+            <summary>
+            prevede hodnotu v konkretnich jednotkach na jine jednotky
+            </summary>
+            <param name="param">hodnota k prevedeni</param>
+            <param name="sourceUnits">jednotky pred prevodem</param>
+            <param name="targetUnits">jednotky, na ktere ma byt hodnota prevedena</param>
             <returns>prevedena hodnota</returns>
         </member>
         <member name="T:Interlacer.Properties.Resources">

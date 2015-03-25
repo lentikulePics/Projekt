@@ -293,6 +293,11 @@ namespace Interlacer
         {
             widthNumeric.Text = Convert.ToString(projectData.GetInterlacingData().GetWidth());
             heightNumeric.Text = Convert.ToString(projectData.GetInterlacingData().GetHeight());
+            dpiNumeric.Text = Convert.ToString(projectData.GetInterlacingData().GetPictureResolution());
+            lpiNumeric.Text = Convert.ToString(projectData.GetInterlacingData().GetLenticuleDensity());
+            frameWidthNumeric.Text = Convert.ToString(projectData.GetLineData().GetFrameWidth());
+            indentNumeric.Text = Convert.ToString(projectData.GetLineData().GetIndent());
+            
 
             double pictureResolution = projectData.GetInterlacingData().GetPictureResolution();
             double lenticuleDensity = projectData.GetInterlacingData().GetLenticuleDensity();
@@ -362,6 +367,7 @@ namespace Interlacer
             projectData.GetLineData().SetUnits(((StringValuePair<Units>)settings.GetSelectedUnits()).value);
             projectData.GetInterlacingData().SetResolutionUnits(((StringValuePair<Units>)settings.GetSelectedResolutionUnits()).value);
 
+
             string measureUnits = settings.GetSelectedUnits().ToString();
             string[] resolutionUnits = settings.GetSelectedResolutionUnits().ToString().Split(new char[] { ',', ' ' });
 
@@ -374,7 +380,9 @@ namespace Interlacer
             unitsLabel4.Text = measureUnits;
 
             dpiLabel.Text = resolutionUnits[0];
-            lpiLabel.Text = resolutionUnits[2];            
+            lpiLabel.Text = resolutionUnits[2];
+
+            updateAllComponents();
         }
 
         private void dpiNumeric_ValueChanged(object sender, EventArgs e)
