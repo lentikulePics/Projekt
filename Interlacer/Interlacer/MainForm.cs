@@ -24,10 +24,10 @@ namespace Interlacer
 
         public MainForm()
         {
-            //Nastaveni jazyka na vychozi hodnotu(Cestina)
-            Localization.changeCulture();
-
             InitializeComponent();
+
+            Localization.changeCulture();
+            Localization.iterateOverControls(this, Localization.resourcesMain);
 
             previewData = new PreviewData(previewPicBox, previewPicBox.Image);
 
@@ -144,7 +144,6 @@ namespace Interlacer
             }
 
             maxPicsUnderLenLabel.Text = Convert.ToString(lineThicknessTrackbar.Maximum);
-            updateAllComponents();
         }
 
         private void addPicButton_Click(object sender, EventArgs e)
@@ -332,6 +331,9 @@ namespace Interlacer
                 picUnderLenTextBox.Text = Convert.ToString(pictureResolution / lenticuleDensity);
             }
 
+            changeMaxLineThickness();
+            actualPicsUnderLenLabel.Text = "" + projectData.GetLineData().GetLineThickness();
+
             if (Convert.ToInt32(actualPicsUnderLenLabel.Text) > lineThicknessTrackbar.Maximum)
             {
                 lineThicknessTrackbar.Value = lineThicknessTrackbar.Maximum;
@@ -340,6 +342,8 @@ namespace Interlacer
 
             widthInPixelsTextBox.Text = Convert.ToString((int)(projectData.GetInterlacingData().GetInchWidth() * projectData.GetInterlacingData().GetDPI()));
             heightInPixelsTextBox.Text = Convert.ToString((int)(projectData.GetInterlacingData().GetInchHeight() * projectData.GetInterlacingData().GetDPI()));
+
+            
         }
 
         private void keepRatioCheckbox_CheckedChanged(object sender, EventArgs e)

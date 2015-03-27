@@ -1,1 +1,1 @@
-Magick: NegativeOrZeroImageSize `' @ error/resize.c/ResizeImage/2968
+Magick: CacheResourcesExhausted `' @ error/cache.c/OpenPixelCache/3642
