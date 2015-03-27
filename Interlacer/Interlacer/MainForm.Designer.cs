@@ -118,7 +118,7 @@
             this.linePictureBox = new System.Windows.Forms.PictureBox();
             this.groupBox7 = new System.Windows.Forms.GroupBox();
             this.interlaceButton = new System.Windows.Forms.Button();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.previewPicBox = new System.Windows.Forms.PictureBox();
             this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.interlaceProgressBar = new System.Windows.Forms.ProgressBar();
@@ -155,7 +155,7 @@
             this.groupBox9.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.lineThicknessTrackbar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.linePictureBox)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.previewPicBox)).BeginInit();
             this.SuspendLayout();
             // 
             // menuStrip1
@@ -279,12 +279,12 @@
             // 
             this.pictureListViewEx.AllowDrop = true;
             this.pictureListViewEx.AllowRowReorder = true;
+            resources.ApplyResources(this.pictureListViewEx, "pictureListViewEx");
             this.pictureListViewEx.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.orderHeader,
             this.pathHeader});
             this.pictureListViewEx.FullRowSelect = true;
             this.pictureListViewEx.GridLines = true;
-            resources.ApplyResources(this.pictureListViewEx, "pictureListViewEx");
             this.pictureListViewEx.Name = "pictureListViewEx";
             this.pictureListViewEx.UseCompatibleStateImageBehavior = false;
             this.pictureListViewEx.View = System.Windows.Forms.View.Details;
@@ -830,12 +830,12 @@
             this.interlaceButton.UseVisualStyleBackColor = true;
             this.interlaceButton.Click += new System.EventHandler(this.interlaceButton_Click);
             // 
-            // pictureBox1
+            // previewPicBox
             // 
-            this.pictureBox1.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            resources.ApplyResources(this.pictureBox1, "pictureBox1");
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.TabStop = false;
+            resources.ApplyResources(this.previewPicBox, "previewPicBox");
+            this.previewPicBox.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.previewPicBox.Name = "previewPicBox";
+            this.previewPicBox.TabStop = false;
             // 
             // columnHeader2
             // 
@@ -856,6 +856,7 @@
             resources.ApplyResources(this.imagePreviewCheckBox, "imagePreviewCheckBox");
             this.imagePreviewCheckBox.Name = "imagePreviewCheckBox";
             this.imagePreviewCheckBox.UseVisualStyleBackColor = true;
+            this.imagePreviewCheckBox.CheckedChanged += new System.EventHandler(this.imagePreviewCheckBox_CheckedChanged);
             // 
             // columnHeader3
             // 
@@ -878,13 +879,12 @@
             this.Controls.Add(this.imagePreviewCheckBox);
             this.Controls.Add(this.currentStateLabel);
             this.Controls.Add(this.interlaceProgressBar);
-            this.Controls.Add(this.pictureBox1);
+            this.Controls.Add(this.previewPicBox);
             this.Controls.Add(this.interlaceButton);
             this.Controls.Add(this.groupBox7);
             this.Controls.Add(this.outputImageTab);
             this.Controls.Add(this.toolStrip1);
             this.Controls.Add(this.menuStrip1);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "MainForm";
             this.Load += new System.EventHandler(this.Form1_Load);
@@ -925,7 +925,7 @@
             this.groupBox9.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.lineThicknessTrackbar)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.linePictureBox)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.previewPicBox)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -967,7 +967,7 @@
         private System.Windows.Forms.RadioButton horizontalRadiobutton;
         private System.Windows.Forms.GroupBox groupBox7;
         private System.Windows.Forms.Button interlaceButton;
-        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.PictureBox previewPicBox;
         private System.Windows.Forms.ColumnHeader columnHeader1;
         private System.Windows.Forms.ColumnHeader columnHeader2;
         private System.Windows.Forms.ProgressBar interlaceProgressBar;

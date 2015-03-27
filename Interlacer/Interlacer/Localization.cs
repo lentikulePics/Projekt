@@ -48,7 +48,14 @@ namespace Interlacer
 
             foreach (Control c in parent.Controls)
             {
+                /*tohle tu musi byt, jinak se po volani ApplyResources komponenty vrati na 
+                puvodni pozici a velikost a nesouhlasi s aktualni velikosti formulare*/
+                int x = c.Location.X;
+                int y = c.Location.Y;
+                int w = c.Size.Width;
+                int h = c.Size.Height;
                 res.ApplyResources(c, c.Name, new CultureInfo(Localization.currentLanguage));
+                c.SetBounds(x, y, w, h); //nastaveni spravne velikosti a pozice
                 if (c.GetType() == typeof(GroupBox))
                 {
                     iterateOverControls(c, res);

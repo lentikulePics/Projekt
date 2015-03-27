@@ -20,6 +20,7 @@ namespace Interlacer
 
         private int order = 1;
         public ProjectData projectData = new ProjectData();
+        public PreviewData previewData;
 
         public MainForm()
         {
@@ -28,6 +29,7 @@ namespace Interlacer
 
             InitializeComponent();
 
+            previewData = new PreviewData(previewPicBox, previewPicBox.Image);
 
             lineColorButton.BackColor = Color.Black;
             backgroundColorButton.BackColor = Color.White;
@@ -79,6 +81,13 @@ namespace Interlacer
             changeUnits();
 
             pictureListViewEx.MultiSelect = true;
+        }
+
+        private void SetPreview()
+        {
+            ListView.SelectedListViewItemCollection selectedItems = pictureListViewEx.SelectedItems;
+            if (selectedItems.Count > 0)
+                previewData.Show(selectedItems[0].SubItems[1].Text);
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -347,11 +356,8 @@ namespace Interlacer
         private void pictureListViewEx_ItemSelectionChanged(object sender, ListViewItemSelectionChangedEventArgs e)
         {
             //reOrder();
-        }
-
-        private void pokus(object sender, EventArgs e)
-        {
-            reOrder();
+            if (imagePreviewCheckBox.Checked)
+                SetPreview();
         }
 
         private void interpol1ComboBox_SelectedIndexChanged(object sender, EventArgs e)
@@ -487,5 +493,16 @@ namespace Interlacer
             changeMaxLineThickness();
         }
 
+        private void imagePreviewCheckBox_CheckedChanged(object sender, EventArgs e)
+        {
+            if (imagePreviewCheckBox.Checked)
+            {
+                SetPreview();
+            }
+            else
+            {
+                previewData.ShowDefaultImage();
+            }
+        }
     }
 }
