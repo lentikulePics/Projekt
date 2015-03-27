@@ -136,7 +136,13 @@ namespace Interlacer
 
         private void changeMaxLineThickness()
         {
-            lineThicknessTrackbar.Maximum = pictureListViewEx.Items.Count - 1;
+            lineThicknessTrackbar.Maximum = pictureListViewEx.Items.Count;
+            if (pictureListViewEx.Items.Count == 0)
+            {
+                lineThicknessTrackbar.Maximum = 1;
+                lineThicknessTrackbar.Minimum = 1;
+            }
+
             maxPicsUnderLenLabel.Text = Convert.ToString(lineThicknessTrackbar.Maximum);
             updateAllComponents();
         }

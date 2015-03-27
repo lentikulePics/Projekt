@@ -805,8 +805,10 @@
             // lineThicknessTrackbar
             // 
             resources.ApplyResources(this.lineThicknessTrackbar, "lineThicknessTrackbar");
-            this.lineThicknessTrackbar.Maximum = 0;
+            this.lineThicknessTrackbar.Maximum = 1;
+            this.lineThicknessTrackbar.Minimum = 1;
             this.lineThicknessTrackbar.Name = "lineThicknessTrackbar";
+            this.lineThicknessTrackbar.Value = 1;
             this.lineThicknessTrackbar.ValueChanged += new System.EventHandler(this.lineThicknessTrackbar_ValueChanged);
             // 
             // linePictureBox
