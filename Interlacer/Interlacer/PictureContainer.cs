@@ -255,6 +255,19 @@ namespace Interlacer
                     InterlaceH();
                     break;
             }
+            double pictureResolution = interlacingData.GetPictureResolution();
+            switch (interlacingData.GetResolutionUnits())
+            {
+                case Units.In:
+                    result.SetDpi(pictureResolution, pictureResolution);
+                    break;
+                case Units.Cm:
+                    result.SetDpcm(pictureResolution, pictureResolution);
+                    break;
+                case Units.Mm:
+                    result.SetDpcm(pictureResolution * 10, pictureResolution * 10);
+                    break;
+            }
         }
 
         private void InterlaceV()

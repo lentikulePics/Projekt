@@ -130,6 +130,14 @@
             this.addPicFileDialog = new System.Windows.Forms.OpenFileDialog();
             this.reorderTimer = new System.Windows.Forms.Timer(this.components);
             this.savePicFileDialog = new System.Windows.Forms.SaveFileDialog();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.infoFilenameLabel = new System.Windows.Forms.Label();
+            this.infoDpiLabel = new System.Windows.Forms.Label();
+            this.infoWidthLabel = new System.Windows.Forms.Label();
+            this.infoHeightLabel = new System.Windows.Forms.Label();
             this.menuStrip1.SuspendLayout();
             this.toolStrip1.SuspendLayout();
             this.outputImageTab.SuspendLayout();
@@ -155,6 +163,7 @@
             this.groupBox9.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.lineThicknessTrackbar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.linePictureBox)).BeginInit();
+            this.groupBox7.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.previewPicBox)).BeginInit();
             this.SuspendLayout();
             // 
@@ -821,6 +830,14 @@
             // groupBox7
             // 
             resources.ApplyResources(this.groupBox7, "groupBox7");
+            this.groupBox7.Controls.Add(this.infoHeightLabel);
+            this.groupBox7.Controls.Add(this.infoWidthLabel);
+            this.groupBox7.Controls.Add(this.infoDpiLabel);
+            this.groupBox7.Controls.Add(this.infoFilenameLabel);
+            this.groupBox7.Controls.Add(this.label4);
+            this.groupBox7.Controls.Add(this.label3);
+            this.groupBox7.Controls.Add(this.label2);
+            this.groupBox7.Controls.Add(this.label1);
             this.groupBox7.Name = "groupBox7";
             this.groupBox7.TabStop = false;
             // 
@@ -873,6 +890,46 @@
             this.reorderTimer.Enabled = true;
             this.reorderTimer.Interval = 500;
             this.reorderTimer.Tick += new System.EventHandler(this.reorderTimer_Tick);
+            // 
+            // label1
+            // 
+            resources.ApplyResources(this.label1, "label1");
+            this.label1.Name = "label1";
+            // 
+            // label2
+            // 
+            resources.ApplyResources(this.label2, "label2");
+            this.label2.Name = "label2";
+            // 
+            // label3
+            // 
+            resources.ApplyResources(this.label3, "label3");
+            this.label3.Name = "label3";
+            // 
+            // label4
+            // 
+            resources.ApplyResources(this.label4, "label4");
+            this.label4.Name = "label4";
+            // 
+            // infoFilenameLabel
+            // 
+            resources.ApplyResources(this.infoFilenameLabel, "infoFilenameLabel");
+            this.infoFilenameLabel.Name = "infoFilenameLabel";
+            // 
+            // infoDpiLabel
+            // 
+            resources.ApplyResources(this.infoDpiLabel, "infoDpiLabel");
+            this.infoDpiLabel.Name = "infoDpiLabel";
+            // 
+            // infoWidthLabel
+            // 
+            resources.ApplyResources(this.infoWidthLabel, "infoWidthLabel");
+            this.infoWidthLabel.Name = "infoWidthLabel";
+            // 
+            // infoHeightLabel
+            // 
+            resources.ApplyResources(this.infoHeightLabel, "infoHeightLabel");
+            this.infoHeightLabel.Name = "infoHeightLabel";
             // 
             // MainForm
             // 
@@ -927,6 +984,8 @@
             this.groupBox9.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.lineThicknessTrackbar)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.linePictureBox)).EndInit();
+            this.groupBox7.ResumeLayout(false);
+            this.groupBox7.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.previewPicBox)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -1036,6 +1095,14 @@
         private System.Windows.Forms.Button lineColorButton;
         private System.Windows.Forms.Button backgroundColorButton;
         private System.Windows.Forms.SaveFileDialog savePicFileDialog;
+        private System.Windows.Forms.Label infoHeightLabel;
+        private System.Windows.Forms.Label infoWidthLabel;
+        private System.Windows.Forms.Label infoDpiLabel;
+        private System.Windows.Forms.Label infoFilenameLabel;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label1;
 
     }
 }

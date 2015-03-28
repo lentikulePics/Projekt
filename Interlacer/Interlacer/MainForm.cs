@@ -29,6 +29,8 @@ namespace Interlacer
             Localization.changeCulture();
             Localization.iterateOverControls(this, Localization.resourcesMain);
 
+            resetPictureInfo();
+
             previewData = new PreviewData(previewPicBox, previewPicBox.Image);
 
             lineColorButton.BackColor = Color.Black;
@@ -83,11 +85,62 @@ namespace Interlacer
             pictureListViewEx.MultiSelect = true;
         }
 
-        private void SetPreview()
+        private void setPreview()
         {
             ListView.SelectedListViewItemCollection selectedItems = pictureListViewEx.SelectedItems;
             if (selectedItems.Count > 0)
                 previewData.Show(selectedItems[0].SubItems[1].Text);
+        }
+
+        private void resetPictureInfo()
+        {
+            infoFilenameLabel.Text = "";
+            infoDpiLabel.Text = "";
+            infoWidthLabel.Text = "";
+            infoHeightLabel.Text = "";
+        }
+
+        private void setPictureInfo()
+        {
+            ListView.SelectedListViewItemCollection selectedItems = pictureListViewEx.SelectedItems;
+            if (selectedItems.Count > 0)
+            {
+                String path = selectedItems[0].SubItems[1].Text;
+                Picture pic = new Picture(path);
+                pic.Ping();
+                infoDpiLabel.Text = "" + pic.GetXDpi();
+                infoWidthLabel.Text = "" + pic.GetWidth();
+                infoHeightLabel.Text = "" + pic.GetHeight();
+                String[] strings = path.Split(new char[]{'\\'});
+                String filename = strings[strings.Length - 1];
+                infoFilenameLabel.Text = filename;
+            }
+        }
+
+        private void setValuesFromPicture(Picture picture)
+        {
+            InterlacingData interlacingData = projectData.GetInterlacingData();
+            if (interlacingData.GetPictureResolution() == 0)
+            {
+                double pictureResolution = UnitConverter.GetInFromUnits(picture.GetXDpi(), interlacingData.GetResolutionUnits());
+                interlacingData.SetPictureResolution(pictureResolution);
+            }
+            if (interlacingData.GetWidth() == 0)
+            {
+                double width = UnitConverter.Transfer(picture.GetWidth() / interlacingData.GetDPI(), Units.In, interlacingData.GetUnits());
+                interlacingData.SetWidth(width);
+            }
+            if (interlacingData.GetHeight() == 0)
+            {
+                double height = UnitConverter.Transfer(picture.GetHeight() / interlacingData.GetDPI(), Units.In, interlacingData.GetUnits());
+                interlacingData.SetHeight(height);
+            }
+            if (interlacingData.GetLenticuleDensity() == 0 && pictureListViewEx.Items.Count != 0)
+            {
+                double density = interlacingData.GetPictureResolution() / pictureListViewEx.Items.Count;
+                interlacingData.SetLenticuleDensity(density);
+            }
+            updateAllComponents();
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -184,6 +237,12 @@ namespace Interlacer
                     pictureListViewEx.Items[selectedIndex].Selected = false;
 
                     changeMaxLineThickness();
+                }
+                if (chosenPictures.Length > 0)
+                {
+                    Picture pic = new Picture(chosenPictures[0]);
+                    pic.Ping();
+                    setValuesFromPicture(pic);
                 }
             }
         }
@@ -343,7 +402,7 @@ namespace Interlacer
             widthInPixelsTextBox.Text = Convert.ToString((int)(projectData.GetInterlacingData().GetInchWidth() * projectData.GetInterlacingData().GetDPI()));
             heightInPixelsTextBox.Text = Convert.ToString((int)(projectData.GetInterlacingData().GetInchHeight() * projectData.GetInterlacingData().GetDPI()));
 
-            
+            resetPictureInfo();
         }
 
         private void keepRatioCheckbox_CheckedChanged(object sender, EventArgs e)
@@ -367,7 +426,8 @@ namespace Interlacer
         {
             //reOrder();
             if (imagePreviewCheckBox.Checked)
-                SetPreview();
+                setPreview();
+            setPictureInfo();
         }
 
         private void interpol1ComboBox_SelectedIndexChanged(object sender, EventArgs e)
@@ -507,7 +567,7 @@ namespace Interlacer
         {
             if (imagePreviewCheckBox.Checked)
             {
-                SetPreview();
+                setPreview();
             }
             else
             {
