@@ -82,4 +82,3 @@ D:\GitHub\Projekt\Interlacer\Interlacer\obj\x64\Release\Interlacer.exe
 D:\GitHub\Projekt\Interlacer\Interlacer\obj\x64\Release\Interlacer.pdb
 C:\Users\Barat_000\OneDrive\Dokumenty\@ZSWI\Project\Projekt\Projekt\Interlacer\Interlacer\obj\x64\Release\Interlacer.StringRes_CZ.resources
 C:\Users\Barat_000\OneDrive\Dokumenty\@ZSWI\Project\Projekt\Projekt\Interlacer\Interlacer\obj\x64\Release\Interlacer.StringRes_EN.resources
-C:\Users\Luckin\Desktop\Interlacer Github\Projekt\Interlacer\Interlacer\obj\x64\Release\Interlacer.csprojResolveAssemblyReference.cache

@@ -114,6 +114,7 @@
     <Compile Include="MainForm.designer.cs">
       <DependentUpon>MainForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="PictureInfoData.cs" />
     <Compile Include="PreviewData.cs" />
     <Compile Include="ProgramProperties.cs" />
     <Compile Include="ProjectData.cs" />

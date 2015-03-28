@@ -1,1 +1,1 @@
-Magick: CacheResourcesExhausted `' @ error/cache.c/OpenPixelCache/3642
+Magick: No image was loaded.

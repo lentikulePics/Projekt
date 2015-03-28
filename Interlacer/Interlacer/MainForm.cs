@@ -19,8 +19,10 @@ namespace Interlacer
         private SettingsForm settingsForm;
 
         private int order = 1;
-        public ProjectData projectData = new ProjectData();
-        public PreviewData previewData;
+        private ProjectData projectData = new ProjectData();
+        private PreviewData previewData;
+        private PictureInfoData infoData = new PictureInfoData();
+        
 
         public MainForm()
         {
@@ -106,8 +108,7 @@ namespace Interlacer
             if (selectedItems.Count > 0)
             {
                 String path = selectedItems[0].SubItems[1].Text;
-                Picture pic = new Picture(path);
-                pic.Ping();
+                Picture pic = infoData.GetInfo(path);
                 infoDpiLabel.Text = "" + pic.GetXDpi();
                 infoWidthLabel.Text = "" + pic.GetWidth();
                 infoHeightLabel.Text = "" + pic.GetHeight();
@@ -125,12 +126,12 @@ namespace Interlacer
                 double pictureResolution = UnitConverter.GetInFromUnits(picture.GetXDpi(), interlacingData.GetResolutionUnits());
                 interlacingData.SetPictureResolution(pictureResolution);
             }
-            if (interlacingData.GetWidth() == 0)
+            if (interlacingData.GetWidth() == 0 && interlacingData.GetPictureResolution() != 0)
             {
                 double width = UnitConverter.Transfer(picture.GetWidth() / interlacingData.GetDPI(), Units.In, interlacingData.GetUnits());
                 interlacingData.SetWidth(width);
             }
-            if (interlacingData.GetHeight() == 0)
+            if (interlacingData.GetHeight() == 0 && interlacingData.GetPictureResolution() != 0)
             {
                 double height = UnitConverter.Transfer(picture.GetHeight() / interlacingData.GetDPI(), Units.In, interlacingData.GetUnits());
                 interlacingData.SetHeight(height);

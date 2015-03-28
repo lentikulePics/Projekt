@@ -15,6 +15,13 @@ void writeError(std::string str)
 	file.close();
 }
 
+void writeWarning(std::string str)
+{
+	std::ofstream file("MagickWarning.txt");
+	file << str;
+	file.close();
+}
+
 void setResourceLimits()
 {
 #if defined _WIN64
@@ -98,9 +105,13 @@ void* loadImage(char* filename)
 	{
 		writeError(er.what());
 		delete[] data;
-		file.close();
 		delete img;
 		RaiseException(GfxlibErrors::PictureLoadFailure, 0, 0, 0);
+	}
+	catch (Magick::Warning & w)
+	{
+		writeWarning(w.what());
+		delete[] data;
 	}
 	catch (...)
 	{
@@ -134,9 +145,13 @@ void* pingImage(char* filename)
 	{
 		writeError(er.what());
 		delete[] data;
-		file.close();
 		delete img;
 		RaiseException(GfxlibErrors::PictureLoadFailure, 0, 0, 0);
+	}
+	catch (Magick::Warning & w)
+	{
+		writeWarning(w.what());
+		delete[] data;
 	}
 	catch (...)
 	{
