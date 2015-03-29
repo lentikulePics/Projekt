@@ -1,1 +1,1 @@
-Magick: No image was loaded.
+Magick: NoDecodeDelegateForThisImageFormat `' @ error/constitute.c/ReadImage/501

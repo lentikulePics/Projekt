@@ -240,7 +240,7 @@ namespace GfxlibWrapper
         /// <returns>dpi na ose x</returns>
         public double GetXDpi()
         {
-            return xResolution;
+            return UnitConverter.GetUnitsFromIn(xResolution, resolutionUnits);
         }
 
         /// <summary>
@@ -249,7 +249,7 @@ namespace GfxlibWrapper
         /// <returns>dpi na ose y</returns>
         public double GetYDpi()
         {
-            return yResolution;
+            return UnitConverter.GetUnitsFromIn(yResolution, resolutionUnits);
         }
 
         /// <summary>
