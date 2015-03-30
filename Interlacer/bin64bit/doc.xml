@@ -398,6 +398,12 @@
             </summary>
             <param name="settingOptions">moznosti nastaveni</param>
         </member>
+        <member name="M:Interlacer.Settings.SetSettingOptions(Interlacer.SettingOptions)">
+            <summary>
+            nastavi moznosti nastaveni
+            </summary>
+            <param name="settingOptions">moznosti nastaveni</param>
+        </member>
         <member name="M:Interlacer.Settings.GetSettingOptions">
             <summary>
             vrati moznosti nastaveni

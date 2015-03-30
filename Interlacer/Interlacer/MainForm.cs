@@ -110,7 +110,10 @@ namespace Interlacer
             interpol2ComboBox.Items[2] = new StringValuePair<FilterType>(Localization.resourcesStrings.GetString("filterCubic"), FilterType.Cubic);
             interpol2ComboBox.Items[3] = new StringValuePair<FilterType>(Localization.resourcesStrings.GetString("filterLanczos"), FilterType.Lanczos);
             
-            settings = new Settings(settingOptions);
+            if (settings == null)
+                settings = new Settings(settingOptions);
+            else
+                settings.SetSettingOptions(settingOptions);
             settings.SetSelectedLanguageIndex(0);
             settings.SetSelectedUnitsIndex(0);
             settings.SetSelectedResolutionUnitsIndex(0);

@@ -39,6 +39,15 @@ namespace Interlacer
         }
 
         /// <summary>
+        /// nastavi moznosti nastaveni
+        /// </summary>
+        /// <param name="settingOptions">moznosti nastaveni</param>
+        public void SetSettingOptions(SettingOptions settingOptions)
+        {
+            this.settingOptions = settingOptions;
+        }
+
+        /// <summary>
         /// vrati moznosti nastaveni
         /// </summary>
         /// <returns>moznosti nastaveni</returns>

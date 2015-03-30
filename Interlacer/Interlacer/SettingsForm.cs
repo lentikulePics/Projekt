@@ -42,16 +42,17 @@ namespace Interlacer
             // Zmeni jazyk pro SettingsForm
             changeLanguage();
 
-            setOptions();
-
             settings.SetSelectedLanguageIndex(languageCombobox.SelectedIndex);
             settings.SetSelectedUnitsIndex(comboBox1.SelectedIndex);
             settings.SetSelectedResolutionUnitsIndex(comboBox2.SelectedIndex);
+
+            setOptions();
             
             this.parent.changeUnits();
         }
 
         private void setOptions(){
+            languageCombobox.Items.Clear();
             languageCombobox.Items.Add(settings.GetSettingOptions().languageOptions[0]);
             languageCombobox.Items.Add(settings.GetSettingOptions().languageOptions[1]);
 
