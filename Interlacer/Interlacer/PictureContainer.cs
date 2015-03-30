@@ -356,7 +356,7 @@ namespace Interlacer
             makeProgressBarStep();
         }
 
-        private bool getCanBeLine(int index)
+        private bool getCanBeLineV(int index)
         {
             if (!lineData.GetCenterPosition())
             {
@@ -376,14 +376,35 @@ namespace Interlacer
             }
         }
 
-        private void drawLinesLeft()
+        private bool getCanBeLineH(int index)
+        {
+            if (!lineData.GetCenterPosition())
+            {
+                if (((index + pictureCount - getAddHeightForLineAndIndentTop() % pictureCount) % pictureCount) < lineData.GetLineThickness())
+                {
+                    return true;
+                }
+                else
+                    return false;
+            }
+            else
+            {
+                if (((index  - lineData.GetLineThickness() / 2 + pictureCount/2 - getAddHeightForLineAndIndentTop() % pictureCount) % pictureCount) < lineData.GetLineThickness())
+                    return true;
+                else
+                    return false;
+            }
+        }
+
+        private void drawLinesLeftV()
         {
             int colorValue;
             if (lineData.GetLeft())
             {
+           
                 for (int i = 0; i < this.getAddWidthForLineAndIndent(); i++)
                 {
-                    if (i < this.getAddWidthForLine() && getCanBeLine(i))
+                    if (i < this.getAddWidthForLine() && getCanBeLineV(i))
                         colorValue = lineData.GetLineColor().ToArgb();
                     else
                         colorValue = lineData.GetBackgroundColor().ToArgb();
@@ -393,14 +414,14 @@ namespace Interlacer
             } 
         }
 
-        private void drawLinesRight()
+        private void drawLinesRightV()
         {
             int colorValue = 0;
             if (lineData.GetRight())
             {
                 for (int i = result.GetWidth(); i >= (preResamplePictureWidth + this.getAddWidthForLineAndIndentLeft()); i--)
                 {
-                    if (i > (result.GetWidth() - this.getAddWidthForLine()) && getCanBeLine(i))
+                    if (i > (result.GetWidth() - this.getAddWidthForLine()) && getCanBeLineV(i))
                         colorValue = lineData.GetLineColor().ToArgb();
                     else
                         colorValue = lineData.GetBackgroundColor().ToArgb();
@@ -410,7 +431,7 @@ namespace Interlacer
             }
         }
 
-        private void drawLinesTop(){
+        private void drawLinesTopV(){
             int colorValue = 0;
             if (lineData.GetTop())
             {
@@ -422,7 +443,7 @@ namespace Interlacer
                     pomRight = this.getAddWidthForLine();
                 for (int i = pomLeft; i < result.GetWidth() - pomRight; i++)
                 {
-                    if (getCanBeLine(i))
+                    if (getCanBeLineV(i))
                         colorValue = lineData.GetLineColor().ToArgb();
                     else
                         colorValue = lineData.GetBackgroundColor().ToArgb();
@@ -435,7 +456,7 @@ namespace Interlacer
             }
         }
 
-        private void drawLinesBottom()
+        private void drawLinesBottomV()
         {
             int colorValue = 0;
             if (lineData.GetBottom())
@@ -448,7 +469,7 @@ namespace Interlacer
                     pomRight = this.getAddWidthForLine();
                 for (int i = pomLeft; i < result.GetWidth() - pomRight; i++)
                 {
-                    if (getCanBeLine(i))
+                    if (getCanBeLineV(i))
                         colorValue = lineData.GetLineColor().ToArgb();
                     else
                         colorValue = lineData.GetBackgroundColor().ToArgb();
@@ -461,14 +482,113 @@ namespace Interlacer
             }
         }
 
+        private void drawLinesLeftH()
+        {
+            int colorValue;
+            if (lineData.GetLeft())
+            {
+
+                for (int i = 0; i < result.GetHeight(); i++)
+                {
+                    for (int j = 0; j < this.getAddWidthForLineAndIndent(); j++)
+                    {
+                        if (j < this.getAddWidthForLine() && getCanBeLineH(i))
+                            colorValue = lineData.GetLineColor().ToArgb();
+                        else
+                            colorValue = lineData.GetBackgroundColor().ToArgb();
+                        result.SetPixel(j, i, colorValue);
+                    }  
+                }
+            }
+        }
+
+        private void drawLinesRightH()
+        {
+            int colorValue = 0;
+            if (lineData.GetRight())
+            {
+                for (int i = 0; i < result.GetHeight(); i++)
+                {
+                    for (int j = result.GetWidth(); j >= (preResamplePictureWidth + this.getAddWidthForLineAndIndentLeft()); j--)
+                    {
+                        if (j >= (result.GetWidth() - this.getAddWidthForLine()) && getCanBeLineH(i))
+                            colorValue = lineData.GetLineColor().ToArgb();
+                        else
+                            colorValue = lineData.GetBackgroundColor().ToArgb();
+                        result.SetPixel(j, i, colorValue);
+                    }
+                        
+                }
+            }
+        }
+
+        private void drawLinesTopH()
+        {
+            int colorValue = 0;
+            if (lineData.GetTop())
+            {
+                int pomLeft = 0;
+                int pomRight = 0;
+                if (lineData.GetLeft())
+                    pomLeft = this.getAddWidthForLine();
+                if (lineData.GetRight())
+                    pomRight = this.getAddWidthForLine();
+                for (int i = 0; i < getAddHeightForLineAndIndentTop(); i++)
+                {
+                     if (i < getAddHeightForLineTop() && getCanBeLineH(i))
+                        colorValue = lineData.GetLineColor().ToArgb();
+                     else
+                        colorValue = lineData.GetBackgroundColor().ToArgb();
+                     for (int j = pomLeft; j < result.GetWidth() - pomRight; j++){
+                          result.SetPixel(j, i, colorValue);
+                     }
+                }
+            }
+        }
+
+        private void drawLinesBottomH()
+        {
+            int colorValue = 0;
+            if (lineData.GetBottom())
+            {
+                int pomLeft = 0;
+                int pomRight = 0;
+                if (lineData.GetLeft())
+                    pomLeft = this.getAddWidthForLine();
+                if (lineData.GetRight())
+                    pomRight = this.getAddWidthForLine();
+                for (int i = result.GetHeight() - 1; i > (result.GetHeight() - getAddHeightForLineAndIndent()); i--)
+                {
+                    if (i > (result.GetHeight() - getAddHeightForLineTop()) && getCanBeLineH(i))
+                        colorValue = lineData.GetLineColor().ToArgb();
+                    else
+                        colorValue = lineData.GetBackgroundColor().ToArgb();
+                    for (int j = pomLeft; j < result.GetWidth() - pomRight; j++)
+                        result.SetPixel(j, i, colorValue);
+                }
+            }
+        }
         private void drawLines()
         {
             if (lineData != null)
             {
-                drawLinesLeft();
-                drawLinesRight();
-                drawLinesTop();
-                drawLinesBottom();
+                switch (interlacingData.GetDirection())
+                {
+                    case Direction.Vertical:
+                        drawLinesLeftV();
+                        drawLinesRightV();
+                        drawLinesTopV();
+                        drawLinesBottomV();
+                        break;
+                    case Direction.Horizontal:
+                        drawLinesLeftH();
+                        drawLinesRightH();
+                        drawLinesTopH();
+                        drawLinesBottomH();
+                        break;
+                }
+       
+                
             }
         }
 
