@@ -50,7 +50,7 @@
             this.pathHeader = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.button8 = new System.Windows.Forms.Button();
             this.clearAllButton = new System.Windows.Forms.Button();
-            this.reverseButton = new System.Windows.Forms.Button();
+            this.revertButton = new System.Windows.Forms.Button();
             this.moveDownButton = new System.Windows.Forms.Button();
             this.moveUpButton = new System.Windows.Forms.Button();
             this.copyPicButton = new System.Windows.Forms.Button();
@@ -268,7 +268,7 @@
             this.tabPage1.Controls.Add(this.pictureListViewEx);
             this.tabPage1.Controls.Add(this.button8);
             this.tabPage1.Controls.Add(this.clearAllButton);
-            this.tabPage1.Controls.Add(this.reverseButton);
+            this.tabPage1.Controls.Add(this.revertButton);
             this.tabPage1.Controls.Add(this.moveDownButton);
             this.tabPage1.Controls.Add(this.moveUpButton);
             this.tabPage1.Controls.Add(this.copyPicButton);
@@ -324,13 +324,13 @@
             this.clearAllButton.UseVisualStyleBackColor = true;
             this.clearAllButton.Click += new System.EventHandler(this.clearAllButton_Click);
             // 
-            // reverseButton
+            // revertButton
             // 
-            resources.ApplyResources(this.reverseButton, "reverseButton");
-            this.reverseButton.Name = "reverseButton";
-            this.toolTip1.SetToolTip(this.reverseButton, resources.GetString("reverseButton.ToolTip"));
-            this.reverseButton.UseVisualStyleBackColor = true;
-            this.reverseButton.Click += new System.EventHandler(this.reverseButton_Click);
+            resources.ApplyResources(this.revertButton, "revertButton");
+            this.revertButton.Name = "revertButton";
+            this.toolTip1.SetToolTip(this.revertButton, resources.GetString("revertButton.ToolTip"));
+            this.revertButton.UseVisualStyleBackColor = true;
+            this.revertButton.Click += new System.EventHandler(this.revertButton_Click);
             // 
             // moveDownButton
             // 
@@ -1082,7 +1082,7 @@
         private Bol.WinControls.ListViewEx pictureListViewEx;
         private System.Windows.Forms.Button button8;
         private System.Windows.Forms.Button clearAllButton;
-        private System.Windows.Forms.Button reverseButton;
+        private System.Windows.Forms.Button revertButton;
         private System.Windows.Forms.Button moveDownButton;
         private System.Windows.Forms.Button moveUpButton;
         private System.Windows.Forms.Button copyPicButton;

@@ -421,7 +421,7 @@
   <data name="&gt;&gt;clearAllButton.ZOrder" xml:space="preserve">
     <value>2</value>
   </data>
-  <data name="reverseButton.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+  <data name="revertButton.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAADgAAAA4CAYAAACohjseAAAAIGNIUk0AAHolAACAgwAA+f8AAIDpAAB1
         MAAA6mAAADqYAAAXb5JfxUYAAAAJcEhZcwAACwwAAAsMAT9AIsgAAAwRSURBVGhD3ZmLc1TVHcf9W1pB
@@ -479,37 +479,37 @@
         sXEyybFx8khu+x9ACeVBTKlNQgAAAABJRU5ErkJggg==
 </value>
   </data>
-  <data name="reverseButton.BackgroundImageLayout" type="System.Windows.Forms.ImageLayout, System.Windows.Forms">
+  <data name="revertButton.BackgroundImageLayout" type="System.Windows.Forms.ImageLayout, System.Windows.Forms">
     <value>Stretch</value>
   </data>
-  <data name="reverseButton.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+  <data name="revertButton.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
   </data>
-  <data name="reverseButton.Location" type="System.Drawing.Point, System.Drawing">
+  <data name="revertButton.Location" type="System.Drawing.Point, System.Drawing">
     <value>212, 212</value>
   </data>
-  <data name="reverseButton.RightToLeft" type="System.Windows.Forms.RightToLeft, System.Windows.Forms">
+  <data name="revertButton.RightToLeft" type="System.Windows.Forms.RightToLeft, System.Windows.Forms">
     <value>Yes</value>
   </data>
-  <data name="reverseButton.Size" type="System.Drawing.Size, System.Drawing">
+  <data name="revertButton.Size" type="System.Drawing.Size, System.Drawing">
     <value>34, 34</value>
   </data>
-  <data name="reverseButton.TabIndex" type="System.Int32, mscorlib">
+  <data name="revertButton.TabIndex" type="System.Int32, mscorlib">
     <value>11</value>
   </data>
-  <data name="reverseButton.ToolTip" xml:space="preserve">
+  <data name="revertButton.ToolTip" xml:space="preserve">
     <value>Reverse list of images</value>
   </data>
-  <data name="&gt;&gt;reverseButton.Name" xml:space="preserve">
-    <value>reverseButton</value>
+  <data name="&gt;&gt;revertButton.Name" xml:space="preserve">
+    <value>revertButton</value>
   </data>
-  <data name="&gt;&gt;reverseButton.Type" xml:space="preserve">
+  <data name="&gt;&gt;revertButton.Type" xml:space="preserve">
     <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;reverseButton.Parent" xml:space="preserve">
+  <data name="&gt;&gt;revertButton.Parent" xml:space="preserve">
     <value>tabPage1</value>
   </data>
-  <data name="&gt;&gt;reverseButton.ZOrder" xml:space="preserve">
+  <data name="&gt;&gt;revertButton.ZOrder" xml:space="preserve">
     <value>3</value>
   </data>
   <data name="moveDownButton.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">

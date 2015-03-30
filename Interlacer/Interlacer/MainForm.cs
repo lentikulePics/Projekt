@@ -21,7 +21,8 @@ namespace Interlacer
         private int order = 1;
         private ProjectData projectData = new ProjectData();
         private PreviewData previewData;
-        private PictureInfoData infoData = new PictureInfoData();        
+        private PictureInfoData infoData = new PictureInfoData();
+        
 
         public MainForm()
         {
@@ -380,7 +381,7 @@ namespace Interlacer
             pictureListViewEx.Items[selectedIndex].Selected = false;
         }
 
-        private void reverseButton_Click(object sender, EventArgs e)
+        private void revertButton_Click(object sender, EventArgs e)
         {
             List<String> tmp_paths = new List<String>();
             for (int i = 0; i < pictureListViewEx.Items.Count; i++)
