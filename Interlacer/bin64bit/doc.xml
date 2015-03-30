@@ -315,6 +315,11 @@
             <param name="destColumn">index ciloveho sloupce tohoto obrazku</param>
             <param name="destYBegin">index pocatecni y souradnice, od ktere se zacne sloupec kopirovat do tohoto obrazku</param>
         </member>
+        <member name="M:Interlacer.MainForm.updateOptions">
+            <summary>
+            
+            </summary>
+        </member>
         <member name="M:Interlacer.MainForm.changeLanguage">
             <summary>
             
@@ -335,6 +340,11 @@
             <summary>
             Required method for Designer support - do not modify
             the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="P:Interlacer.MainForm.CreateParams">
+            <summary>
+            Zabrani blikani GUI pri prekreslovani
             </summary>
         </member>
         <member name="T:Interlacer.SettingOptions">
@@ -464,6 +474,26 @@
               resource lookups using this strongly typed resource class.
             </summary>
         </member>
+        <member name="P:Interlacer.StringRes_CZ.filterCubic">
+            <summary>
+              Looks up a localized string similar to Kubický.
+            </summary>
+        </member>
+        <member name="P:Interlacer.StringRes_CZ.filterLanczos">
+            <summary>
+              Looks up a localized string similar to Lanczos.
+            </summary>
+        </member>
+        <member name="P:Interlacer.StringRes_CZ.filterLinear">
+            <summary>
+              Looks up a localized string similar to Lieární.
+            </summary>
+        </member>
+        <member name="P:Interlacer.StringRes_CZ.filterNearestNeighbor">
+            <summary>
+              Looks up a localized string similar to Nejbližší soused.
+            </summary>
+        </member>
         <member name="P:Interlacer.StringRes_CZ.langCzech">
             <summary>
               Looks up a localized string similar to Čeština.
@@ -472,6 +502,11 @@
         <member name="P:Interlacer.StringRes_CZ.langEnglish">
             <summary>
               Looks up a localized string similar to Angličtina.
+            </summary>
+        </member>
+        <member name="P:Interlacer.StringRes_CZ.unitsInches">
+            <summary>
+              Looks up a localized string similar to palce.
             </summary>
         </member>
         <member name="T:Interlacer.StringRes_EN">
@@ -490,6 +525,26 @@
               resource lookups using this strongly typed resource class.
             </summary>
         </member>
+        <member name="P:Interlacer.StringRes_EN.filterCubic">
+            <summary>
+              Looks up a localized string similar to Cubic.
+            </summary>
+        </member>
+        <member name="P:Interlacer.StringRes_EN.filterLanczos">
+            <summary>
+              Looks up a localized string similar to Lanczos.
+            </summary>
+        </member>
+        <member name="P:Interlacer.StringRes_EN.filterLinear">
+            <summary>
+              Looks up a localized string similar to Linear.
+            </summary>
+        </member>
+        <member name="P:Interlacer.StringRes_EN.filterNearestNeighbor">
+            <summary>
+              Looks up a localized string similar to Nearest neighbor.
+            </summary>
+        </member>
         <member name="P:Interlacer.StringRes_EN.langCzech">
             <summary>
               Looks up a localized string similar to Czech.
@@ -498,6 +553,11 @@
         <member name="P:Interlacer.StringRes_EN.langEnglish">
             <summary>
               Looks up a localized string similar to English.
+            </summary>
+        </member>
+        <member name="P:Interlacer.StringRes_EN.unitsInches">
+            <summary>
+              Looks up a localized string similar to inches.
             </summary>
         </member>
         <member name="T:Interlacer.StringValuePair`1">

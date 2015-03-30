@@ -43,6 +43,32 @@ namespace Interlacer
             projectData.GetLineData().SetLineThickness(1);
             actualPicsUnderLenLabel.Text = Convert.ToString(lineThicknessTrackbar.Value);
             //prozatimni reseni, pak bude potreba dodat retezce z recource filu
+
+            updateOptions();
+
+            changeUnits();
+
+            pictureListViewEx.MultiSelect = true;
+        }
+
+        /// <summary>
+        /// Zabrani blikani GUI pri prekreslovani
+        /// </summary>
+        protected override CreateParams CreateParams
+        {
+            get
+            {
+                CreateParams cp = base.CreateParams;
+                cp.ExStyle |= 0x02000000;
+                return cp;
+            }
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public void updateOptions()
+        {
             SettingOptions settingOptions = new SettingOptions();
             settingOptions.languageOptions = new List<StringValuePair<String>>
             {
@@ -53,7 +79,7 @@ namespace Interlacer
             {
                 new StringValuePair<Units>("cm", Units.Cm),
                 new StringValuePair<Units>("mm", Units.Mm),
-                new StringValuePair<Units>(Localization.resourcesMain.GetString("unitsInches"), Units.In)
+                new StringValuePair<Units>(Localization.resourcesStrings.GetString("unitsInches"), Units.In)
             };
             settingOptions.resolutionUnitsOptions = new List<StringValuePair<Units>>
             {
@@ -61,30 +87,38 @@ namespace Interlacer
                 new StringValuePair<Units>("DPCM, LPCM", Units.Cm)
             };
 
-            interpol1ComboBox.Items.Add(new StringValuePair<FilterType>("Nejbližší soused", FilterType.None));
-            interpol1ComboBox.Items.Add(new StringValuePair<FilterType>("Lineární", FilterType.Triangle));
-            interpol1ComboBox.Items.Add(new StringValuePair<FilterType>("Kubický", FilterType.Cubic));
-            interpol1ComboBox.Items.Add(new StringValuePair<FilterType>("Lanczos", FilterType.Lanczos));
+            if (interpol1ComboBox.Items.Count == 0 && interpol2ComboBox.Items.Count == 0)
+            {
+                interpol1ComboBox.Items.Add("");
+                interpol1ComboBox.Items.Add("");
+                interpol1ComboBox.Items.Add("");
+                interpol1ComboBox.Items.Add("");
 
-            interpol2ComboBox.Items.Add(new StringValuePair<FilterType>("Nejbližší soused", FilterType.None));
-            interpol2ComboBox.Items.Add(new StringValuePair<FilterType>("Lineární", FilterType.Triangle));
-            interpol2ComboBox.Items.Add(new StringValuePair<FilterType>("Kubický", FilterType.Cubic));
-            interpol2ComboBox.Items.Add(new StringValuePair<FilterType>("Lanczos", FilterType.Lanczos));
+                interpol2ComboBox.Items.Add("");
+                interpol2ComboBox.Items.Add("");
+                interpol2ComboBox.Items.Add("");
+                interpol2ComboBox.Items.Add("");
+            }            
 
+            interpol1ComboBox.Items[0] = new StringValuePair<FilterType>(Localization.resourcesStrings.GetString("filterNearestNeighbor"), FilterType.None);
+            interpol1ComboBox.Items[1] = new StringValuePair<FilterType>(Localization.resourcesStrings.GetString("filterLinear"), FilterType.Triangle);
+            interpol1ComboBox.Items[2] = new StringValuePair<FilterType>(Localization.resourcesStrings.GetString("filterCubic"), FilterType.Cubic);
+            interpol1ComboBox.Items[3] = new StringValuePair<FilterType>(Localization.resourcesStrings.GetString("filterLanczos"), FilterType.Lanczos);
+
+            interpol2ComboBox.Items[0] = new StringValuePair<FilterType>(Localization.resourcesStrings.GetString("filterNearestNeighbor"), FilterType.None);
+            interpol2ComboBox.Items[1] = new StringValuePair<FilterType>(Localization.resourcesStrings.GetString("filterLinear"), FilterType.Triangle);
+            interpol2ComboBox.Items[2] = new StringValuePair<FilterType>(Localization.resourcesStrings.GetString("filterCubic"), FilterType.Cubic);
+            interpol2ComboBox.Items[3] = new StringValuePair<FilterType>(Localization.resourcesStrings.GetString("filterLanczos"), FilterType.Lanczos);
             
-
             settings = new Settings(settingOptions);
             settings.SetSelectedLanguageIndex(0);
             settings.SetSelectedUnitsIndex(0);
-            settings.SetSelectedResolutionUnitsIndex(0);           
+            settings.SetSelectedResolutionUnitsIndex(0);
 
             //unitsComboBox.SelectedItem = unitsComboBox.Items[0];
             interpol1ComboBox.SelectedItem = interpol1ComboBox.Items[0];
             interpol2ComboBox.SelectedItem = interpol2ComboBox.Items[0];
 
-            changeUnits();
-
-            pictureListViewEx.MultiSelect = true;
         }
 
         private void setPreview()
@@ -146,6 +180,7 @@ namespace Interlacer
 
         private void Form1_Load(object sender, EventArgs e)
         {
+            DoubleBuffered = true;
             /*picListViewEx.Items.Add("adsfasdsd");
             picListViewEx.Items.Add("dsadsfasdfasdfsfd");
             picListViewEx.Items.Add("ad");*/            
@@ -156,7 +191,11 @@ namespace Interlacer
         /// </summary>
         public void changeLanguage()
         {
+            // Updatuje texty v komboboxech
+            updateOptions();
+
             Localization.iterateOverControls(this, Localization.resourcesMain);
+            Invalidate();
         }
 
         private void interlaceButton_Click(object sender, EventArgs e)
@@ -226,7 +265,7 @@ namespace Interlacer
                     //                    pictureListViewEx.Items.Add(Convert.ToString(order)).SubItems.Add(chosenPictures[i]);
                     pictureListViewEx.Items.Insert(selectedIndex, Convert.ToString(order)).SubItems.Add(chosenPictures[i]);
 
-                    reOrder();
+                    reorder();
 
                     pictureListViewEx.Focus();
                     pictureListViewEx.Items[selectedIndex].Selected = false;
@@ -240,7 +279,7 @@ namespace Interlacer
                     setValuesFromPicture(pic);
                 }
             }
-        }
+        }        
 
         private List<Picture> harvestPicList()
         {
@@ -270,10 +309,10 @@ namespace Interlacer
             }
 
             changeMaxLineThickness();
-            reOrder();
+            reorder();
         }
 
-        private void reOrder()
+        private void reorder()
         {
             order = 1;
 
@@ -313,6 +352,7 @@ namespace Interlacer
             pictureListViewEx.Items[selectedIndex - 1].Selected = true;
             pictureListViewEx.Items[selectedIndex].Selected = false;
         }
+
         private void moveDownButton_Click(object sender, EventArgs e)
         {
             var indeces = pictureListViewEx.SelectedIndices;
@@ -410,13 +450,7 @@ namespace Interlacer
         {
             //reOrder();
         }
-
-        private void pictureListViewEx_DragDrop(object sender, DragEventArgs e)
-        {
-            //e.Effect = DragDropEffects.All;
-            //reOrder();
-        }
-
+             
         private void pictureListViewEx_ItemSelectionChanged(object sender, ListViewItemSelectionChangedEventArgs e)
         {
             //reOrder();
@@ -568,6 +602,48 @@ namespace Interlacer
             {
                 previewData.ShowDefaultImage();
             }
+        }
+
+        private void MainForm_DragEnter(object sender, DragEventArgs e)
+        {
+            if (e.Data.GetDataPresent(DataFormats.FileDrop))
+            {
+                e.Effect = DragDropEffects.Copy;
+            }
+            else
+            {
+                e.Effect = DragDropEffects.None;
+            }
+        }
+
+        private void MainForm_DragDrop(object sender, DragEventArgs e)
+        {
+           if (e.Data.GetDataPresent(DataFormats.FileDrop))
+            {
+                string[] filePaths = (string[])(e.Data.GetData(DataFormats.FileDrop));
+                int lastIndnex = pictureListViewEx.Items.Count;
+
+                //MessageBox.Show(lastIndnex+"");
+
+                for (int i = 0; i < filePaths.Length; i++)
+                {
+                    pictureListViewEx.Items.Add(Convert.ToString(order)).SubItems.Add(filePaths[i]);
+                    order++;
+                }
+                reorder();
+            }
+        }
+
+        private void pictureListViewEx_DragEnter(object sender, DragEventArgs e)
+        {
+            
+        }
+
+        private void pictureListViewEx_DragDrop(object sender, DragEventArgs e)
+        {
+            
+            //e.Effect = DragDropEffects.All;
+            //reOrder();
         }
     }
 }

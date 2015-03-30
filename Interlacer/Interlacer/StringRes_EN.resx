@@ -117,10 +117,25 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="filterCubic" xml:space="preserve">
+    <value>Cubic</value>
+  </data>
+  <data name="filterLanczos" xml:space="preserve">
+    <value>Lanczos</value>
+  </data>
+  <data name="filterLinear" xml:space="preserve">
+    <value>Linear</value>
+  </data>
+  <data name="filterNearestNeighbor" xml:space="preserve">
+    <value>Nearest neighbor</value>
+  </data>
   <data name="langCzech" xml:space="preserve">
     <value>Czech</value>
   </data>
   <data name="langEnglish" xml:space="preserve">
     <value>English</value>
+  </data>
+  <data name="unitsInches" xml:space="preserve">
+    <value>inches</value>
   </data>
 </root>

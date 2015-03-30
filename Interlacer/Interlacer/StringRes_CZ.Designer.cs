@@ -61,6 +61,42 @@ namespace Interlacer {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Kubický.
+        /// </summary>
+        internal static string filterCubic {
+            get {
+                return ResourceManager.GetString("filterCubic", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Lanczos.
+        /// </summary>
+        internal static string filterLanczos {
+            get {
+                return ResourceManager.GetString("filterLanczos", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Lieární.
+        /// </summary>
+        internal static string filterLinear {
+            get {
+                return ResourceManager.GetString("filterLinear", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Nejbližší soused.
+        /// </summary>
+        internal static string filterNearestNeighbor {
+            get {
+                return ResourceManager.GetString("filterNearestNeighbor", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Čeština.
         /// </summary>
         internal static string langCzech {
@@ -75,6 +111,15 @@ namespace Interlacer {
         internal static string langEnglish {
             get {
                 return ResourceManager.GetString("langEnglish", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to palce.
+        /// </summary>
+        internal static string unitsInches {
+            get {
+                return ResourceManager.GetString("unitsInches", resourceCulture);
             }
         }
     }

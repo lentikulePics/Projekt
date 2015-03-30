@@ -117,6 +117,14 @@
             this.lineThicknessTrackbar = new System.Windows.Forms.TrackBar();
             this.linePictureBox = new System.Windows.Forms.PictureBox();
             this.groupBox7 = new System.Windows.Forms.GroupBox();
+            this.infoHeightLabel = new System.Windows.Forms.Label();
+            this.infoWidthLabel = new System.Windows.Forms.Label();
+            this.infoDpiLabel = new System.Windows.Forms.Label();
+            this.infoFilenameLabel = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
             this.interlaceButton = new System.Windows.Forms.Button();
             this.previewPicBox = new System.Windows.Forms.PictureBox();
             this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
@@ -130,14 +138,6 @@
             this.addPicFileDialog = new System.Windows.Forms.OpenFileDialog();
             this.reorderTimer = new System.Windows.Forms.Timer(this.components);
             this.savePicFileDialog = new System.Windows.Forms.SaveFileDialog();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.infoFilenameLabel = new System.Windows.Forms.Label();
-            this.infoDpiLabel = new System.Windows.Forms.Label();
-            this.infoWidthLabel = new System.Windows.Forms.Label();
-            this.infoHeightLabel = new System.Windows.Forms.Label();
             this.menuStrip1.SuspendLayout();
             this.toolStrip1.SuspendLayout();
             this.outputImageTab.SuspendLayout();
@@ -299,6 +299,7 @@
             this.pictureListViewEx.View = System.Windows.Forms.View.Details;
             this.pictureListViewEx.ItemSelectionChanged += new System.Windows.Forms.ListViewItemSelectionChangedEventHandler(this.pictureListViewEx_ItemSelectionChanged);
             this.pictureListViewEx.DragDrop += new System.Windows.Forms.DragEventHandler(this.pictureListViewEx_DragDrop);
+            this.pictureListViewEx.DragEnter += new System.Windows.Forms.DragEventHandler(this.pictureListViewEx_DragEnter);
             // 
             // orderHeader
             // 
@@ -841,6 +842,46 @@
             this.groupBox7.Name = "groupBox7";
             this.groupBox7.TabStop = false;
             // 
+            // infoHeightLabel
+            // 
+            resources.ApplyResources(this.infoHeightLabel, "infoHeightLabel");
+            this.infoHeightLabel.Name = "infoHeightLabel";
+            // 
+            // infoWidthLabel
+            // 
+            resources.ApplyResources(this.infoWidthLabel, "infoWidthLabel");
+            this.infoWidthLabel.Name = "infoWidthLabel";
+            // 
+            // infoDpiLabel
+            // 
+            resources.ApplyResources(this.infoDpiLabel, "infoDpiLabel");
+            this.infoDpiLabel.Name = "infoDpiLabel";
+            // 
+            // infoFilenameLabel
+            // 
+            resources.ApplyResources(this.infoFilenameLabel, "infoFilenameLabel");
+            this.infoFilenameLabel.Name = "infoFilenameLabel";
+            // 
+            // label4
+            // 
+            resources.ApplyResources(this.label4, "label4");
+            this.label4.Name = "label4";
+            // 
+            // label3
+            // 
+            resources.ApplyResources(this.label3, "label3");
+            this.label3.Name = "label3";
+            // 
+            // label2
+            // 
+            resources.ApplyResources(this.label2, "label2");
+            this.label2.Name = "label2";
+            // 
+            // label1
+            // 
+            resources.ApplyResources(this.label1, "label1");
+            this.label1.Name = "label1";
+            // 
             // interlaceButton
             // 
             resources.ApplyResources(this.interlaceButton, "interlaceButton");
@@ -891,48 +932,9 @@
             this.reorderTimer.Interval = 500;
             this.reorderTimer.Tick += new System.EventHandler(this.reorderTimer_Tick);
             // 
-            // label1
-            // 
-            resources.ApplyResources(this.label1, "label1");
-            this.label1.Name = "label1";
-            // 
-            // label2
-            // 
-            resources.ApplyResources(this.label2, "label2");
-            this.label2.Name = "label2";
-            // 
-            // label3
-            // 
-            resources.ApplyResources(this.label3, "label3");
-            this.label3.Name = "label3";
-            // 
-            // label4
-            // 
-            resources.ApplyResources(this.label4, "label4");
-            this.label4.Name = "label4";
-            // 
-            // infoFilenameLabel
-            // 
-            resources.ApplyResources(this.infoFilenameLabel, "infoFilenameLabel");
-            this.infoFilenameLabel.Name = "infoFilenameLabel";
-            // 
-            // infoDpiLabel
-            // 
-            resources.ApplyResources(this.infoDpiLabel, "infoDpiLabel");
-            this.infoDpiLabel.Name = "infoDpiLabel";
-            // 
-            // infoWidthLabel
-            // 
-            resources.ApplyResources(this.infoWidthLabel, "infoWidthLabel");
-            this.infoWidthLabel.Name = "infoWidthLabel";
-            // 
-            // infoHeightLabel
-            // 
-            resources.ApplyResources(this.infoHeightLabel, "infoHeightLabel");
-            this.infoHeightLabel.Name = "infoHeightLabel";
-            // 
             // MainForm
             // 
+            this.AllowDrop = true;
             resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.imagePreviewCheckBox);
@@ -947,6 +949,8 @@
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "MainForm";
             this.Load += new System.EventHandler(this.Form1_Load);
+            this.DragDrop += new System.Windows.Forms.DragEventHandler(this.MainForm_DragDrop);
+            this.DragEnter += new System.Windows.Forms.DragEventHandler(this.MainForm_DragEnter);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.toolStrip1.ResumeLayout(false);
