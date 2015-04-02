@@ -369,7 +369,7 @@ namespace Interlacer
             }
             else
             {
-                if ((index % pictureCount) == (pictureCount/2 - lineData.GetLineThickness()/2))
+                if (((index + pictureCount - (pictureCount / 2 - lineData.GetLineThickness() / 2)  - getAddWidthForLineAndIndentLeft() % pictureCount) % pictureCount) < lineData.GetLineThickness())
                     return true;
                 else
                     return false;
@@ -389,7 +389,7 @@ namespace Interlacer
             }
             else
             {
-                if (((index  - lineData.GetLineThickness() / 2 + pictureCount/2 - getAddHeightForLineAndIndentTop() % pictureCount) % pictureCount) < lineData.GetLineThickness())
+                if (((index + pictureCount - (pictureCount / 2 - lineData.GetLineThickness() / 2) - getAddHeightForLineAndIndentTop() % pictureCount) % pictureCount) < lineData.GetLineThickness())
                     return true;
                 else
                     return false;
@@ -421,7 +421,7 @@ namespace Interlacer
             {
                 for (int i = result.GetWidth(); i >= (preResamplePictureWidth + this.getAddWidthForLineAndIndentLeft()); i--)
                 {
-                    if (i > (result.GetWidth() - this.getAddWidthForLine()) && getCanBeLineV(i))
+                    if (i >= (result.GetWidth() - this.getAddWidthForLine()) && getCanBeLineV(i))
                         colorValue = lineData.GetLineColor().ToArgb();
                     else
                         colorValue = lineData.GetBackgroundColor().ToArgb();
@@ -447,10 +447,10 @@ namespace Interlacer
                         colorValue = lineData.GetLineColor().ToArgb();
                     else
                         colorValue = lineData.GetBackgroundColor().ToArgb();
-                    for (int j = 0; j < getAddHeightForLineTop(); j++)
+                    for (int j = 0; j <= getAddHeightForLineTop(); j++)
                         result.SetPixel(i, j, colorValue);
                     colorValue = lineData.GetBackgroundColor().ToArgb();
-                    for (int j = getAddHeightForLineTop(); j < getAddHeightForLineAndIndent(); j++)
+                    for (int j = getAddHeightForLineTop()+1; j < getAddHeightForLineAndIndent(); j++)
                         result.SetPixel(i, j, colorValue);
                 }
             }
@@ -473,10 +473,10 @@ namespace Interlacer
                         colorValue = lineData.GetLineColor().ToArgb();
                     else
                         colorValue = lineData.GetBackgroundColor().ToArgb();
-                    for (int j = result.GetHeight() - 1; j > (result.GetHeight() - getAddHeightForLineTop()); j--)
+                    for (int j = result.GetHeight() - 1; j >= (result.GetHeight() - getAddHeightForLineTop()); j--)
                         result.SetPixel(i, j, colorValue);
                     colorValue = lineData.GetBackgroundColor().ToArgb();
-                    for (int j = (result.GetHeight() - getAddHeightForLineTop()); j >= (result.GetHeight() - getAddHeightForLineAndIndent()); j--)
+                    for (int j = (result.GetHeight() - getAddHeightForLineTop()-1); j >= (result.GetHeight() - getAddHeightForLineAndIndent()); j--)
                         result.SetPixel(i, j, colorValue);
                 }
             }
@@ -557,7 +557,7 @@ namespace Interlacer
                     pomLeft = this.getAddWidthForLine();
                 if (lineData.GetRight())
                     pomRight = this.getAddWidthForLine();
-                for (int i = result.GetHeight() - 1; i > (result.GetHeight() - getAddHeightForLineAndIndent()); i--)
+                for (int i = result.GetHeight() - 1; i >= (result.GetHeight() - getAddHeightForLineAndIndent()); i--)
                 {
                     if (i > (result.GetHeight() - getAddHeightForLineTop()) && getCanBeLineH(i))
                         colorValue = lineData.GetLineColor().ToArgb();
