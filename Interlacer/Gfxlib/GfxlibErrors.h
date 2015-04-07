@@ -7,4 +7,6 @@ enum GfxlibErrors
 	PictureCreationFailure,
 	PictureResizeFilure,
 	PictureClipFailure,
+	PictureWrongFormat,
+	OutOfMemory
 };

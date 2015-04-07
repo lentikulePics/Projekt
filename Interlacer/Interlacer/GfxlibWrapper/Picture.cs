@@ -102,6 +102,9 @@ namespace GfxlibWrapper
             catch (SEHException)
             {
                 Destroy();
+                int errorCode = Marshal.GetExceptionCode();
+                if (errorCode == (int)GfxlibErrors.OutOfMemory)
+                    throw new OutOfMemoryException();
                 throw new PictureCreationFailureException(width, height);
             }
         }
@@ -131,6 +134,9 @@ namespace GfxlibWrapper
             }
             catch (SEHException)
             {
+                int errorCode = Marshal.GetExceptionCode();
+                if (errorCode == (int)GfxlibErrors.PictureWrongFormat)
+                    throw new PictureWrongFormatException(filename);
                 throw new PictureLoadFailureException(filename);
             }
         }
@@ -153,9 +159,13 @@ namespace GfxlibWrapper
                 int errorCode = Marshal.GetExceptionCode();
                 if (errorCode == (int)GfxlibErrors.PictureLoadFailure)
                     throw new PictureLoadFailureException(filename);
+                else if (errorCode == (int)GfxlibErrors.PictureWrongFormat)
+                    throw new PictureWrongFormatException(filename);
                 else
                 {
                     Destroy();
+                    if (errorCode == (int)GfxlibErrors.OutOfMemory)
+                        throw new OutOfMemoryException();
                     throw new PictureCreationFailureException(width, height);
                 }
             }
@@ -354,10 +364,11 @@ namespace GfxlibWrapper
             catch (SEHException)
             {
                 int errorCode = Marshal.GetExceptionCode();
-                if (errorCode == (int)GfxlibErrors.PictureResizeFilure)
-                    throw new PictureResizeFailureException(newWidth, newHeight);
-                else
+                if (errorCode == (int)GfxlibErrors.PictureCreationFailure)
                     throw new PictureCreationFailureException(newWidth, newHeight);
+                if (errorCode == (int)GfxlibErrors.OutOfMemory)
+                    throw new OutOfMemoryException();
+                throw new PictureResizeFailureException(newWidth, newHeight);
             }
         }
 
@@ -379,6 +390,11 @@ namespace GfxlibWrapper
             }
             catch (SEHException)
             {
+                int errorCode = Marshal.GetExceptionCode();
+                if (errorCode == (int)GfxlibErrors.PictureCreationFailure)
+                    throw new PictureCreationFailureException(newWidth, newHeight);
+                if (errorCode == (int)GfxlibErrors.OutOfMemory)
+                    throw new OutOfMemoryException();
                 throw new PictureClipFailureException(newWidth, newHeight);
             }
         }
@@ -399,6 +415,14 @@ namespace GfxlibWrapper
         }
 
         /// <summary>
+        /// destruktor, ktery pouze vola metodu Destroy
+        /// </summary>
+        ~Picture()
+        {
+            Destroy();
+        }
+
+        /// <summary>
         /// zkopiruje sloupec pixelu z jinoho obrazku do tohoto
         /// </summary>
         /// <param name="source">zdrojovy obrazek</param>
@@ -411,6 +435,13 @@ namespace GfxlibWrapper
                 SetPixel(destColumn, i + destYBegin, source.GetPixel(sourceColumn, i));
         }
 
+        /// <summary>
+        /// zkopiruje radek pixelu z jineho obrazku do tohoto
+        /// </summary>
+        /// <param name="source">zdrojovy obrazek</param>
+        /// <param name="sourceRow">index zdrojoveho radku</param>
+        /// <param name="destRow">index ciloveho radku tohoto obrazku</param>
+        /// <param name="destXBegin">index pocatecni x souradnice, od ktere se zacne radek kopirovat do tohoto obrazku</param>
         public void CopyRow(Picture source, int sourceRow, int destRow, int destXBegin)
         {
             for (int i = 0; i < source.width; i++)

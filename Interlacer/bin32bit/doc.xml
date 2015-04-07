@@ -306,6 +306,11 @@
             znici obrazek a dealokuje pamet, kterou vyuziva
             </summary>
         </member>
+        <member name="M:GfxlibWrapper.Picture.Finalize">
+            <summary>
+            destruktor, ktery pouze vola metodu Destroy
+            </summary>
+        </member>
         <member name="M:GfxlibWrapper.Picture.CopyColumn(GfxlibWrapper.Picture,System.Int32,System.Int32,System.Int32)">
             <summary>
             zkopiruje sloupec pixelu z jinoho obrazku do tohoto
@@ -314,6 +319,20 @@
             <param name="sourceColumn">index zdrojoveho sloupce</param>
             <param name="destColumn">index ciloveho sloupce tohoto obrazku</param>
             <param name="destYBegin">index pocatecni y souradnice, od ktere se zacne sloupec kopirovat do tohoto obrazku</param>
+        </member>
+        <member name="M:GfxlibWrapper.Picture.CopyRow(GfxlibWrapper.Picture,System.Int32,System.Int32,System.Int32)">
+            <summary>
+            zkopiruje radek pixelu z jineho obrazku do tohoto
+            </summary>
+            <param name="source">zdrojovy obrazek</param>
+            <param name="sourceRow">index zdrojoveho radku</param>
+            <param name="destRow">index ciloveho radku tohoto obrazku</param>
+            <param name="destXBegin">index pocatecni x souradnice, od ktere se zacne radek kopirovat do tohoto obrazku</param>
+        </member>
+        <member name="M:Interlacer.MainForm.updateOptions">
+            <summary>
+            
+            </summary>
         </member>
         <member name="M:Interlacer.MainForm.changeLanguage">
             <summary>
@@ -335,6 +354,66 @@
             <summary>
             Required method for Designer support - do not modify
             the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="P:Interlacer.MainForm.CreateParams">
+            <summary>
+            Zabrani blikani GUI pri prekreslovani
+            </summary>
+        </member>
+        <member name="T:Interlacer.PictureInfoData">
+            <summary>
+            trida, ktera uchovava informace o obrazcich
+            </summary>
+        </member>
+        <member name="F:Interlacer.PictureInfoData.pictures">
+            <summary>
+            slovnik, ktery obsahuje jako klice cesty k souborum a jako hodnoty "pingnute" obrazky
+            </summary>
+        </member>
+        <member name="M:Interlacer.PictureInfoData.GetInfo(System.String)">
+            <summary>
+            vrati instanci "pingnutou" tridy Picture podle zadane cesty
+            </summary>
+            <param name="path">cesta k souboru</param>
+            <returns>instance tridy Picture, na kter byla zavolana metoda Ping</returns>
+        </member>
+        <member name="T:Interlacer.PreviewData">
+            <summary>
+            trida, ktera uchovava nactene obrazky pro nahledy a stara se o jejich vykresleni
+            </summary>
+        </member>
+        <member name="F:Interlacer.PreviewData.images">
+            <summary>
+            slovnik, ktery jako klice obsahuje cesty k souborum a jako hodnoty instance tridy Image
+            </summary>
+        </member>
+        <member name="F:Interlacer.PreviewData.pictureBox">
+            <summary>
+            instance PictureBoxu, do ktere budou obrazky vykresleny
+            </summary>
+        </member>
+        <member name="F:Interlacer.PreviewData.defaultImage">
+            <summary>
+            defaultni obrazek
+            </summary>
+        </member>
+        <member name="M:Interlacer.PreviewData.#ctor(System.Windows.Forms.PictureBox,System.Drawing.Image)">
+            <summary>
+            nastavi PictureBox, do ktereho budou obrazky vykreslovany a defaultni obrazek
+            </summary>
+            <param name="pictureBox">instance PictureBoxu</param>
+            <param name="defaultImage">defaultni obrazek</param>
+        </member>
+        <member name="M:Interlacer.PreviewData.Show(System.String)">
+            <summary>
+            vykresli do PictureBoxu obrazek nacteny ze zadane cesty
+            </summary>
+            <param name="path">cesta k obrazku</param>
+        </member>
+        <member name="M:Interlacer.PreviewData.ShowDefaultImage">
+            <summary>
+            vykresli do PictureBoxu defaultni obrazek
             </summary>
         </member>
         <member name="T:Interlacer.SettingOptions">
@@ -385,6 +464,12 @@
         <member name="M:Interlacer.Settings.#ctor(Interlacer.SettingOptions)">
             <summary>
             konstruktor, ktery nastavi moznosti nastaveni
+            </summary>
+            <param name="settingOptions">moznosti nastaveni</param>
+        </member>
+        <member name="M:Interlacer.Settings.SetSettingOptions(Interlacer.SettingOptions)">
+            <summary>
+            nastavi moznosti nastaveni
             </summary>
             <param name="settingOptions">moznosti nastaveni</param>
         </member>
@@ -464,6 +549,26 @@
               resource lookups using this strongly typed resource class.
             </summary>
         </member>
+        <member name="P:Interlacer.StringRes_CZ.filterCubic">
+            <summary>
+              Looks up a localized string similar to Kubický.
+            </summary>
+        </member>
+        <member name="P:Interlacer.StringRes_CZ.filterLanczos">
+            <summary>
+              Looks up a localized string similar to Lanczos.
+            </summary>
+        </member>
+        <member name="P:Interlacer.StringRes_CZ.filterLinear">
+            <summary>
+              Looks up a localized string similar to Lieární.
+            </summary>
+        </member>
+        <member name="P:Interlacer.StringRes_CZ.filterNearestNeighbor">
+            <summary>
+              Looks up a localized string similar to Nejbližší soused.
+            </summary>
+        </member>
         <member name="P:Interlacer.StringRes_CZ.langCzech">
             <summary>
               Looks up a localized string similar to Čeština.
@@ -472,6 +577,11 @@
         <member name="P:Interlacer.StringRes_CZ.langEnglish">
             <summary>
               Looks up a localized string similar to Angličtina.
+            </summary>
+        </member>
+        <member name="P:Interlacer.StringRes_CZ.unitsInches">
+            <summary>
+              Looks up a localized string similar to palce.
             </summary>
         </member>
         <member name="T:Interlacer.StringRes_EN">
@@ -490,6 +600,26 @@
               resource lookups using this strongly typed resource class.
             </summary>
         </member>
+        <member name="P:Interlacer.StringRes_EN.filterCubic">
+            <summary>
+              Looks up a localized string similar to Cubic.
+            </summary>
+        </member>
+        <member name="P:Interlacer.StringRes_EN.filterLanczos">
+            <summary>
+              Looks up a localized string similar to Lanczos.
+            </summary>
+        </member>
+        <member name="P:Interlacer.StringRes_EN.filterLinear">
+            <summary>
+              Looks up a localized string similar to Linear.
+            </summary>
+        </member>
+        <member name="P:Interlacer.StringRes_EN.filterNearestNeighbor">
+            <summary>
+              Looks up a localized string similar to Nearest neighbor.
+            </summary>
+        </member>
         <member name="P:Interlacer.StringRes_EN.langCzech">
             <summary>
               Looks up a localized string similar to Czech.
@@ -498,6 +628,11 @@
         <member name="P:Interlacer.StringRes_EN.langEnglish">
             <summary>
               Looks up a localized string similar to English.
+            </summary>
+        </member>
+        <member name="P:Interlacer.StringRes_EN.unitsInches">
+            <summary>
+              Looks up a localized string similar to inches.
             </summary>
         </member>
         <member name="T:Interlacer.StringValuePair`1">

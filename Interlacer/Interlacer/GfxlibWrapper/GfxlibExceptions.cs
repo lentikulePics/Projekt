@@ -50,8 +50,6 @@ namespace GfxlibWrapper
         }
     }
 
-    class PictureAlreadyCreatedException : Exception { }
-
     class PictureClipFailureException : Exception
     {
         public readonly int width;
@@ -63,4 +61,16 @@ namespace GfxlibWrapper
             this.height = height;
         }
     }
+
+    class PictureWrongFormatException : Exception
+    {
+        public readonly String filename;
+
+        public PictureWrongFormatException(String filename)
+        {
+            this.filename = filename;
+        }
+    }
+
+    class PictureAlreadyCreatedException : Exception { }
 }

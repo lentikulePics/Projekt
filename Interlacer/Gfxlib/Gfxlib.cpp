@@ -2,22 +2,19 @@
 
 #include "Gfxlib.h"
 #include "GfxlibErrors.h"
-#include <iostream>
 #include <fstream>
-#include <sstream>
-#include <string>
 #include <Magick++.h>
 
 void writeError(std::string str)
 {
-	std::ofstream file("MagickError.txt");
+	std::ofstream file("Error.txt");
 	file << str;
 	file.close();
 }
 
 void writeWarning(std::string str)
 {
-	std::ofstream file("MagickWarning.txt");
+	std::ofstream file("Warning.txt");
 	file << str;
 	file.close();
 }
@@ -42,6 +39,12 @@ void* createImage(int w, int h)
 	{
 		img = new Magick::Image;
 		img->size(sizeStr);
+	}
+	catch (Magick::ErrorCache & er)
+	{
+		writeError(er.what());
+		delete img;
+		RaiseException(GfxlibErrors::OutOfMemory, 0, 0, 0);
 	}
 	catch (Magick::Error & er)
 	{
@@ -70,6 +73,11 @@ INTPX* getPixelDataPtr(void* ptr)
 	try
 	{
 		pxPtr = (INTPX*)imagePtr->getPixels(0, 0, imagePtr->columns(), imagePtr->rows());
+	}
+	catch (Magick::ErrorCache & er)
+	{
+		writeError(er.what());
+		RaiseException(GfxlibErrors::OutOfMemory, 0, 0, 0);
 	}
 	catch (Magick::Error & er)
 	{
@@ -104,20 +112,34 @@ void* loadImage(char* filename)
 	catch (Magick::Error & er)
 	{
 		writeError(er.what());
+		if (file.is_open())
+			file.close();
 		delete[] data;
 		delete img;
-		RaiseException(GfxlibErrors::PictureLoadFailure, 0, 0, 0);
+		RaiseException(GfxlibErrors::PictureWrongFormat, 0, 0, 0);
 	}
 	catch (Magick::Warning & w)
 	{
 		writeWarning(w.what());
+		if (file.is_open())
+			file.close();
 		delete[] data;
+	}
+	catch (std::exception & ex)
+	{
+		if (file.is_open())
+			file.close();
+		writeError(ex.what());
+		delete[] data;
+		delete img;
+		RaiseException(GfxlibErrors::PictureLoadFailure, 0, 0, 0);
 	}
 	catch (...)
 	{
 		delete img;
 		delete[] data;
-		file.close();
+		if (file.is_open())
+			file.close();
 		RaiseException(GfxlibErrors::PictureLoadFailure, 0, 0, 0);
 	}
 	return (void*)img;
@@ -144,20 +166,34 @@ void* pingImage(char* filename)
 	catch (Magick::Error & er)
 	{
 		writeError(er.what());
+		if (file.is_open())
+			file.close();
 		delete[] data;
 		delete img;
-		RaiseException(GfxlibErrors::PictureLoadFailure, 0, 0, 0);
+		RaiseException(GfxlibErrors::PictureWrongFormat, 0, 0, 0);
 	}
 	catch (Magick::Warning & w)
 	{
 		writeWarning(w.what());
+		if (file.is_open())
+			file.close();
 		delete[] data;
+	}
+	catch (std::exception & ex)
+	{
+		if (file.is_open())
+			file.close();
+		writeError(ex.what());
+		delete[] data;
+		delete img;
+		RaiseException(GfxlibErrors::PictureLoadFailure, 0, 0, 0);
 	}
 	catch (...)
 	{
 		delete img;
 		delete[] data;
-		file.close();
+		if (file.is_open())
+			file.close();
 		RaiseException(GfxlibErrors::PictureLoadFailure, 0, 0, 0);
 	}
 	return (void*)img;
@@ -182,12 +218,21 @@ void saveImage(void* ptr, char* filename)
 	catch (Magick::Error & er)
 	{
 		writeError(er.what());
-		file.close();
+		if (file.is_open())
+			file.close();
+		RaiseException(GfxlibErrors::PictureSaveFailure, 0, 0, 0);
+	}
+	catch (std::exception & ex)
+	{
+		writeError(ex.what());
+		if (file.is_open())
+			file.close();
 		RaiseException(GfxlibErrors::PictureSaveFailure, 0, 0, 0);
 	}
 	catch (...)
 	{
-		file.close();
+		if (file.is_open())
+			file.close();
 		RaiseException(GfxlibErrors::PictureSaveFailure, 0, 0, 0);
 	}
 }
@@ -260,6 +305,11 @@ void resizeImage(void* ptr, int w, int h, int filterType)
 		imagePtr->syncPixels();
 		imagePtr->filterType((MagickCore::FilterTypes)filterType);
 		imagePtr->resize(sizeStr);
+	}
+	catch (Magick::ErrorCache & er)
+	{
+		writeError(er.what());
+		RaiseException(GfxlibErrors::OutOfMemory, 0, 0, 0);
 	}
 	catch (Magick::Error & er)
 	{

@@ -7,11 +7,21 @@ using GfxlibWrapper;
 
 namespace Interlacer
 {
-    class PictureInfoData
+    /// <summary>
+    /// trida, ktera uchovava informace o obrazcich
+    /// </summary>
+    public class PictureInfoData
     {
+        /// <summary>
+        /// slovnik, ktery obsahuje jako klice cesty k souborum a jako hodnoty "pingnute" obrazky
+        /// </summary>
         private Dictionary<String, Picture> pictures = new Dictionary<String, Picture>();
-        private Picture defaultImage;
 
+        /// <summary>
+        /// vrati instanci "pingnutou" tridy Picture podle zadane cesty
+        /// </summary>
+        /// <param name="path">cesta k souboru</param>
+        /// <returns>instance tridy Picture, na kter byla zavolana metoda Ping</returns>
         public Picture GetInfo(String path)
         {
             if (!pictures.ContainsKey(path))

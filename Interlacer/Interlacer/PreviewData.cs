@@ -8,18 +8,39 @@ using System.Windows.Forms;
 
 namespace Interlacer
 {
+    /// <summary>
+    /// trida, ktera uchovava nactene obrazky pro nahledy a stara se o jejich vykresleni
+    /// </summary>
     public class PreviewData
     {
+        /// <summary>
+        /// slovnik, ktery jako klice obsahuje cesty k souborum a jako hodnoty instance tridy Image
+        /// </summary>
         private Dictionary<String, Image> images = new Dictionary<String, Image>();
+        /// <summary>
+        /// instance PictureBoxu, do ktere budou obrazky vykresleny
+        /// </summary>
         private PictureBox pictureBox;
+        /// <summary>
+        /// defaultni obrazek
+        /// </summary>
         private Image defaultImage;
 
+        /// <summary>
+        /// nastavi PictureBox, do ktereho budou obrazky vykreslovany a defaultni obrazek
+        /// </summary>
+        /// <param name="pictureBox">instance PictureBoxu</param>
+        /// <param name="defaultImage">defaultni obrazek</param>
         public PreviewData(PictureBox pictureBox, Image defaultImage)
         {
             this.pictureBox = pictureBox;
             this.defaultImage = defaultImage;
         }
 
+        /// <summary>
+        /// vykresli do PictureBoxu obrazek nacteny ze zadane cesty
+        /// </summary>
+        /// <param name="path">cesta k obrazku</param>
         public void Show(String path)
         {
             if (images.ContainsKey(path))
@@ -39,6 +60,9 @@ namespace Interlacer
             }
         }
 
+        /// <summary>
+        /// vykresli do PictureBoxu defaultni obrazek
+        /// </summary>
         public void ShowDefaultImage()
         {
             pictureBox.Image = defaultImage;
