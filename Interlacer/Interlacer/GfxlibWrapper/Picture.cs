@@ -92,6 +92,8 @@ namespace GfxlibWrapper
         /// <param name="height">vyska v pixelech</param>
         public Picture(int width, int height)
         {
+            if (width <= 0 || height <= 0)
+                throw new PictureCreationFailureException(width, height);
             this.width = width;
             this.height = height;
             try
@@ -354,6 +356,8 @@ namespace GfxlibWrapper
         /// <param name="filterType">typ filteru</param>
         public void Resize(int newWidth, int newHeight, FilterType filterType)
         {
+            if (newWidth <= 0 || newHeight <= 0)
+                throw new PictureResizeFailureException(newWidth, newHeight);
             try
             {
                 GfxlibCommunicator.resizeImage(imagePtr, newWidth, newHeight, filterType.filterNum);
@@ -381,6 +385,8 @@ namespace GfxlibWrapper
         /// <param name="newHeight">vyska oriznuteho obrazku</param>
         public void Clip(int x, int y, int newWidth, int newHeight)
         {
+            if (newWidth <= 0 || newHeight <= 0)
+                throw new PictureClipFailureException(newWidth, newHeight);
             try
             {
                 GfxlibCommunicator.clipImage(imagePtr, x, y, newWidth, newHeight);

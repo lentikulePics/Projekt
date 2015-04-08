@@ -126,9 +126,17 @@ namespace Interlacer
 
         private void setPreview()
         {
-            ListView.SelectedListViewItemCollection selectedItems = pictureListViewEx.SelectedItems;
-            if (selectedItems.Count > 0)
-                previewData.Show(selectedItems[0].SubItems[1].Text);
+            try
+            {
+                ListView.SelectedListViewItemCollection selectedItems = pictureListViewEx.SelectedItems;
+                if (selectedItems.Count > 0)
+                    previewData.Show(selectedItems[0].SubItems[1].Text);
+            }
+            catch
+            {
+                MessageBox.Show("Náhled se nepodařilo vytvořit!");
+                previewData.ShowDefaultImage();
+            }
         }
 
         private void resetPictureInfo()
@@ -141,17 +149,25 @@ namespace Interlacer
 
         private void setPictureInfo()
         {
-            ListView.SelectedListViewItemCollection selectedItems = pictureListViewEx.SelectedItems;
-            if (selectedItems.Count > 0)
+            try
             {
-                String path = selectedItems[0].SubItems[1].Text;
-                Picture pic = infoData.GetInfo(path);
-                infoDpiLabel.Text = "" + pic.GetXDpi();
-                infoWidthLabel.Text = "" + pic.GetWidth();
-                infoHeightLabel.Text = "" + pic.GetHeight();
-                String[] strings = path.Split(new char[]{'\\'});
-                String filename = strings[strings.Length - 1];
-                infoFilenameLabel.Text = filename;
+                ListView.SelectedListViewItemCollection selectedItems = pictureListViewEx.SelectedItems;
+                if (selectedItems.Count > 0)
+                {
+                    String path = selectedItems[0].SubItems[1].Text;
+                    Picture pic = infoData.GetInfo(path);
+                    infoDpiLabel.Text = "" + pic.GetXDpi();
+                    infoWidthLabel.Text = "" + pic.GetWidth();
+                    infoHeightLabel.Text = "" + pic.GetHeight();
+                    String[] strings = path.Split(new char[] { '\\' });
+                    String filename = strings[strings.Length - 1];
+                    infoFilenameLabel.Text = filename;
+                }
+            }
+            catch
+            {
+                //v pripade neuspesneho nacteni obrazku se v teto fazi pouze vymazou informace o obrazku
+                resetPictureInfo();
             }
         }
 
@@ -183,10 +199,7 @@ namespace Interlacer
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            DoubleBuffered = true;
-            /*picListViewEx.Items.Add("adsfasdsd");
-            picListViewEx.Items.Add("dsadsfasdfasdfsfd");
-            picListViewEx.Items.Add("ad");*/            
+            DoubleBuffered = true;            
         }
 
         /// <summary>
@@ -208,12 +221,58 @@ namespace Interlacer
                 filename = savePicFileDialog.FileName;
             else return;
 
-            List<Picture> picL = harvestPicList();
-            PictureContainer picCon = new PictureContainer(picL, projectData.GetInterlacingData(), projectData.GetLineData(), interlaceProgressBar);
-            picCon.CheckPictures();
-            picCon.Interlace();
+            List<Picture> picList = harvestPicList();
+            if (picList.Count == 0)
+            {
+                MessageBox.Show("Seznam obrázků je prázdný.");
+                return;
+            }
+            PictureContainer picCon = new PictureContainer(picList, projectData.GetInterlacingData(), projectData.GetLineData(), interlaceProgressBar);
+            try
+            {
+                if (!picCon.CheckPictures())
+                {
+                    DialogResult dialogResult = MessageBox.Show("Obrázky nejsou stejně velké." + 
+                        "\nChcete je oříznout na nejmenší šířku a nejmenší výšku?", "", MessageBoxButtons.YesNo);
+                    if (dialogResult == DialogResult.No)
+                        return;
+                }
+                picCon.Interlace();
+            }
+            catch (PictureLoadFailureException ex)
+            {
+                MessageBox.Show("Soubor " + ex.filename + " se nepodařilo otevřít.\nSoubor pravděpodobně neexistuje.");
+                interlaceProgressBar.Value = 0;
+                return;
+            }
+            catch (PictureWrongFormatException ex)
+            {
+                MessageBox.Show("Soubor " + ex.filename + " má chybný formát.");
+                interlaceProgressBar.Value = 0;
+                return;
+            }
+            catch (OutOfMemoryException)
+            {
+                MessageBox.Show("Aplikace nemá k dispozici dostatek operační paměti.");
+                interlaceProgressBar.Value = 0;
+                return;
+            }
+            catch (PictureProcessException)
+            {
+                MessageBox.Show("Prokládání selhalo.\nPravděpodobnou příčinou je chybné nastavení prokládacích parametrů." +
+                    "\nZkontrolujte, zda některý z parametrů není nulový, příliš malý či příliš velký.");
+                interlaceProgressBar.Value = 0;
+                return;
+            }
             Picture result = picCon.GetResult();
-            result.Save(filename);
+            try
+            {
+                result.Save(filename);
+            }
+            catch (PictureSaveFailureException ex)
+            {
+                MessageBox.Show("Obrázek " + ex.filename + " se nepodařilo uložit.");
+            }
             result.Destroy();
 
             MessageBox.Show("Hotovo!");
@@ -278,7 +337,14 @@ namespace Interlacer
                 if (chosenPictures.Length > 0)
                 {
                     Picture pic = new Picture(chosenPictures[0]);
-                    pic.Ping();
+                    try
+                    {
+                        pic.Ping();
+                    }
+                    catch
+                    {
+                        return;  //pri neuspesnem nacteni obrazku se v teto fazi pouze nenastavi komponenty formulare
+                    }
                     setValuesFromPicture(pic);
                 }
             }
@@ -299,9 +365,10 @@ namespace Interlacer
 
         private void clearAllButton_Click(object sender, EventArgs e)
         {
-               pictureListViewEx.Items.Clear();
-               order = 1;
-               changeMaxLineThickness();
+            pictureListViewEx.Items.Clear();
+            order = 1;
+            changeMaxLineThickness();
+            updateAllComponents();
         }
 
         private void removePicButton_Click(object sender, EventArgs e)
@@ -312,6 +379,7 @@ namespace Interlacer
             }
 
             changeMaxLineThickness();
+            updateAllComponents();
             reorder();
         }
 

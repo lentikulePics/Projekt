@@ -26,7 +26,9 @@ namespace GfxlibWrapper
         }
     }
 
-    class PictureCreationFailureException : Exception
+    abstract class PictureProcessException : Exception { }
+
+    class PictureCreationFailureException : PictureProcessException
     {
         public readonly int width;
         public readonly int height;
@@ -38,7 +40,7 @@ namespace GfxlibWrapper
         }
     }
 
-    class PictureResizeFailureException : Exception 
+    class PictureResizeFailureException : PictureProcessException 
     {
         public readonly int width;
         public readonly int height;
@@ -50,7 +52,7 @@ namespace GfxlibWrapper
         }
     }
 
-    class PictureClipFailureException : Exception
+    class PictureClipFailureException : PictureProcessException
     {
         public readonly int width;
         public readonly int height;
