@@ -660,7 +660,28 @@ namespace Interlacer
 
         private void copyPicButton_Click(object sender, EventArgs e)
         {
-            changeMaxLineThickness();
+            var indeces = pictureListViewEx.SelectedIndices;
+
+            if (indeces.Count > 0)
+            {
+                for (int i = 0; i < indeces.Count; i++)
+                {
+                    for (int j = 0; j < Convert.ToInt32(copyCountNumeric.Value); j++)
+                    {
+                        pictureListViewEx.Items.Insert(indeces[i] + 1, Convert.ToString(order)).SubItems.Add(pictureListViewEx.Items[indeces[i]].SubItems[1]);
+                        //.SubItems.Add(chosenPictures[i])
+                    }
+                }
+
+                reorder();
+                changeMaxLineThickness();
+
+                pictureListViewEx.Focus();
+                for (int i = 0; i < indeces.Count; i++)
+                {
+                    pictureListViewEx.Items[indeces[i]].Selected = true;
+                }
+            }
         }
 
         private void imagePreviewCheckBox_CheckedChanged(object sender, EventArgs e)
@@ -715,6 +736,17 @@ namespace Interlacer
             
             //e.Effect = DragDropEffects.All;
             //reOrder();
+        }
+
+        private void copyCountNumeric_ValueChanged(object sender, EventArgs e)
+        {
+            var indeces = pictureListViewEx.SelectedIndices;
+
+            pictureListViewEx.Focus();
+            for (int i = 0; i < indeces.Count; i++)
+            {
+                pictureListViewEx.Items[indeces[i]].Selected = true;
+            }
         }
     }
 }

@@ -118,67 +118,64 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="souborMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>69, 24</value>
+  </data>
+  <data name="souborMenuItem.Text" xml:space="preserve">
+    <value>Soubor</value>
+  </data>
+  <data name="nastaeníToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>86, 24</value>
+  </data>
+  <data name="nastaeníToolStripMenuItem.Text" xml:space="preserve">
+    <value>Nastavení</value>
+  </data>
+  <data name="oProgramuToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>102, 24</value>
+  </data>
+  <data name="oProgramuToolStripMenuItem.Text" xml:space="preserve">
+    <value>O programu</value>
+  </data>
   <data name="uložToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>104, 22</value>
+    <value>116, 24</value>
   </data>
   <data name="uložToolStripMenuItem.Text" xml:space="preserve">
     <value>Ulož</value>
   </data>
   <data name="načtiToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>104, 22</value>
+    <value>116, 24</value>
   </data>
   <data name="načtiToolStripMenuItem.Text" xml:space="preserve">
     <value>Načti</value>
   </data>
   <data name="zavřítToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>104, 22</value>
+    <value>116, 24</value>
   </data>
   <data name="zavřítToolStripMenuItem.Text" xml:space="preserve">
     <value>Zavřít</value>
   </data>
-  <data name="souborMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>57, 20</value>
-  </data>
-  <data name="souborMenuItem.Text" xml:space="preserve">
-    <value>Soubor</value>
-  </data>
   <data name="předvolbyToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>127, 22</value>
+    <value>144, 24</value>
   </data>
   <data name="předvolbyToolStripMenuItem.Text" xml:space="preserve">
     <value>Předvolby</value>
   </data>
-  <data name="nastaeníToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>71, 20</value>
-  </data>
-  <data name="nastaeníToolStripMenuItem.Text" xml:space="preserve">
-    <value>Nastavení</value>
-  </data>
   <data name="nápovědaToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>148, 22</value>
+    <value>168, 24</value>
   </data>
   <data name="nápovědaToolStripMenuItem.Text" xml:space="preserve">
     <value>Nápověda</value>
   </data>
   <data name="oProgramuToolStripMenuItem1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>148, 22</value>
+    <value>168, 24</value>
   </data>
   <data name="oProgramuToolStripMenuItem1.Text" xml:space="preserve">
     <value>O programu...</value>
   </data>
-  <data name="oProgramuToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>84, 20</value>
-  </data>
-  <data name="oProgramuToolStripMenuItem.Text" xml:space="preserve">
-    <value>O programu</value>
-  </data>
-  <data name="menuStrip1.ToolTip" xml:space="preserve">
-    <value />
-  </data>
   <data name="ulozToolStripButton.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
-        YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAIDSURBVDhPpZLrS5NhGMb3j4SWh0oRQVExD4gonkDpg4hG
+        YQUAAAAJcEhZcwAAEnQAABJ0Ad5mH3gAAAIDSURBVDhPpZLrS5NhGMb3j4SWh0oRQVExD4gonkDpg4hG
         YKxG6WBogkMZKgPNCEVJFBGdGETEvgwyO9DJE5syZw3PIlPEE9pgBCLZ5XvdMB8Ew8gXbl54nuf63dd9
         0OGSnwCahxbPRNPAPMw9Xpg6ZmF46kZZ0xSKzJPIrhpDWsVnpBhGkKx3nAX8Pv7z1zg8OoY/cITdn4fw
         bf/C0kYAN3Ma/w3gWfZL5kzTKBxjWyK2DftwI9tyMYCZKXbNHaD91bLYJrDXsYbrWfUKwJrPE9M2M1Oc
@@ -193,7 +190,7 @@
   <data name="nahrajToolStripButton.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
-        YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAIDSURBVDhPpZLrS5NhGMb3j4SWh0oRQVExD4gonkDpg4hG
+        YQUAAAAJcEhZcwAAEnQAABJ0Ad5mH3gAAAIDSURBVDhPpZLrS5NhGMb3j4SWh0oRQVExD4gonkDpg4hG
         YKxG6WBogkMZKgPNCEVJFBGdGETEvgwyO9DJE5syZw3PIlPEE9pgBCLZ5XvdMB8Ew8gXbl54nuf63dd9
         0OGSnwCahxbPRNPAPMw9Xpg6ZmF46kZZ0xSKzJPIrhpDWsVnpBhGkKx3nAX8Pv7z1zg8OoY/cITdn4fw
         bf/C0kYAN3Ma/w3gWfZL5kzTKBxjWyK2DftwI9tyMYCZKXbNHaD91bLYJrDXsYbrWfUKwJrPE9M2M1Oc
@@ -204,12 +201,6 @@
         kx0g8BTA3aZlButjSTyjODq/WcQcW/B/Je4OQhLvKQDnzN1mp0nnkvAhR8VuMzNrpm1mpjgkoVwB/v8D
         TgDQASA1MVpwzwAAAABJRU5ErkJggg==
 </value>
-  </data>
-  <data name="toolStrip1.ToolTip" xml:space="preserve">
-    <value />
-  </data>
-  <data name="pictureListViewEx.ToolTip" xml:space="preserve">
-    <value />
   </data>
   <data name="button8.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -233,6 +224,9 @@
         3deJQ8mwjmdAcs5/WD5g3sHclwTrDebut/ngLKhWknQnIlpTelbf1bpk7TwVoo75Keb9zN2v8f+4hPgL
         vqPKfK9SiiIAAAAASUVORK5CYII=
 </value>
+  </data>
+  <data name="button8.Location" type="System.Drawing.Point, System.Drawing">
+    <value>500, 261</value>
   </data>
   <data name="clearAllButton.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -272,6 +266,9 @@
         eehslJlk2p8Pc4CH2qFz0LmoK7qAw/51ot/6ol6oO+qMOqAClLlAo148U2aeMTMpM9iKymz/+fynuWIW
         6yekkzMd4VhQbAAAAABJRU5ErkJggg==
 </value>
+  </data>
+  <data name="clearAllButton.Location" type="System.Drawing.Point, System.Drawing">
+    <value>447, 261</value>
   </data>
   <data name="revertButton.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -331,6 +328,9 @@
         sXEyybFx8khu+x9ACeVBTKlNQgAAAABJRU5ErkJggg==
 </value>
   </data>
+  <data name="revertButton.Location" type="System.Drawing.Point, System.Drawing">
+    <value>394, 261</value>
+  </data>
   <data name="moveDownButton.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAAABGdBTUEAALGPC/xhBQAAABl0RVh0U29m
@@ -356,8 +356,8 @@
         40TEwMA/ubp5QuU/QdgAAAAASUVORK5CYII=
 </value>
   </data>
-  <data name="moveDownButton.ToolTip" xml:space="preserve">
-    <value />
+  <data name="moveDownButton.Location" type="System.Drawing.Point, System.Drawing">
+    <value>340, 261</value>
   </data>
   <data name="moveUpButton.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -384,8 +384,8 @@
         hv4BPa0/iaI2jCAAAAAASUVORK5CYII=
 </value>
   </data>
-  <data name="moveUpButton.ToolTip" xml:space="preserve">
-    <value />
+  <data name="moveUpButton.Location" type="System.Drawing.Point, System.Drawing">
+    <value>287, 261</value>
   </data>
   <data name="copyPicButton.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -484,95 +484,68 @@
         lEwIPAaPtfniKiwOBmAC5qDp6uDfuA235T7bKd2lS5cuXbYivd4fDBZatqeTTg8AAAAASUVORK5CYII=
 </value>
   </data>
-  <data name="lpiNumeric.ToolTip" xml:space="preserve">
-    <value />
-  </data>
-  <data name="dpiNumeric.ToolTip" xml:space="preserve">
-    <value />
-  </data>
-  <data name="picUnderLenLabel.Text" xml:space="preserve">
-    <value>Snímků pod lentikulí</value>
-  </data>
-  <data name="picUnderLenLabel.ToolTip" xml:space="preserve">
-    <value />
-  </data>
-  <data name="picUnderLenTextBox.ToolTip" xml:space="preserve">
-    <value />
-  </data>
-  <data name="lpiLabel.ToolTip" xml:space="preserve">
-    <value />
-  </data>
-  <data name="dpiLabel.ToolTip" xml:space="preserve">
-    <value />
-  </data>
   <data name="groupBox3.Text" xml:space="preserve">
     <value>Rozlišení obrázku</value>
   </data>
-  <data name="groupBox3.ToolTip" xml:space="preserve">
-    <value />
-  </data>
   <data name="verticalRadiobutton.Size" type="System.Drawing.Size, System.Drawing">
-    <value>70, 17</value>
+    <value>87, 21</value>
   </data>
   <data name="verticalRadiobutton.Text" xml:space="preserve">
     <value>Vertikální</value>
   </data>
   <data name="horizontalRadiobutton.Size" type="System.Drawing.Size, System.Drawing">
-    <value>82, 17</value>
+    <value>104, 21</value>
   </data>
   <data name="horizontalRadiobutton.Text" xml:space="preserve">
     <value>Horizontální</value>
   </data>
+  <data name="groupBox5.Location" type="System.Drawing.Point, System.Drawing">
+    <value>340, 193</value>
+  </data>
   <data name="groupBox5.Text" xml:space="preserve">
     <value>Směr prokládání</value>
   </data>
-  <data name="groupBox5.ToolTip" xml:space="preserve">
-    <value />
-  </data>
-  <data name="heightInPixelsTextBox.ToolTip" xml:space="preserve">
-    <value />
-  </data>
-  <data name="widthInPixelsTextBox.ToolTip" xml:space="preserve">
-    <value />
-  </data>
   <data name="heightInPixelsLabel.Size" type="System.Drawing.Size, System.Drawing">
-    <value>36, 13</value>
+    <value>46, 17</value>
   </data>
   <data name="heightInPixelsLabel.Text" xml:space="preserve">
     <value>Výška</value>
   </data>
-  <data name="heightInPixelsLabel.ToolTip" xml:space="preserve">
-    <value />
-  </data>
   <data name="widthInPixelsLabel.Size" type="System.Drawing.Size, System.Drawing">
-    <value>34, 16</value>
+    <value>40, 20</value>
   </data>
   <data name="widthInPixelsLabel.Text" xml:space="preserve">
     <value>Šířka</value>
   </data>
-  <data name="widthInPixelsLabel.ToolTip" xml:space="preserve">
-    <value />
-  </data>
   <data name="groupBox6.Text" xml:space="preserve">
     <value>Rozlišení výstupu v pixelech</value>
   </data>
-  <data name="groupBox6.ToolTip" xml:space="preserve">
-    <value />
+  <data name="groupBox2.Text" xml:space="preserve">
+    <value>Rozměry výstupního obrázku</value>
   </data>
-  <data name="widthNumeric.ToolTip" xml:space="preserve">
-    <value />
+  <data name="groupBox4.Text" xml:space="preserve">
+    <value>Interpolační algoritmus 2</value>
   </data>
-  <data name="heightNumeric.ToolTip" xml:space="preserve">
-    <value />
+  <data name="groupBox1.Text" xml:space="preserve">
+    <value>Interpolační algoritmus 1</value>
+  </data>
+  <data name="tabPage1.Text" xml:space="preserve">
+    <value>Výstupní obrázek</value>
+  </data>
+  <data name="tabPage3.Text" xml:space="preserve">
+    <value>Vodící čáry</value>
+  </data>
+  <data name="picUnderLenLabel.Text" xml:space="preserve">
+    <value>Snímků pod lentikulí</value>
   </data>
   <data name="heightLabel.Size" type="System.Drawing.Size, System.Drawing">
-    <value>36, 13</value>
+    <value>46, 17</value>
   </data>
   <data name="heightLabel.Text" xml:space="preserve">
     <value>Výška</value>
   </data>
   <data name="widthLabel.Size" type="System.Drawing.Size, System.Drawing">
-    <value>30, 17</value>
+    <value>35, 20</value>
   </data>
   <data name="widthLabel.Text" xml:space="preserve">
     <value>Šířka</value>
@@ -580,230 +553,98 @@
   <data name="keepRatioCheckbox.Text" xml:space="preserve">
     <value>Zachovat poměr stran</value>
   </data>
-  <data name="keepRatioCheckbox.ToolTip" xml:space="preserve">
-    <value />
-  </data>
-  <data name="unitsLabel2.ToolTip" xml:space="preserve">
-    <value />
-  </data>
-  <data name="unitsLabel.ToolTip" xml:space="preserve">
-    <value />
-  </data>
-  <data name="groupBox2.Text" xml:space="preserve">
-    <value>Rozměry výstupního obrázku</value>
-  </data>
-  <data name="groupBox2.ToolTip" xml:space="preserve">
-    <value />
-  </data>
-  <data name="interpol2ComboBox.ToolTip" xml:space="preserve">
-    <value />
-  </data>
-  <data name="groupBox4.Text" xml:space="preserve">
-    <value>Interpolační algoritmus 2</value>
-  </data>
-  <data name="groupBox4.ToolTip" xml:space="preserve">
-    <value />
-  </data>
-  <data name="interpol1ComboBox.ToolTip" xml:space="preserve">
-    <value />
-  </data>
-  <data name="groupBox1.Text" xml:space="preserve">
-    <value>Interpolační algoritmus 1</value>
-  </data>
-  <data name="groupBox1.ToolTip" xml:space="preserve">
-    <value />
-  </data>
-  <data name="label5.ToolTip" xml:space="preserve">
-    <value />
-  </data>
-  <data name="tabPage1.Text" xml:space="preserve">
-    <value>Výstupní obrázek</value>
-  </data>
-  <data name="tabPage1.ToolTip" xml:space="preserve">
-    <value />
-  </data>
-  <data name="maxPicsUnderLenLabel.ToolTip" xml:space="preserve">
-    <value />
-  </data>
-  <data name="separatorLabel.ToolTip" xml:space="preserve">
-    <value />
-  </data>
-  <data name="actualPicsUnderLenLabel.ToolTip" xml:space="preserve">
-    <value />
-  </data>
   <data name="groupBox13.Text" xml:space="preserve">
     <value>Obsazeno snímků pod lentikulí</value>
-  </data>
-  <data name="groupBox13.ToolTip" xml:space="preserve">
-    <value />
-  </data>
-  <data name="backgroundColorButton.ToolTip" xml:space="preserve">
-    <value />
-  </data>
-  <data name="lineColorButton.ToolTip" xml:space="preserve">
-    <value />
-  </data>
-  <data name="lineBackgroundColorLabel.Size" type="System.Drawing.Size, System.Drawing">
-    <value>41, 13</value>
-  </data>
-  <data name="lineBackgroundColorLabel.Text" xml:space="preserve">
-    <value>Pozadí</value>
-  </data>
-  <data name="lineBackgroundColorLabel.ToolTip" xml:space="preserve">
-    <value />
-  </data>
-  <data name="lineColorLabel.Size" type="System.Drawing.Size, System.Drawing">
-    <value>28, 13</value>
-  </data>
-  <data name="lineColorLabel.Text" xml:space="preserve">
-    <value>Čáry</value>
-  </data>
-  <data name="lineColorLabel.ToolTip" xml:space="preserve">
-    <value />
   </data>
   <data name="groupBox12.Text" xml:space="preserve">
     <value>Barva čar a pozadí</value>
   </data>
-  <data name="groupBox12.ToolTip" xml:space="preserve">
-    <value />
-  </data>
-  <data name="edgeRadioButton.Size" type="System.Drawing.Size, System.Drawing">
-    <value>43, 17</value>
-  </data>
-  <data name="edgeRadioButton.Text" xml:space="preserve">
-    <value>Kraj</value>
-  </data>
-  <data name="edgeRadioButton.ToolTip" xml:space="preserve">
-    <value />
-  </data>
-  <data name="centerRadioButton.Size" type="System.Drawing.Size, System.Drawing">
+  <data name="lineBackgroundColorLabel.Size" type="System.Drawing.Size, System.Drawing">
     <value>51, 17</value>
   </data>
-  <data name="centerRadioButton.Text" xml:space="preserve">
-    <value>Střed</value>
+  <data name="lineBackgroundColorLabel.Text" xml:space="preserve">
+    <value>Pozadí</value>
   </data>
-  <data name="centerRadioButton.ToolTip" xml:space="preserve">
-    <value />
+  <data name="lineColorLabel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>37, 17</value>
+  </data>
+  <data name="lineColorLabel.Text" xml:space="preserve">
+    <value>Čáry</value>
   </data>
   <data name="groupBox11.Text" xml:space="preserve">
     <value>Pozice čáry pod lentikulí</value>
   </data>
-  <data name="groupBox11.ToolTip" xml:space="preserve">
-    <value />
+  <data name="edgeRadioButton.Size" type="System.Drawing.Size, System.Drawing">
+    <value>54, 21</value>
   </data>
-  <data name="leftLineCheckBox.ToolTip" xml:space="preserve">
-    <value />
+  <data name="edgeRadioButton.Text" xml:space="preserve">
+    <value>Kraj</value>
   </data>
-  <data name="rightLineCheckBox.ToolTip" xml:space="preserve">
-    <value />
+  <data name="centerRadioButton.Size" type="System.Drawing.Size, System.Drawing">
+    <value>63, 21</value>
   </data>
-  <data name="bottomLineCheckBox.ToolTip" xml:space="preserve">
-    <value />
-  </data>
-  <data name="topLineCheckBox.ToolTip" xml:space="preserve">
-    <value />
-  </data>
-  <data name="rightLineLabel.Location" type="System.Drawing.Point, System.Drawing">
-    <value>6, 80</value>
-  </data>
-  <data name="rightLineLabel.Size" type="System.Drawing.Size, System.Drawing">
-    <value>35, 13</value>
-  </data>
-  <data name="rightLineLabel.Text" xml:space="preserve">
-    <value>Pravá</value>
-  </data>
-  <data name="rightLineLabel.ToolTip" xml:space="preserve">
-    <value />
-  </data>
-  <data name="leftLinelabel.Location" type="System.Drawing.Point, System.Drawing">
-    <value>6, 59</value>
-  </data>
-  <data name="leftLinelabel.Size" type="System.Drawing.Size, System.Drawing">
-    <value>31, 13</value>
-  </data>
-  <data name="leftLinelabel.Text" xml:space="preserve">
-    <value>Levá</value>
-  </data>
-  <data name="leftLinelabel.ToolTip" xml:space="preserve">
-    <value />
-  </data>
-  <data name="bottomLineLabel.Location" type="System.Drawing.Point, System.Drawing">
-    <value>6, 39</value>
-  </data>
-  <data name="bottomLineLabel.Size" type="System.Drawing.Size, System.Drawing">
-    <value>33, 13</value>
-  </data>
-  <data name="bottomLineLabel.Text" xml:space="preserve">
-    <value>Dolní</value>
-  </data>
-  <data name="bottomLineLabel.ToolTip" xml:space="preserve">
-    <value />
-  </data>
-  <data name="topLineLabel.Location" type="System.Drawing.Point, System.Drawing">
-    <value>6, 20</value>
-  </data>
-  <data name="topLineLabel.Size" type="System.Drawing.Size, System.Drawing">
-    <value>34, 13</value>
-  </data>
-  <data name="topLineLabel.Text" xml:space="preserve">
-    <value>Horní</value>
-  </data>
-  <data name="topLineLabel.ToolTip" xml:space="preserve">
-    <value />
+  <data name="centerRadioButton.Text" xml:space="preserve">
+    <value>Střed</value>
   </data>
   <data name="groupBox8.Text" xml:space="preserve">
     <value>Pozice čar</value>
   </data>
-  <data name="groupBox8.ToolTip" xml:space="preserve">
-    <value />
+  <data name="rightLineLabel.Location" type="System.Drawing.Point, System.Drawing">
+    <value>8, 98</value>
   </data>
-  <data name="unitsLabel4.ToolTip" xml:space="preserve">
-    <value />
+  <data name="rightLineLabel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>45, 17</value>
   </data>
-  <data name="unitsLabel3.ToolTip" xml:space="preserve">
-    <value />
+  <data name="rightLineLabel.Text" xml:space="preserve">
+    <value>Pravá</value>
   </data>
-  <data name="indentNumeric.ToolTip" xml:space="preserve">
-    <value />
+  <data name="leftLinelabel.Location" type="System.Drawing.Point, System.Drawing">
+    <value>8, 73</value>
   </data>
-  <data name="frameWidthNumeric.ToolTip" xml:space="preserve">
-    <value />
+  <data name="leftLinelabel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>39, 17</value>
   </data>
-  <data name="indentLabel.Location" type="System.Drawing.Point, System.Drawing">
-    <value>6, 48</value>
+  <data name="leftLinelabel.Text" xml:space="preserve">
+    <value>Levá</value>
   </data>
-  <data name="indentLabel.Size" type="System.Drawing.Size, System.Drawing">
-    <value>53, 13</value>
+  <data name="bottomLineLabel.Location" type="System.Drawing.Point, System.Drawing">
+    <value>8, 48</value>
   </data>
-  <data name="indentLabel.Text" xml:space="preserve">
-    <value>Odsazení</value>
+  <data name="bottomLineLabel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>40, 17</value>
   </data>
-  <data name="indentLabel.ToolTip" xml:space="preserve">
-    <value />
+  <data name="bottomLineLabel.Text" xml:space="preserve">
+    <value>Dolní</value>
   </data>
-  <data name="frameWidthLabel.Size" type="System.Drawing.Size, System.Drawing">
-    <value>78, 13</value>
+  <data name="topLineLabel.Location" type="System.Drawing.Point, System.Drawing">
+    <value>8, 25</value>
   </data>
-  <data name="frameWidthLabel.Text" xml:space="preserve">
-    <value>Šířka rámečku</value>
+  <data name="topLineLabel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>42, 17</value>
   </data>
-  <data name="frameWidthLabel.ToolTip" xml:space="preserve">
-    <value />
+  <data name="topLineLabel.Text" xml:space="preserve">
+    <value>Horní</value>
   </data>
   <data name="groupBox10.Text" xml:space="preserve">
     <value>Vodící čáry</value>
   </data>
-  <data name="groupBox10.ToolTip" xml:space="preserve">
-    <value />
+  <data name="indentLabel.Location" type="System.Drawing.Point, System.Drawing">
+    <value>8, 59</value>
   </data>
-  <data name="lineThicknessTrackbar.ToolTip" xml:space="preserve">
-    <value />
+  <data name="indentLabel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>68, 17</value>
+  </data>
+  <data name="indentLabel.Text" xml:space="preserve">
+    <value>Odsazení</value>
+  </data>
+  <data name="frameWidthLabel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>98, 17</value>
+  </data>
+  <data name="frameWidthLabel.Text" xml:space="preserve">
+    <value>Šířka rámečku</value>
   </data>
   <data name="groupBox9.Text" xml:space="preserve">
     <value>Tloušťka čáry</value>
-  </data>
-  <data name="groupBox9.ToolTip" xml:space="preserve">
-    <value />
   </data>
   <data name="linePictureBox.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -2471,62 +2312,26 @@
         VOmJAAAAAElFTkSuQmCC
 </value>
   </data>
-  <data name="linePictureBox.ToolTip" xml:space="preserve">
-    <value />
-  </data>
-  <data name="tabPage3.Text" xml:space="preserve">
-    <value>Vodící čáry</value>
-  </data>
-  <data name="tabPage3.ToolTip" xml:space="preserve">
-    <value />
-  </data>
-  <data name="infoHeightLabel.ToolTip" xml:space="preserve">
-    <value />
-  </data>
-  <data name="infoWidthLabel.ToolTip" xml:space="preserve">
-    <value />
-  </data>
-  <data name="infoDpiLabel.ToolTip" xml:space="preserve">
-    <value />
-  </data>
-  <data name="infoFilenameLabel.ToolTip" xml:space="preserve">
-    <value />
+  <data name="groupBox7.Text" xml:space="preserve">
+    <value>Informace o obrázku</value>
   </data>
   <data name="label4.Size" type="System.Drawing.Size, System.Drawing">
-    <value>87, 13</value>
+    <value>112, 17</value>
   </data>
   <data name="label4.Text" xml:space="preserve">
     <value>Výška v pixelech</value>
   </data>
-  <data name="label4.ToolTip" xml:space="preserve">
-    <value />
-  </data>
   <data name="label3.Size" type="System.Drawing.Size, System.Drawing">
-    <value>88, 13</value>
+    <value>110, 17</value>
   </data>
   <data name="label3.Text" xml:space="preserve">
     <value>Šířka v pixelech:</value>
   </data>
-  <data name="label3.ToolTip" xml:space="preserve">
-    <value />
-  </data>
-  <data name="label2.ToolTip" xml:space="preserve">
-    <value />
-  </data>
   <data name="label1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>82, 13</value>
+    <value>110, 17</value>
   </data>
   <data name="label1.Text" xml:space="preserve">
     <value>Jméno souboru:</value>
-  </data>
-  <data name="label1.ToolTip" xml:space="preserve">
-    <value />
-  </data>
-  <data name="groupBox7.Text" xml:space="preserve">
-    <value>Informace o obrázku</value>
-  </data>
-  <data name="groupBox7.ToolTip" xml:space="preserve">
-    <value />
   </data>
   <data name="interlaceButton.Text" xml:space="preserve">
     <value>Proložit</value>
@@ -5044,31 +4849,23 @@
         WxKRdMzkAAAAAElFTkSuQmCC
 </value>
   </data>
-  <data name="previewPicBox.ToolTip" xml:space="preserve">
-    <value />
-  </data>
-  <data name="interlaceProgressBar.ToolTip" xml:space="preserve">
-    <value />
-  </data>
   <data name="currentStateLabel.Size" type="System.Drawing.Size, System.Drawing">
-    <value>70, 13</value>
+    <value>88, 17</value>
   </data>
   <data name="currentStateLabel.Text" xml:space="preserve">
     <value>Aktuální stav</value>
   </data>
-  <data name="currentStateLabel.ToolTip" xml:space="preserve">
-    <value />
+  <data name="imagePreviewCheckBox.Location" type="System.Drawing.Point, System.Drawing">
+    <value>1080, 438</value>
   </data>
   <data name="imagePreviewCheckBox.Size" type="System.Drawing.Size, System.Drawing">
-    <value>60, 17</value>
+    <value>75, 21</value>
   </data>
   <data name="imagePreviewCheckBox.Text" xml:space="preserve">
     <value>Náhled</value>
   </data>
-  <data name="imagePreviewCheckBox.ToolTip" xml:space="preserve">
-    <value />
-  </data>
-  <data name="$this.ToolTip" xml:space="preserve">
-    <value />
+  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="$this.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>4, 4, 4, 4</value>
   </data>
 </root>

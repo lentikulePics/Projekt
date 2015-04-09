@@ -263,7 +263,8 @@ double getImageXResolution(void* ptr, int* unitType)
 			*unitType = 2;
 			return resolution;
 		default:
-			return 0;
+			*unitType = 1;
+			return resolution;
 	}
 }
 
@@ -281,7 +282,8 @@ double getImageYResolution(void* ptr, int* unitType)
 		*unitType = 2;
 		return resolution;
 	default:
-		return 0;
+		*unitType = 1;
+		return resolution;
 	}
 }
 

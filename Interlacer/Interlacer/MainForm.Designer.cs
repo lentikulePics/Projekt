@@ -45,6 +45,8 @@
             this.nahrajToolStripButton = new System.Windows.Forms.ToolStripButton();
             this.outputImageTab = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.copyCountLabel = new System.Windows.Forms.Label();
+            this.copyCountNumeric = new System.Windows.Forms.NumericUpDown();
             this.pictureListViewEx = new Bol.WinControls.ListViewEx();
             this.orderHeader = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.pathHeader = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
@@ -142,6 +144,7 @@
             this.toolStrip1.SuspendLayout();
             this.outputImageTab.SuspendLayout();
             this.tabPage1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.copyCountNumeric)).BeginInit();
             this.groupBox3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.lpiNumeric)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dpiNumeric)).BeginInit();
@@ -268,6 +271,8 @@
             // 
             resources.ApplyResources(this.tabPage1, "tabPage1");
             this.tabPage1.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.tabPage1.Controls.Add(this.copyCountLabel);
+            this.tabPage1.Controls.Add(this.copyCountNumeric);
             this.tabPage1.Controls.Add(this.pictureListViewEx);
             this.tabPage1.Controls.Add(this.button8);
             this.tabPage1.Controls.Add(this.clearAllButton);
@@ -286,6 +291,29 @@
             this.tabPage1.Controls.Add(this.label5);
             this.tabPage1.Name = "tabPage1";
             this.toolTip1.SetToolTip(this.tabPage1, resources.GetString("tabPage1.ToolTip"));
+            // 
+            // copyCountLabel
+            // 
+            resources.ApplyResources(this.copyCountLabel, "copyCountLabel");
+            this.copyCountLabel.Name = "copyCountLabel";
+            this.toolTip1.SetToolTip(this.copyCountLabel, resources.GetString("copyCountLabel.ToolTip"));
+            // 
+            // copyCountNumeric
+            // 
+            resources.ApplyResources(this.copyCountNumeric, "copyCountNumeric");
+            this.copyCountNumeric.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.copyCountNumeric.Name = "copyCountNumeric";
+            this.toolTip1.SetToolTip(this.copyCountNumeric, resources.GetString("copyCountNumeric.ToolTip"));
+            this.copyCountNumeric.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.copyCountNumeric.ValueChanged += new System.EventHandler(this.copyCountNumeric_ValueChanged);
             // 
             // pictureListViewEx
             // 
@@ -1046,6 +1074,7 @@
             this.outputImageTab.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
             this.tabPage1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.copyCountNumeric)).EndInit();
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.lpiNumeric)).EndInit();
@@ -1195,6 +1224,8 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label copyCountLabel;
+        private System.Windows.Forms.NumericUpDown copyCountNumeric;
 
     }
 }
