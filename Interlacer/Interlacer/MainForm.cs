@@ -174,25 +174,15 @@ namespace Interlacer
         private void setValuesFromPicture(Picture picture)
         {
             InterlacingData interlacingData = projectData.GetInterlacingData();
-            if (interlacingData.GetPictureResolution() == 0)
+            if (interlacingData.GetWidth() == 0 && picture.GetXDpi() != 0)
             {
-                double pictureResolution = UnitConverter.GetInFromUnits(picture.GetXDpi(), interlacingData.GetResolutionUnits());
-                interlacingData.SetPictureResolution(pictureResolution);
-            }
-            if (interlacingData.GetWidth() == 0 && interlacingData.GetPictureResolution() != 0)
-            {
-                double width = UnitConverter.Transfer(picture.GetWidth() / interlacingData.GetDPI(), Units.In, interlacingData.GetUnits());
+                double width = UnitConverter.Transfer(picture.GetWidth() / picture.GetXDpi(), Units.In, interlacingData.GetUnits());
                 interlacingData.SetWidth(width);
             }
-            if (interlacingData.GetHeight() == 0 && interlacingData.GetPictureResolution() != 0)
+            if (interlacingData.GetHeight() == 0 && picture.GetXDpi() != 0)
             {
-                double height = UnitConverter.Transfer(picture.GetHeight() / interlacingData.GetDPI(), Units.In, interlacingData.GetUnits());
+                double height = UnitConverter.Transfer(picture.GetHeight() / picture.GetXDpi(), Units.In, interlacingData.GetUnits());
                 interlacingData.SetHeight(height);
-            }
-            if (interlacingData.GetLenticuleDensity() == 0 && pictureListViewEx.Items.Count != 0)
-            {
-                double density = interlacingData.GetPictureResolution() / pictureListViewEx.Items.Count;
-                interlacingData.SetLenticuleDensity(density);
             }
             updateAllComponents();
         }
@@ -390,8 +380,11 @@ namespace Interlacer
         {
             pictureListViewEx.Items.Clear();
             order = 1;
+            projectData.GetInterlacingData().SetWidth(0);
+            projectData.GetInterlacingData().SetHeight(0);
             changeMaxLineThickness();
             updateAllComponents();
+            previewData.ShowDefaultImage();
         }
 
         private void removePicButton_Click(object sender, EventArgs e)
