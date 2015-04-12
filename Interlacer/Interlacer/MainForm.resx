@@ -180,6 +180,9 @@
   <data name="&gt;&gt;frameWidthNumeric.Name" xml:space="preserve">
     <value>frameWidthNumeric</value>
   </data>
+  <data name="&gt;&gt;oProgramuToolStripMenuItem.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
   <data name="&gt;&gt;unitsLabel2.ZOrder" xml:space="preserve">
     <value>5</value>
   </data>
@@ -192,14 +195,14 @@
   <data name="separatorLabel.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
-  <data name="&gt;&gt;backgroundColorButton.Parent" xml:space="preserve">
-    <value>groupBox12</value>
-  </data>
   <data name="&gt;&gt;lpiNumeric.ZOrder" xml:space="preserve">
     <value>0</value>
   </data>
   <data name="&gt;&gt;backgroundColorButton.Type" xml:space="preserve">
     <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="copyCountLabel.Location" type="System.Drawing.Point, System.Drawing">
+    <value>176, 261</value>
   </data>
   <data name="&gt;&gt;revertButton.Type" xml:space="preserve">
     <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
@@ -209,9 +212,6 @@
   </data>
   <data name="centerRadioButton.Location" type="System.Drawing.Point, System.Drawing">
     <value>12, 23</value>
-  </data>
-  <data name="clearAllButton.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
   </data>
   <data name="&gt;&gt;lineColorButton.Parent" xml:space="preserve">
     <value>groupBox12</value>
@@ -243,8 +243,8 @@
   <data name="heightNumeric.Size" type="System.Drawing.Size, System.Drawing">
     <value>79, 22</value>
   </data>
-  <data name="groupBox8.ToolTip" xml:space="preserve">
-    <value />
+  <data name="&gt;&gt;verticalRadiobutton.ZOrder" xml:space="preserve">
+    <value>0</value>
   </data>
   <data name="interpol2ComboBox.Size" type="System.Drawing.Size, System.Drawing">
     <value>160, 24</value>
@@ -267,8 +267,8 @@
   <data name="picUnderLenTextBox.ToolTip" xml:space="preserve">
     <value />
   </data>
-  <data name="unitsLabel4.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
+  <data name="unitsLabel4.ToolTip" xml:space="preserve">
+    <value />
   </data>
   <data name="nápovědaToolStripMenuItem.Text" xml:space="preserve">
     <value>Help</value>
@@ -309,9 +309,6 @@
   <data name="&gt;&gt;pictureListViewEx.ZOrder" xml:space="preserve">
     <value>2</value>
   </data>
-  <data name="&gt;&gt;columnHeader4.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ColumnHeader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
   <data name="&gt;&gt;infoDpiLabel.Name" xml:space="preserve">
     <value>infoDpiLabel</value>
   </data>
@@ -342,9 +339,6 @@
   <data name="removePicButton.Location" type="System.Drawing.Point, System.Drawing">
     <value>69, 261</value>
   </data>
-  <data name="unitsLabel4.Text" xml:space="preserve">
-    <value>label1</value>
-  </data>
   <data name="uložToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
     <value>114, 24</value>
   </data>
@@ -359,6 +353,12 @@
   </data>
   <data name="lineColorButton.Location" type="System.Drawing.Point, System.Drawing">
     <value>57, 27</value>
+  </data>
+  <data name="moveUpButton.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="groupBox3.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>4, 4, 4, 4</value>
   </data>
   <data name="&gt;&gt;clearAllButton.ZOrder" xml:space="preserve">
     <value>4</value>
@@ -412,6 +412,9 @@
   <data name="widthNumeric.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>4, 4, 4, 4</value>
   </data>
+  <data name="menuStrip1.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>8, 2, 0, 2</value>
+  </data>
   <data name="&gt;&gt;groupBox11.Parent" xml:space="preserve">
     <value>tabPage3</value>
   </data>
@@ -445,14 +448,14 @@
   <data name="backgroundColorButton.Size" type="System.Drawing.Size, System.Drawing">
     <value>45, 23</value>
   </data>
-  <data name="&gt;&gt;groupBox12.Type" xml:space="preserve">
-    <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="groupBox9.Location" type="System.Drawing.Point, System.Drawing">
+    <value>16, 187</value>
   </data>
   <data name="zavřítToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
     <value>114, 24</value>
   </data>
-  <data name="unitsLabel.Text" xml:space="preserve">
-    <value>palce</value>
+  <data name="&gt;&gt;columnHeader1.Name" xml:space="preserve">
+    <value>columnHeader1</value>
   </data>
   <data name="&gt;&gt;toolStrip1.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStrip, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
@@ -475,17 +478,11 @@
   <data name="&gt;&gt;separatorLabel.ZOrder" xml:space="preserve">
     <value>1</value>
   </data>
-  <data name="&gt;&gt;widthInPixelsLabel.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
   <data name="&gt;&gt;menuStrip1.ZOrder" xml:space="preserve">
     <value>8</value>
   </data>
   <data name="menuStrip1.Text" xml:space="preserve">
     <value>menuStrip1</value>
-  </data>
-  <data name="removePicButton.TabIndex" type="System.Int32, mscorlib">
-    <value>7</value>
   </data>
   <data name="&gt;&gt;topLineCheckBox.Parent" xml:space="preserve">
     <value>groupBox8</value>
@@ -495,6 +492,9 @@
   </data>
   <data name="picUnderLenTextBox.Location" type="System.Drawing.Point, System.Drawing">
     <value>268, 46</value>
+  </data>
+  <data name="imagePreviewCheckBox.Text" xml:space="preserve">
+    <value>Preview</value>
   </data>
   <data name="&gt;&gt;widthLabel.ZOrder" xml:space="preserve">
     <value>3</value>
@@ -544,11 +544,17 @@
   <data name="&gt;&gt;label4.ZOrder" xml:space="preserve">
     <value>4</value>
   </data>
+  <data name="&gt;&gt;groupBox3.Type" xml:space="preserve">
+    <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
   <data name="keepRatioCheckbox.Size" type="System.Drawing.Size, System.Drawing">
     <value>111, 46</value>
   </data>
   <data name="&gt;&gt;previewPicBox.Name" xml:space="preserve">
     <value>previewPicBox</value>
+  </data>
+  <data name="&gt;&gt;outputImageTab.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TabControl, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;groupBox7.Parent" xml:space="preserve">
     <value>$this</value>
@@ -556,11 +562,14 @@
   <data name="&gt;&gt;interlaceButton.Type" xml:space="preserve">
     <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
+  <data name="&gt;&gt;copyCountLabel.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
   <data name="&gt;&gt;moveUpButton.Parent" xml:space="preserve">
     <value>tabPage1</value>
   </data>
-  <data name="revertButton.BackgroundImageLayout" type="System.Windows.Forms.ImageLayout, System.Windows.Forms">
-    <value>Stretch</value>
+  <data name="copyCountNumeric.Location" type="System.Drawing.Point, System.Drawing">
+    <value>175, 280</value>
   </data>
   <data name="&gt;&gt;groupBox8.Type" xml:space="preserve">
     <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
@@ -595,6 +604,9 @@
   <data name="&gt;&gt;$this.Name" xml:space="preserve">
     <value>MainForm</value>
   </data>
+  <data name="heightInPixelsTextBox.Location" type="System.Drawing.Point, System.Drawing">
+    <value>192, 23</value>
+  </data>
   <data name="&gt;&gt;lineThicknessTrackbar.ZOrder" xml:space="preserve">
     <value>0</value>
   </data>
@@ -616,6 +628,9 @@
   <data name="revertButton.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
   </data>
+  <data name="clearAllButton.ToolTip" xml:space="preserve">
+    <value>Clear list of images</value>
+  </data>
   <data name="actualPicsUnderLenLabel.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>4, 0, 4, 0</value>
   </data>
@@ -633,9 +648,6 @@
   </data>
   <data name="lpiNumeric.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>4, 4, 4, 4</value>
-  </data>
-  <data name="&gt;&gt;removePicButton.Name" xml:space="preserve">
-    <value>removePicButton</value>
   </data>
   <data name="předvolbyToolStripMenuItem.Text" xml:space="preserve">
     <value>Preferences</value>
@@ -658,17 +670,11 @@
   <data name="addPicButton.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
   </data>
-  <data name="&gt;&gt;heightInPixelsLabel.ZOrder" xml:space="preserve">
-    <value>2</value>
-  </data>
   <data name="currentStateLabel.ToolTip" xml:space="preserve">
     <value />
   </data>
   <data name="&gt;&gt;widthLabel.Name" xml:space="preserve">
     <value>widthLabel</value>
-  </data>
-  <data name="unitsLabel4.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>4, 0, 4, 0</value>
   </data>
   <data name="addPicButton.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -691,6 +697,9 @@
         lEwIPAaPtfniKiwOBmAC5qDp6uDfuA235T7bKd2lS5cuXbYivd4fDBZatqeTTg8AAAAASUVORK5CYII=
 </value>
   </data>
+  <data name="groupBox1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
   <data name="&gt;&gt;indentNumeric.ZOrder" xml:space="preserve">
     <value>2</value>
   </data>
@@ -709,8 +718,8 @@
   <data name="previewPicBox.Location" type="System.Drawing.Point, System.Drawing">
     <value>733, 47</value>
   </data>
-  <data name="&gt;&gt;indentNumeric.Name" xml:space="preserve">
-    <value>indentNumeric</value>
+  <data name="dpiLabel.Text" xml:space="preserve">
+    <value>DPI</value>
   </data>
   <data name="indentNumeric.Size" type="System.Drawing.Size, System.Drawing">
     <value>67, 22</value>
@@ -760,8 +769,8 @@
   <data name="&gt;&gt;groupBox9.Type" xml:space="preserve">
     <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;groupBox4.Parent" xml:space="preserve">
-    <value>tabPage1</value>
+  <data name="copyCountLabel.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
   </data>
   <data name="centerRadioButton.Size" type="System.Drawing.Size, System.Drawing">
     <value>71, 21</value>
@@ -802,17 +811,14 @@
   <data name="&gt;&gt;lineColorButton.ZOrder" xml:space="preserve">
     <value>1</value>
   </data>
-  <data name="&gt;&gt;moveDownButton.Name" xml:space="preserve">
-    <value>moveDownButton</value>
-  </data>
   <data name="label2.TabIndex" type="System.Int32, mscorlib">
     <value>1</value>
   </data>
   <data name="lineColorButton.ToolTip" xml:space="preserve">
     <value />
   </data>
-  <data name="groupBox12.Text" xml:space="preserve">
-    <value>Lines color and bg</value>
+  <data name="&gt;&gt;groupBox12.Type" xml:space="preserve">
+    <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="revertButton.TabIndex" type="System.Int32, mscorlib">
     <value>11</value>
@@ -835,9 +841,6 @@
   <data name="lineThicknessTrackbar.Location" type="System.Drawing.Point, System.Drawing">
     <value>12, 23</value>
   </data>
-  <data name="outputImageTab.AccessibleName" xml:space="preserve">
-    <value />
-  </data>
   <data name="infoDpiLabel.Text" xml:space="preserve">
     <value>label</value>
   </data>
@@ -849,9 +852,6 @@
   </data>
   <data name="&gt;&gt;centerRadioButton.Type" xml:space="preserve">
     <value>System.Windows.Forms.RadioButton, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="groupBox2.Location" type="System.Drawing.Point, System.Drawing">
-    <value>16, 16</value>
   </data>
   <data name="&gt;&gt;bottomLineCheckBox.Type" xml:space="preserve">
     <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
@@ -871,6 +871,12 @@
   <data name="&gt;&gt;copyPicButton.Parent" xml:space="preserve">
     <value>tabPage1</value>
   </data>
+  <data name="&gt;&gt;lineColorButton.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="bottomLineCheckBox.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
   <data name="unitsLabel.Size" type="System.Drawing.Size, System.Drawing">
     <value>42, 17</value>
   </data>
@@ -889,17 +895,26 @@
   <data name="addPicButton.ToolTip" xml:space="preserve">
     <value>Add image</value>
   </data>
-  <data name="menuStrip1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>1188, 28</value>
+  <data name="&gt;&gt;dpiLabel.Parent" xml:space="preserve">
+    <value>groupBox3</value>
   </data>
   <data name="label1.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
+  <data name="currentStateLabel.Text" xml:space="preserve">
+    <value>Current Status</value>
+  </data>
   <data name="widthInPixelsTextBox.Size" type="System.Drawing.Size, System.Drawing">
     <value>76, 22</value>
   </data>
+  <data name="&gt;&gt;dpiNumeric.Type" xml:space="preserve">
+    <value>System.Windows.Forms.NumericUpDown, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
   <data name="oProgramuToolStripMenuItem1.Size" type="System.Drawing.Size, System.Drawing">
     <value>128, 24</value>
+  </data>
+  <data name="copyCountNumeric.TabIndex" type="System.Int32, mscorlib">
+    <value>15</value>
   </data>
   <data name="revertButton.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>4, 4, 4, 4</value>
@@ -907,8 +922,8 @@
   <data name="&gt;&gt;interpol2ComboBox.Type" xml:space="preserve">
     <value>System.Windows.Forms.ComboBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="previewPicBox.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>4, 4, 4, 4</value>
+  <data name="&gt;&gt;groupBox4.Parent" xml:space="preserve">
+    <value>tabPage1</value>
   </data>
   <data name="&gt;&gt;label5.Type" xml:space="preserve">
     <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
@@ -919,8 +934,14 @@
   <data name="groupBox1.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>4, 4, 4, 4</value>
   </data>
-  <data name="copyCountNumeric.TabIndex" type="System.Int32, mscorlib">
-    <value>15</value>
+  <data name="groupBox8.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="&gt;&gt;addPicFileDialog.Type" xml:space="preserve">
+    <value>System.Windows.Forms.OpenFileDialog, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;currentStateLabel.Name" xml:space="preserve">
+    <value>currentStateLabel</value>
   </data>
   <data name="&gt;&gt;groupBox10.Type" xml:space="preserve">
     <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
@@ -957,9 +978,6 @@
   </data>
   <data name="&gt;&gt;label3.ZOrder" xml:space="preserve">
     <value>5</value>
-  </data>
-  <data name="groupBox4.TabIndex" type="System.Int32, mscorlib">
-    <value>3</value>
   </data>
   <data name="horizontalRadiobutton.ToolTip" xml:space="preserve">
     <value>Horizontal interlacing</value>
@@ -2651,9 +2669,6 @@
   <data name="widthNumeric.ToolTip" xml:space="preserve">
     <value />
   </data>
-  <data name="infoWidthLabel.ToolTip" xml:space="preserve">
-    <value />
-  </data>
   <data name="&gt;&gt;separatorLabel.Parent" xml:space="preserve">
     <value>groupBox13</value>
   </data>
@@ -2662,9 +2677,6 @@
   </data>
   <data name="&gt;&gt;imagePreviewCheckBox.Parent" xml:space="preserve">
     <value>$this</value>
-  </data>
-  <data name="button8.Size" type="System.Drawing.Size, System.Drawing">
-    <value>45, 42</value>
   </data>
   <data name="&gt;&gt;$this.Type" xml:space="preserve">
     <value>System.Windows.Forms.Form, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
@@ -2708,6 +2720,9 @@
   <data name="frameWidthLabel.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
+  <data name="&gt;&gt;previewPicBox.ZOrder" xml:space="preserve">
+    <value>3</value>
+  </data>
   <data name="&gt;&gt;picUnderLenTextBox.Type" xml:space="preserve">
     <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
@@ -2750,9 +2765,6 @@
   <data name="lineColorLabel.Size" type="System.Drawing.Size, System.Drawing">
     <value>42, 17</value>
   </data>
-  <data name="groupBox1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>316, 60</value>
-  </data>
   <data name="heightInPixelsLabel.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>4, 0, 4, 0</value>
   </data>
@@ -2764,6 +2776,9 @@
   </data>
   <data name="lpiLabel.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
+  </data>
+  <data name="lineBackgroundColorLabel.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
   </data>
   <data name="rightLineCheckBox.Location" type="System.Drawing.Point, System.Drawing">
     <value>75, 97</value>
@@ -2786,6 +2801,9 @@
   <data name="&gt;&gt;revertButton.Parent" xml:space="preserve">
     <value>tabPage1</value>
   </data>
+  <data name="&gt;&gt;clearAllButton.Name" xml:space="preserve">
+    <value>clearAllButton</value>
+  </data>
   <data name="&gt;&gt;picUnderLenTextBox.ZOrder" xml:space="preserve">
     <value>3</value>
   </data>
@@ -2795,14 +2813,11 @@
   <data name="pathHeader.Text" xml:space="preserve">
     <value>Cesta</value>
   </data>
-  <data name="&gt;&gt;topLineLabel.Name" xml:space="preserve">
-    <value>topLineLabel</value>
-  </data>
   <data name="souborMenuItem.Text" xml:space="preserve">
     <value>File</value>
   </data>
-  <data name="actualPicsUnderLenLabel.Location" type="System.Drawing.Point, System.Drawing">
-    <value>76, 25</value>
+  <data name="groupBox6.TabIndex" type="System.Int32, mscorlib">
+    <value>4</value>
   </data>
   <data name="&gt;&gt;label2.Name" xml:space="preserve">
     <value>label2</value>
@@ -2810,14 +2825,17 @@
   <data name="linePictureBox.ToolTip" xml:space="preserve">
     <value />
   </data>
-  <data name="pictureListViewEx.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-    <value>Top, Bottom, Left</value>
+  <data name="&gt;&gt;groupBox13.Name" xml:space="preserve">
+    <value>groupBox13</value>
   </data>
   <data name="&gt;&gt;horizontalRadiobutton.Type" xml:space="preserve">
     <value>System.Windows.Forms.RadioButton, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;actualPicsUnderLenLabel.Type" xml:space="preserve">
     <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="outputImageTab.Size" type="System.Drawing.Size, System.Drawing">
+    <value>683, 607</value>
   </data>
   <data name="label5.ToolTip" xml:space="preserve">
     <value />
@@ -2846,32 +2864,20 @@
   <data name="lineColorLabel.Location" type="System.Drawing.Point, System.Drawing">
     <value>8, 32</value>
   </data>
-  <data name="lineBackgroundColorLabel.Location" type="System.Drawing.Point, System.Drawing">
-    <value>8, 69</value>
-  </data>
   <data name="&gt;&gt;edgeRadioButton.ZOrder" xml:space="preserve">
     <value>0</value>
   </data>
   <data name="&gt;&gt;topLineLabel.Parent" xml:space="preserve">
     <value>groupBox8</value>
   </data>
-  <data name="lpiLabel.Size" type="System.Drawing.Size, System.Drawing">
-    <value>28, 17</value>
-  </data>
   <data name="interlaceProgressBar.TabIndex" type="System.Int32, mscorlib">
     <value>17</value>
-  </data>
-  <data name="picUnderLenLabel.Text" xml:space="preserve">
-    <value>Images under lenticule</value>
   </data>
   <data name="verticalRadiobutton.TabIndex" type="System.Int32, mscorlib">
     <value>1</value>
   </data>
   <data name="copyCountNumeric.TextAlign" type="System.Windows.Forms.HorizontalAlignment, System.Windows.Forms">
     <value>Right</value>
-  </data>
-  <data name="&gt;&gt;pictureListViewEx.Type" xml:space="preserve">
-    <value>Bol.WinControls.ListViewEx, DragAndDropListView, Version=1.0.1409.28887, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="interpol2ComboBox.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>4, 4, 4, 4</value>
@@ -2885,9 +2891,6 @@
   <data name="&gt;&gt;groupBox5.ZOrder" xml:space="preserve">
     <value>12</value>
   </data>
-  <data name="frameWidthNumeric.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>4, 4, 4, 4</value>
-  </data>
   <data name="&gt;&gt;interlaceProgressBar.ZOrder" xml:space="preserve">
     <value>2</value>
   </data>
@@ -2899,6 +2902,9 @@
   </data>
   <data name="label3.Text" xml:space="preserve">
     <value>Width in pixels:</value>
+  </data>
+  <data name="pathHeader.Width" type="System.Int32, mscorlib">
+    <value>346</value>
   </data>
   <data name="infoFilenameLabel.Size" type="System.Drawing.Size, System.Drawing">
     <value>38, 17</value>
@@ -2915,14 +2921,17 @@
   <data name="&gt;&gt;groupBox5.Type" xml:space="preserve">
     <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;columnHeader1.Name" xml:space="preserve">
-    <value>columnHeader1</value>
+  <data name="removePicButton.TabIndex" type="System.Int32, mscorlib">
+    <value>7</value>
   </data>
   <data name="&gt;&gt;clearAllButton.Parent" xml:space="preserve">
     <value>tabPage1</value>
   </data>
   <data name="souborMenuItem.Size" type="System.Drawing.Size, System.Drawing">
     <value>44, 24</value>
+  </data>
+  <data name="&gt;&gt;columnHeader1.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ColumnHeader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="horizontalRadiobutton.Location" type="System.Drawing.Point, System.Drawing">
     <value>12, 23</value>
@@ -2936,9 +2945,6 @@
   <data name="bottomLineLabel.ToolTip" xml:space="preserve">
     <value />
   </data>
-  <data name="&gt;&gt;rightLineCheckBox.ZOrder" xml:space="preserve">
-    <value>1</value>
-  </data>
   <data name="groupBox12.ToolTip" xml:space="preserve">
     <value />
   </data>
@@ -2950,6 +2956,9 @@
   </data>
   <data name="verticalRadiobutton.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>4, 4, 4, 4</value>
+  </data>
+  <data name="&gt;&gt;bottomLineLabel.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="label5.Size" type="System.Drawing.Size, System.Drawing">
     <value>0, 17</value>
@@ -3079,9 +3088,6 @@
   <data name="&gt;&gt;předvolbyToolStripMenuItem.Name" xml:space="preserve">
     <value>předvolbyToolStripMenuItem</value>
   </data>
-  <data name="picUnderLenLabel.ToolTip" xml:space="preserve">
-    <value />
-  </data>
   <data name="&gt;&gt;oProgramuToolStripMenuItem1.Name" xml:space="preserve">
     <value>oProgramuToolStripMenuItem1</value>
   </data>
@@ -3099,6 +3105,9 @@
   </data>
   <data name="&gt;&gt;groupBox11.Name" xml:space="preserve">
     <value>groupBox11</value>
+  </data>
+  <data name="&gt;&gt;dpiLabel.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;interlaceProgressBar.Parent" xml:space="preserve">
     <value>$this</value>
@@ -3120,6 +3129,9 @@
   </data>
   <data name="&gt;&gt;addPicFileDialog.Name" xml:space="preserve">
     <value>addPicFileDialog</value>
+  </data>
+  <data name="interlaceProgressBar.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Bottom, Left, Right</value>
   </data>
   <data name="&gt;&gt;interpol1ComboBox.Parent" xml:space="preserve">
     <value>groupBox1</value>
@@ -3178,6 +3190,9 @@
   <data name="addPicButton.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>4, 4, 4, 4</value>
   </data>
+  <data name="interlaceButton.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>4, 4, 4, 4</value>
+  </data>
   <data name="addPicButton.Size" type="System.Drawing.Size, System.Drawing">
     <value>45, 42</value>
   </data>
@@ -3199,6 +3214,9 @@
   <data name="&gt;&gt;indentLabel.Type" xml:space="preserve">
     <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
+  <data name="currentStateLabel.TabIndex" type="System.Int32, mscorlib">
+    <value>18</value>
+  </data>
   <data name="bottomLineLabel.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
@@ -3211,26 +3229,20 @@
   <data name="groupBox2.Text" xml:space="preserve">
     <value>Output image dimensions</value>
   </data>
+  <data name="groupBox4.Size" type="System.Drawing.Size, System.Drawing">
+    <value>316, 60</value>
+  </data>
   <data name="picUnderLenTextBox.Size" type="System.Drawing.Size, System.Drawing">
     <value>39, 22</value>
   </data>
   <data name="groupBox10.Location" type="System.Drawing.Point, System.Drawing">
     <value>16, 16</value>
   </data>
-  <data name="&gt;&gt;topLineLabel.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
   <data name="copyPicButton.BackgroundImageLayout" type="System.Windows.Forms.ImageLayout, System.Windows.Forms">
     <value>Stretch</value>
   </data>
   <data name="&gt;&gt;groupBox13.Parent" xml:space="preserve">
     <value>tabPage3</value>
-  </data>
-  <data name="&gt;&gt;widthInPixelsLabel.Name" xml:space="preserve">
-    <value>widthInPixelsLabel</value>
-  </data>
-  <data name="orderHeader.Width" type="System.Int32, mscorlib">
-    <value>83</value>
   </data>
   <data name="&gt;&gt;heightInPixelsLabel.Parent" xml:space="preserve">
     <value>groupBox6</value>
@@ -3240,9 +3252,6 @@
   </data>
   <data name="&gt;&gt;leftLinelabel.ZOrder" xml:space="preserve">
     <value>5</value>
-  </data>
-  <data name="interlaceButton.ToolTip" xml:space="preserve">
-    <value>Start interlacing process</value>
   </data>
   <data name="&gt;&gt;leftLineCheckBox.Type" xml:space="preserve">
     <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
@@ -3267,6 +3276,9 @@
   </data>
   <data name="infoWidthLabel.Size" type="System.Drawing.Size, System.Drawing">
     <value>38, 17</value>
+  </data>
+  <data name="currentStateLabel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>99, 17</value>
   </data>
   <data name="clearAllButton.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>4, 4, 4, 4</value>
@@ -3328,17 +3340,11 @@
   <data name="&gt;&gt;interpol1ComboBox.ZOrder" xml:space="preserve">
     <value>0</value>
   </data>
-  <data name="&gt;&gt;groupBox13.Name" xml:space="preserve">
-    <value>groupBox13</value>
-  </data>
-  <data name="backgroundColorButton.ToolTip" xml:space="preserve">
-    <value />
+  <data name="heightInPixelsLabel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>49, 17</value>
   </data>
   <data name="removePicButton.BackgroundImageLayout" type="System.Windows.Forms.ImageLayout, System.Windows.Forms">
     <value>Stretch</value>
-  </data>
-  <data name="lineColorButton.TabIndex" type="System.Int32, mscorlib">
-    <value>2</value>
   </data>
   <data name="&gt;&gt;frameWidthLabel.Type" xml:space="preserve">
     <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
@@ -3354,9 +3360,6 @@
   </data>
   <data name="label4.Size" type="System.Drawing.Size, System.Drawing">
     <value>107, 17</value>
-  </data>
-  <data name="edgeRadioButton.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>4, 4, 4, 4</value>
   </data>
   <data name="&gt;&gt;leftLineCheckBox.ZOrder" xml:space="preserve">
     <value>0</value>
@@ -3379,6 +3382,9 @@
   <data name="moveDownButton.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>4, 4, 4, 4</value>
   </data>
+  <data name="$this.AutoScaleDimensions" type="System.Drawing.SizeF, System.Drawing">
+    <value>8, 16</value>
+  </data>
   <data name="&gt;&gt;lpiNumeric.Name" xml:space="preserve">
     <value>lpiNumeric</value>
   </data>
@@ -3388,8 +3394,11 @@
   <data name="infoDpiLabel.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
-  <data name="widthLabel.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
+  <data name="indentLabel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>78, 17</value>
+  </data>
+  <data name="&gt;&gt;label5.Name" xml:space="preserve">
+    <value>label5</value>
   </data>
   <data name="&gt;&gt;revertButton.ZOrder" xml:space="preserve">
     <value>5</value>
@@ -3412,9 +3421,6 @@
   <data name="&gt;&gt;keepRatioCheckbox.Parent" xml:space="preserve">
     <value>groupBox2</value>
   </data>
-  <data name="groupBox6.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>4, 4, 4, 4</value>
-  </data>
   <data name="groupBox6.Text" xml:space="preserve">
     <value>Output resolution in pixels</value>
   </data>
@@ -3423,6 +3429,9 @@
   </data>
   <data name="&gt;&gt;groupBox13.ZOrder" xml:space="preserve">
     <value>0</value>
+  </data>
+  <data name="button8.TabIndex" type="System.Int32, mscorlib">
+    <value>13</value>
   </data>
   <data name="topLineLabel.ToolTip" xml:space="preserve">
     <value />
@@ -3436,17 +3445,17 @@
   <data name="&gt;&gt;groupBox1.Parent" xml:space="preserve">
     <value>tabPage1</value>
   </data>
-  <data name="edgeRadioButton.ToolTip" xml:space="preserve">
-    <value />
-  </data>
   <data name="heightLabel.ToolTip" xml:space="preserve">
     <value>Output image height</value>
   </data>
   <data name="orderHeader.Text" xml:space="preserve">
     <value>Pořadí</value>
   </data>
-  <data name="lpiNumeric.TabIndex" type="System.Int32, mscorlib">
-    <value>1</value>
+  <data name="indentLabel.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="&gt;&gt;groupBox5.Name" xml:space="preserve">
+    <value>groupBox5</value>
   </data>
   <data name="groupBox7.Text" xml:space="preserve">
     <value>Image Info</value>
@@ -3454,13 +3463,7 @@
   <data name="ulozToolStripButton.Size" type="System.Drawing.Size, System.Drawing">
     <value>24, 24</value>
   </data>
-  <data name="$this.MinimumSize" type="System.Drawing.Size, System.Drawing">
-    <value>1194, 603</value>
-  </data>
-  <data name="&gt;&gt;bottomLineLabel.Name" xml:space="preserve">
-    <value>bottomLineLabel</value>
-  </data>
-  <data name="tabPage3.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+  <data name="removePicButton.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>4, 4, 4, 4</value>
   </data>
   <data name="&gt;&gt;unitsLabel.Type" xml:space="preserve">
@@ -5991,9 +5994,6 @@
   <data name="centerRadioButton.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
   </data>
-  <data name="&gt;&gt;lineColorLabel.Parent" xml:space="preserve">
-    <value>groupBox12</value>
-  </data>
   <data name="revertButton.RightToLeft" type="System.Windows.Forms.RightToLeft, System.Windows.Forms">
     <value>Yes</value>
   </data>
@@ -6087,6 +6087,9 @@
   <data name="lineColorLabel.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
   </data>
+  <data name="zavřítToolStripMenuItem.Text" xml:space="preserve">
+    <value>Close</value>
+  </data>
   <data name="nahrajToolStripButton.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAS
@@ -6156,14 +6159,8 @@
   <data name="&gt;&gt;widthInPixelsTextBox.Name" xml:space="preserve">
     <value>widthInPixelsTextBox</value>
   </data>
-  <data name="imagePreviewCheckBox.TabIndex" type="System.Int32, mscorlib">
-    <value>3</value>
-  </data>
   <data name="heightLabel.Text" xml:space="preserve">
     <value>Height</value>
-  </data>
-  <data name="&gt;&gt;horizontalRadiobutton.Parent" xml:space="preserve">
-    <value>groupBox5</value>
   </data>
   <data name="&gt;&gt;heightInPixelsTextBox.ZOrder" xml:space="preserve">
     <value>0</value>
@@ -6180,9 +6177,6 @@
   <data name="widthInPixelsLabel.ToolTip" xml:space="preserve">
     <value />
   </data>
-  <data name="label3.Size" type="System.Drawing.Size, System.Drawing">
-    <value>102, 17</value>
-  </data>
   <data name="&gt;&gt;unitsLabel2.Parent" xml:space="preserve">
     <value>groupBox2</value>
   </data>
@@ -6198,14 +6192,17 @@
   <data name="&gt;&gt;toolTip1.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolTip, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;backgroundColorButton.ZOrder" xml:space="preserve">
-    <value>0</value>
+  <data name="edgeRadioButton.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
   </data>
   <data name="&gt;&gt;label4.Type" xml:space="preserve">
     <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="label5.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>4, 0, 4, 0</value>
+  <data name="&gt;&gt;tabPage3.Name" xml:space="preserve">
+    <value>tabPage3</value>
+  </data>
+  <data name="previewPicBox.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>4, 4, 4, 4</value>
   </data>
   <data name="&gt;&gt;groupBox9.Parent" xml:space="preserve">
     <value>tabPage3</value>
@@ -6213,8 +6210,8 @@
   <data name="label3.ToolTip" xml:space="preserve">
     <value />
   </data>
-  <data name="&gt;&gt;groupBox3.Type" xml:space="preserve">
-    <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="menuStrip1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>1188, 28</value>
   </data>
   <data name="indentLabel.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>4, 0, 4, 0</value>
@@ -6240,17 +6237,23 @@
   <data name="&gt;&gt;outputImageTab.Parent" xml:space="preserve">
     <value>$this</value>
   </data>
+  <data name="unitsLabel2.Text" xml:space="preserve">
+    <value>palce</value>
+  </data>
   <data name="&gt;&gt;toolStrip1.Name" xml:space="preserve">
     <value>toolStrip1</value>
   </data>
   <data name="&gt;&gt;columnHeader3.Name" xml:space="preserve">
     <value>columnHeader3</value>
   </data>
+  <data name="&gt;&gt;groupBox6.Name" xml:space="preserve">
+    <value>groupBox6</value>
+  </data>
   <data name="maxPicsUnderLenLabel.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
-  <data name="indentLabel.Text" xml:space="preserve">
-    <value>Indentation</value>
+  <data name="unitsLabel.Text" xml:space="preserve">
+    <value>palce</value>
   </data>
   <data name="&gt;&gt;zavřítToolStripMenuItem.Name" xml:space="preserve">
     <value>zavřítToolStripMenuItem</value>
@@ -6264,8 +6267,8 @@
   <data name="interlaceProgressBar.ToolTip" xml:space="preserve">
     <value />
   </data>
-  <data name="addPicButton.TabIndex" type="System.Int32, mscorlib">
-    <value>6</value>
+  <data name="&gt;&gt;separatorLabel.Name" xml:space="preserve">
+    <value>separatorLabel</value>
   </data>
   <data name="bottomLineLabel.Location" type="System.Drawing.Point, System.Drawing">
     <value>11, 48</value>
@@ -6275,9 +6278,6 @@
   </data>
   <data name="&gt;&gt;bottomLineLabel.ZOrder" xml:space="preserve">
     <value>6</value>
-  </data>
-  <data name="copyPicButton.Size" type="System.Drawing.Size, System.Drawing">
-    <value>45, 42</value>
   </data>
   <data name="&gt;&gt;button8.Name" xml:space="preserve">
     <value>button8</value>
@@ -6294,8 +6294,8 @@
   <data name="&gt;&gt;frameWidthNumeric.Parent" xml:space="preserve">
     <value>groupBox10</value>
   </data>
-  <data name="verticalRadiobutton.Text" xml:space="preserve">
-    <value>Vertical</value>
+  <data name="keepRatioCheckbox.ToolTip" xml:space="preserve">
+    <value />
   </data>
   <data name="&gt;&gt;infoFilenameLabel.Type" xml:space="preserve">
     <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
@@ -6303,14 +6303,14 @@
   <data name="&gt;&gt;label4.Name" xml:space="preserve">
     <value>label4</value>
   </data>
-  <data name="&gt;&gt;separatorLabel.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
   <data name="addPicButton.Location" type="System.Drawing.Point, System.Drawing">
     <value>16, 261</value>
   </data>
   <data name="centerRadioButton.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>4, 4, 4, 4</value>
+  </data>
+  <data name="$this.Text" xml:space="preserve">
+    <value>Interlacer</value>
   </data>
   <data name="removePicButton.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -6369,8 +6369,8 @@
         wT3AOBbe6rLnjRxdDER+6ifauM1oKy9ntJWXM9rKyxcS/wE0M+amriGObgAAAABJRU5ErkJggg==
 </value>
   </data>
-  <data name="&gt;&gt;groupBox5.Name" xml:space="preserve">
-    <value>groupBox5</value>
+  <data name="$this.MinimumSize" type="System.Drawing.Size, System.Drawing">
+    <value>1194, 603</value>
   </data>
   <data name="groupBox13.Text" xml:space="preserve">
     <value>Images under lenticule</value>
@@ -6390,9 +6390,6 @@
   <data name="label2.Location" type="System.Drawing.Point, System.Drawing">
     <value>31, 64</value>
   </data>
-  <data name="heightInPixelsLabel.Size" type="System.Drawing.Size, System.Drawing">
-    <value>49, 17</value>
-  </data>
   <data name="groupBox7.Location" type="System.Drawing.Point, System.Drawing">
     <value>825, 458</value>
   </data>
@@ -6405,14 +6402,14 @@
   <data name="&gt;&gt;nastaeníToolStripMenuItem.Name" xml:space="preserve">
     <value>nastaeníToolStripMenuItem</value>
   </data>
-  <data name="&gt;&gt;interpol1ComboBox.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ComboBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
   <data name="&gt;&gt;interpol1ComboBox.Name" xml:space="preserve">
     <value>interpol1ComboBox</value>
   </data>
   <data name="previewPicBox.ToolTip" xml:space="preserve">
     <value />
+  </data>
+  <data name="&gt;&gt;lpiLabel.ZOrder" xml:space="preserve">
+    <value>4</value>
   </data>
   <data name="heightInPixelsLabel.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
@@ -6435,9 +6432,6 @@
   <data name="previewPicBox.SizeMode" type="System.Windows.Forms.PictureBoxSizeMode, System.Windows.Forms">
     <value>Zoom</value>
   </data>
-  <data name="copyCountLabel.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
   <data name="keepRatioCheckbox.TabIndex" type="System.Int32, mscorlib">
     <value>2</value>
   </data>
@@ -6447,14 +6441,36 @@
   <data name="infoDpiLabel.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
   </data>
-  <data name="&gt;&gt;clearAllButton.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
   <data name="removePicButton.ToolTip" xml:space="preserve">
     <value>Remove image</value>
   </data>
   <data name="addPicButton.BackgroundImageLayout" type="System.Windows.Forms.ImageLayout, System.Windows.Forms">
     <value>Stretch</value>
+  </data>
+  <data name="moveUpButton.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAAABGdBTUEAALGPC/xhBQAAABl0RVh0U29m
+        dHdhcmUAQWRvYmUgSW1hZ2VSZWFkeXHJZTwAAARZSURBVHhe7Zr9ShRRGMa9hL0EL8lL8BL8J6KoWMII
+        +lKkTwoNC/oiNkJIMlhKkqBEDSyjEFs1P4r2Eqb3iTPL2eMzO+drZ0eYF34gO++87/Pszjlz5jhDVVRR
+        RRVVVNG/mJr7WRNGhAmhKbSFJAMcQw5ycU5NlTleAeHCqNAQmFEXUAO1yv9lQKRQF3r9yr6gJmqX84sQ
+        YWNKJBMfE/QYU20HHyJmWFhR4ooEPYeVjMGECMBEVcSvngV6jyg5xYY0xsTERA2CUSWrmJCGM4aAMjCj
+        5PU3pBEmOyagDPT3SpAGGPOssRNPFneSja2DpP33z3/wNz5juR70Z06Qwpjtgya86YVW8mljv2PcBMeQ
+        w851ABrj3x2kqPet7vZ8K3m7tpccHP6mxnWQg1ycw2pZsqJkxwkp6D3uG0s7yfZevnETnINzWU1L4iyW
+        pBCWt86X/oPmdtc49wU1UIv1YEy+3Ezq0++TE5NzbSF82SxFsf6mzRi4dHuNc19QM29YjM9+TE5OvYL5
+        lLqy4RdS1OnXX1j+ZTXOfUFt9DD7Xn72JTl147VuPCXsKpDiVqs9XKI+49wX9ELPay++J2fuNJlxHf+1
+        gZizep53Mf/5R/a80OuYSWt3n5llNJQdtxBjuPypYR0sYJhAk83tw85ihx0HaT3ksuMm1x+/Y4YZ7sNA
+        xFit+vK+ADZuWR7Qc2zmE4cvwH11KCKwL9clKousIbC0zhc0LBeYeTh3cbVFc7dau8xoFhPKln2IAGxO
+        HhHFMCdB3Lt7LWl1Izp6Du7nuK3BwPi9hWTt62YnD+avzOZOfjpNZcs+RITz4sd2+aqb1kmPX3y0at7P
+        Q2krW/ahC44NMw9wP7e4rXmhbNkHEx4LZh4w4bFQtuyDCY8FMw+Y8FgoW/bBhMeCmQdMeCyULftgwmNw
+        9fk3ah4w4bFQtuyDiQ9Be0yl5oEpOibKln2I6KDtL50LD5e7bmvMPNAFR8brNmi9EMoi6zGVmQdmXkS8
+        FkLWS2GTvMdUZh6w3Eh4LYWdt8Axzs/f/8AEdMHMA5YbCa+HIavH4RSX5SszD1huJPx2hcRY7oYIxvnp
+        W29Y00yYecByI+C3IYIQg5lbYhjn5+5aP493wcwDlhuBoC2xI5ui+mOqL8w8YLmBhG+Ni+nOtjjGecbu
+        qxPMPGC5gYRtiyPEeO3S0/V2zMdUZh6w3ADi/GMEIYXGtMLBMPOA5QYQ9z0iKbhiNPCGmQfY+mL5Hriv
+        /PJCig4LuKxYQyf0/b0UfMZyPYDG/rw8JYVHtEbenL053/Ul4G98xnI96O9LU9Jg1GhYJop5WUoazRiN
+        y0AxL0mlIQ3LdCUU+5pcGtIYc0KUidET9B7Mi5JpiADcHZpKUJHgtjzYV2X1EDFYLBVxNaBHeV6W1kOE
+        1YS6EsnEh4CaqB1nedvPgEgBk2RDYGZcQA3UKr9xFhAuYLKcEDBX9Lo6cAw5yMU5x9N0FVVUUUUVxyKG
+        hv4BPa0/iaI2jCAAAAAASUVORK5CYII=
+</value>
   </data>
   <data name="groupBox5.Location" type="System.Drawing.Point, System.Drawing">
     <value>340, 197</value>
@@ -6462,11 +6478,8 @@
   <data name="&gt;&gt;actualPicsUnderLenLabel.Parent" xml:space="preserve">
     <value>groupBox13</value>
   </data>
-  <data name="heightInPixelsTextBox.Location" type="System.Drawing.Point, System.Drawing">
-    <value>192, 23</value>
-  </data>
-  <data name="leftLinelabel.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
+  <data name="&gt;&gt;clearAllButton.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="groupBox9.ToolTip" xml:space="preserve">
     <value />
@@ -6483,11 +6496,14 @@
   <data name="label2.Size" type="System.Drawing.Size, System.Drawing">
     <value>34, 17</value>
   </data>
+  <data name="maxPicsUnderLenLabel.ToolTip" xml:space="preserve">
+    <value />
+  </data>
   <data name="widthInPixelsLabel.Location" type="System.Drawing.Point, System.Drawing">
     <value>8, 28</value>
   </data>
-  <data name="dpiLabel.Text" xml:space="preserve">
-    <value>DPI</value>
+  <data name="groupBox4.TabIndex" type="System.Int32, mscorlib">
+    <value>3</value>
   </data>
   <data name="&gt;&gt;linePictureBox.Type" xml:space="preserve">
     <value>System.Windows.Forms.PictureBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
@@ -6498,32 +6514,23 @@
   <data name="&gt;&gt;centerRadioButton.ZOrder" xml:space="preserve">
     <value>1</value>
   </data>
-  <data name="infoHeightLabel.Size" type="System.Drawing.Size, System.Drawing">
-    <value>38, 17</value>
-  </data>
   <data name="načtiToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
     <value>114, 24</value>
   </data>
   <data name="&gt;&gt;label5.Parent" xml:space="preserve">
     <value>tabPage1</value>
   </data>
-  <data name="&gt;&gt;copyCountNumeric.Parent" xml:space="preserve">
-    <value>tabPage1</value>
-  </data>
   <data name="&gt;&gt;infoDpiLabel.Parent" xml:space="preserve">
     <value>groupBox7</value>
   </data>
-  <data name="&gt;&gt;infoFilenameLabel.ZOrder" xml:space="preserve">
-    <value>3</value>
-  </data>
-  <data name="&gt;&gt;lineColorButton.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="&gt;&gt;columnHeader4.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ColumnHeader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="separatorLabel.Location" type="System.Drawing.Point, System.Drawing">
     <value>101, 25</value>
   </data>
-  <data name="outputImageTab.Size" type="System.Drawing.Size, System.Drawing">
-    <value>683, 607</value>
+  <data name="verticalRadiobutton.Text" xml:space="preserve">
+    <value>Vertical</value>
   </data>
   <data name="copyCountLabel.Size" type="System.Drawing.Size, System.Drawing">
     <value>77, 17</value>
@@ -6546,8 +6553,8 @@
   <data name="&gt;&gt;tabPage3.Parent" xml:space="preserve">
     <value>outputImageTab</value>
   </data>
-  <data name="&gt;&gt;dpiLabel.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="imagePreviewCheckBox.TabIndex" type="System.Int32, mscorlib">
+    <value>3</value>
   </data>
   <data name="tabPage1.ToolTip" xml:space="preserve">
     <value />
@@ -6555,11 +6562,11 @@
   <data name="&gt;&gt;rightLineLabel.ZOrder" xml:space="preserve">
     <value>4</value>
   </data>
-  <data name="interlaceButton.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>4, 4, 4, 4</value>
+  <data name="edgeRadioButton.ToolTip" xml:space="preserve">
+    <value />
   </data>
-  <data name="&gt;&gt;currentStateLabel.Name" xml:space="preserve">
-    <value>currentStateLabel</value>
+  <data name="frameWidthNumeric.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>4, 4, 4, 4</value>
   </data>
   <data name="moveUpButton.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
@@ -6569,9 +6576,6 @@
   </data>
   <data name="groupBox11.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>4, 4, 4, 4</value>
-  </data>
-  <data name="interlaceButton.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-    <value>Bottom, Left</value>
   </data>
   <data name="&gt;&gt;addPicButton.Name" xml:space="preserve">
     <value>addPicButton</value>
@@ -6609,8 +6613,8 @@
   <data name="pictureListViewEx.Size" type="System.Drawing.Size, System.Drawing">
     <value>639, 256</value>
   </data>
-  <data name="&gt;&gt;outputImageTab.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TabControl, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="&gt;&gt;horizontalRadiobutton.Parent" xml:space="preserve">
+    <value>groupBox5</value>
   </data>
   <data name="&gt;&gt;groupBox9.ZOrder" xml:space="preserve">
     <value>5</value>
@@ -6627,8 +6631,8 @@
   <data name="&gt;&gt;interlaceButton.ZOrder" xml:space="preserve">
     <value>4</value>
   </data>
-  <data name="unitsLabel2.Text" xml:space="preserve">
-    <value>palce</value>
+  <data name="edgeRadioButton.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>4, 4, 4, 4</value>
   </data>
   <data name="lineBackgroundColorLabel.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>4, 0, 4, 0</value>
@@ -6642,8 +6646,11 @@
   <data name="&gt;&gt;savePicFileDialog.Name" xml:space="preserve">
     <value>savePicFileDialog</value>
   </data>
-  <data name="unitsLabel4.ToolTip" xml:space="preserve">
-    <value />
+  <data name="interlaceButton.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Bottom, Left</value>
+  </data>
+  <data name="topLineLabel.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
   </data>
   <data name="groupBox9.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>4, 4, 4, 4</value>
@@ -6675,8 +6682,8 @@
   <data name="groupBox11.ToolTip" xml:space="preserve">
     <value />
   </data>
-  <data name="groupBox3.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>4, 4, 4, 4</value>
+  <data name="label5.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>4, 0, 4, 0</value>
   </data>
   <data name="&gt;&gt;leftLineCheckBox.Name" xml:space="preserve">
     <value>leftLineCheckBox</value>
@@ -6699,9 +6706,6 @@
   <data name="heightLabel.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
   </data>
-  <data name="&gt;&gt;groupBox12.Parent" xml:space="preserve">
-    <value>tabPage3</value>
-  </data>
   <data name="&gt;&gt;label5.ZOrder" xml:space="preserve">
     <value>17</value>
   </data>
@@ -6717,8 +6721,8 @@
   <data name="widthLabel.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
   </data>
-  <data name="&gt;&gt;verticalRadiobutton.ZOrder" xml:space="preserve">
-    <value>0</value>
+  <data name="infoWidthLabel.ToolTip" xml:space="preserve">
+    <value />
   </data>
   <data name="groupBox12.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>4, 4, 4, 4</value>
@@ -6738,23 +6742,32 @@
   <data name="separatorLabel.Size" type="System.Drawing.Size, System.Drawing">
     <value>12, 17</value>
   </data>
-  <data name="currentStateLabel.TabIndex" type="System.Int32, mscorlib">
-    <value>18</value>
+  <data name="picUnderLenLabel.ToolTip" xml:space="preserve">
+    <value />
   </data>
   <data name="groupBox4.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>4, 4, 4, 4</value>
   </data>
-  <data name="&gt;&gt;widthInPixelsTextBox.ZOrder" xml:space="preserve">
-    <value>1</value>
+  <data name="&gt;&gt;label3.Name" xml:space="preserve">
+    <value>label3</value>
   </data>
-  <data name="indentLabel.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
+  <data name="unitsLabel4.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>4, 0, 4, 0</value>
   </data>
-  <data name="clearAllButton.ToolTip" xml:space="preserve">
-    <value>Clear list of images</value>
+  <data name="&gt;&gt;groupBox4.ZOrder" xml:space="preserve">
+    <value>15</value>
+  </data>
+  <data name="&gt;&gt;backgroundColorButton.ZOrder" xml:space="preserve">
+    <value>0</value>
   </data>
   <data name="&gt;&gt;interlaceProgressBar.Type" xml:space="preserve">
     <value>System.Windows.Forms.ProgressBar, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;label2.ZOrder" xml:space="preserve">
+    <value>6</value>
+  </data>
+  <data name="infoWidthLabel.TabIndex" type="System.Int32, mscorlib">
+    <value>6</value>
   </data>
   <data name="&gt;&gt;widthInPixelsLabel.Parent" xml:space="preserve">
     <value>groupBox6</value>
@@ -6794,8 +6807,8 @@
   <data name="columnHeader3.Text" xml:space="preserve">
     <value>Pořadí</value>
   </data>
-  <data name="&gt;&gt;groupBox4.ZOrder" xml:space="preserve">
-    <value>15</value>
+  <data name="lpiLabel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>28, 17</value>
   </data>
   <data name="moveUpButton.Location" type="System.Drawing.Point, System.Drawing">
     <value>400, 261</value>
@@ -6821,11 +6834,14 @@
   <data name="leftLinelabel.Location" type="System.Drawing.Point, System.Drawing">
     <value>11, 73</value>
   </data>
-  <data name="edgeRadioButton.AutoSize" type="System.Boolean, mscorlib">
+  <data name="label2.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
   <data name="groupBox5.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>4, 4, 4, 4</value>
+  </data>
+  <data name="&gt;&gt;souborMenuItem.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="groupBox11.Text" xml:space="preserve">
     <value>Line position under lenticule</value>
@@ -6845,8 +6861,8 @@
   <data name="&gt;&gt;groupBox7.ZOrder" xml:space="preserve">
     <value>5</value>
   </data>
-  <data name="&gt;&gt;label5.Name" xml:space="preserve">
-    <value>label5</value>
+  <data name="button8.Size" type="System.Drawing.Size, System.Drawing">
+    <value>45, 42</value>
   </data>
   <data name="tabPage1.Size" type="System.Drawing.Size, System.Drawing">
     <value>675, 578</value>
@@ -6857,8 +6873,8 @@
   <data name="infoDpiLabel.TabIndex" type="System.Int32, mscorlib">
     <value>5</value>
   </data>
-  <data name="lineBackgroundColorLabel.TabIndex" type="System.Int32, mscorlib">
-    <value>1</value>
+  <data name="clearAllButton.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
   </data>
   <data name="interlaceButton.Text" xml:space="preserve">
     <value>Interlace</value>
@@ -6884,6 +6900,9 @@
   <data name="&gt;&gt;revertButton.Name" xml:space="preserve">
     <value>revertButton</value>
   </data>
+  <data name="groupBox10.Size" type="System.Drawing.Size, System.Drawing">
+    <value>253, 91</value>
+  </data>
   <data name="&gt;&gt;indentLabel.ZOrder" xml:space="preserve">
     <value>4</value>
   </data>
@@ -6893,14 +6912,14 @@
   <data name="interpol1ComboBox.Location" type="System.Drawing.Point, System.Drawing">
     <value>12, 25</value>
   </data>
-  <data name="pathHeader.Width" type="System.Int32, mscorlib">
-    <value>346</value>
+  <data name="actualPicsUnderLenLabel.Location" type="System.Drawing.Point, System.Drawing">
+    <value>76, 25</value>
   </data>
   <data name="&gt;&gt;removePicButton.Parent" xml:space="preserve">
     <value>tabPage1</value>
   </data>
-  <data name="groupBox6.TabIndex" type="System.Int32, mscorlib">
-    <value>4</value>
+  <data name="&gt;&gt;moveDownButton.Name" xml:space="preserve">
+    <value>moveDownButton</value>
   </data>
   <data name="separatorLabel.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
@@ -6929,6 +6948,9 @@
   <data name="groupBox7.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>4, 4, 4, 4</value>
   </data>
+  <data name="rightLineCheckBox.TabIndex" type="System.Int32, mscorlib">
+    <value>6</value>
+  </data>
   <data name="widthInPixelsTextBox.Enabled" type="System.Boolean, mscorlib">
     <value>False</value>
   </data>
@@ -6953,17 +6975,20 @@
   <data name="&gt;&gt;interpol2ComboBox.ZOrder" xml:space="preserve">
     <value>0</value>
   </data>
-  <data name="&gt;&gt;clearAllButton.Name" xml:space="preserve">
-    <value>clearAllButton</value>
+  <data name="addPicButton.TabIndex" type="System.Int32, mscorlib">
+    <value>6</value>
   </data>
-  <data name="indentLabel.Size" type="System.Drawing.Size, System.Drawing">
-    <value>78, 17</value>
+  <data name="groupBox1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>316, 60</value>
   </data>
   <data name="&gt;&gt;unitsLabel.Parent" xml:space="preserve">
     <value>groupBox2</value>
   </data>
-  <data name="removePicButton.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>4, 4, 4, 4</value>
+  <data name="outputImageTab.AccessibleName" xml:space="preserve">
+    <value />
+  </data>
+  <data name="infoHeightLabel.Location" type="System.Drawing.Point, System.Drawing">
+    <value>193, 106</value>
   </data>
   <data name="&gt;&gt;linePictureBox.ZOrder" xml:space="preserve">
     <value>6</value>
@@ -7058,8 +7083,8 @@
   <data name="moveDownButton.Location" type="System.Drawing.Point, System.Drawing">
     <value>453, 261</value>
   </data>
-  <data name="copyCountLabel.Location" type="System.Drawing.Point, System.Drawing">
-    <value>176, 261</value>
+  <data name="&gt;&gt;groupBox12.Parent" xml:space="preserve">
+    <value>tabPage3</value>
   </data>
   <data name="heightLabel.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -7070,8 +7095,8 @@
   <data name="bottomLineCheckBox.ToolTip" xml:space="preserve">
     <value />
   </data>
-  <data name="&gt;&gt;copyCountLabel.ZOrder" xml:space="preserve">
-    <value>0</value>
+  <data name="&gt;&gt;separatorLabel.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="columnHeader2.Width" type="System.Int32, mscorlib">
     <value>92</value>
@@ -7088,17 +7113,17 @@
   <data name="tabPage3.Text" xml:space="preserve">
     <value>Alignment lines</value>
   </data>
-  <data name="&gt;&gt;label2.ZOrder" xml:space="preserve">
-    <value>6</value>
+  <data name="&gt;&gt;topLineLabel.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="groupBox10.Size" type="System.Drawing.Size, System.Drawing">
-    <value>253, 91</value>
+  <data name="indentLabel.Text" xml:space="preserve">
+    <value>Indentation</value>
   </data>
-  <data name="&gt;&gt;oProgramuToolStripMenuItem.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="unitsLabel4.Text" xml:space="preserve">
+    <value>label1</value>
   </data>
-  <data name="&gt;&gt;label3.Name" xml:space="preserve">
-    <value>label3</value>
+  <data name="pictureListViewEx.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Top, Bottom, Left</value>
   </data>
   <data name="&gt;&gt;groupBox12.Name" xml:space="preserve">
     <value>groupBox12</value>
@@ -7127,14 +7152,14 @@
   <data name="&gt;&gt;menuStrip1.Type" xml:space="preserve">
     <value>System.Windows.Forms.MenuStrip, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="zavřítToolStripMenuItem.Text" xml:space="preserve">
-    <value>Close</value>
+  <data name="&gt;&gt;widthInPixelsTextBox.ZOrder" xml:space="preserve">
+    <value>1</value>
   </data>
   <data name="dpiNumeric.ToolTip" xml:space="preserve">
     <value />
   </data>
-  <data name="groupBox4.Size" type="System.Drawing.Size, System.Drawing">
-    <value>316, 60</value>
+  <data name="copyPicButton.Size" type="System.Drawing.Size, System.Drawing">
+    <value>45, 42</value>
   </data>
   <data name="&gt;&gt;actualPicsUnderLenLabel.ZOrder" xml:space="preserve">
     <value>2</value>
@@ -7157,11 +7182,8 @@
   <data name="imagePreviewCheckBox.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
-  <data name="$this.AutoScaleDimensions" type="System.Drawing.SizeF, System.Drawing">
-    <value>8, 16</value>
-  </data>
-  <data name="&gt;&gt;topLineLabel.ZOrder" xml:space="preserve">
-    <value>7</value>
+  <data name="&gt;&gt;pictureListViewEx.Type" xml:space="preserve">
+    <value>Bol.WinControls.ListViewEx, DragAndDropListView, Version=1.0.1409.28887, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;widthNumeric.Name" xml:space="preserve">
     <value>widthNumeric</value>
@@ -7174,6 +7196,9 @@
   </data>
   <data name="picUnderLenTextBox.TabIndex" type="System.Int32, mscorlib">
     <value>3</value>
+  </data>
+  <data name="lineThicknessTrackbar.ToolTip" xml:space="preserve">
+    <value />
   </data>
   <data name="interlaceProgressBar.Size" type="System.Drawing.Size, System.Drawing">
     <value>347, 36</value>
@@ -7190,8 +7215,8 @@
   <data name="unitsLabel3.Size" type="System.Drawing.Size, System.Drawing">
     <value>46, 17</value>
   </data>
-  <data name="currentStateLabel.Size" type="System.Drawing.Size, System.Drawing">
-    <value>99, 17</value>
+  <data name="&gt;&gt;rightLineCheckBox.ZOrder" xml:space="preserve">
+    <value>1</value>
   </data>
   <data name="groupBox5.Size" type="System.Drawing.Size, System.Drawing">
     <value>316, 60</value>
@@ -7199,8 +7224,8 @@
   <data name="&gt;&gt;topLineCheckBox.ZOrder" xml:space="preserve">
     <value>3</value>
   </data>
-  <data name="infoWidthLabel.TabIndex" type="System.Int32, mscorlib">
-    <value>6</value>
+  <data name="groupBox12.Text" xml:space="preserve">
+    <value>Lines color and bg</value>
   </data>
   <data name="columnHeader4.Width" type="System.Int32, mscorlib">
     <value>385</value>
@@ -7208,29 +7233,29 @@
   <data name="&gt;&gt;picUnderLenTextBox.Parent" xml:space="preserve">
     <value>groupBox3</value>
   </data>
-  <data name="rightLineCheckBox.TabIndex" type="System.Int32, mscorlib">
-    <value>6</value>
+  <data name="backgroundColorButton.ToolTip" xml:space="preserve">
+    <value />
   </data>
-  <data name="copyCountNumeric.Location" type="System.Drawing.Point, System.Drawing">
-    <value>175, 280</value>
+  <data name="groupBox6.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>4, 4, 4, 4</value>
   </data>
   <data name="indentLabel.Location" type="System.Drawing.Point, System.Drawing">
     <value>8, 57</value>
   </data>
-  <data name="&gt;&gt;dpiLabel.Parent" xml:space="preserve">
-    <value>groupBox3</value>
+  <data name="picUnderLenLabel.Text" xml:space="preserve">
+    <value>Images under lenticule</value>
   </data>
   <data name="button8.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>4, 4, 4, 4</value>
   </data>
-  <data name="label2.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
+  <data name="lineBackgroundColorLabel.Location" type="System.Drawing.Point, System.Drawing">
+    <value>8, 69</value>
   </data>
-  <data name="groupBox9.Location" type="System.Drawing.Point, System.Drawing">
-    <value>16, 187</value>
+  <data name="groupBox2.Location" type="System.Drawing.Point, System.Drawing">
+    <value>16, 16</value>
   </data>
-  <data name="maxPicsUnderLenLabel.ToolTip" xml:space="preserve">
-    <value />
+  <data name="&gt;&gt;indentNumeric.Name" xml:space="preserve">
+    <value>indentNumeric</value>
   </data>
   <data name="uložToolStripMenuItem.Text" xml:space="preserve">
     <value>Save</value>
@@ -7244,8 +7269,8 @@
   <data name="&gt;&gt;lpiLabel.Type" xml:space="preserve">
     <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="imagePreviewCheckBox.Text" xml:space="preserve">
-    <value>Preview</value>
+  <data name="&gt;&gt;interpol1ComboBox.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ComboBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="groupBox8.Location" type="System.Drawing.Point, System.Drawing">
     <value>277, 16</value>
@@ -7271,8 +7296,8 @@
   <data name="&gt;&gt;lpiNumeric.Type" xml:space="preserve">
     <value>System.Windows.Forms.NumericUpDown, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="keepRatioCheckbox.ToolTip" xml:space="preserve">
-    <value />
+  <data name="&gt;&gt;topLineLabel.Name" xml:space="preserve">
+    <value>topLineLabel</value>
   </data>
   <data name="&gt;&gt;infoWidthLabel.Name" xml:space="preserve">
     <value>infoWidthLabel</value>
@@ -7304,8 +7329,8 @@
   <data name="&gt;&gt;addPicButton.Parent" xml:space="preserve">
     <value>tabPage1</value>
   </data>
-  <data name="infoHeightLabel.Location" type="System.Drawing.Point, System.Drawing">
-    <value>193, 106</value>
+  <data name="&gt;&gt;copyCountNumeric.Parent" xml:space="preserve">
+    <value>tabPage1</value>
   </data>
   <data name="rightLineCheckBox.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>4, 4, 4, 4</value>
@@ -7322,11 +7347,11 @@
   <data name="&gt;&gt;columnHeader2.Type" xml:space="preserve">
     <value>System.Windows.Forms.ColumnHeader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;tabPage3.Name" xml:space="preserve">
-    <value>tabPage3</value>
+  <data name="label3.Size" type="System.Drawing.Size, System.Drawing">
+    <value>102, 17</value>
   </data>
-  <data name="groupBox1.ToolTip" xml:space="preserve">
-    <value />
+  <data name="tabPage3.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>4, 4, 4, 4</value>
   </data>
   <data name="label2.Text" xml:space="preserve">
     <value>DPI:</value>
@@ -7340,8 +7365,8 @@
   <data name="imagePreviewCheckBox.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Bottom, Right</value>
   </data>
-  <data name="topLineLabel.TabIndex" type="System.Int32, mscorlib">
-    <value>0</value>
+  <data name="revertButton.BackgroundImageLayout" type="System.Windows.Forms.ImageLayout, System.Windows.Forms">
+    <value>Stretch</value>
   </data>
   <data name="nahrajToolStripButton.ImageTransparentColor" type="System.Drawing.Color, System.Drawing">
     <value>Magenta</value>
@@ -7355,8 +7380,8 @@
   <data name="keepRatioCheckbox.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>4, 4, 4, 4</value>
   </data>
-  <data name="&gt;&gt;lpiLabel.ZOrder" xml:space="preserve">
-    <value>4</value>
+  <data name="&gt;&gt;heightInPixelsLabel.ZOrder" xml:space="preserve">
+    <value>2</value>
   </data>
   <data name="groupBox5.ToolTip" xml:space="preserve">
     <value />
@@ -7408,17 +7433,14 @@
         vqPKfK9SiiIAAAAASUVORK5CYII=
 </value>
   </data>
-  <data name="&gt;&gt;addPicFileDialog.Type" xml:space="preserve">
-    <value>System.Windows.Forms.OpenFileDialog, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="unitsLabel4.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
   </data>
   <data name="&gt;&gt;frameWidthLabel.Parent" xml:space="preserve">
     <value>groupBox10</value>
   </data>
-  <data name="lineThicknessTrackbar.ToolTip" xml:space="preserve">
-    <value />
-  </data>
-  <data name="interpol2ComboBox.Location" type="System.Drawing.Point, System.Drawing">
-    <value>12, 25</value>
+  <data name="lineColorButton.TabIndex" type="System.Int32, mscorlib">
+    <value>2</value>
   </data>
   <data name="groupBox10.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>4, 4, 4, 4</value>
@@ -7426,8 +7448,8 @@
   <data name="&gt;&gt;imagePreviewCheckBox.ZOrder" xml:space="preserve">
     <value>0</value>
   </data>
-  <data name="&gt;&gt;souborMenuItem.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="&gt;&gt;widthInPixelsLabel.Name" xml:space="preserve">
+    <value>widthInPixelsLabel</value>
   </data>
   <data name="groupBox2.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>4, 4, 4, 4</value>
@@ -7444,7 +7466,7 @@
   <data name="tabPage1.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>4, 4, 4, 4</value>
   </data>
-  <data name="&gt;&gt;previewPicBox.ZOrder" xml:space="preserve">
+  <data name="&gt;&gt;infoFilenameLabel.ZOrder" xml:space="preserve">
     <value>3</value>
   </data>
   <data name="currentStateLabel.AutoSize" type="System.Boolean, mscorlib">
@@ -7459,8 +7481,8 @@
   <data name="&gt;&gt;leftLineCheckBox.Parent" xml:space="preserve">
     <value>groupBox8</value>
   </data>
-  <data name="&gt;&gt;groupBox6.Name" xml:space="preserve">
-    <value>groupBox6</value>
+  <data name="&gt;&gt;topLineLabel.ZOrder" xml:space="preserve">
+    <value>7</value>
   </data>
   <data name="centerRadioButton.ToolTip" xml:space="preserve">
     <value />
@@ -7474,6 +7496,9 @@
   <data name="lpiLabel.Location" type="System.Drawing.Point, System.Drawing">
     <value>8, 65</value>
   </data>
+  <data name="lpiNumeric.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
   <data name="&gt;&gt;unitsLabel3.Type" xml:space="preserve">
     <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
@@ -7486,8 +7511,8 @@
   <data name="groupBox3.ToolTip" xml:space="preserve">
     <value />
   </data>
-  <data name="&gt;&gt;dpiNumeric.Type" xml:space="preserve">
-    <value>System.Windows.Forms.NumericUpDown, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="widthLabel.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
   </data>
   <data name="unitsLabel4.Size" type="System.Drawing.Size, System.Drawing">
     <value>46, 17</value>
@@ -7507,30 +7532,8 @@
   <data name="picUnderLenLabel.Location" type="System.Drawing.Point, System.Drawing">
     <value>155, 30</value>
   </data>
-  <data name="moveUpButton.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAAABGdBTUEAALGPC/xhBQAAABl0RVh0U29m
-        dHdhcmUAQWRvYmUgSW1hZ2VSZWFkeXHJZTwAAARZSURBVHhe7Zr9ShRRGMa9hL0EL8lL8BL8J6KoWMII
-        +lKkTwoNC/oiNkJIMlhKkqBEDSyjEFs1P4r2Eqb3iTPL2eMzO+drZ0eYF34gO++87/Pszjlz5jhDVVRR
-        RRVVVNG/mJr7WRNGhAmhKbSFJAMcQw5ycU5NlTleAeHCqNAQmFEXUAO1yv9lQKRQF3r9yr6gJmqX84sQ
-        YWNKJBMfE/QYU20HHyJmWFhR4ooEPYeVjMGECMBEVcSvngV6jyg5xYY0xsTERA2CUSWrmJCGM4aAMjCj
-        5PU3pBEmOyagDPT3SpAGGPOssRNPFneSja2DpP33z3/wNz5juR70Z06Qwpjtgya86YVW8mljv2PcBMeQ
-        w851ABrj3x2kqPet7vZ8K3m7tpccHP6mxnWQg1ycw2pZsqJkxwkp6D3uG0s7yfZevnETnINzWU1L4iyW
-        pBCWt86X/oPmdtc49wU1UIv1YEy+3Ezq0++TE5NzbSF82SxFsf6mzRi4dHuNc19QM29YjM9+TE5OvYL5
-        lLqy4RdS1OnXX1j+ZTXOfUFt9DD7Xn72JTl147VuPCXsKpDiVqs9XKI+49wX9ELPay++J2fuNJlxHf+1
-        gZizep53Mf/5R/a80OuYSWt3n5llNJQdtxBjuPypYR0sYJhAk83tw85ihx0HaT3ksuMm1x+/Y4YZ7sNA
-        xFit+vK+ADZuWR7Qc2zmE4cvwH11KCKwL9clKousIbC0zhc0LBeYeTh3cbVFc7dau8xoFhPKln2IAGxO
-        HhHFMCdB3Lt7LWl1Izp6Du7nuK3BwPi9hWTt62YnD+avzOZOfjpNZcs+RITz4sd2+aqb1kmPX3y0at7P
-        Q2krW/ahC44NMw9wP7e4rXmhbNkHEx4LZh4w4bFQtuyDCY8FMw+Y8FgoW/bBhMeCmQdMeCyULftgwmNw
-        9fk3ah4w4bFQtuyDiQ9Be0yl5oEpOibKln2I6KDtL50LD5e7bmvMPNAFR8brNmi9EMoi6zGVmQdmXkS8
-        FkLWS2GTvMdUZh6w3Eh4LYWdt8Axzs/f/8AEdMHMA5YbCa+HIavH4RSX5SszD1huJPx2hcRY7oYIxvnp
-        W29Y00yYecByI+C3IYIQg5lbYhjn5+5aP493wcwDlhuBoC2xI5ui+mOqL8w8YLmBhG+Ni+nOtjjGecbu
-        qxPMPGC5gYRtiyPEeO3S0/V2zMdUZh6w3ADi/GMEIYXGtMLBMPOA5QYQ9z0iKbhiNPCGmQfY+mL5Hriv
-        /PJCig4LuKxYQyf0/b0UfMZyPYDG/rw8JYVHtEbenL053/Ul4G98xnI96O9LU9Jg1GhYJop5WUoazRiN
-        y0AxL0mlIQ3LdCUU+5pcGtIYc0KUidET9B7Mi5JpiADcHZpKUJHgtjzYV2X1EDFYLBVxNaBHeV6W1kOE
-        1YS6EsnEh4CaqB1nedvPgEgBk2RDYGZcQA3UKr9xFhAuYLKcEDBX9Lo6cAw5yMU5x9N0FVVUUUUVxyKG
-        hv4BPa0/iaI2jCAAAAAASUVORK5CYII=
-</value>
+  <data name="&gt;&gt;removePicButton.Name" xml:space="preserve">
+    <value>removePicButton</value>
   </data>
   <data name="moveDownButton.BackgroundImageLayout" type="System.Windows.Forms.ImageLayout, System.Windows.Forms">
     <value>Stretch</value>
@@ -7544,8 +7547,8 @@
   <data name="&gt;&gt;heightLabel.Type" xml:space="preserve">
     <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="$this.Text" xml:space="preserve">
-    <value>Interlacer</value>
+  <data name="infoHeightLabel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>38, 17</value>
   </data>
   <data name="unitsLabel4.TabIndex" type="System.Int32, mscorlib">
     <value>7</value>
@@ -7565,20 +7568,17 @@
   <data name="unitsLabel.ToolTip" xml:space="preserve">
     <value />
   </data>
+  <data name="&gt;&gt;bottomLineLabel.Name" xml:space="preserve">
+    <value>bottomLineLabel</value>
+  </data>
   <data name="rightLineLabel.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
-  <data name="bottomLineCheckBox.AutoSize" type="System.Boolean, mscorlib">
+  <data name="leftLinelabel.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
-  <data name="button8.TabIndex" type="System.Int32, mscorlib">
-    <value>13</value>
-  </data>
-  <data name="interlaceProgressBar.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-    <value>Bottom, Left, Right</value>
-  </data>
-  <data name="&gt;&gt;bottomLineLabel.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="interpol2ComboBox.Location" type="System.Drawing.Point, System.Drawing">
+    <value>12, 25</value>
   </data>
   <data name="&gt;&gt;infoHeightLabel.Type" xml:space="preserve">
     <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
@@ -7589,8 +7589,8 @@
   <data name="&gt;&gt;imagePreviewCheckBox.Name" xml:space="preserve">
     <value>imagePreviewCheckBox</value>
   </data>
-  <data name="moveUpButton.ToolTip" xml:space="preserve">
-    <value />
+  <data name="orderHeader.Width" type="System.Int32, mscorlib">
+    <value>83</value>
   </data>
   <data name="načtiToolStripMenuItem.Text" xml:space="preserve">
     <value>Load</value>
@@ -7601,8 +7601,8 @@
   <data name="&gt;&gt;lineColorLabel.ZOrder" xml:space="preserve">
     <value>3</value>
   </data>
-  <data name="currentStateLabel.Text" xml:space="preserve">
-    <value>Current Status</value>
+  <data name="&gt;&gt;backgroundColorButton.Parent" xml:space="preserve">
+    <value>groupBox12</value>
   </data>
   <data name="&gt;&gt;groupBox6.ZOrder" xml:space="preserve">
     <value>13</value>
@@ -7628,11 +7628,11 @@
   <data name="&gt;&gt;groupBox8.ZOrder" xml:space="preserve">
     <value>3</value>
   </data>
-  <data name="menuStrip1.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>8, 2, 0, 2</value>
+  <data name="interlaceButton.ToolTip" xml:space="preserve">
+    <value>Start interlacing process</value>
   </data>
-  <data name="&gt;&gt;columnHeader1.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ColumnHeader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="&gt;&gt;widthInPixelsLabel.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;unitsLabel4.ZOrder" xml:space="preserve">
     <value>0</value>
@@ -7655,8 +7655,8 @@
   <data name="bottomLineCheckBox.Location" type="System.Drawing.Point, System.Drawing">
     <value>75, 49</value>
   </data>
-  <data name="&gt;&gt;separatorLabel.Name" xml:space="preserve">
-    <value>separatorLabel</value>
+  <data name="&gt;&gt;lineColorLabel.Parent" xml:space="preserve">
+    <value>groupBox12</value>
   </data>
   <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>

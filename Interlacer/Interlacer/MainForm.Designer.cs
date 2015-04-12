@@ -1040,7 +1040,7 @@
             // reorderTimer
             // 
             this.reorderTimer.Enabled = true;
-            this.reorderTimer.Interval = 500;
+            this.reorderTimer.Interval = 10;
             this.reorderTimer.Tick += new System.EventHandler(this.reorderTimer_Tick);
             // 
             // savePicFileDialog

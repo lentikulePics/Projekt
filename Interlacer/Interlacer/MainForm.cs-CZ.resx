@@ -202,6 +202,9 @@
         TgDQASA1MVpwzwAAAABJRU5ErkJggg==
 </value>
   </data>
+  <data name="tabPage1.Text" xml:space="preserve">
+    <value>Výstupní obrázek</value>
+  </data>
   <data name="button8.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABGdBTUEAALGPC/xhBQAABANJREFUSEvl
@@ -487,6 +490,15 @@
   <data name="groupBox3.Text" xml:space="preserve">
     <value>Rozlišení obrázku</value>
   </data>
+  <data name="picUnderLenLabel.Text" xml:space="preserve">
+    <value>Snímků pod lentikulí</value>
+  </data>
+  <data name="groupBox5.Location" type="System.Drawing.Point, System.Drawing">
+    <value>340, 193</value>
+  </data>
+  <data name="groupBox5.Text" xml:space="preserve">
+    <value>Směr prokládání</value>
+  </data>
   <data name="verticalRadiobutton.Size" type="System.Drawing.Size, System.Drawing">
     <value>87, 21</value>
   </data>
@@ -499,11 +511,8 @@
   <data name="horizontalRadiobutton.Text" xml:space="preserve">
     <value>Horizontální</value>
   </data>
-  <data name="groupBox5.Location" type="System.Drawing.Point, System.Drawing">
-    <value>340, 193</value>
-  </data>
-  <data name="groupBox5.Text" xml:space="preserve">
-    <value>Směr prokládání</value>
+  <data name="groupBox6.Text" xml:space="preserve">
+    <value>Rozlišení výstupu v pixelech</value>
   </data>
   <data name="heightInPixelsLabel.Size" type="System.Drawing.Size, System.Drawing">
     <value>46, 17</value>
@@ -517,26 +526,8 @@
   <data name="widthInPixelsLabel.Text" xml:space="preserve">
     <value>Šířka</value>
   </data>
-  <data name="groupBox6.Text" xml:space="preserve">
-    <value>Rozlišení výstupu v pixelech</value>
-  </data>
   <data name="groupBox2.Text" xml:space="preserve">
     <value>Rozměry výstupního obrázku</value>
-  </data>
-  <data name="groupBox4.Text" xml:space="preserve">
-    <value>Interpolační algoritmus 2</value>
-  </data>
-  <data name="groupBox1.Text" xml:space="preserve">
-    <value>Interpolační algoritmus 1</value>
-  </data>
-  <data name="tabPage1.Text" xml:space="preserve">
-    <value>Výstupní obrázek</value>
-  </data>
-  <data name="tabPage3.Text" xml:space="preserve">
-    <value>Vodící čáry</value>
-  </data>
-  <data name="picUnderLenLabel.Text" xml:space="preserve">
-    <value>Snímků pod lentikulí</value>
   </data>
   <data name="heightLabel.Size" type="System.Drawing.Size, System.Drawing">
     <value>46, 17</value>
@@ -552,6 +543,15 @@
   </data>
   <data name="keepRatioCheckbox.Text" xml:space="preserve">
     <value>Zachovat poměr stran</value>
+  </data>
+  <data name="groupBox4.Text" xml:space="preserve">
+    <value>Interpolační algoritmus 2</value>
+  </data>
+  <data name="groupBox1.Text" xml:space="preserve">
+    <value>Interpolační algoritmus 1</value>
+  </data>
+  <data name="tabPage3.Text" xml:space="preserve">
+    <value>Vodící čáry</value>
   </data>
   <data name="groupBox13.Text" xml:space="preserve">
     <value>Obsazeno snímků pod lentikulí</value>

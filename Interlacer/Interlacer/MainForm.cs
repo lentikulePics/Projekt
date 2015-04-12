@@ -27,7 +27,7 @@ namespace Interlacer
         public MainForm()
         {
             InitializeComponent();
-
+            reorderTimer.Stop();
             Localization.changeCulture();
             Localization.iterateOverControls(this, Localization.resourcesMain);
 
@@ -214,12 +214,32 @@ namespace Interlacer
             Invalidate();
         }
 
+        private Boolean checkExtension(String name)
+        {
+            String[] split = name.Split('.');
+            int lastIndex = split.Length - 1;
+
+            if (split[lastIndex].Equals("jpg") || split[lastIndex].Equals("png") || split[lastIndex].Equals("bmp") || split[lastIndex].Equals("tif"))
+            {
+                return true;
+            }
+
+            return false;
+        }
+
         private void interlaceButton_Click(object sender, EventArgs e)
         {
             String filename;
-            if (savePicFileDialog.ShowDialog() == DialogResult.OK)
+            savePicFileDialog.Filter = "JPEG|*.jpg;*.jpeg|PNG|*.png|BMP|*.bmp|TIF|*.tif";
+            savePicFileDialog.AddExtension = true;
+            if (savePicFileDialog.ShowDialog() == DialogResult.OK) {
+                
+
                 filename = savePicFileDialog.FileName;
-            else return;
+            } else return;
+
+            if (checkExtension(filename))
+                savePicFileDialog.AddExtension = false;
 
             List<Picture> picList = harvestPicList();
             if (picList.Count == 0)
@@ -298,6 +318,9 @@ namespace Interlacer
         private void addPicButton_Click(object sender, EventArgs e)
         {
             addPicFileDialog.Multiselect = true;
+            addPicFileDialog.Filter = "Image Files (*.jpeg, *.jpg, *.png, *.bmp, *.tif)|*.jpeg;*.jpg;*.png;*.bmp;*.tif";
+            addPicFileDialog.FilterIndex = 1;
+
             DialogResult result = addPicFileDialog.ShowDialog();
 
             if (result == DialogResult.OK)
@@ -519,7 +542,8 @@ namespace Interlacer
 
         private void reorderTimer_Tick(object sender, EventArgs e)
         {
-            //reOrder();
+            reorder();
+            reorderTimer.Stop();
         }
              
         private void pictureListViewEx_ItemSelectionChanged(object sender, ListViewItemSelectionChangedEventArgs e)
@@ -668,9 +692,7 @@ namespace Interlacer
                 {
                     for (int j = 0; j < Convert.ToInt32(copyCountNumeric.Value); j++)
                     {
-                        ListViewItem.ListViewSubItem item = pictureListViewEx.Items.Insert(indeces[i] + 1, Convert.ToString(order)).
-                            SubItems.Add(new ListViewItem.ListViewSubItem());
-                        item.Text = pictureListViewEx.Items[indeces[i]].SubItems[1].Text;
+                        pictureListViewEx.Items.Insert(indeces[i] + 1, Convert.ToString(order)).SubItems.Add(pictureListViewEx.Items[indeces[i]].SubItems[1]);
                         //.SubItems.Add(chosenPictures[i])
                     }
                 }
@@ -738,6 +760,7 @@ namespace Interlacer
             
             //e.Effect = DragDropEffects.All;
             //reOrder();
+            reorderTimer.Start();
         }
 
         private void copyCountNumeric_ValueChanged(object sender, EventArgs e)
