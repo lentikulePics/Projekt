@@ -339,6 +339,14 @@
             
             </summary>
         </member>
+        <member name="M:Interlacer.MainForm.MainForm_DragDrop(System.Object,System.Windows.Forms.DragEventArgs)">
+            <summary>
+            Po dokonceni drag and dropu se zkontroluji koncovky cest k souborum,
+            do listu se pridaji pouze pokud maji platny format (jpg, bmp, tiff, png)
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
         <member name="F:Interlacer.MainForm.components">
             <summary>
             Required designer variable.
@@ -549,6 +557,21 @@
               resource lookups using this strongly typed resource class.
             </summary>
         </member>
+        <member name="P:Interlacer.StringRes_CZ.addPicTooltip">
+            <summary>
+              Looks up a localized string similar to Přidat.
+            </summary>
+        </member>
+        <member name="P:Interlacer.StringRes_CZ.clearAllTooltip">
+            <summary>
+              Looks up a localized string similar to Vymazat vše.
+            </summary>
+        </member>
+        <member name="P:Interlacer.StringRes_CZ.copyPicTooltip">
+            <summary>
+              Looks up a localized string similar to Kopírovat.
+            </summary>
+        </member>
         <member name="P:Interlacer.StringRes_CZ.filterCubic">
             <summary>
               Looks up a localized string similar to Kubický.
@@ -579,6 +602,36 @@
               Looks up a localized string similar to Angličtina.
             </summary>
         </member>
+        <member name="P:Interlacer.StringRes_CZ.moveDownTooltip">
+            <summary>
+              Looks up a localized string similar to Posunout o jeden dolů.
+            </summary>
+        </member>
+        <member name="P:Interlacer.StringRes_CZ.moveUpTooltip">
+            <summary>
+              Looks up a localized string similar to Posunout o jeden nahoru.
+            </summary>
+        </member>
+        <member name="P:Interlacer.StringRes_CZ.orderListView">
+            <summary>
+              Looks up a localized string similar to Pořadí.
+            </summary>
+        </member>
+        <member name="P:Interlacer.StringRes_CZ.pathListView">
+            <summary>
+              Looks up a localized string similar to Cesta.
+            </summary>
+        </member>
+        <member name="P:Interlacer.StringRes_CZ.removePicTooltip">
+            <summary>
+              Looks up a localized string similar to Odebrat.
+            </summary>
+        </member>
+        <member name="P:Interlacer.StringRes_CZ.revertTooltip">
+            <summary>
+              Looks up a localized string similar to Otočit list obrázků.
+            </summary>
+        </member>
         <member name="P:Interlacer.StringRes_CZ.unitsInches">
             <summary>
               Looks up a localized string similar to palce.
@@ -598,6 +651,21 @@
             <summary>
               Overrides the current thread's CurrentUICulture property for all
               resource lookups using this strongly typed resource class.
+            </summary>
+        </member>
+        <member name="P:Interlacer.StringRes_EN.addPicTooltip">
+            <summary>
+              Looks up a localized string similar to Add.
+            </summary>
+        </member>
+        <member name="P:Interlacer.StringRes_EN.clearAllTooltip">
+            <summary>
+              Looks up a localized string similar to Clear all.
+            </summary>
+        </member>
+        <member name="P:Interlacer.StringRes_EN.copyPicTooltip">
+            <summary>
+              Looks up a localized string similar to Copy.
             </summary>
         </member>
         <member name="P:Interlacer.StringRes_EN.filterCubic">
@@ -628,6 +696,36 @@
         <member name="P:Interlacer.StringRes_EN.langEnglish">
             <summary>
               Looks up a localized string similar to English.
+            </summary>
+        </member>
+        <member name="P:Interlacer.StringRes_EN.moveDownTooltip">
+            <summary>
+              Looks up a localized string similar to Move down.
+            </summary>
+        </member>
+        <member name="P:Interlacer.StringRes_EN.moveUpTooltip">
+            <summary>
+              Looks up a localized string similar to Move up.
+            </summary>
+        </member>
+        <member name="P:Interlacer.StringRes_EN.orderListView">
+            <summary>
+              Looks up a localized string similar to Order.
+            </summary>
+        </member>
+        <member name="P:Interlacer.StringRes_EN.pathListView">
+            <summary>
+              Looks up a localized string similar to Path.
+            </summary>
+        </member>
+        <member name="P:Interlacer.StringRes_EN.removePicTooltip">
+            <summary>
+              Looks up a localized string similar to Remove.
+            </summary>
+        </member>
+        <member name="P:Interlacer.StringRes_EN.revertTooltip">
+            <summary>
+              Looks up a localized string similar to Reverse list.
             </summary>
         </member>
         <member name="P:Interlacer.StringRes_EN.unitsInches">

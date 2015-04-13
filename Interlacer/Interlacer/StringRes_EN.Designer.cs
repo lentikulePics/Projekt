@@ -61,6 +61,33 @@ namespace Interlacer {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Add.
+        /// </summary>
+        internal static string addPicTooltip {
+            get {
+                return ResourceManager.GetString("addPicTooltip", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Clear all.
+        /// </summary>
+        internal static string clearAllTooltip {
+            get {
+                return ResourceManager.GetString("clearAllTooltip", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Copy.
+        /// </summary>
+        internal static string copyPicTooltip {
+            get {
+                return ResourceManager.GetString("copyPicTooltip", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Cubic.
         /// </summary>
         internal static string filterCubic {
@@ -111,6 +138,60 @@ namespace Interlacer {
         internal static string langEnglish {
             get {
                 return ResourceManager.GetString("langEnglish", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Move down.
+        /// </summary>
+        internal static string moveDownTooltip {
+            get {
+                return ResourceManager.GetString("moveDownTooltip", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Move up.
+        /// </summary>
+        internal static string moveUpTooltip {
+            get {
+                return ResourceManager.GetString("moveUpTooltip", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Order.
+        /// </summary>
+        internal static string orderListView {
+            get {
+                return ResourceManager.GetString("orderListView", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Path.
+        /// </summary>
+        internal static string pathListView {
+            get {
+                return ResourceManager.GetString("pathListView", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Remove.
+        /// </summary>
+        internal static string removePicTooltip {
+            get {
+                return ResourceManager.GetString("removePicTooltip", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Reverse list.
+        /// </summary>
+        internal static string revertTooltip {
+            get {
+                return ResourceManager.GetString("revertTooltip", resourceCulture);
             }
         }
         

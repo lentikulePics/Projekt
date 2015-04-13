@@ -10,6 +10,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using GfxlibWrapper;
+using System.IO;
 
 namespace Interlacer
 {
@@ -22,7 +23,8 @@ namespace Interlacer
         private ProjectData projectData = new ProjectData();
         private PreviewData previewData;
         private PictureInfoData infoData = new PictureInfoData();
-        
+
+        private ToolTip t = new ToolTip();        
 
         public MainForm()
         {
@@ -122,8 +124,22 @@ namespace Interlacer
             interpol1ComboBox.SelectedItem = interpol1ComboBox.Items[0];
             interpol2ComboBox.SelectedItem = interpol2ComboBox.Items[0];
 
-        }
+            //Nastavi tooltipy
+           
+            t.SetToolTip(addPicButton, Localization.resourcesStrings.GetString("addPicTooltip"));
+            t.SetToolTip(removePicButton, Localization.resourcesStrings.GetString("removePicTooltip"));
+            t.SetToolTip(copyPicButton, Localization.resourcesStrings.GetString("copyPicTooltip"));
+            t.SetToolTip(moveUpButton, Localization.resourcesStrings.GetString("moveUpTooltip"));
+            t.SetToolTip(moveDownButton, Localization.resourcesStrings.GetString("moveDownTooltip"));
+            t.SetToolTip(clearAllButton, Localization.resourcesStrings.GetString("clearAllTooltip"));
+            t.SetToolTip(revertButton, Localization.resourcesStrings.GetString("revertTooltip"));
 
+            // Nastaveni sloupcu listview
+            pictureListViewEx.Columns[0].Text = Localization.resourcesStrings.GetString("orderListView");
+            pictureListViewEx.Columns[1].Text = Localization.resourcesStrings.GetString("pathListView");
+
+
+        }
         private void setPreview()
         {
             try
@@ -724,7 +740,12 @@ namespace Interlacer
                 e.Effect = DragDropEffects.None;
             }
         }
-
+        /// <summary>
+        /// Po dokonceni drag and dropu se zkontroluji koncovky cest k souborum,
+        /// do listu se pridaji pouze pokud maji platny format (jpg, bmp, tiff, png)
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void MainForm_DragDrop(object sender, DragEventArgs e)
         {
            if (e.Data.GetDataPresent(DataFormats.FileDrop))
@@ -733,14 +754,41 @@ namespace Interlacer
                 int lastIndnex = pictureListViewEx.Items.Count;
 
                 //MessageBox.Show(lastIndnex+"");
-
-                for (int i = 0; i < filePaths.Length; i++)
+                foreach (string path in filePaths)
                 {
-                    pictureListViewEx.Items.Add(Convert.ToString(order)).SubItems.Add(filePaths[i]);
-                    order++;
+                    bool valid = isExtensionValid(path);
+                    if (valid)
+                    {
+                        pictureListViewEx.Items.Add(Convert.ToString(order)).SubItems.Add(path);
+                        order++;
+                    }
+                    else
+                    {
+                        e.Effect = DragDropEffects.None;
+                    }
+
+                    
                 }
                 reorder();
             }
+        }
+
+        private bool isExtensionValid(String path)
+        {
+            if (Path.GetExtension(path) == ".jpg" ||
+                Path.GetExtension(path) == ".JPG" ||
+                Path.GetExtension(path) == ".jpeg" ||
+                Path.GetExtension(path) == ".JPEG" ||
+                Path.GetExtension(path) == ".png" ||
+                Path.GetExtension(path) == ".PNG" ||
+                Path.GetExtension(path) == ".bmp" ||
+                Path.GetExtension(path) == ".BMP" ||
+                Path.GetExtension(path) == ".tiff" ||
+                Path.GetExtension(path) == ".TIFF")
+            {
+                return true;
+            }               
+            return false;
         }
 
         private void pictureListViewEx_DragEnter(object sender, DragEventArgs e)

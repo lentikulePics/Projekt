@@ -61,6 +61,33 @@ namespace Interlacer {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Přidat.
+        /// </summary>
+        internal static string addPicTooltip {
+            get {
+                return ResourceManager.GetString("addPicTooltip", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Vymazat vše.
+        /// </summary>
+        internal static string clearAllTooltip {
+            get {
+                return ResourceManager.GetString("clearAllTooltip", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Kopírovat.
+        /// </summary>
+        internal static string copyPicTooltip {
+            get {
+                return ResourceManager.GetString("copyPicTooltip", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Kubický.
         /// </summary>
         internal static string filterCubic {
@@ -111,6 +138,60 @@ namespace Interlacer {
         internal static string langEnglish {
             get {
                 return ResourceManager.GetString("langEnglish", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Posunout o jeden dolů.
+        /// </summary>
+        internal static string moveDownTooltip {
+            get {
+                return ResourceManager.GetString("moveDownTooltip", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Posunout o jeden nahoru.
+        /// </summary>
+        internal static string moveUpTooltip {
+            get {
+                return ResourceManager.GetString("moveUpTooltip", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Pořadí.
+        /// </summary>
+        internal static string orderListView {
+            get {
+                return ResourceManager.GetString("orderListView", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Cesta.
+        /// </summary>
+        internal static string pathListView {
+            get {
+                return ResourceManager.GetString("pathListView", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Odebrat.
+        /// </summary>
+        internal static string removePicTooltip {
+            get {
+                return ResourceManager.GetString("removePicTooltip", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Otočit list obrázků.
+        /// </summary>
+        internal static string revertTooltip {
+            get {
+                return ResourceManager.GetString("revertTooltip", resourceCulture);
             }
         }
         
