@@ -88,6 +88,15 @@ namespace Interlacer {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to List of images is empty.
+        /// </summary>
+        internal static string emptyListError {
+            get {
+                return ResourceManager.GetString("emptyListError", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Cubic.
         /// </summary>
         internal static string filterCubic {
@@ -124,6 +133,24 @@ namespace Interlacer {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Image dimensions differ. Do you want to crop them to minimum width and minimum height?.
+        /// </summary>
+        internal static string imageDimensionError {
+            get {
+                return ResourceManager.GetString("imageDimensionError", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Interlacing failed. Check interlacing parameters..
+        /// </summary>
+        internal static string interlacingError {
+            get {
+                return ResourceManager.GetString("interlacingError", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Czech.
         /// </summary>
         internal static string langCzech {
@@ -138,6 +165,15 @@ namespace Interlacer {
         internal static string langEnglish {
             get {
                 return ResourceManager.GetString("langEnglish", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Not enough memory..
+        /// </summary>
+        internal static string memoryError {
+            get {
+                return ResourceManager.GetString("memoryError", resourceCulture);
             }
         }
         
@@ -174,6 +210,15 @@ namespace Interlacer {
         internal static string pathListView {
             get {
                 return ResourceManager.GetString("pathListView", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Preview could not be created.
+        /// </summary>
+        internal static string previewError {
+            get {
+                return ResourceManager.GetString("previewError", resourceCulture);
             }
         }
         

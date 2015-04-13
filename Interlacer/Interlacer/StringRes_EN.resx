@@ -126,6 +126,9 @@
   <data name="copyPicTooltip" xml:space="preserve">
     <value>Copy</value>
   </data>
+  <data name="emptyListError" xml:space="preserve">
+    <value>List of images is empty</value>
+  </data>
   <data name="filterCubic" xml:space="preserve">
     <value>Cubic</value>
   </data>
@@ -138,11 +141,20 @@
   <data name="filterNearestNeighbor" xml:space="preserve">
     <value>Nearest neighbor</value>
   </data>
+  <data name="imageDimensionError" xml:space="preserve">
+    <value>Image dimensions differ. Do you want to crop them to minimum width and minimum height?</value>
+  </data>
+  <data name="interlacingError" xml:space="preserve">
+    <value>Interlacing failed. Check interlacing parameters.</value>
+  </data>
   <data name="langCzech" xml:space="preserve">
     <value>Czech</value>
   </data>
   <data name="langEnglish" xml:space="preserve">
     <value>English</value>
+  </data>
+  <data name="memoryError" xml:space="preserve">
+    <value>Not enough memory.</value>
   </data>
   <data name="moveDownTooltip" xml:space="preserve">
     <value>Move down</value>
@@ -155,6 +167,9 @@
   </data>
   <data name="pathListView" xml:space="preserve">
     <value>Path</value>
+  </data>
+  <data name="previewError" xml:space="preserve">
+    <value>Preview could not be created</value>
   </data>
   <data name="removePicTooltip" xml:space="preserve">
     <value>Remove</value>

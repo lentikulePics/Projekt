@@ -51,6 +51,7 @@ namespace Interlacer
             changeUnits();
 
             pictureListViewEx.MultiSelect = true;
+
         }
 
         /// <summary>
@@ -150,7 +151,7 @@ namespace Interlacer
             }
             catch
             {
-                MessageBox.Show("Náhled se nepodařilo vytvořit!");
+                MessageBox.Show(Localization.resourcesStrings.GetString("previewError"));
                 previewData.ShowDefaultImage();
             }
         }
@@ -250,7 +251,7 @@ namespace Interlacer
             List<Picture> picList = harvestPicList();
             if (picList.Count == 0)
             {
-                MessageBox.Show("Seznam obrázků je prázdný.");
+                MessageBox.Show(Localization.resourcesStrings.GetString("emptyListError"));
                 return;
             }
             PictureContainer picCon = new PictureContainer(picList, projectData.GetInterlacingData(), projectData.GetLineData(), interlaceProgressBar);
@@ -258,8 +259,7 @@ namespace Interlacer
             {
                 if (!picCon.CheckPictures())
                 {
-                    DialogResult dialogResult = MessageBox.Show("Obrázky nejsou stejně velké." + 
-                        "\nChcete je oříznout na nejmenší šířku a nejmenší výšku?", "", MessageBoxButtons.YesNo);
+                    DialogResult dialogResult = MessageBox.Show(Localization.resourcesStrings.GetString("imageDimensionError"), "", MessageBoxButtons.YesNo);
                     if (dialogResult == DialogResult.No)
                         return;
                 }
@@ -279,14 +279,13 @@ namespace Interlacer
             }
             catch (OutOfMemoryException)
             {
-                MessageBox.Show("Aplikace nemá k dispozici dostatek operační paměti.");
+                MessageBox.Show(Localization.resourcesStrings.GetString("memoryError"));
                 interlaceProgressBar.Value = 0;
                 return;
             }
             catch (PictureProcessException)
             {
-                MessageBox.Show("Prokládání selhalo.\nPravděpodobnou příčinou je chybné nastavení prokládacích parametrů." +
-                    "\nZkontrolujte, zda některý z parametrů není nulový, příliš malý či příliš velký.");
+                MessageBox.Show(Localization.resourcesStrings.GetString("interlacingError"));
                 interlaceProgressBar.Value = 0;
                 return;
             }
@@ -765,9 +764,7 @@ namespace Interlacer
                     else
                     {
                         e.Effect = DragDropEffects.None;
-                    }
-
-                    
+                    }                    
                 }
                 reorder();
             }

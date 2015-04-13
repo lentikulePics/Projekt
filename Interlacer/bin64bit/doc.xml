@@ -572,6 +572,11 @@
               Looks up a localized string similar to Kopírovat.
             </summary>
         </member>
+        <member name="P:Interlacer.StringRes_CZ.emptyListError">
+            <summary>
+              Looks up a localized string similar to Seznam obrázků je prázdný..
+            </summary>
+        </member>
         <member name="P:Interlacer.StringRes_CZ.filterCubic">
             <summary>
               Looks up a localized string similar to Kubický.
@@ -584,12 +589,22 @@
         </member>
         <member name="P:Interlacer.StringRes_CZ.filterLinear">
             <summary>
-              Looks up a localized string similar to Lieární.
+              Looks up a localized string similar to Lineární.
             </summary>
         </member>
         <member name="P:Interlacer.StringRes_CZ.filterNearestNeighbor">
             <summary>
               Looks up a localized string similar to Nejbližší soused.
+            </summary>
+        </member>
+        <member name="P:Interlacer.StringRes_CZ.imageDimensionError">
+            <summary>
+              Looks up a localized string similar to Obrázky nejsou stejně velké. Chcete je oříznout na nejmenší šířku a nejmenší výšku?.
+            </summary>
+        </member>
+        <member name="P:Interlacer.StringRes_CZ.interlacingError">
+            <summary>
+              Looks up a localized string similar to Prokládání selhalo. Pravděpodobnou příčinou je chybné nastavení prokládacích parametrů. Zkontrolujte, zda některý z parametrů není nulový, příliš malý či příliš velký..
             </summary>
         </member>
         <member name="P:Interlacer.StringRes_CZ.langCzech">
@@ -600,6 +615,11 @@
         <member name="P:Interlacer.StringRes_CZ.langEnglish">
             <summary>
               Looks up a localized string similar to Angličtina.
+            </summary>
+        </member>
+        <member name="P:Interlacer.StringRes_CZ.memoryError">
+            <summary>
+              Looks up a localized string similar to Aplikace nemá k dispozici dostatek operační paměti..
             </summary>
         </member>
         <member name="P:Interlacer.StringRes_CZ.moveDownTooltip">
@@ -620,6 +640,11 @@
         <member name="P:Interlacer.StringRes_CZ.pathListView">
             <summary>
               Looks up a localized string similar to Cesta.
+            </summary>
+        </member>
+        <member name="P:Interlacer.StringRes_CZ.previewError">
+            <summary>
+              Looks up a localized string similar to Náhled se nepodařilo vytvořit..
             </summary>
         </member>
         <member name="P:Interlacer.StringRes_CZ.removePicTooltip">
@@ -668,6 +693,11 @@
               Looks up a localized string similar to Copy.
             </summary>
         </member>
+        <member name="P:Interlacer.StringRes_EN.emptyListError">
+            <summary>
+              Looks up a localized string similar to List of images is empty.
+            </summary>
+        </member>
         <member name="P:Interlacer.StringRes_EN.filterCubic">
             <summary>
               Looks up a localized string similar to Cubic.
@@ -688,6 +718,16 @@
               Looks up a localized string similar to Nearest neighbor.
             </summary>
         </member>
+        <member name="P:Interlacer.StringRes_EN.imageDimensionError">
+            <summary>
+              Looks up a localized string similar to Image dimensions differ. Do you want to crop them to minimum width and minimum height?.
+            </summary>
+        </member>
+        <member name="P:Interlacer.StringRes_EN.interlacingError">
+            <summary>
+              Looks up a localized string similar to Interlacing failed. Check interlacing parameters..
+            </summary>
+        </member>
         <member name="P:Interlacer.StringRes_EN.langCzech">
             <summary>
               Looks up a localized string similar to Czech.
@@ -696,6 +736,11 @@
         <member name="P:Interlacer.StringRes_EN.langEnglish">
             <summary>
               Looks up a localized string similar to English.
+            </summary>
+        </member>
+        <member name="P:Interlacer.StringRes_EN.memoryError">
+            <summary>
+              Looks up a localized string similar to Not enough memory..
             </summary>
         </member>
         <member name="P:Interlacer.StringRes_EN.moveDownTooltip">
@@ -716,6 +761,11 @@
         <member name="P:Interlacer.StringRes_EN.pathListView">
             <summary>
               Looks up a localized string similar to Path.
+            </summary>
+        </member>
+        <member name="P:Interlacer.StringRes_EN.previewError">
+            <summary>
+              Looks up a localized string similar to Preview could not be created.
             </summary>
         </member>
         <member name="P:Interlacer.StringRes_EN.removePicTooltip">

@@ -126,6 +126,9 @@
   <data name="copyPicTooltip" xml:space="preserve">
     <value>Kopírovat</value>
   </data>
+  <data name="emptyListError" xml:space="preserve">
+    <value>Seznam obrázků je prázdný.</value>
+  </data>
   <data name="filterCubic" xml:space="preserve">
     <value>Kubický</value>
   </data>
@@ -133,16 +136,25 @@
     <value>Lanczos</value>
   </data>
   <data name="filterLinear" xml:space="preserve">
-    <value>Lieární</value>
+    <value>Lineární</value>
   </data>
   <data name="filterNearestNeighbor" xml:space="preserve">
     <value>Nejbližší soused</value>
+  </data>
+  <data name="imageDimensionError" xml:space="preserve">
+    <value>Obrázky nejsou stejně velké. Chcete je oříznout na nejmenší šířku a nejmenší výšku?</value>
+  </data>
+  <data name="interlacingError" xml:space="preserve">
+    <value>Prokládání selhalo. Pravděpodobnou příčinou je chybné nastavení prokládacích parametrů. Zkontrolujte, zda některý z parametrů není nulový, příliš malý či příliš velký.</value>
   </data>
   <data name="langCzech" xml:space="preserve">
     <value>Čeština</value>
   </data>
   <data name="langEnglish" xml:space="preserve">
     <value>Angličtina</value>
+  </data>
+  <data name="memoryError" xml:space="preserve">
+    <value>Aplikace nemá k dispozici dostatek operační paměti.</value>
   </data>
   <data name="moveDownTooltip" xml:space="preserve">
     <value>Posunout o jeden dolů</value>
@@ -155,6 +167,9 @@
   </data>
   <data name="pathListView" xml:space="preserve">
     <value>Cesta</value>
+  </data>
+  <data name="previewError" xml:space="preserve">
+    <value>Náhled se nepodařilo vytvořit.</value>
   </data>
   <data name="removePicTooltip" xml:space="preserve">
     <value>Odebrat</value>

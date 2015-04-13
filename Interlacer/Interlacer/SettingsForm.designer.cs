@@ -55,26 +55,24 @@
             // 
             // panel1
             // 
-            resources.ApplyResources(this.panel1, "panel1");
             this.panel1.Controls.Add(this.cancelButton);
             this.panel1.Controls.Add(this.applyButton);
             this.panel1.Controls.Add(this.okButton);
+            resources.ApplyResources(this.panel1, "panel1");
             this.panel1.Name = "panel1";
-            this.toolTip1.SetToolTip(this.panel1, resources.GetString("panel1.ToolTip"));
+            this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             // 
             // cancelButton
             // 
-            resources.ApplyResources(this.cancelButton, "cancelButton");
             this.cancelButton.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            resources.ApplyResources(this.cancelButton, "cancelButton");
             this.cancelButton.Name = "cancelButton";
-            this.toolTip1.SetToolTip(this.cancelButton, resources.GetString("cancelButton.ToolTip"));
             this.cancelButton.UseVisualStyleBackColor = true;
             // 
             // applyButton
             // 
             resources.ApplyResources(this.applyButton, "applyButton");
             this.applyButton.Name = "applyButton";
-            this.toolTip1.SetToolTip(this.applyButton, resources.GetString("applyButton.ToolTip"));
             this.applyButton.UseVisualStyleBackColor = true;
             this.applyButton.Click += new System.EventHandler(this.applyButton_Click);
             // 
@@ -82,98 +80,86 @@
             // 
             resources.ApplyResources(this.okButton, "okButton");
             this.okButton.Name = "okButton";
-            this.toolTip1.SetToolTip(this.okButton, resources.GetString("okButton.ToolTip"));
             this.okButton.UseVisualStyleBackColor = true;
             this.okButton.Click += new System.EventHandler(this.okButton_Click);
             // 
             // tabControl1
             // 
-            resources.ApplyResources(this.tabControl1, "tabControl1");
             this.tabControl1.Controls.Add(this.generalTab);
             this.tabControl1.Controls.Add(this.advancedTab);
+            resources.ApplyResources(this.tabControl1, "tabControl1");
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.toolTip1.SetToolTip(this.tabControl1, resources.GetString("tabControl1.ToolTip"));
             // 
             // generalTab
             // 
-            resources.ApplyResources(this.generalTab, "generalTab");
             this.generalTab.BackColor = System.Drawing.Color.WhiteSmoke;
             this.generalTab.Controls.Add(this.metricsGroup);
             this.generalTab.Controls.Add(this.languageGroup);
+            resources.ApplyResources(this.generalTab, "generalTab");
             this.generalTab.Name = "generalTab";
-            this.toolTip1.SetToolTip(this.generalTab, resources.GetString("generalTab.ToolTip"));
             // 
             // metricsGroup
             // 
-            resources.ApplyResources(this.metricsGroup, "metricsGroup");
             this.metricsGroup.Controls.Add(this.label3);
             this.metricsGroup.Controls.Add(this.label2);
             this.metricsGroup.Controls.Add(this.comboBox2);
             this.metricsGroup.Controls.Add(this.comboBox1);
+            resources.ApplyResources(this.metricsGroup, "metricsGroup");
             this.metricsGroup.Name = "metricsGroup";
             this.metricsGroup.TabStop = false;
-            this.toolTip1.SetToolTip(this.metricsGroup, resources.GetString("metricsGroup.ToolTip"));
             // 
             // label3
             // 
             resources.ApplyResources(this.label3, "label3");
             this.label3.Name = "label3";
-            this.toolTip1.SetToolTip(this.label3, resources.GetString("label3.ToolTip"));
             this.label3.Click += new System.EventHandler(this.label2_Click);
             // 
             // label2
             // 
             resources.ApplyResources(this.label2, "label2");
             this.label2.Name = "label2";
-            this.toolTip1.SetToolTip(this.label2, resources.GetString("label2.ToolTip"));
             this.label2.Click += new System.EventHandler(this.label2_Click);
             // 
             // comboBox2
             // 
-            resources.ApplyResources(this.comboBox2, "comboBox2");
             this.comboBox2.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBox2.FormattingEnabled = true;
+            resources.ApplyResources(this.comboBox2, "comboBox2");
             this.comboBox2.Name = "comboBox2";
-            this.toolTip1.SetToolTip(this.comboBox2, resources.GetString("comboBox2.ToolTip"));
             // 
             // comboBox1
             // 
-            resources.ApplyResources(this.comboBox1, "comboBox1");
             this.comboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBox1.FormattingEnabled = true;
+            resources.ApplyResources(this.comboBox1, "comboBox1");
             this.comboBox1.Name = "comboBox1";
-            this.toolTip1.SetToolTip(this.comboBox1, resources.GetString("comboBox1.ToolTip"));
             // 
             // languageGroup
             // 
-            resources.ApplyResources(this.languageGroup, "languageGroup");
             this.languageGroup.Controls.Add(this.label1);
             this.languageGroup.Controls.Add(this.languageCombobox);
+            resources.ApplyResources(this.languageGroup, "languageGroup");
             this.languageGroup.Name = "languageGroup";
             this.languageGroup.TabStop = false;
-            this.toolTip1.SetToolTip(this.languageGroup, resources.GetString("languageGroup.ToolTip"));
             // 
             // label1
             // 
             resources.ApplyResources(this.label1, "label1");
             this.label1.Name = "label1";
-            this.toolTip1.SetToolTip(this.label1, resources.GetString("label1.ToolTip"));
             // 
             // languageCombobox
             // 
-            resources.ApplyResources(this.languageCombobox, "languageCombobox");
             this.languageCombobox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.languageCombobox.FormattingEnabled = true;
+            resources.ApplyResources(this.languageCombobox, "languageCombobox");
             this.languageCombobox.Name = "languageCombobox";
-            this.toolTip1.SetToolTip(this.languageCombobox, resources.GetString("languageCombobox.ToolTip"));
             // 
             // advancedTab
             // 
-            resources.ApplyResources(this.advancedTab, "advancedTab");
             this.advancedTab.BackColor = System.Drawing.Color.WhiteSmoke;
+            resources.ApplyResources(this.advancedTab, "advancedTab");
             this.advancedTab.Name = "advancedTab";
-            this.toolTip1.SetToolTip(this.advancedTab, resources.GetString("advancedTab.ToolTip"));
             // 
             // SettingsForm
             // 
@@ -185,7 +171,6 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MaximizeBox = false;
             this.Name = "SettingsForm";
-            this.toolTip1.SetToolTip(this, resources.GetString("$this.ToolTip"));
             this.Load += new System.EventHandler(this.SettingsForm_Load);
             this.panel1.ResumeLayout(false);
             this.tabControl1.ResumeLayout(false);

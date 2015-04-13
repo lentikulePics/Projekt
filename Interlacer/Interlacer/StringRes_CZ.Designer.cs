@@ -88,6 +88,15 @@ namespace Interlacer {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Seznam obrázků je prázdný..
+        /// </summary>
+        internal static string emptyListError {
+            get {
+                return ResourceManager.GetString("emptyListError", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Kubický.
         /// </summary>
         internal static string filterCubic {
@@ -106,7 +115,7 @@ namespace Interlacer {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Lieární.
+        ///   Looks up a localized string similar to Lineární.
         /// </summary>
         internal static string filterLinear {
             get {
@@ -120,6 +129,24 @@ namespace Interlacer {
         internal static string filterNearestNeighbor {
             get {
                 return ResourceManager.GetString("filterNearestNeighbor", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Obrázky nejsou stejně velké. Chcete je oříznout na nejmenší šířku a nejmenší výšku?.
+        /// </summary>
+        internal static string imageDimensionError {
+            get {
+                return ResourceManager.GetString("imageDimensionError", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Prokládání selhalo. Pravděpodobnou příčinou je chybné nastavení prokládacích parametrů. Zkontrolujte, zda některý z parametrů není nulový, příliš malý či příliš velký..
+        /// </summary>
+        internal static string interlacingError {
+            get {
+                return ResourceManager.GetString("interlacingError", resourceCulture);
             }
         }
         
@@ -138,6 +165,15 @@ namespace Interlacer {
         internal static string langEnglish {
             get {
                 return ResourceManager.GetString("langEnglish", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Aplikace nemá k dispozici dostatek operační paměti..
+        /// </summary>
+        internal static string memoryError {
+            get {
+                return ResourceManager.GetString("memoryError", resourceCulture);
             }
         }
         
@@ -174,6 +210,15 @@ namespace Interlacer {
         internal static string pathListView {
             get {
                 return ResourceManager.GetString("pathListView", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Náhled se nepodařilo vytvořit..
+        /// </summary>
+        internal static string previewError {
+            get {
+                return ResourceManager.GetString("previewError", resourceCulture);
             }
         }
         
