@@ -329,7 +329,7 @@
             <param name="destRow">index ciloveho radku tohoto obrazku</param>
             <param name="destXBegin">index pocatecni x souradnice, od ktere se zacne radek kopirovat do tohoto obrazku</param>
         </member>
-        <member name="M:Interlacer.MainForm.updateOptions">
+        <member name="M:Interlacer.MainForm.updateTexts">
             <summary>
             
             </summary>
@@ -338,6 +338,14 @@
             <summary>
             
             </summary>
+        </member>
+        <member name="M:Interlacer.MainForm.MainForm_DragDrop(System.Object,System.Windows.Forms.DragEventArgs)">
+            <summary>
+            Po dokonceni drag and dropu se zkontroluji koncovky cest k souborum,
+            do listu se pridaji pouze pokud maji platny format (jpg, bmp, tiff, png)
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
         </member>
         <member name="F:Interlacer.MainForm.components">
             <summary>
@@ -467,6 +475,23 @@
             </summary>
             <param name="settingOptions">moznosti nastaveni</param>
         </member>
+        <member name="M:Interlacer.Settings.SetToDefault">
+            <summary>
+            nastavi vse na vychozi nastaveni
+            </summary>
+        </member>
+        <member name="M:Interlacer.Settings.Save(System.String)">
+            <summary>
+            ulozi aktualni nastaveni do souboru
+            </summary>
+            <param name="filename">nazev souboru, do ktereho bude nastaveni ulozeno</param>
+        </member>
+        <member name="M:Interlacer.Settings.Load(System.String)">
+            <summary>
+            nacte nastaveni ze souboru
+            </summary>
+            <param name="filename">soubor, ze ktereho ma byt nastaveni nacteno</param>
+        </member>
         <member name="M:Interlacer.Settings.SetSettingOptions(Interlacer.SettingOptions)">
             <summary>
             nastavi moznosti nastaveni
@@ -549,6 +574,26 @@
               resource lookups using this strongly typed resource class.
             </summary>
         </member>
+        <member name="P:Interlacer.StringRes_CZ.addPicTooltip">
+            <summary>
+              Looks up a localized string similar to Přidat.
+            </summary>
+        </member>
+        <member name="P:Interlacer.StringRes_CZ.clearAllTooltip">
+            <summary>
+              Looks up a localized string similar to Vymazat vše.
+            </summary>
+        </member>
+        <member name="P:Interlacer.StringRes_CZ.copyPicTooltip">
+            <summary>
+              Looks up a localized string similar to Kopírovat.
+            </summary>
+        </member>
+        <member name="P:Interlacer.StringRes_CZ.emptyListError">
+            <summary>
+              Looks up a localized string similar to Seznam obrázků je prázdný..
+            </summary>
+        </member>
         <member name="P:Interlacer.StringRes_CZ.filterCubic">
             <summary>
               Looks up a localized string similar to Kubický.
@@ -561,12 +606,22 @@
         </member>
         <member name="P:Interlacer.StringRes_CZ.filterLinear">
             <summary>
-              Looks up a localized string similar to Lieární.
+              Looks up a localized string similar to Lineární.
             </summary>
         </member>
         <member name="P:Interlacer.StringRes_CZ.filterNearestNeighbor">
             <summary>
               Looks up a localized string similar to Nejbližší soused.
+            </summary>
+        </member>
+        <member name="P:Interlacer.StringRes_CZ.imageDimensionError">
+            <summary>
+              Looks up a localized string similar to Obrázky nejsou stejně velké. Chcete je oříznout na nejmenší šířku a nejmenší výšku?.
+            </summary>
+        </member>
+        <member name="P:Interlacer.StringRes_CZ.interlacingError">
+            <summary>
+              Looks up a localized string similar to Prokládání selhalo. Pravděpodobnou příčinou je chybné nastavení prokládacích parametrů. Zkontrolujte, zda některý z parametrů není nulový, příliš malý či příliš velký..
             </summary>
         </member>
         <member name="P:Interlacer.StringRes_CZ.langCzech">
@@ -577,6 +632,46 @@
         <member name="P:Interlacer.StringRes_CZ.langEnglish">
             <summary>
               Looks up a localized string similar to Angličtina.
+            </summary>
+        </member>
+        <member name="P:Interlacer.StringRes_CZ.memoryError">
+            <summary>
+              Looks up a localized string similar to Aplikace nemá k dispozici dostatek operační paměti..
+            </summary>
+        </member>
+        <member name="P:Interlacer.StringRes_CZ.moveDownTooltip">
+            <summary>
+              Looks up a localized string similar to Posunout o jeden dolů.
+            </summary>
+        </member>
+        <member name="P:Interlacer.StringRes_CZ.moveUpTooltip">
+            <summary>
+              Looks up a localized string similar to Posunout o jeden nahoru.
+            </summary>
+        </member>
+        <member name="P:Interlacer.StringRes_CZ.orderListView">
+            <summary>
+              Looks up a localized string similar to Pořadí.
+            </summary>
+        </member>
+        <member name="P:Interlacer.StringRes_CZ.pathListView">
+            <summary>
+              Looks up a localized string similar to Cesta.
+            </summary>
+        </member>
+        <member name="P:Interlacer.StringRes_CZ.previewError">
+            <summary>
+              Looks up a localized string similar to Náhled se nepodařilo vytvořit..
+            </summary>
+        </member>
+        <member name="P:Interlacer.StringRes_CZ.removePicTooltip">
+            <summary>
+              Looks up a localized string similar to Odebrat.
+            </summary>
+        </member>
+        <member name="P:Interlacer.StringRes_CZ.revertTooltip">
+            <summary>
+              Looks up a localized string similar to Otočit list obrázků.
             </summary>
         </member>
         <member name="P:Interlacer.StringRes_CZ.unitsInches">
@@ -600,6 +695,26 @@
               resource lookups using this strongly typed resource class.
             </summary>
         </member>
+        <member name="P:Interlacer.StringRes_EN.addPicTooltip">
+            <summary>
+              Looks up a localized string similar to Add.
+            </summary>
+        </member>
+        <member name="P:Interlacer.StringRes_EN.clearAllTooltip">
+            <summary>
+              Looks up a localized string similar to Clear all.
+            </summary>
+        </member>
+        <member name="P:Interlacer.StringRes_EN.copyPicTooltip">
+            <summary>
+              Looks up a localized string similar to Copy.
+            </summary>
+        </member>
+        <member name="P:Interlacer.StringRes_EN.emptyListError">
+            <summary>
+              Looks up a localized string similar to List of images is empty.
+            </summary>
+        </member>
         <member name="P:Interlacer.StringRes_EN.filterCubic">
             <summary>
               Looks up a localized string similar to Cubic.
@@ -620,6 +735,16 @@
               Looks up a localized string similar to Nearest neighbor.
             </summary>
         </member>
+        <member name="P:Interlacer.StringRes_EN.imageDimensionError">
+            <summary>
+              Looks up a localized string similar to Image dimensions differ. Do you want to crop them to minimum width and minimum height?.
+            </summary>
+        </member>
+        <member name="P:Interlacer.StringRes_EN.interlacingError">
+            <summary>
+              Looks up a localized string similar to Interlacing failed. Check interlacing parameters..
+            </summary>
+        </member>
         <member name="P:Interlacer.StringRes_EN.langCzech">
             <summary>
               Looks up a localized string similar to Czech.
@@ -628,6 +753,46 @@
         <member name="P:Interlacer.StringRes_EN.langEnglish">
             <summary>
               Looks up a localized string similar to English.
+            </summary>
+        </member>
+        <member name="P:Interlacer.StringRes_EN.memoryError">
+            <summary>
+              Looks up a localized string similar to Not enough memory..
+            </summary>
+        </member>
+        <member name="P:Interlacer.StringRes_EN.moveDownTooltip">
+            <summary>
+              Looks up a localized string similar to Move down.
+            </summary>
+        </member>
+        <member name="P:Interlacer.StringRes_EN.moveUpTooltip">
+            <summary>
+              Looks up a localized string similar to Move up.
+            </summary>
+        </member>
+        <member name="P:Interlacer.StringRes_EN.orderListView">
+            <summary>
+              Looks up a localized string similar to Order.
+            </summary>
+        </member>
+        <member name="P:Interlacer.StringRes_EN.pathListView">
+            <summary>
+              Looks up a localized string similar to Path.
+            </summary>
+        </member>
+        <member name="P:Interlacer.StringRes_EN.previewError">
+            <summary>
+              Looks up a localized string similar to Preview could not be created.
+            </summary>
+        </member>
+        <member name="P:Interlacer.StringRes_EN.removePicTooltip">
+            <summary>
+              Looks up a localized string similar to Remove.
+            </summary>
+        </member>
+        <member name="P:Interlacer.StringRes_EN.revertTooltip">
+            <summary>
+              Looks up a localized string similar to Reverse list.
             </summary>
         </member>
         <member name="P:Interlacer.StringRes_EN.unitsInches">

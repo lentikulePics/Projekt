@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using GfxlibWrapper;
+using System.IO;
 
 namespace Interlacer
 {
@@ -36,6 +37,50 @@ namespace Interlacer
         public Settings(SettingOptions settingOptions)
         {
             this.settingOptions = settingOptions;
+        }
+
+        /// <summary>
+        /// nastavi vse na vychozi nastaveni
+        /// </summary>
+        public void SetToDefault()
+        {
+            selectedLanguageIndex = 0;
+            selectedUnitsIndex = 0;
+            selectedResolutionUnitsIndex = 0;
+        }
+
+        /// <summary>
+        /// ulozi aktualni nastaveni do souboru
+        /// </summary>
+        /// <param name="filename">nazev souboru, do ktereho bude nastaveni ulozeno</param>
+        public void Save(String filename)
+        {
+            using (StreamWriter sw = new StreamWriter(filename))
+            {
+                sw.WriteLine(selectedLanguageIndex);
+                sw.WriteLine(selectedUnitsIndex);
+                sw.WriteLine(selectedResolutionUnitsIndex);
+            }
+        }
+
+        /// <summary>
+        /// nacte nastaveni ze souboru
+        /// </summary>
+        /// <param name="filename">soubor, ze ktereho ma byt nastaveni nacteno</param>
+        public void Load(String filename)
+        {
+            using (StreamReader sr = new StreamReader(filename))
+            {
+                selectedLanguageIndex = int.Parse(sr.ReadLine());
+                if (selectedLanguageIndex >= settingOptions.languageOptions.Count)
+                    throw new Exception();
+                selectedUnitsIndex = int.Parse(sr.ReadLine());
+                if (selectedUnitsIndex >= settingOptions.unitsOptions.Count)
+                    throw new Exception();
+                selectedResolutionUnitsIndex = int.Parse(sr.ReadLine());
+                if (selectedResolutionUnitsIndex >= settingOptions.resolutionUnitsOptions.Count)
+                    throw new Exception();
+            }
         }
 
         /// <summary>

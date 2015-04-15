@@ -16,6 +16,7 @@ namespace Interlacer
 {
     public partial class MainForm : Form
     {
+        private const String settingsFilename = "settings";
         private Settings settings;
         private SettingsForm settingsForm;
 
@@ -30,8 +31,6 @@ namespace Interlacer
         {
             InitializeComponent();
             reorderTimer.Stop();
-            Localization.changeCulture();
-            Localization.iterateOverControls(this, Localization.resourcesMain);
 
             resetPictureInfo();
 
@@ -44,14 +43,21 @@ namespace Interlacer
             edgeRadioButton.Checked = true;
             projectData.GetLineData().SetLineThickness(1);
             actualPicsUnderLenLabel.Text = Convert.ToString(lineThicknessTrackbar.Value);
-            //prozatimni reseni, pak bude potreba dodat retezce z recource filu
 
-            updateOptions();
+            loadSettings();
+
+            Localization.currentLanguage = settings.GetSelectedLanguage().value;
+            Localization.changeCulture();
+            Localization.iterateOverControls(this, Localization.resourcesMain);
+
+            updateTexts();
 
             changeUnits();
 
             pictureListViewEx.MultiSelect = true;
 
+            interpol1ComboBox.SelectedIndex = 0;
+            interpol2ComboBox.SelectedIndex = 0;
         }
 
         /// <summary>
@@ -67,10 +73,22 @@ namespace Interlacer
             }
         }
 
-        /// <summary>
-        /// 
-        /// </summary>
-        public void updateOptions()
+        private void loadSettings()
+        {
+            settings = new Settings(createSettingOptions());
+            try
+            {
+                settings.Load(settingsFilename);
+            }
+            catch
+            {
+                settings.SetSelectedLanguageIndex(0);
+                settings.SetSelectedUnitsIndex(0);
+                settings.SetSelectedResolutionUnitsIndex(0);
+            }
+        }
+
+        private SettingOptions createSettingOptions()
         {
             SettingOptions settingOptions = new SettingOptions();
             settingOptions.languageOptions = new List<StringValuePair<String>>
@@ -89,6 +107,16 @@ namespace Interlacer
                 new StringValuePair<Units>("DPI, LPI", Units.In),
                 new StringValuePair<Units>("DPCM, LPCM", Units.Cm)
             };
+
+            return settingOptions;
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public void updateTexts()
+        {
+            settings.SetSettingOptions(createSettingOptions());
 
             if (interpol1ComboBox.Items.Count == 0 && interpol2ComboBox.Items.Count == 0)
             {
@@ -112,18 +140,7 @@ namespace Interlacer
             interpol2ComboBox.Items[1] = new StringValuePair<FilterType>(Localization.resourcesStrings.GetString("filterLinear"), FilterType.Triangle);
             interpol2ComboBox.Items[2] = new StringValuePair<FilterType>(Localization.resourcesStrings.GetString("filterCubic"), FilterType.Cubic);
             interpol2ComboBox.Items[3] = new StringValuePair<FilterType>(Localization.resourcesStrings.GetString("filterLanczos"), FilterType.Lanczos);
-            
-            if (settings == null)
-                settings = new Settings(settingOptions);
-            else
-                settings.SetSettingOptions(settingOptions);
-            settings.SetSelectedLanguageIndex(0);
-            settings.SetSelectedUnitsIndex(0);
-            settings.SetSelectedResolutionUnitsIndex(0);
 
-            //unitsComboBox.SelectedItem = unitsComboBox.Items[0];
-            interpol1ComboBox.SelectedItem = interpol1ComboBox.Items[0];
-            interpol2ComboBox.SelectedItem = interpol2ComboBox.Items[0];
 
             //Nastavi tooltipy
            
@@ -138,9 +155,8 @@ namespace Interlacer
             // Nastaveni sloupcu listview
             pictureListViewEx.Columns[0].Text = Localization.resourcesStrings.GetString("orderListView");
             pictureListViewEx.Columns[1].Text = Localization.resourcesStrings.GetString("pathListView");
-
-
         }
+
         private void setPreview()
         {
             try
@@ -215,7 +231,7 @@ namespace Interlacer
         public void changeLanguage()
         {
             // Updatuje texty v komboboxech
-            updateOptions();
+            updateTexts();
 
             Localization.iterateOverControls(this, Localization.resourcesMain);
             Invalidate();
@@ -767,6 +783,19 @@ namespace Interlacer
                     }                    
                 }
                 reorder();
+                if (filePaths.Length > 0)
+                {
+                    Picture pic = new Picture(filePaths[0]);
+                    try
+                    {
+                        pic.Ping();
+                    }
+                    catch
+                    {
+                        return;  //pri neuspesnem nacteni obrazku se v teto fazi pouze nenastavi komponenty formulare
+                    }
+                    setValuesFromPicture(pic);
+                }
             }
         }
 
@@ -781,7 +810,9 @@ namespace Interlacer
                 Path.GetExtension(path) == ".bmp" ||
                 Path.GetExtension(path) == ".BMP" ||
                 Path.GetExtension(path) == ".tiff" ||
-                Path.GetExtension(path) == ".TIFF")
+                Path.GetExtension(path) == ".TIFF" ||
+                Path.GetExtension(path) == ".tif" ||
+                Path.GetExtension(path) == ".TIF")
             {
                 return true;
             }               
@@ -810,6 +841,15 @@ namespace Interlacer
             {
                 pictureListViewEx.Items[indeces[i]].Selected = true;
             }
+        }
+
+        private void MainForm_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            try
+            {
+                settings.Save(settingsFilename);
+            }
+            catch { } //pri vyjimce se soubor proste neulozi
         }
     }
 }

@@ -329,7 +329,7 @@
             <param name="destRow">index ciloveho radku tohoto obrazku</param>
             <param name="destXBegin">index pocatecni x souradnice, od ktere se zacne radek kopirovat do tohoto obrazku</param>
         </member>
-        <member name="M:Interlacer.MainForm.updateOptions">
+        <member name="M:Interlacer.MainForm.updateTexts">
             <summary>
             
             </summary>
@@ -474,6 +474,23 @@
             konstruktor, ktery nastavi moznosti nastaveni
             </summary>
             <param name="settingOptions">moznosti nastaveni</param>
+        </member>
+        <member name="M:Interlacer.Settings.SetToDefault">
+            <summary>
+            nastavi vse na vychozi nastaveni
+            </summary>
+        </member>
+        <member name="M:Interlacer.Settings.Save(System.String)">
+            <summary>
+            ulozi aktualni nastaveni do souboru
+            </summary>
+            <param name="filename">nazev souboru, do ktereho bude nastaveni ulozeno</param>
+        </member>
+        <member name="M:Interlacer.Settings.Load(System.String)">
+            <summary>
+            nacte nastaveni ze souboru
+            </summary>
+            <param name="filename">soubor, ze ktereho ma byt nastaveni nacteno</param>
         </member>
         <member name="M:Interlacer.Settings.SetSettingOptions(Interlacer.SettingOptions)">
             <summary>

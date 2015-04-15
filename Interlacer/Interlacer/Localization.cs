@@ -21,6 +21,11 @@ namespace Interlacer
         public static ComponentResourceManager resourcesSettings = new ComponentResourceManager(typeof(SettingsForm));
         public static ComponentResourceManager resourcesStrings;
 
+        static Localization()
+        {
+            changeCulture();
+        }
+
         /// <summary>
         /// Meni nastaveni kultury programu podle promenne currentLanguage
         /// </summary>
