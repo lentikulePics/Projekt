@@ -527,6 +527,10 @@ namespace Interlacer
 
         private void updateAllComponents()
         {
+            projectData.GetInterlacingData().SetUnits(((StringValuePair<Units>)settings.GetSelectedUnits()).value);
+            projectData.GetLineData().SetUnits(((StringValuePair<Units>)settings.GetSelectedUnits()).value);
+            projectData.GetInterlacingData().SetResolutionUnits(((StringValuePair<Units>)settings.GetSelectedResolutionUnits()).value);
+
             widthNumeric.Text = Convert.ToString(projectData.GetInterlacingData().GetWidth());
             heightNumeric.Text = Convert.ToString(projectData.GetInterlacingData().GetHeight());
             dpiNumeric.Text = Convert.ToString(projectData.GetInterlacingData().GetPictureResolution());
@@ -551,6 +555,33 @@ namespace Interlacer
                 lineThicknessTrackbar.Value = lineThicknessTrackbar.Maximum;
                 actualPicsUnderLenLabel.Text = Convert.ToString(lineThicknessTrackbar.Value);
             }
+
+            if (projectData.GetInterlacingData().GetDirection() == Direction.Horizontal)
+            {
+                horizontalRadiobutton.Checked = true;
+            }
+            else
+            {
+                verticalRadiobutton.Checked = true;
+            }
+
+            for (int i = 0; i < interpol1ComboBox.Items.Count; i++)
+                if (projectData.GetInterlacingData().GetInitialResizeFilter() == ((StringValuePair<FilterType>)interpol1ComboBox.Items[i]).value)
+                    interpol1ComboBox.SelectedIndex = i;
+            for (int i = 0; i < interpol2ComboBox.Items.Count; i++)
+                if (projectData.GetInterlacingData().GetFinalResampleFilter() == ((StringValuePair<FilterType>)interpol2ComboBox.Items[i]).value)
+                    interpol2ComboBox.SelectedIndex = i;
+
+            lineColorButton.BackColor = projectData.GetLineData().GetLineColor();
+            backgroundColorButton.BackColor = projectData.GetLineData().GetBackgroundColor();
+
+            topLineCheckBox.Checked = projectData.GetLineData().GetTop();
+            leftLineCheckBox.Checked = projectData.GetLineData().GetLeft();
+            rightLineCheckBox.Checked = projectData.GetLineData().GetRight();
+            bottomLineCheckBox.Checked = projectData.GetLineData().GetBottom();
+
+            centerRadioButton.Checked = projectData.GetLineData().GetCenterPosition();
+            edgeRadioButton.Checked = !projectData.GetLineData().GetCenterPosition();
 
             widthInPixelsTextBox.Text = Convert.ToString((int)(projectData.GetInterlacingData().GetInchWidth() * projectData.GetInterlacingData().GetDPI()));
             heightInPixelsTextBox.Text = Convert.ToString((int)(projectData.GetInterlacingData().GetInchHeight() * projectData.GetInterlacingData().GetDPI()));
@@ -850,6 +881,17 @@ namespace Interlacer
                 settings.Save(settingsFilename);
             }
             catch { } //pri vyjimce se soubor proste neulozi
+        }
+
+        private void uložToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            projectData.Save("ahoj.pix");
+        }
+
+        private void načtiToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            projectData.Load("ahoj.pix");
+            updateAllComponents();
         }
     }
 }

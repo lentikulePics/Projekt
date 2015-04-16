@@ -192,11 +192,13 @@
             // 
             this.uložToolStripMenuItem.Name = "uložToolStripMenuItem";
             resources.ApplyResources(this.uložToolStripMenuItem, "uložToolStripMenuItem");
+            this.uložToolStripMenuItem.Click += new System.EventHandler(this.uložToolStripMenuItem_Click);
             // 
             // načtiToolStripMenuItem
             // 
             this.načtiToolStripMenuItem.Name = "načtiToolStripMenuItem";
             resources.ApplyResources(this.načtiToolStripMenuItem, "načtiToolStripMenuItem");
+            this.načtiToolStripMenuItem.Click += new System.EventHandler(this.načtiToolStripMenuItem_Click);
             // 
             // zavřítToolStripMenuItem
             // 
