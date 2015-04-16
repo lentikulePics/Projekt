@@ -7,6 +7,8 @@ using System.Drawing;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using GfxlibWrapper;
+using System.Globalization;
+using System.Threading;
 
 namespace Interlacer
 {
@@ -27,11 +29,14 @@ namespace Interlacer
 
         public void Save(String filename)
         {
+            Thread.CurrentThread.CurrentCulture = new CultureInfo("cs-CZ");  //nastaveni kultury na ceskou, aby se hodnoty ukladaly vzdy s desetinou carkou
             File.WriteAllText(filename, InterlacingDataToString() + LineDataToString());
+            Localization.changeCulture();  //vraceni zpet na kultury, ktera je aktualne nastavena
         }
 
         public void Load(String filename)
         {
+            Thread.CurrentThread.CurrentCulture = new CultureInfo("cs-CZ");  //nastaveni kultury na ceskou, aby se hodnoty nacetly vzdy spravne
             String pom = File.ReadAllText(filename);
             MessageBox.Show(pom);
             Dictionary<string, string> dictionary = new Dictionary<string, string>();
@@ -47,6 +52,7 @@ namespace Interlacer
 
             setLineData(dictionary);
             setInterlacingData(dictionary);
+            Localization.changeCulture();  //vraceni zpet na kultury, ktera je aktualne nastavena
         }
 
         private void setLinePosition(Dictionary<string, string> dictionary)
