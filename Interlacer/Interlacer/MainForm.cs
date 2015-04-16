@@ -747,8 +747,9 @@ namespace Interlacer
                 {
                     for (int j = 0; j < Convert.ToInt32(copyCountNumeric.Value); j++)
                     {
-                        pictureListViewEx.Items.Insert(indeces[i] + 1, Convert.ToString(order)).SubItems.Add(pictureListViewEx.Items[indeces[i]].SubItems[1]);
-                        //.SubItems.Add(chosenPictures[i])
+                        ListViewItem.ListViewSubItem item = pictureListViewEx.Items.Insert(indeces[i] + 1, Convert.ToString(order)).
+                            SubItems.Add(new ListViewItem.ListViewSubItem());
+                        item.Text = pictureListViewEx.Items[indeces[i]].SubItems[1].Text;
                     }
                 }
 
