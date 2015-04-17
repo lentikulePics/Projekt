@@ -424,6 +424,12 @@
             vykresli do PictureBoxu defaultni obrazek
             </summary>
         </member>
+        <member name="M:Interlacer.ProjectData.setFilter(System.Collections.Generic.Dictionary{System.String,System.String})">
+            <summary>
+            
+            </summary>
+            <param name="dictionary"></param>
+        </member>
         <member name="T:Interlacer.SettingOptions">
             <summary>
             struktura, ktera obsahuje vsechny moznosti nastaveni

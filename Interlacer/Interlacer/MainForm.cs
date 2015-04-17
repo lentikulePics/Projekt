@@ -886,13 +886,27 @@ namespace Interlacer
 
         private void uložToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            projectData.Save("ahoj.pix");
+            try
+            {
+                projectData.Save("ahoj.txt");
+            }
+            catch(Exception exc)
+            {
+                MessageBox.Show(exc.ToString());
+            }
         }
 
         private void načtiToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            projectData.Load("ahoj.pix");
-            updateAllComponents();
+            try
+            {
+                projectData.Load("ahoj.txt");
+                updateAllComponents();
+            }
+            catch (Exception exc)
+            {
+                MessageBox.Show(exc.ToString());
+            }
         }
     }
 }

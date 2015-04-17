@@ -30,29 +30,145 @@ namespace Interlacer
         public void Save(String filename)
         {
             Thread.CurrentThread.CurrentCulture = new CultureInfo("cs-CZ");  //nastaveni kultury na ceskou, aby se hodnoty ukladaly vzdy s desetinou carkou
-            File.WriteAllText(filename, InterlacingDataToString() + LineDataToString());
+            try
+            {
+                File.WriteAllText(filename, InterlacingDataToString() + LineDataToString());
+            }
+            catch{
+                Localization.changeCulture();  //vraceni zpet na kultury, ktera je aktualne nastavena
+                throw new Exception("Soubor " + filename + " se nepodařilo uložit. Překontrolujte zda máte právo zápisu, nebo dostatek místa.");
+            }
+           
             Localization.changeCulture();  //vraceni zpet na kultury, ktera je aktualne nastavena
         }
 
         public void Load(String filename)
         {
             Thread.CurrentThread.CurrentCulture = new CultureInfo("cs-CZ");  //nastaveni kultury na ceskou, aby se hodnoty nacetly vzdy spravne
-            String pom = File.ReadAllText(filename);
-            MessageBox.Show(pom);
             Dictionary<string, string> dictionary = new Dictionary<string, string>();
-            string[] words = pom.Split('\n');
-            foreach (string word in words)
+            try
             {
-                string[] line = word.Split(':');
-                if (line.Length > 1)
-                    dictionary.Add(line[0], line[1].Trim());
-                else
-                    dictionary.Add(line[0], "");
+                String pom = File.ReadAllText(filename);
+
+                string[] words = pom.Split('\n');
+                foreach (string word in words)
+                {
+                    string[] line = word.Split(':');
+                    if (line.Length > 1)
+                        dictionary.Add(line[0], line[1].Trim());
+                    else
+                        dictionary.Add(line[0], "");
+                }
+            }
+            catch
+            {
+                Localization.changeCulture();  //vraceni zpet na kultury, ktera je aktualne nastavena
+                throw new Exception("Soubor " + filename + " se nepodařilo načíst.");
             }
 
-            setLineData(dictionary);
-            setInterlacingData(dictionary);
+            if (validateLoadDictionary(dictionary))
+            {
+                setLineData(dictionary);
+                setInterlacingData(dictionary);
+            }
+            else
+            {
+                Localization.changeCulture();  //vraceni zpet na kultury, ktera je aktualne nastavena
+                throw new Exception("Konfigurační soubor "+filename+" je pravděpodobně poškozen");
+            }
+            
             Localization.changeCulture();  //vraceni zpet na kultury, ktera je aktualne nastavena
+        }
+
+        private bool validateLoadDictionary(Dictionary<string, string> dictionary)
+        {
+            if (dictionary.Count != 19)
+            {
+                return false;
+            }
+            if (
+                    !dictionary.ContainsKey("UNITS_INTERLACING")
+                 || !dictionary.ContainsKey("RESOLUTION_UNITS")
+                 || !dictionary.ContainsKey("WIDTH")
+                 || !dictionary.ContainsKey("HEIGHT")
+                 || !dictionary.ContainsKey("PICURE_RESOLUTION")
+                 || !dictionary.ContainsKey("LENTICULE_DENSITY")
+                 || !dictionary.ContainsKey("DIRECTION")
+                 || !dictionary.ContainsKey("INITIAL_RESIZE_FILTER")
+                 || !dictionary.ContainsKey("FINAL_RESAMPLE_FILTER")
+                 || !dictionary.ContainsKey("UNITS_LINE")
+                 || !dictionary.ContainsKey("LINE_COLOR")
+                 || !dictionary.ContainsKey("BACKGROUND_COLOR")
+                 || !dictionary.ContainsKey("FRAME_WIDTH")
+                 || !dictionary.ContainsKey("INDENT")
+                 || !dictionary.ContainsKey("LEFT")
+                 || !dictionary.ContainsKey("TOP")
+                 || !dictionary.ContainsKey("RIGHT")
+                 || !dictionary.ContainsKey("BOTTOM")
+                 || !dictionary.ContainsKey("CENTER_POSITION")
+                )
+                return false;
+            if (!validateLoadUnits(dictionary))
+                return false;
+            if (!validateLoadFilters(dictionary))
+                return false;
+            if (!validateLoadNumbers(dictionary))
+                return false;
+            return true;
+        }
+
+
+        private static bool IsNumeric(object Expression)
+        {
+            double retNum;
+            bool isNum = Double.TryParse(Convert.ToString(Expression), System.Globalization.NumberStyles.Any, System.Globalization.NumberFormatInfo.InvariantInfo, out retNum);
+            return isNum;
+        }
+
+        private bool validateLoadNumbers(Dictionary<string, string> dictionary)
+        {
+            if (!IsNumeric(dictionary["WIDTH"])
+                || !IsNumeric(dictionary["HEIGHT"])
+                || !IsNumeric(dictionary["PICURE_RESOLUTION"])
+                || !IsNumeric(dictionary["LENTICULE_DENSITY"])
+                || !IsNumeric(dictionary["BACKGROUND_COLOR"])
+                || !IsNumeric(dictionary["INDENT"])
+                || !IsNumeric(dictionary["FRAME_WIDTH"])
+                || !IsNumeric(dictionary["LINE_COLOR"]))
+                return false;
+            return true;
+        }
+        
+        private bool validateLoadFilters(Dictionary<string, string> dictionary)
+        {
+            if (!dictionary["INITIAL_RESIZE_FILTER"].Equals("1")
+                && !dictionary["INITIAL_RESIZE_FILTER"].Equals("3")
+                && !dictionary["INITIAL_RESIZE_FILTER"].Equals("10")
+                && !dictionary["INITIAL_RESIZE_FILTER"].Equals("22"))
+                return false;
+            if (!dictionary["FINAL_RESAMPLE_FILTER"].Equals("1")
+                  && !dictionary["FINAL_RESAMPLE_FILTER"].Equals("3")
+                  && !dictionary["FINAL_RESAMPLE_FILTER"].Equals("10")
+                  && !dictionary["FINAL_RESAMPLE_FILTER"].Equals("20"))
+                return false;
+            return true;
+        }
+
+        private bool validateLoadUnits(Dictionary<string, string> dictionary)
+        {
+            if (!dictionary["UNITS_INTERLACING"].Equals("Mm")
+                && !dictionary["UNITS_INTERLACING"].Equals("Cm")
+                && !dictionary["UNITS_INTERLACING"].Equals("In"))
+                return false;
+            if (!dictionary["UNITS_LINE"].Equals("Mm")
+                && !dictionary["UNITS_LINE"].Equals("Cm")
+                && !dictionary["UNITS_LINE"].Equals("In"))
+                return false;
+            if (!dictionary["RESOLUTION_UNITS"].Equals("Mm")
+                && !dictionary["RESOLUTION_UNITS"].Equals("Cm")
+                && !dictionary["RESOLUTION_UNITS"].Equals("In"))
+                return false;
+            return true;
         }
 
         private void setLinePosition(Dictionary<string, string> dictionary)
@@ -95,8 +211,6 @@ namespace Interlacer
                 default: break;
             }
 
-            if (dictionary["LINE_THICKNESS"] != null)
-                this.lineData.SetLineThickness(Convert.ToInt32(dictionary["LINE_THICKNESS"]));
             if (dictionary["FRAME_WIDTH"] != null)
                 this.lineData.SetFrameWidth(Convert.ToDouble(dictionary["FRAME_WIDTH"]));
             if (dictionary["INDENT"] != null)
@@ -109,11 +223,48 @@ namespace Interlacer
 
             setLinePosition(dictionary);
         }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="dictionary"></param>
         private void setFilter(Dictionary<string, string> dictionary)
         {
+            switch (dictionary["INITIAL_RESIZE_FILTER"])
+            {
+                case "3":
+                    this.interlacingData.SetInitialResizeFilter(FilterType.Triangle);
+                    break;
+                case "1":
+                    this.interlacingData.SetInitialResizeFilter(FilterType.None);
+                    break;
+                case "22":
+                    this.interlacingData.SetInitialResizeFilter(FilterType.Lanczos);
+                    break;
+                case "10":
+                    this.interlacingData.SetInitialResizeFilter(FilterType.Cubic);
+                    break;
+                default: break;
+            }
 
+            switch (dictionary["FINAL_RESAMPLE_FILTER"])
+            {
+                case "3":
+                    this.interlacingData.SetFinalResampleFilter(FilterType.Triangle);
+                    break;
+                case "1":
+                    this.interlacingData.SetFinalResampleFilter(FilterType.None);
+                    break;
+                case "22":
+                    this.interlacingData.SetFinalResampleFilter(FilterType.Lanczos);
+                    break;
+                case "10":
+                    this.interlacingData.SetFinalResampleFilter(FilterType.Cubic);
+                    break;
+                default: break;
+            }
         }
-        private void setInterlacingData(Dictionary<string, string> dictionary)
+        private void setInterlacingUnits(Dictionary<string, string> dictionary)
         {
             switch (dictionary["UNITS_INTERLACING"])
             {
@@ -142,41 +293,13 @@ namespace Interlacer
                     break;
                 default: break;
             }
+        }
 
-            switch (dictionary["INITIAL_RESIZE_FILTER"])
-            {
-                case "Triangle":
-                    this.interlacingData.SetInitialResizeFilter(FilterType.Triangle);
-                    break;
-                case "None":
-                    this.interlacingData.SetInitialResizeFilter(FilterType.None);
-                    break;
-                case "Lanczos":
-                    this.interlacingData.SetInitialResizeFilter(FilterType.Lanczos);
-                    break;
-                case "Cubic":
-                    this.interlacingData.SetInitialResizeFilter(FilterType.Cubic);
-                    break;
-                default: break;
-            }
-
-            switch (dictionary["FINAL_RESAMPLE_FILTER"])
-            {
-                case "Triangle":
-                    this.interlacingData.SetFinalResampleFilter(FilterType.Triangle);
-                    break;
-                case "None":
-                    this.interlacingData.SetFinalResampleFilter(FilterType.None);
-                    break;
-                case "Lanczos":
-                    this.interlacingData.SetFinalResampleFilter(FilterType.Lanczos);
-                    break;
-                case "Cubic":
-                    this.interlacingData.SetFinalResampleFilter(FilterType.Cubic);
-                    break;
-                default: break;
-            }
-
+        private void setInterlacingData(Dictionary<string, string> dictionary)
+        {
+            setInterlacingUnits(dictionary);
+            setFilter(dictionary);
+            
             if (dictionary["WIDTH"] != null)
                 this.interlacingData.SetWidth(Convert.ToDouble(dictionary["WIDTH"]));
             if (dictionary["HEIGHT"] != null)
@@ -192,11 +315,11 @@ namespace Interlacer
             else
                 this.interlacingData.SetDirection(Direction.Horizontal);
         }
+
         private String LineDataToString()
         {
             return
                 "UNITS_LINE:" + this.lineData.GetUnits() + Environment.NewLine +
-                "LINE_THICKNESS:" + this.lineData.GetLineThickness() + Environment.NewLine +
                 "LINE_COLOR:" + this.lineData.GetLineColor().ToArgb() + Environment.NewLine +
                 "BACKGROUND_COLOR:" + this.lineData.GetBackgroundColor().ToArgb() + Environment.NewLine +
                 "FRAME_WIDTH:" + this.lineData.GetFrameWidth() + Environment.NewLine +
@@ -205,7 +328,7 @@ namespace Interlacer
                 "TOP:" + this.lineData.GetTop() + Environment.NewLine +
                 "RIGHT:" + this.lineData.GetRight() + Environment.NewLine +
                 "BOTTOM:" + this.lineData.GetBottom() + Environment.NewLine +
-                "CENTER_POSITION:" + this.lineData.GetCenterPosition() + Environment.NewLine;
+                "CENTER_POSITION:" + this.lineData.GetCenterPosition();
         }
 
         private String InterlacingDataToString()
@@ -218,9 +341,8 @@ namespace Interlacer
                 "PICURE_RESOLUTION:" + this.interlacingData.GetPictureResolution() + Environment.NewLine +
                 "LENTICULE_DENSITY:" + this.interlacingData.GetLenticuleDensity() + Environment.NewLine +
                 "DIRECTION:" + this.interlacingData.GetDirection() + Environment.NewLine +
-                "INITIAL_RESIZE_FILTER:" + this.interlacingData.GetInitialResizeFilter() + Environment.NewLine +
-                "FINAL_RESAMPLE_FILTER:" + this.interlacingData.GetFinalResampleFilter() + Environment.NewLine;
-
+                "INITIAL_RESIZE_FILTER:" + this.interlacingData.GetInitialResizeFilter().filterNum + Environment.NewLine +
+                "FINAL_RESAMPLE_FILTER:" + this.interlacingData.GetFinalResampleFilter().filterNum + Environment.NewLine;
         }
     }
 }
