@@ -300,6 +300,11 @@ namespace Interlacer
             setInterlacingUnits(dictionary);
             setFilter(dictionary);
             
+            bool keepRatio = false;
+            if (this.interlacingData.getKeepAspectRatio())
+                keepRatio = true;
+            this.interlacingData.KeepAspectRatio(false);
+            
             if (dictionary["WIDTH"] != null)
                 this.interlacingData.SetWidth(Convert.ToDouble(dictionary["WIDTH"]));
             if (dictionary["HEIGHT"] != null)
@@ -314,6 +319,8 @@ namespace Interlacer
                 this.interlacingData.SetDirection(Direction.Vertical);
             else
                 this.interlacingData.SetDirection(Direction.Horizontal);
+
+            this.interlacingData.KeepAspectRatio(keepRatio);
         }
 
         private String LineDataToString()

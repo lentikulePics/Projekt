@@ -144,7 +144,10 @@ namespace Interlacer
         {
             this.keepAspectRatio = keepAspectRatio;
         }
-
+        public bool getKeepAspectRatio()
+        {
+            return this.keepAspectRatio;
+        }
         public void SetDirection(Direction direction)
         {
             this.direction = direction;
