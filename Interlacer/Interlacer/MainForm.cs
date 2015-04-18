@@ -527,10 +527,6 @@ namespace Interlacer
 
         private void updateAllComponents()
         {
-            projectData.GetInterlacingData().SetUnits(((StringValuePair<Units>)settings.GetSelectedUnits()).value);
-            projectData.GetLineData().SetUnits(((StringValuePair<Units>)settings.GetSelectedUnits()).value);
-            projectData.GetInterlacingData().SetResolutionUnits(((StringValuePair<Units>)settings.GetSelectedResolutionUnits()).value);
-
             widthNumeric.Text = Convert.ToString(projectData.GetInterlacingData().GetWidth());
             heightNumeric.Text = Convert.ToString(projectData.GetInterlacingData().GetHeight());
             dpiNumeric.Text = Convert.ToString(projectData.GetInterlacingData().GetPictureResolution());
@@ -901,6 +897,9 @@ namespace Interlacer
             try
             {
                 projectData.Load("ahoj.txt");
+                projectData.GetInterlacingData().SetUnits(((StringValuePair<Units>)settings.GetSelectedUnits()).value);
+                projectData.GetLineData().SetUnits(((StringValuePair<Units>)settings.GetSelectedUnits()).value);
+                projectData.GetInterlacingData().SetResolutionUnits(((StringValuePair<Units>)settings.GetSelectedResolutionUnits()).value);
                 updateAllComponents();
             }
             catch (Exception exc)
