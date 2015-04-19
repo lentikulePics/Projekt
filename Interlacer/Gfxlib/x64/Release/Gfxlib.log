@@ -1,5 +1,5 @@
-﻿Build started 16.4.2015 18:02:32.
-     1>Project "C:\Users\Luckin\Desktop\Interlacer Github\Projekt\Interlacer\Gfxlib\Gfxlib.vcxproj" on node 3 (Rebuild target(s)).
+﻿Build started 19.4.2015 19:26:45.
+     1>Project "C:\Users\Luckin\Desktop\Interlacer Github\Projekt\Interlacer\Gfxlib\Gfxlib.vcxproj" on node 2 (Rebuild target(s)).
      1>ClCompile:
          C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\x86_amd64\CL.exe /c /Zi /nologo /W3 /WX- /sdl /O2 /Oi /GL /D WIN32 /D NDEBUG /D _WINDOWS /D _USRDLL /D GFXLIB_EXPORTS /D _WINDLL /D _UNICODE /D UNICODE /Gm- /EHsc /MT /GS /Gy /fp:precise /Zc:wchar_t /Zc:forScope /Yc"stdafx.h" /Fp"x64\Release\Gfxlib.pch" /Fo"x64\Release\\" /Fd"x64\Release\vc120.pdb" /Gd /TP /errorReport:prompt stdafx.cpp
          stdafx.cpp
@@ -16,4 +16,4 @@
 
 Build succeeded.
 
-Time Elapsed 00:00:23.20
+Time Elapsed 00:00:19.92

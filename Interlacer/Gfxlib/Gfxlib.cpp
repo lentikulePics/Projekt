@@ -5,6 +5,8 @@
 #include <fstream>
 #include <Magick++.h>
 
+void test() {}
+
 void writeError(std::string str)
 {
 	std::ofstream file("Error.txt");

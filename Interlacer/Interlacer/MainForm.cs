@@ -29,6 +29,11 @@ namespace Interlacer
 
         public MainForm()
         {
+            if (!GfxlibCommunicator.Test())
+            {
+                MessageBox.Show("Chyba při načítání grafické knihovny.\nPravděpodobnou příčinou je chybějící Visual C++ Redistributable");
+                System.Environment.Exit(0);
+            }
             InitializeComponent();
             reorderTimer.Stop();
 

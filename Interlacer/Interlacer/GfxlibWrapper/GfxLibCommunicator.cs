@@ -16,6 +16,26 @@ namespace GfxlibWrapper
     static unsafe class GfxlibCommunicator
     {
         [DllImport("Gfxlib.dll", CallingConvention = CallingConvention.Cdecl)]
+        private static extern void test();
+
+        /// <summary>
+        /// otestuje, zda lze volat funkce z Gfxlib.dll, pokud ne, indikuje to chybne nacteni souboru
+        /// </summary>
+        /// <returns>true, pokud je knihovna nactena spravne, false, pokud ne</returns>
+        public static bool Test()
+        {
+            try
+            {
+                GfxlibCommunicator.test();
+            }
+            catch
+            {
+                return false;
+            }
+            return true;
+        }
+
+        [DllImport("Gfxlib.dll", CallingConvention = CallingConvention.Cdecl)]
         public static extern void setResourceLimits();
 
         [DllImport("Gfxlib.dll", CallingConvention = CallingConvention.Cdecl)]

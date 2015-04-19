@@ -81,6 +81,12 @@
             staticka trida obsahujici funkce pro komunikaci s grafickou knihovnou prostrednictvim DLL
             </summary>
         </member>
+        <member name="M:GfxlibWrapper.GfxlibCommunicator.Test">
+            <summary>
+            otestuje, zda lze volat funkce z Gfxlib.dll, pokud ne, indikuje to chybne nacteni souboru
+            </summary>
+            <returns>true, pokud je knihovna nactena spravne, false, pokud ne</returns>
+        </member>
         <member name="F:Interlacer.LineData.lineThickness">
             <summary>
              šírka čáry na lentikuli kolik je obrázků

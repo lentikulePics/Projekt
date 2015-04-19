@@ -8,6 +8,7 @@ extern "C"
 	pri zmene je potreba prepsat hodnotu makra MAGICKCORE_QUANTUM_DEPTH v souboru magick-baseconfig.h*/
 	typedef INT32 INTPX;
 
+	__declspec(dllexport) void test();
 	__declspec(dllexport) void setResourceLimits();
 	__declspec(dllexport) void* createImage(int w, int h);
 	__declspec(dllexport) void deleteImage(void*);
