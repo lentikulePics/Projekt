@@ -101,7 +101,11 @@ namespace Interlacer
         private void makeProgressBarStep()
         {
             if (progressBar != null)
+            {
                 progressBar.PerformStep();
+                Application.DoEvents();
+                progressBar.Refresh();
+            }
         }
 
         private void adjustPictureSize(Picture picture)
