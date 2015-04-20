@@ -35,6 +35,7 @@ namespace Interlacer
                 System.Environment.Exit(0);
             }
             InitializeComponent();
+            projectData.GetInterlacingData().KeepAspectRatio(keepRatioCheckbox.Checked);
             reorderTimer.Stop();
 
             resetPictureInfo();
@@ -769,9 +770,11 @@ namespace Interlacer
                 {
                     for (int j = 0; j < Convert.ToInt32(copyCountNumeric.Value); j++)
                     {
-                        ListViewItem.ListViewSubItem item = pictureListViewEx.Items.Insert(indeces[i] + 1, Convert.ToString(order)).
-                            SubItems.Add(new ListViewItem.ListViewSubItem());
-                        item.Text = pictureListViewEx.Items[indeces[i]].SubItems[1].Text;
+                        ListViewItem item = pictureListViewEx.Items.Insert(indeces[i] + 1, Convert.ToString(order));
+                        ListViewItem.ListViewSubItem subItem1 = item.SubItems.Add(new ListViewItem.ListViewSubItem());
+                        subItem1.Text = pictureListViewEx.Items[indeces[i]].SubItems[1].Text;
+                        ListViewItem.ListViewSubItem subItem2 = item.SubItems.Add(new ListViewItem.ListViewSubItem());
+                        subItem2.Text = pictureListViewEx.Items[indeces[i]].SubItems[2].Text;
                     }
                 }
 
