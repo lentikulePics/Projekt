@@ -119,55 +119,55 @@
   </resheader>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="uložToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>104, 22</value>
+    <value>116, 24</value>
   </data>
   <data name="uložToolStripMenuItem.Text" xml:space="preserve">
     <value>Ulož</value>
   </data>
   <data name="načtiToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>104, 22</value>
+    <value>116, 24</value>
   </data>
   <data name="načtiToolStripMenuItem.Text" xml:space="preserve">
     <value>Načti</value>
   </data>
   <data name="zavřítToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>104, 22</value>
+    <value>116, 24</value>
   </data>
   <data name="zavřítToolStripMenuItem.Text" xml:space="preserve">
     <value>Zavřít</value>
   </data>
   <data name="souborMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>57, 20</value>
+    <value>69, 24</value>
   </data>
   <data name="souborMenuItem.Text" xml:space="preserve">
     <value>Soubor</value>
   </data>
   <data name="předvolbyToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>127, 22</value>
+    <value>144, 24</value>
   </data>
   <data name="předvolbyToolStripMenuItem.Text" xml:space="preserve">
     <value>Předvolby</value>
   </data>
   <data name="nastaeníToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>71, 20</value>
+    <value>86, 24</value>
   </data>
   <data name="nastaeníToolStripMenuItem.Text" xml:space="preserve">
     <value>Nastavení</value>
   </data>
   <data name="nápovědaToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>148, 22</value>
+    <value>168, 24</value>
   </data>
   <data name="nápovědaToolStripMenuItem.Text" xml:space="preserve">
     <value>Nápověda</value>
   </data>
   <data name="oProgramuToolStripMenuItem1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>148, 22</value>
+    <value>168, 24</value>
   </data>
   <data name="oProgramuToolStripMenuItem1.Text" xml:space="preserve">
     <value>O programu...</value>
   </data>
   <data name="oProgramuToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>84, 20</value>
+    <value>102, 24</value>
   </data>
   <data name="oProgramuToolStripMenuItem.Text" xml:space="preserve">
     <value>O programu</value>
@@ -175,7 +175,7 @@
   <data name="ulozToolStripButton.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
-        YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAIDSURBVDhPpZLrS5NhGMb3j4SWh0oRQVExD4gonkDpg4hG
+        YQUAAAAJcEhZcwAAEnQAABJ0Ad5mH3gAAAIDSURBVDhPpZLrS5NhGMb3j4SWh0oRQVExD4gonkDpg4hG
         YKxG6WBogkMZKgPNCEVJFBGdGETEvgwyO9DJE5syZw3PIlPEE9pgBCLZ5XvdMB8Ew8gXbl54nuf63dd9
         0OGSnwCahxbPRNPAPMw9Xpg6ZmF46kZZ0xSKzJPIrhpDWsVnpBhGkKx3nAX8Pv7z1zg8OoY/cITdn4fw
         bf/C0kYAN3Ma/w3gWfZL5kzTKBxjWyK2DftwI9tyMYCZKXbNHaD91bLYJrDXsYbrWfUKwJrPE9M2M1Oc
@@ -190,7 +190,7 @@
   <data name="nahrajToolStripButton.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
-        YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAIDSURBVDhPpZLrS5NhGMb3j4SWh0oRQVExD4gonkDpg4hG
+        YQUAAAAJcEhZcwAAEnQAABJ0Ad5mH3gAAAIDSURBVDhPpZLrS5NhGMb3j4SWh0oRQVExD4gonkDpg4hG
         YKxG6WBogkMZKgPNCEVJFBGdGETEvgwyO9DJE5syZw3PIlPEE9pgBCLZ5XvdMB8Ew8gXbl54nuf63dd9
         0OGSnwCahxbPRNPAPMw9Xpg6ZmF46kZZ0xSKzJPIrhpDWsVnpBhGkKx3nAX8Pv7z1zg8OoY/cITdn4fw
         bf/C0kYAN3Ma/w3gWfZL5kzTKBxjWyK2DftwI9tyMYCZKXbNHaD91bLYJrDXsYbrWfUKwJrPE9M2M1Oc
@@ -202,14 +202,21 @@
         TgDQASA1MVpwzwAAAABJRU5ErkJggg==
 </value>
   </data>
+  <data name="button1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>45, 42</value>
+  </data>
   <data name="copyCountLabel.Size" type="System.Drawing.Size, System.Drawing">
-    <value>62, 13</value>
+    <value>77, 17</value>
   </data>
   <data name="copyCountLabel.Text" xml:space="preserve">
     <value>Počet kopií</value>
   </data>
   <data name="orderHeader.Text" xml:space="preserve">
     <value>Pořadí</value>
+  </data>
+  <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="orderHeader.Width" type="System.Int32, mscorlib">
+    <value>40</value>
   </data>
   <data name="pathHeader.Text" xml:space="preserve">
     <value>Cesta</value>
@@ -238,7 +245,7 @@
 </value>
   </data>
   <data name="button8.Location" type="System.Drawing.Point, System.Drawing">
-    <value>458, 212</value>
+    <value>608, 261</value>
   </data>
   <data name="clearAllButton.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -261,7 +268,7 @@
 </value>
   </data>
   <data name="clearAllButton.Location" type="System.Drawing.Point, System.Drawing">
-    <value>418, 212</value>
+    <value>555, 261</value>
   </data>
   <data name="revertButton.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -322,7 +329,7 @@
 </value>
   </data>
   <data name="revertButton.Location" type="System.Drawing.Point, System.Drawing">
-    <value>379, 212</value>
+    <value>502, 261</value>
   </data>
   <data name="moveDownButton.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -350,7 +357,7 @@
 </value>
   </data>
   <data name="moveDownButton.Location" type="System.Drawing.Point, System.Drawing">
-    <value>338, 212</value>
+    <value>449, 261</value>
   </data>
   <data name="moveUpButton.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -378,7 +385,7 @@
 </value>
   </data>
   <data name="moveUpButton.Location" type="System.Drawing.Point, System.Drawing">
-    <value>298, 212</value>
+    <value>396, 261</value>
   </data>
   <data name="copyPicButton.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -484,13 +491,13 @@
     <value>Rozlišení obrázku</value>
   </data>
   <data name="verticalRadiobutton.Size" type="System.Drawing.Size, System.Drawing">
-    <value>70, 17</value>
+    <value>87, 21</value>
   </data>
   <data name="verticalRadiobutton.Text" xml:space="preserve">
     <value>Vertikální</value>
   </data>
   <data name="horizontalRadiobutton.Size" type="System.Drawing.Size, System.Drawing">
-    <value>82, 17</value>
+    <value>104, 21</value>
   </data>
   <data name="horizontalRadiobutton.Text" xml:space="preserve">
     <value>Horizontální</value>
@@ -499,13 +506,13 @@
     <value>Směr prokládání</value>
   </data>
   <data name="heightInPixelsLabel.Size" type="System.Drawing.Size, System.Drawing">
-    <value>36, 13</value>
+    <value>46, 17</value>
   </data>
   <data name="heightInPixelsLabel.Text" xml:space="preserve">
     <value>Výška</value>
   </data>
   <data name="widthInPixelsLabel.Size" type="System.Drawing.Size, System.Drawing">
-    <value>34, 16</value>
+    <value>40, 20</value>
   </data>
   <data name="widthInPixelsLabel.Text" xml:space="preserve">
     <value>Šířka</value>
@@ -514,13 +521,13 @@
     <value>Rozlišení výstupu v pixelech</value>
   </data>
   <data name="heightLabel.Size" type="System.Drawing.Size, System.Drawing">
-    <value>36, 13</value>
+    <value>46, 17</value>
   </data>
   <data name="heightLabel.Text" xml:space="preserve">
     <value>Výška</value>
   </data>
   <data name="widthLabel.Size" type="System.Drawing.Size, System.Drawing">
-    <value>30, 17</value>
+    <value>35, 20</value>
   </data>
   <data name="widthLabel.Text" xml:space="preserve">
     <value>Šířka</value>
@@ -544,13 +551,13 @@
     <value>Obsazeno snímků pod lentikulí</value>
   </data>
   <data name="lineBackgroundColorLabel.Size" type="System.Drawing.Size, System.Drawing">
-    <value>41, 13</value>
+    <value>51, 17</value>
   </data>
   <data name="lineBackgroundColorLabel.Text" xml:space="preserve">
     <value>Pozadí</value>
   </data>
   <data name="lineColorLabel.Size" type="System.Drawing.Size, System.Drawing">
-    <value>28, 13</value>
+    <value>37, 17</value>
   </data>
   <data name="lineColorLabel.Text" xml:space="preserve">
     <value>Čáry</value>
@@ -559,13 +566,13 @@
     <value>Barva čar a pozadí</value>
   </data>
   <data name="edgeRadioButton.Size" type="System.Drawing.Size, System.Drawing">
-    <value>43, 17</value>
+    <value>54, 21</value>
   </data>
   <data name="edgeRadioButton.Text" xml:space="preserve">
     <value>Kraj</value>
   </data>
   <data name="centerRadioButton.Size" type="System.Drawing.Size, System.Drawing">
-    <value>51, 17</value>
+    <value>63, 21</value>
   </data>
   <data name="centerRadioButton.Text" xml:space="preserve">
     <value>Střed</value>
@@ -577,7 +584,7 @@
     <value>6, 80</value>
   </data>
   <data name="rightLineLabel.Size" type="System.Drawing.Size, System.Drawing">
-    <value>35, 13</value>
+    <value>45, 17</value>
   </data>
   <data name="rightLineLabel.Text" xml:space="preserve">
     <value>Pravá</value>
@@ -586,7 +593,7 @@
     <value>6, 59</value>
   </data>
   <data name="leftLinelabel.Size" type="System.Drawing.Size, System.Drawing">
-    <value>31, 13</value>
+    <value>39, 17</value>
   </data>
   <data name="leftLinelabel.Text" xml:space="preserve">
     <value>Levá</value>
@@ -595,7 +602,7 @@
     <value>6, 39</value>
   </data>
   <data name="bottomLineLabel.Size" type="System.Drawing.Size, System.Drawing">
-    <value>33, 13</value>
+    <value>40, 17</value>
   </data>
   <data name="bottomLineLabel.Text" xml:space="preserve">
     <value>Dolní</value>
@@ -604,7 +611,7 @@
     <value>6, 20</value>
   </data>
   <data name="topLineLabel.Size" type="System.Drawing.Size, System.Drawing">
-    <value>34, 13</value>
+    <value>42, 17</value>
   </data>
   <data name="topLineLabel.Text" xml:space="preserve">
     <value>Horní</value>
@@ -616,13 +623,13 @@
     <value>6, 48</value>
   </data>
   <data name="indentLabel.Size" type="System.Drawing.Size, System.Drawing">
-    <value>53, 13</value>
+    <value>68, 17</value>
   </data>
   <data name="indentLabel.Text" xml:space="preserve">
     <value>Odsazení</value>
   </data>
   <data name="frameWidthLabel.Size" type="System.Drawing.Size, System.Drawing">
-    <value>78, 13</value>
+    <value>98, 17</value>
   </data>
   <data name="frameWidthLabel.Text" xml:space="preserve">
     <value>Šířka rámečku</value>
@@ -2303,19 +2310,19 @@
     <value>Vodící čáry</value>
   </data>
   <data name="label4.Size" type="System.Drawing.Size, System.Drawing">
-    <value>87, 13</value>
+    <value>112, 17</value>
   </data>
   <data name="label4.Text" xml:space="preserve">
     <value>Výška v pixelech</value>
   </data>
   <data name="label3.Size" type="System.Drawing.Size, System.Drawing">
-    <value>88, 13</value>
+    <value>110, 17</value>
   </data>
   <data name="label3.Text" xml:space="preserve">
     <value>Šířka v pixelech:</value>
   </data>
   <data name="label1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>82, 13</value>
+    <value>110, 17</value>
   </data>
   <data name="label1.Text" xml:space="preserve">
     <value>Jméno souboru:</value>
@@ -4837,13 +4844,16 @@
 </value>
   </data>
   <data name="currentStateLabel.Size" type="System.Drawing.Size, System.Drawing">
-    <value>70, 13</value>
+    <value>88, 17</value>
   </data>
   <data name="currentStateLabel.Text" xml:space="preserve">
     <value>Aktuální stav</value>
   </data>
+  <data name="imagePreviewCheckBox.Location" type="System.Drawing.Point, System.Drawing">
+    <value>1066, 434</value>
+  </data>
   <data name="imagePreviewCheckBox.Size" type="System.Drawing.Size, System.Drawing">
-    <value>60, 17</value>
+    <value>75, 21</value>
   </data>
   <data name="imagePreviewCheckBox.Text" xml:space="preserve">
     <value>Náhled</value>

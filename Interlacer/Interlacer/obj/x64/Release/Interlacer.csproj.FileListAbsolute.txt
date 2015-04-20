@@ -83,12 +83,6 @@ C:\Users\Barat_000\OneDrive\Dokumenty\@ZSWI\Project\Projekt\Projekt\Interlacer\I
 C:\Users\Barat_000\OneDrive\Dokumenty\@ZSWI\Project\Projekt\Projekt\Interlacer\Interlacer\obj\x64\Release\Interlacer.StringRes_EN.resources
 C:\Users\Luckin\Desktop\Interlacer Github\Projekt\Interlacer\Interlacer\obj\x64\Release\Interlacer.csprojResolveAssemblyReference.cache
 D:\Škola\WorkSpace\ZSWI - projekt\Interlacer\Interlacer\obj\x64\Release\Interlacer.csprojResolveAssemblyReference.cache
-D:\Škola\WorkSpace\ZSWI - projekt\Interlacer\bin64bit\af-ZA\Interlacer.resources.dll
-D:\Škola\WorkSpace\ZSWI - projekt\Interlacer\Interlacer\obj\x64\Release\Interlacer.MainForm.af-ZA.resources
-D:\Škola\WorkSpace\ZSWI - projekt\Interlacer\Interlacer\obj\x64\Release\af-ZA\Interlacer.resources.dll
-D:\Škola\WorkSpace\ZSWI - projekt\Interlacer\bin64bit\cs\Interlacer.resources.dll
-D:\Škola\WorkSpace\ZSWI - projekt\Interlacer\Interlacer\obj\x64\Release\Interlacer.MainForm.cs.resources
-D:\Škola\WorkSpace\ZSWI - projekt\Interlacer\Interlacer\obj\x64\Release\cs\Interlacer.resources.dll
 c:\Users\Jan\Documents\Interlacer\bin64bit\Interlacer.exe.config
 c:\Users\Jan\Documents\Interlacer\Interlacer\obj\x64\Release\Interlacer.exe
 c:\Users\Jan\Documents\Interlacer\Interlacer\obj\x64\Release\Interlacer.pdb

@@ -374,9 +374,14 @@ namespace Interlacer
 
                     int numOfPics = chosenPictures.Count();
 
+                    string [] splitName = chosenPictures[i].Split('\\');
+                    string picName = splitName[splitName.Length - 1];
+                    ListViewItem item = new ListViewItem(new[] { Convert.ToString(order), chosenPictures[i], picName});
+                    pictureListViewEx.Items.Add(item);
                     //                    pictureListViewEx.Items.Add(Convert.ToString(order)).SubItems.Add(chosenPictures[i]);
-                    pictureListViewEx.Items.Insert(selectedIndex, Convert.ToString(order)).SubItems.Add(chosenPictures[i]);
+                    //pictureListViewEx.Items.Insert(selectedIndex, Convert.ToString(order)).SubItems.Add(chosenPictures[i]);
 
+                    
                     reorder();
 
                     pictureListViewEx.Focus();
@@ -473,8 +478,15 @@ namespace Interlacer
             pictureListViewEx.Items[selectedIndex - 1].SubItems[1].Text = pictureListViewEx.Items[selectedIndex].SubItems[1].Text;
             pictureListViewEx.Items[selectedIndex].SubItems[1].Text = tmp;
 
+            tmp = pictureListViewEx.Items[selectedIndex - 1].SubItems[2].Text;
+
+            pictureListViewEx.Items[selectedIndex - 1].SubItems[2].Text = pictureListViewEx.Items[selectedIndex].SubItems[2].Text;
+            pictureListViewEx.Items[selectedIndex].SubItems[2].Text = tmp;
+
             pictureListViewEx.Items[selectedIndex - 1].Selected = true;
             pictureListViewEx.Items[selectedIndex].Selected = false;
+
+
         }
 
         private void moveDownButton_Click(object sender, EventArgs e)
@@ -500,6 +512,11 @@ namespace Interlacer
 
             pictureListViewEx.Items[selectedIndex + 1].SubItems[1].Text = pictureListViewEx.Items[selectedIndex].SubItems[1].Text;
             pictureListViewEx.Items[selectedIndex].SubItems[1].Text = tmp;
+
+            tmp = pictureListViewEx.Items[selectedIndex + 1].SubItems[2].Text;
+
+            pictureListViewEx.Items[selectedIndex + 1].SubItems[2].Text = pictureListViewEx.Items[selectedIndex].SubItems[2].Text;
+            pictureListViewEx.Items[selectedIndex].SubItems[2].Text = tmp;
 
             pictureListViewEx.Items[selectedIndex + 1].Selected = true;
             pictureListViewEx.Items[selectedIndex].Selected = false;
@@ -935,6 +952,69 @@ namespace Interlacer
             {
                 MessageBox.Show(exc.Message);
             }
+        }
+
+        private void sortListView()
+        {
+            for (int i = 0; i < pictureListViewEx.Items.Count - 1; i++)
+            {
+                for(int j = 0; j < pictureListViewEx.Items.Count - 1; j++) 
+                {
+                    int firstValue = getIntegerFromString(pictureListViewEx.Items[j + 1].SubItems[2].Text);
+                    int secondValue = getIntegerFromString(pictureListViewEx.Items[j].SubItems[2].Text);
+                    
+                    if(firstValue < secondValue) {
+                        String tmp = pictureListViewEx.Items[j + 1].SubItems[2].Text;
+
+                        pictureListViewEx.Items[j + 1].SubItems[2].Text = pictureListViewEx.Items[j].SubItems[2].Text;
+                        pictureListViewEx.Items[j].SubItems[2].Text = tmp;
+
+                        tmp = pictureListViewEx.Items[j + 1].SubItems[1].Text;
+                        pictureListViewEx.Items[j + 1].SubItems[1].Text = pictureListViewEx.Items[j].SubItems[1].Text;
+                        pictureListViewEx.Items[j].SubItems[1].Text = tmp;
+                    }
+                }
+            }
+
+            reorder();
+        }
+
+        private int getIntegerFromString(String word)
+        {
+            int start = word.Length;
+            int end = 0;
+
+            for (int i = word.Length - 1; i >= 0; i--)
+            {
+                if (word[i] >= '0' && word[i] <= '9')
+                {
+                    if (end == 0)
+                    {
+                        end = i + 1;
+                    }
+                    start = i;
+                }
+                else
+                {
+                    if (end != 0)
+                    {
+                        break;
+                    }
+                }
+            }
+
+            if (end != 0)
+            {
+                return Convert.ToInt32(word.Substring(start, end - start));
+
+            }
+
+            return -1;
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            sortListView();
         }
     }
 }
