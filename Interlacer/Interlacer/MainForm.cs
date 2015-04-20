@@ -525,14 +525,17 @@ namespace Interlacer
         private void revertButton_Click(object sender, EventArgs e)
         {
             List<String> tmp_paths = new List<String>();
+            List<String> tmp_picNames = new List<String>();
             for (int i = 0; i < pictureListViewEx.Items.Count; i++)
             {
                 tmp_paths.Add(pictureListViewEx.Items[i].SubItems[1].Text);
+                tmp_picNames.Add(pictureListViewEx.Items[i].SubItems[2].Text);
             }
 
             for (int i = 0; i < pictureListViewEx.Items.Count; i++)
             {
                 pictureListViewEx.Items[i].SubItems[1].Text = tmp_paths[tmp_paths.Count - i - 1];
+                pictureListViewEx.Items[i].SubItems[2].Text = tmp_picNames[tmp_picNames.Count - i - 1];
             }
         }
 
