@@ -149,7 +149,7 @@ namespace Interlacer
             if (!dictionary["FINAL_RESAMPLE_FILTER"].Equals("1")
                   && !dictionary["FINAL_RESAMPLE_FILTER"].Equals("3")
                   && !dictionary["FINAL_RESAMPLE_FILTER"].Equals("10")
-                  && !dictionary["FINAL_RESAMPLE_FILTER"].Equals("20"))
+                  && !dictionary["FINAL_RESAMPLE_FILTER"].Equals("22"))
                 return false;
             return true;
         }

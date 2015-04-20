@@ -269,6 +269,7 @@ namespace Interlacer
             if (checkExtension(filename))
                 savePicFileDialog.AddExtension = false;
 
+
             List<Picture> picList = harvestPicList();
             if (picList.Count == 0)
             {
@@ -887,9 +888,24 @@ namespace Interlacer
 
         private void uložToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            String filename;
+            saveConfigDialog.Filter = "pix|*.pix";
+            saveConfigDialog.AddExtension = true;
+            if (saveConfigDialog.ShowDialog() == DialogResult.OK)
+                filename = saveConfigDialog.FileName;
+            else return;
+
+            String[] split = filename.Split('.');
+            int lastIndex = split.Length - 1;
+
+            if (split[lastIndex].Equals("pix"))
+                saveConfigDialog.AddExtension = false;
+            else
+                filename += ".pix";
+
             try
             {
-                projectData.Save("ahoj.txt");
+                projectData.Save(filename);
             }
             catch(Exception exc)
             {
@@ -899,9 +915,17 @@ namespace Interlacer
 
         private void načtiToolStripMenuItem_Click(object sender, EventArgs e)
         {
+
+            String filename;
+            openConfigDialog.Filter = "pix|*.pix";
+            openConfigDialog.AddExtension = true;
+            if (openConfigDialog.ShowDialog() == DialogResult.OK)
+                filename = openConfigDialog.FileName;
+            else return;
+
             try
             {
-                projectData.Load("ahoj.txt");
+                projectData.Load(filename);
                 projectData.GetInterlacingData().SetUnits(((StringValuePair<Units>)settings.GetSelectedUnits()).value);
                 projectData.GetLineData().SetUnits(((StringValuePair<Units>)settings.GetSelectedUnits()).value);
                 projectData.GetInterlacingData().SetResolutionUnits(((StringValuePair<Units>)settings.GetSelectedResolutionUnits()).value);

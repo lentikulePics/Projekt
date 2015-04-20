@@ -139,6 +139,8 @@
             this.addPicFileDialog = new System.Windows.Forms.OpenFileDialog();
             this.reorderTimer = new System.Windows.Forms.Timer(this.components);
             this.savePicFileDialog = new System.Windows.Forms.SaveFileDialog();
+            this.saveConfigDialog = new System.Windows.Forms.SaveFileDialog();
+            this.openConfigDialog = new System.Windows.Forms.OpenFileDialog();
             this.menuStrip1.SuspendLayout();
             this.toolStrip1.SuspendLayout();
             this.outputImageTab.SuspendLayout();
@@ -521,7 +523,7 @@
             this.widthNumeric.DecimalPlaces = 3;
             resources.ApplyResources(this.widthNumeric, "widthNumeric");
             this.widthNumeric.Maximum = new decimal(new int[] {
-            1000,
+            10000,
             0,
             0,
             0});
@@ -533,7 +535,7 @@
             this.heightNumeric.DecimalPlaces = 3;
             resources.ApplyResources(this.heightNumeric, "heightNumeric");
             this.heightNumeric.Maximum = new decimal(new int[] {
-            1000,
+            10000,
             0,
             0,
             0});
@@ -553,6 +555,8 @@
             // 
             // keepRatioCheckbox
             // 
+            this.keepRatioCheckbox.Checked = true;
+            this.keepRatioCheckbox.CheckState = System.Windows.Forms.CheckState.Checked;
             resources.ApplyResources(this.keepRatioCheckbox, "keepRatioCheckbox");
             this.keepRatioCheckbox.Name = "keepRatioCheckbox";
             this.keepRatioCheckbox.UseVisualStyleBackColor = true;
@@ -1125,6 +1129,8 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label copyCountLabel;
         private System.Windows.Forms.NumericUpDown copyCountNumeric;
+        private System.Windows.Forms.SaveFileDialog saveConfigDialog;
+        private System.Windows.Forms.OpenFileDialog openConfigDialog;
 
     }
 }

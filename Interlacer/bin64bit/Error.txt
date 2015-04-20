@@ -1,0 +1,1 @@
+Magick: UnableToOpenConfigureFile `colors.xml' @ warning/configure.c/GetConfigureOptions/706
