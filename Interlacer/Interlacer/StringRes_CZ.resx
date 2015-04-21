@@ -123,11 +123,21 @@
   <data name="clearAllTooltip" xml:space="preserve">
     <value>Vymazat vše</value>
   </data>
+  <data name="configFileCorruptError" xml:space="preserve">
+    <value>Konfigurační soubor {0} je pravděpodobně poškozen.</value>
+  </data>
   <data name="copyPicTooltip" xml:space="preserve">
     <value>Kopírovat</value>
   </data>
+  <data name="doneMessage" xml:space="preserve">
+    <value>Hotovo</value>
+  </data>
   <data name="emptyListError" xml:space="preserve">
     <value>Seznam obrázků je prázdný.</value>
+  </data>
+  <data name="fileNotFoundError" xml:space="preserve">
+    <value>Soubor {0} se nepodařilo otevřít. 
+Soubor pravděpodobně neexistuje.</value>
   </data>
   <data name="filterCubic" xml:space="preserve">
     <value>Kubický</value>
@@ -144,6 +154,15 @@
   <data name="imageDimensionError" xml:space="preserve">
     <value>Obrázky nejsou stejně velké. Chcete je oříznout na nejmenší šířku a nejmenší výšku?</value>
   </data>
+  <data name="imageLoadError" xml:space="preserve">
+    <value>Soubor {0} se nepodařilo načíst.</value>
+  </data>
+  <data name="imageSaveError" xml:space="preserve">
+    <value>Obrázek {0} se nepodařilo uložit.</value>
+  </data>
+  <data name="imageSaveError2" xml:space="preserve">
+    <value>Soubor {0} se nepodařilo uložit. Překontrolujte zda máte právo zápisu, nebo dostatek místa.</value>
+  </data>
   <data name="interlacingError" xml:space="preserve">
     <value>Prokládání selhalo. Pravděpodobnou příčinou je chybné nastavení prokládacích parametrů. Zkontrolujte, zda některý z parametrů není nulový, příliš malý či příliš velký.</value>
   </data>
@@ -152,6 +171,13 @@
   </data>
   <data name="langEnglish" xml:space="preserve">
     <value>Angličtina</value>
+  </data>
+  <data name="libraryLoadError" xml:space="preserve">
+    <value>Chyba při načítání grafické knihovny.
+Pravděpodobnou příčinou je chybějící Visual C++ Redistributable</value>
+  </data>
+  <data name="loadTooltip" xml:space="preserve">
+    <value>Načíst projekt</value>
   </data>
   <data name="memoryError" xml:space="preserve">
     <value>Aplikace nemá k dispozici dostatek operační paměti.</value>
@@ -177,7 +203,16 @@
   <data name="revertTooltip" xml:space="preserve">
     <value>Otočit list obrázků</value>
   </data>
+  <data name="saveTooltip" xml:space="preserve">
+    <value>Uložit projekt</value>
+  </data>
+  <data name="sortTooltip" xml:space="preserve">
+    <value>Seřadí obrázky podle koncového čísla</value>
+  </data>
   <data name="unitsInches" xml:space="preserve">
     <value>palce</value>
+  </data>
+  <data name="wrongFormatError" xml:space="preserve">
+    <value>Soubor {0} má chybný formát.</value>
   </data>
 </root>

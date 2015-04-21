@@ -79,6 +79,15 @@ namespace Interlacer {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Konfigurační soubor {0} je pravděpodobně poškozen..
+        /// </summary>
+        internal static string configFileCorruptError {
+            get {
+                return ResourceManager.GetString("configFileCorruptError", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Kopírovat.
         /// </summary>
         internal static string copyPicTooltip {
@@ -88,11 +97,30 @@ namespace Interlacer {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Hotovo.
+        /// </summary>
+        internal static string doneMessage {
+            get {
+                return ResourceManager.GetString("doneMessage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Seznam obrázků je prázdný..
         /// </summary>
         internal static string emptyListError {
             get {
                 return ResourceManager.GetString("emptyListError", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Soubor {0} se nepodařilo otevřít. 
+        ///Soubor pravděpodobně neexistuje..
+        /// </summary>
+        internal static string fileNotFoundError {
+            get {
+                return ResourceManager.GetString("fileNotFoundError", resourceCulture);
             }
         }
         
@@ -142,6 +170,33 @@ namespace Interlacer {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Soubor {0} se nepodařilo načíst..
+        /// </summary>
+        internal static string imageLoadError {
+            get {
+                return ResourceManager.GetString("imageLoadError", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Obrázek {0} se nepodařilo uložit..
+        /// </summary>
+        internal static string imageSaveError {
+            get {
+                return ResourceManager.GetString("imageSaveError", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Soubor {0} se nepodařilo uložit. Překontrolujte zda máte právo zápisu, nebo dostatek místa..
+        /// </summary>
+        internal static string imageSaveError2 {
+            get {
+                return ResourceManager.GetString("imageSaveError2", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Prokládání selhalo. Pravděpodobnou příčinou je chybné nastavení prokládacích parametrů. Zkontrolujte, zda některý z parametrů není nulový, příliš malý či příliš velký..
         /// </summary>
         internal static string interlacingError {
@@ -165,6 +220,25 @@ namespace Interlacer {
         internal static string langEnglish {
             get {
                 return ResourceManager.GetString("langEnglish", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Chyba při načítání grafické knihovny.
+        ///Pravděpodobnou příčinou je chybějící Visual C++ Redistributable.
+        /// </summary>
+        internal static string libraryLoadError {
+            get {
+                return ResourceManager.GetString("libraryLoadError", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Načíst projekt.
+        /// </summary>
+        internal static string loadTooltip {
+            get {
+                return ResourceManager.GetString("loadTooltip", resourceCulture);
             }
         }
         
@@ -241,11 +315,38 @@ namespace Interlacer {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Uložit projekt.
+        /// </summary>
+        internal static string saveTooltip {
+            get {
+                return ResourceManager.GetString("saveTooltip", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Seřadí obrázky podle koncového čísla.
+        /// </summary>
+        internal static string sortTooltip {
+            get {
+                return ResourceManager.GetString("sortTooltip", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to palce.
         /// </summary>
         internal static string unitsInches {
             get {
                 return ResourceManager.GetString("unitsInches", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Soubor {0} má chybný formát..
+        /// </summary>
+        internal static string wrongFormatError {
+            get {
+                return ResourceManager.GetString("wrongFormatError", resourceCulture);
             }
         }
     }

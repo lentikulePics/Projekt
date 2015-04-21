@@ -441,33 +441,6 @@
   <data name="&gt;&gt;generalTab.ZOrder" xml:space="preserve">
     <value>0</value>
   </data>
-  <data name="advancedTab.Location" type="System.Drawing.Point, System.Drawing">
-    <value>4, 22</value>
-  </data>
-  <data name="advancedTab.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>3, 3, 3, 3</value>
-  </data>
-  <data name="advancedTab.Size" type="System.Drawing.Size, System.Drawing">
-    <value>416, 391</value>
-  </data>
-  <data name="advancedTab.TabIndex" type="System.Int32, mscorlib">
-    <value>1</value>
-  </data>
-  <data name="advancedTab.Text" xml:space="preserve">
-    <value>Advanced</value>
-  </data>
-  <data name="&gt;&gt;advancedTab.Name" xml:space="preserve">
-    <value>advancedTab</value>
-  </data>
-  <data name="&gt;&gt;advancedTab.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TabPage, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;advancedTab.Parent" xml:space="preserve">
-    <value>tabControl1</value>
-  </data>
-  <data name="&gt;&gt;advancedTab.ZOrder" xml:space="preserve">
-    <value>1</value>
-  </data>
   <data name="tabControl1.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
     <value>Fill</value>
   </data>

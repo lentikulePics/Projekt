@@ -36,7 +36,7 @@ namespace Interlacer
             }
             catch{
                 Localization.changeCulture();  //vraceni zpet na kultury, ktera je aktualne nastavena
-                throw new Exception("Soubor " + filename + " se nepodařilo uložit. Překontrolujte zda máte právo zápisu, nebo dostatek místa.");
+                throw new Exception(string.Format(Localization.resourcesStrings.GetString("imageSaveError2"), filename));
             }
            
             Localization.changeCulture();  //vraceni zpet na kultury, ktera je aktualne nastavena
@@ -63,7 +63,7 @@ namespace Interlacer
             catch
             {
                 Localization.changeCulture();  //vraceni zpet na kultury, ktera je aktualne nastavena
-                throw new Exception("Soubor " + filename + " se nepodařilo načíst.");
+                throw new Exception(string.Format(Localization.resourcesStrings.GetString("imageLoadError"), filename));
             }
 
             if (validateLoadDictionary(dictionary))
@@ -74,7 +74,7 @@ namespace Interlacer
             else
             {
                 Localization.changeCulture();  //vraceni zpet na kultury, ktera je aktualne nastavena
-                throw new Exception("Konfigurační soubor "+filename+" je pravděpodobně poškozen");
+                throw new Exception(string.Format(Localization.resourcesStrings.GetString("configFileCorruptError"), filename));
             }
             
             Localization.changeCulture();  //vraceni zpet na kultury, ktera je aktualne nastavena

@@ -79,6 +79,15 @@ namespace Interlacer {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Configuration file {0} may be corrupted..
+        /// </summary>
+        internal static string configFileCorruptError {
+            get {
+                return ResourceManager.GetString("configFileCorruptError", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Copy.
         /// </summary>
         internal static string copyPicTooltip {
@@ -88,11 +97,29 @@ namespace Interlacer {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Done.
+        /// </summary>
+        internal static string doneMessage {
+            get {
+                return ResourceManager.GetString("doneMessage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to List of images is empty.
         /// </summary>
         internal static string emptyListError {
             get {
                 return ResourceManager.GetString("emptyListError", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to File {0} could not be opened. File probably does not exist..
+        /// </summary>
+        internal static string fileNotFoundError {
+            get {
+                return ResourceManager.GetString("fileNotFoundError", resourceCulture);
             }
         }
         
@@ -142,6 +169,33 @@ namespace Interlacer {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to File {0} could not be loaded..
+        /// </summary>
+        internal static string imageLoadError {
+            get {
+                return ResourceManager.GetString("imageLoadError", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Image {0} could not be saved..
+        /// </summary>
+        internal static string imageSaveError {
+            get {
+                return ResourceManager.GetString("imageSaveError", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to File {0} could not be saved. Check writing privileges and make sure there is enough space..
+        /// </summary>
+        internal static string imageSaveError2 {
+            get {
+                return ResourceManager.GetString("imageSaveError2", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Interlacing failed. Check interlacing parameters..
         /// </summary>
         internal static string interlacingError {
@@ -165,6 +219,25 @@ namespace Interlacer {
         internal static string langEnglish {
             get {
                 return ResourceManager.GetString("langEnglish", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Error loading graphics library.
+        ///Make sure Visual C++ Redistributable is installed..
+        /// </summary>
+        internal static string libraryLoadError {
+            get {
+                return ResourceManager.GetString("libraryLoadError", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Open project.
+        /// </summary>
+        internal static string loadTooltip {
+            get {
+                return ResourceManager.GetString("loadTooltip", resourceCulture);
             }
         }
         
@@ -241,11 +314,38 @@ namespace Interlacer {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Save project.
+        /// </summary>
+        internal static string saveTooltip {
+            get {
+                return ResourceManager.GetString("saveTooltip", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Sort images by their ending number.
+        /// </summary>
+        internal static string sortTooltip {
+            get {
+                return ResourceManager.GetString("sortTooltip", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to inches.
         /// </summary>
         internal static string unitsInches {
             get {
                 return ResourceManager.GetString("unitsInches", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to File  {0} has wrong format..
+        /// </summary>
+        internal static string wrongFormatError {
+            get {
+                return ResourceManager.GetString("wrongFormatError", resourceCulture);
             }
         }
     }

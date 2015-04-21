@@ -32,8 +32,8 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.souborMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.uložToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.načtiToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.ulozToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.nactiToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.zavřítToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.nastaeníToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.předvolbyToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -41,11 +41,10 @@
             this.nápovědaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.oProgramuToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
-            this.ulozToolStripButton = new System.Windows.Forms.ToolStripButton();
-            this.nahrajToolStripButton = new System.Windows.Forms.ToolStripButton();
+            this.saveToolStripButton = new System.Windows.Forms.ToolStripButton();
+            this.loadToolStripButton = new System.Windows.Forms.ToolStripButton();
             this.outputImageTab = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
-            this.button1 = new System.Windows.Forms.Button();
             this.copyCountLabel = new System.Windows.Forms.Label();
             this.copyCountNumeric = new System.Windows.Forms.NumericUpDown();
             this.pictureListViewEx = new Bol.WinControls.ListViewEx();
@@ -56,6 +55,7 @@
             this.clearAllButton = new System.Windows.Forms.Button();
             this.revertButton = new System.Windows.Forms.Button();
             this.moveDownButton = new System.Windows.Forms.Button();
+            this.sortButton = new System.Windows.Forms.Button();
             this.moveUpButton = new System.Windows.Forms.Button();
             this.copyPicButton = new System.Windows.Forms.Button();
             this.removePicButton = new System.Windows.Forms.Button();
@@ -134,7 +134,6 @@
             this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.interlaceProgressBar = new System.Windows.Forms.ProgressBar();
-            this.currentStateLabel = new System.Windows.Forms.Label();
             this.imagePreviewCheckBox = new System.Windows.Forms.CheckBox();
             this.columnHeader3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader4 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
@@ -187,22 +186,22 @@
             // 
             resources.ApplyResources(this.souborMenuItem, "souborMenuItem");
             this.souborMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.uložToolStripMenuItem,
-            this.načtiToolStripMenuItem,
+            this.ulozToolStripMenuItem,
+            this.nactiToolStripMenuItem,
             this.zavřítToolStripMenuItem});
             this.souborMenuItem.Name = "souborMenuItem";
             // 
-            // uložToolStripMenuItem
+            // ulozToolStripMenuItem
             // 
-            resources.ApplyResources(this.uložToolStripMenuItem, "uložToolStripMenuItem");
-            this.uložToolStripMenuItem.Name = "uložToolStripMenuItem";
-            this.uložToolStripMenuItem.Click += new System.EventHandler(this.uložToolStripMenuItem_Click);
+            resources.ApplyResources(this.ulozToolStripMenuItem, "ulozToolStripMenuItem");
+            this.ulozToolStripMenuItem.Name = "ulozToolStripMenuItem";
+            this.ulozToolStripMenuItem.Click += new System.EventHandler(this.ulozToolStripMenuItem_Click);
             // 
-            // načtiToolStripMenuItem
+            // nactiToolStripMenuItem
             // 
-            resources.ApplyResources(this.načtiToolStripMenuItem, "načtiToolStripMenuItem");
-            this.načtiToolStripMenuItem.Name = "načtiToolStripMenuItem";
-            this.načtiToolStripMenuItem.Click += new System.EventHandler(this.načtiToolStripMenuItem_Click);
+            resources.ApplyResources(this.nactiToolStripMenuItem, "nactiToolStripMenuItem");
+            this.nactiToolStripMenuItem.Name = "nactiToolStripMenuItem";
+            this.nactiToolStripMenuItem.Click += new System.EventHandler(this.nactiToolStripMenuItem_Click);
             // 
             // zavřítToolStripMenuItem
             // 
@@ -245,21 +244,23 @@
             resources.ApplyResources(this.toolStrip1, "toolStrip1");
             this.toolStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.ulozToolStripButton,
-            this.nahrajToolStripButton});
+            this.saveToolStripButton,
+            this.loadToolStripButton});
             this.toolStrip1.Name = "toolStrip1";
             // 
-            // ulozToolStripButton
+            // saveToolStripButton
             // 
-            resources.ApplyResources(this.ulozToolStripButton, "ulozToolStripButton");
-            this.ulozToolStripButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.ulozToolStripButton.Name = "ulozToolStripButton";
+            resources.ApplyResources(this.saveToolStripButton, "saveToolStripButton");
+            this.saveToolStripButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.saveToolStripButton.Name = "saveToolStripButton";
+            this.saveToolStripButton.Click += new System.EventHandler(this.ulozToolStripMenuItem_Click);
             // 
-            // nahrajToolStripButton
+            // loadToolStripButton
             // 
-            resources.ApplyResources(this.nahrajToolStripButton, "nahrajToolStripButton");
-            this.nahrajToolStripButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.nahrajToolStripButton.Name = "nahrajToolStripButton";
+            resources.ApplyResources(this.loadToolStripButton, "loadToolStripButton");
+            this.loadToolStripButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.loadToolStripButton.Name = "loadToolStripButton";
+            this.loadToolStripButton.Click += new System.EventHandler(this.nactiToolStripMenuItem_Click);
             // 
             // outputImageTab
             // 
@@ -273,7 +274,6 @@
             // 
             resources.ApplyResources(this.tabPage1, "tabPage1");
             this.tabPage1.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.tabPage1.Controls.Add(this.button1);
             this.tabPage1.Controls.Add(this.copyCountLabel);
             this.tabPage1.Controls.Add(this.copyCountNumeric);
             this.tabPage1.Controls.Add(this.pictureListViewEx);
@@ -281,6 +281,7 @@
             this.tabPage1.Controls.Add(this.clearAllButton);
             this.tabPage1.Controls.Add(this.revertButton);
             this.tabPage1.Controls.Add(this.moveDownButton);
+            this.tabPage1.Controls.Add(this.sortButton);
             this.tabPage1.Controls.Add(this.moveUpButton);
             this.tabPage1.Controls.Add(this.copyPicButton);
             this.tabPage1.Controls.Add(this.removePicButton);
@@ -293,13 +294,6 @@
             this.tabPage1.Controls.Add(this.groupBox1);
             this.tabPage1.Controls.Add(this.label5);
             this.tabPage1.Name = "tabPage1";
-            // 
-            // button1
-            // 
-            resources.ApplyResources(this.button1, "button1");
-            this.button1.Name = "button1";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // copyCountLabel
             // 
@@ -378,6 +372,13 @@
             this.moveDownButton.Name = "moveDownButton";
             this.moveDownButton.UseVisualStyleBackColor = true;
             this.moveDownButton.Click += new System.EventHandler(this.moveDownButton_Click);
+            // 
+            // sortButton
+            // 
+            resources.ApplyResources(this.sortButton, "sortButton");
+            this.sortButton.Name = "sortButton";
+            this.sortButton.UseVisualStyleBackColor = true;
+            this.sortButton.Click += new System.EventHandler(this.moveUpButton_Click);
             // 
             // moveUpButton
             // 
@@ -944,11 +945,6 @@
             resources.ApplyResources(this.interlaceProgressBar, "interlaceProgressBar");
             this.interlaceProgressBar.Name = "interlaceProgressBar";
             // 
-            // currentStateLabel
-            // 
-            resources.ApplyResources(this.currentStateLabel, "currentStateLabel");
-            this.currentStateLabel.Name = "currentStateLabel";
-            // 
             // imagePreviewCheckBox
             // 
             resources.ApplyResources(this.imagePreviewCheckBox, "imagePreviewCheckBox");
@@ -992,7 +988,6 @@
             this.AllowDrop = true;
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.imagePreviewCheckBox);
-            this.Controls.Add(this.currentStateLabel);
             this.Controls.Add(this.interlaceProgressBar);
             this.Controls.Add(this.previewPicBox);
             this.Controls.Add(this.interlaceButton);
@@ -1056,16 +1051,16 @@
 
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem souborMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem uložToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem ulozToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem zavřítToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem načtiToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem nactiToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem nastaeníToolStripMenuItem;
         private System.Windows.Forms.ToolStrip toolStrip1;
         private System.Windows.Forms.ToolStripMenuItem oProgramuToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem nápovědaToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem oProgramuToolStripMenuItem1;
-        private System.Windows.Forms.ToolStripButton ulozToolStripButton;
-        private System.Windows.Forms.ToolStripButton nahrajToolStripButton;
+        private System.Windows.Forms.ToolStripButton saveToolStripButton;
+        private System.Windows.Forms.ToolStripButton loadToolStripButton;
         private System.Windows.Forms.TabControl outputImageTab;
         private System.Windows.Forms.TabPage tabPage1;
         private System.Windows.Forms.Label dpiLabel;
@@ -1092,7 +1087,6 @@
         private System.Windows.Forms.ColumnHeader columnHeader1;
         private System.Windows.Forms.ColumnHeader columnHeader2;
         private System.Windows.Forms.ProgressBar interlaceProgressBar;
-        private System.Windows.Forms.Label currentStateLabel;
         private System.Windows.Forms.NumericUpDown heightNumeric;
         private System.Windows.Forms.CheckBox imagePreviewCheckBox;
         private System.Windows.Forms.Label picUnderLenLabel;
@@ -1167,7 +1161,7 @@
         private System.Windows.Forms.SaveFileDialog saveConfigDialog;
         private System.Windows.Forms.OpenFileDialog openConfigDialog;
         private System.Windows.Forms.ColumnHeader picNameHeader;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button sortButton;
 
     }
 }

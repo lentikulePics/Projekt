@@ -123,11 +123,20 @@
   <data name="clearAllTooltip" xml:space="preserve">
     <value>Clear all</value>
   </data>
+  <data name="configFileCorruptError" xml:space="preserve">
+    <value>Configuration file {0} may be corrupted.</value>
+  </data>
   <data name="copyPicTooltip" xml:space="preserve">
     <value>Copy</value>
   </data>
+  <data name="doneMessage" xml:space="preserve">
+    <value>Done</value>
+  </data>
   <data name="emptyListError" xml:space="preserve">
     <value>List of images is empty</value>
+  </data>
+  <data name="fileNotFoundError" xml:space="preserve">
+    <value>File {0} could not be opened. File probably does not exist.</value>
   </data>
   <data name="filterCubic" xml:space="preserve">
     <value>Cubic</value>
@@ -144,6 +153,15 @@
   <data name="imageDimensionError" xml:space="preserve">
     <value>Image dimensions differ. Do you want to crop them to minimum width and minimum height?</value>
   </data>
+  <data name="imageLoadError" xml:space="preserve">
+    <value>File {0} could not be loaded.</value>
+  </data>
+  <data name="imageSaveError" xml:space="preserve">
+    <value>Image {0} could not be saved.</value>
+  </data>
+  <data name="imageSaveError2" xml:space="preserve">
+    <value>File {0} could not be saved. Check writing privileges and make sure there is enough space.</value>
+  </data>
   <data name="interlacingError" xml:space="preserve">
     <value>Interlacing failed. Check interlacing parameters.</value>
   </data>
@@ -152,6 +170,13 @@
   </data>
   <data name="langEnglish" xml:space="preserve">
     <value>English</value>
+  </data>
+  <data name="libraryLoadError" xml:space="preserve">
+    <value>Error loading graphics library.
+Make sure Visual C++ Redistributable is installed.</value>
+  </data>
+  <data name="loadTooltip" xml:space="preserve">
+    <value>Open project</value>
   </data>
   <data name="memoryError" xml:space="preserve">
     <value>Not enough memory.</value>
@@ -177,7 +202,16 @@
   <data name="revertTooltip" xml:space="preserve">
     <value>Reverse list</value>
   </data>
+  <data name="saveTooltip" xml:space="preserve">
+    <value>Save project</value>
+  </data>
+  <data name="sortTooltip" xml:space="preserve">
+    <value>Sort images by their ending number</value>
+  </data>
   <data name="unitsInches" xml:space="preserve">
     <value>inches</value>
+  </data>
+  <data name="wrongFormatError" xml:space="preserve">
+    <value>File  {0} has wrong format.</value>
   </data>
 </root>

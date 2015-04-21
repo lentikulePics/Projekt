@@ -44,7 +44,6 @@
             this.languageGroup = new System.Windows.Forms.GroupBox();
             this.label1 = new System.Windows.Forms.Label();
             this.languageCombobox = new System.Windows.Forms.ComboBox();
-            this.advancedTab = new System.Windows.Forms.TabPage();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.panel1.SuspendLayout();
             this.tabControl1.SuspendLayout();
@@ -86,7 +85,6 @@
             // tabControl1
             // 
             this.tabControl1.Controls.Add(this.generalTab);
-            this.tabControl1.Controls.Add(this.advancedTab);
             resources.ApplyResources(this.tabControl1, "tabControl1");
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
@@ -155,12 +153,6 @@
             resources.ApplyResources(this.languageCombobox, "languageCombobox");
             this.languageCombobox.Name = "languageCombobox";
             // 
-            // advancedTab
-            // 
-            this.advancedTab.BackColor = System.Drawing.Color.WhiteSmoke;
-            resources.ApplyResources(this.advancedTab, "advancedTab");
-            this.advancedTab.Name = "advancedTab";
-            // 
             // SettingsForm
             // 
             resources.ApplyResources(this, "$this");
@@ -193,7 +185,6 @@
         private System.Windows.Forms.GroupBox metricsGroup;
         private System.Windows.Forms.GroupBox languageGroup;
         private System.Windows.Forms.ComboBox languageCombobox;
-        private System.Windows.Forms.TabPage advancedTab;
         private System.Windows.Forms.Button cancelButton;
         private System.Windows.Forms.ToolTip toolTip1;
         private System.Windows.Forms.Label label1;

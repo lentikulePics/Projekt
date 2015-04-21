@@ -32,10 +32,13 @@ namespace Interlacer
 
         private void applyButton_Click(object sender, EventArgs e)
         {
+            applyChangedOptions();
+        }
+
+        private void applyChangedOptions()
+        {
             Localization.currentLanguage = ((StringValuePair<String>)languageCombobox.SelectedItem).value;
             Localization.changeCulture();
-
-            
 
             // Zmeni jazyk pro MainForm
             parent.changeLanguage();
@@ -80,6 +83,7 @@ namespace Interlacer
 
         private void okButton_Click(object sender, EventArgs e)
         {
+            applyChangedOptions();
             this.Close();
         }
 

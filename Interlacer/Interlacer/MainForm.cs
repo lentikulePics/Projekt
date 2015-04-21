@@ -31,7 +31,7 @@ namespace Interlacer
         {
             if (!GfxlibCommunicator.Test())
             {
-                MessageBox.Show("Chyba při načítání grafické knihovny.\nPravděpodobnou příčinou je chybějící Visual C++ Redistributable");
+                MessageBox.Show(Localization.resourcesStrings.GetString("libraryLoadError"));
                 System.Environment.Exit(0);
             }
             InitializeComponent();
@@ -157,6 +157,9 @@ namespace Interlacer
             t.SetToolTip(moveDownButton, Localization.resourcesStrings.GetString("moveDownTooltip"));
             t.SetToolTip(clearAllButton, Localization.resourcesStrings.GetString("clearAllTooltip"));
             t.SetToolTip(revertButton, Localization.resourcesStrings.GetString("revertTooltip"));
+            t.SetToolTip(sortButton, Localization.resourcesStrings.GetString("sortTooltip"));
+            saveToolStripButton.Text = Localization.resourcesStrings.GetString("saveTooltip");
+            loadToolStripButton.Text = Localization.resourcesStrings.GetString("loadTooltip");
 
             // Nastaveni sloupcu listview
             pictureListViewEx.Columns[0].Text = Localization.resourcesStrings.GetString("orderListView");
@@ -280,6 +283,7 @@ namespace Interlacer
             PictureContainer picCon = new PictureContainer(picList, projectData.GetInterlacingData(), projectData.GetLineData(), interlaceProgressBar);
             try
             {
+                MessageBox.Show(string.Format(Localization.resourcesStrings.GetString("wrongFormatError"), filename));
                 if (!picCon.CheckPictures())
                 {
                     DialogResult dialogResult = MessageBox.Show(Localization.resourcesStrings.GetString("imageDimensionError"), "", MessageBoxButtons.YesNo);
@@ -290,13 +294,13 @@ namespace Interlacer
             }
             catch (PictureLoadFailureException ex)
             {
-                MessageBox.Show("Soubor " + ex.filename + " se nepodařilo otevřít.\nSoubor pravděpodobně neexistuje.");
+                MessageBox.Show(string.Format(Localization.resourcesStrings.GetString("fileNotFoundError"), ex.filename));
                 interlaceProgressBar.Value = 0;
                 return;
             }
             catch (PictureWrongFormatException ex)
             {
-                MessageBox.Show("Soubor " + ex.filename + " má chybný formát.");
+                MessageBox.Show(string.Format(Localization.resourcesStrings.GetString("wrongFormatError"), ex.filename));
                 interlaceProgressBar.Value = 0;
                 return;
             }
@@ -319,11 +323,11 @@ namespace Interlacer
             }
             catch (PictureSaveFailureException ex)
             {
-                MessageBox.Show("Obrázek " + ex.filename + " se nepodařilo uložit.");
+                MessageBox.Show(string.Format(Localization.resourcesStrings.GetString("imageSaveError"), ex.filename));
             }
             result.Destroy();
 
-            MessageBox.Show("Hotovo!");
+            MessageBox.Show(Localization.resourcesStrings.GetString("doneMessage"));
             
             //PictureContainer pc = new PictureContainer(progressBar, label, co dal??);
 
@@ -486,8 +490,6 @@ namespace Interlacer
 
             pictureListViewEx.Items[selectedIndex - 1].Selected = true;
             pictureListViewEx.Items[selectedIndex].Selected = false;
-
-
         }
 
         private void moveDownButton_Click(object sender, EventArgs e)
@@ -825,7 +827,6 @@ namespace Interlacer
                 string[] filePaths = (string[])(e.Data.GetData(DataFormats.FileDrop));
                 int lastIndnex = pictureListViewEx.Items.Count;
 
-                //MessageBox.Show(lastIndnex+"");
                 foreach (string path in filePaths)
                 {
                     bool valid = isExtensionValid(path);
@@ -909,7 +910,7 @@ namespace Interlacer
             catch { } //pri vyjimce se soubor proste neulozi
         }
 
-        private void uložToolStripMenuItem_Click(object sender, EventArgs e)
+        private void ulozToolStripMenuItem_Click(object sender, EventArgs e)
         {
             String filename;
             saveConfigDialog.Filter = "pix|*.pix";
@@ -936,9 +937,8 @@ namespace Interlacer
             }
         }
 
-        private void načtiToolStripMenuItem_Click(object sender, EventArgs e)
+        private void nactiToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
             String filename;
             openConfigDialog.Filter = "pix|*.pix";
             openConfigDialog.AddExtension = true;
