@@ -283,7 +283,6 @@ namespace Interlacer
             PictureContainer picCon = new PictureContainer(picList, projectData.GetInterlacingData(), projectData.GetLineData(), interlaceProgressBar);
             try
             {
-                MessageBox.Show(string.Format(Localization.resourcesStrings.GetString("wrongFormatError"), filename));
                 if (!picCon.CheckPictures())
                 {
                     DialogResult dialogResult = MessageBox.Show(Localization.resourcesStrings.GetString("imageDimensionError"), "", MessageBoxButtons.YesNo);
