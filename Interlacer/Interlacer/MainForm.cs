@@ -1017,7 +1017,7 @@ namespace Interlacer
             return -1;
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void sortButton_Click(object sender, EventArgs e)
         {
             sortListView();
         }
