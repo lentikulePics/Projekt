@@ -396,6 +396,7 @@ namespace Interlacer
                 }
                 if (chosenPictures.Length > 0)
                 {
+                    // pouzito vickrat, dat do vlastni metody!
                     Picture pic = new Picture(chosenPictures[0]);
                     try
                     {
@@ -842,7 +843,13 @@ namespace Interlacer
 
                 foreach (string path in filePaths)
                 {
-                    pictureListViewEx.Items.Add(Convert.ToString(order)).SubItems.Add(path);
+                    // ***** Pouzito vickrat, dat do vlastni metody *******
+                    string[] splitName = path.Split('\\');
+                    string picName = splitName[splitName.Length - 1];
+                    ListViewItem item = new ListViewItem(new[] { Convert.ToString(order), path, picName });
+                    pictureListViewEx.Items.Add(item);
+
+                    //pictureListViewEx.Items.Add(Convert.ToString(order)).SubItems.Add(path);
                     order++;            
                 }
                 reorder();
