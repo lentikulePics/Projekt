@@ -270,6 +270,15 @@ namespace Interlacer {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Jméno.
+        /// </summary>
+        internal static string nameListView {
+            get {
+                return ResourceManager.GetString("nameListView", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Pořadí.
         /// </summary>
         internal static string orderListView {

@@ -148,7 +148,7 @@
     <value>Linear</value>
   </data>
   <data name="filterNearestNeighbor" xml:space="preserve">
-    <value>Nearest neighbor</value>
+    <value>Nearest neighbour</value>
   </data>
   <data name="imageDimensionError" xml:space="preserve">
     <value>Image dimensions differ. Do you want to crop them to minimum width and minimum height?</value>
@@ -186,6 +186,9 @@ Make sure Visual C++ Redistributable is installed.</value>
   </data>
   <data name="moveUpTooltip" xml:space="preserve">
     <value>Move up</value>
+  </data>
+  <data name="nameListView" xml:space="preserve">
+    <value>Name</value>
   </data>
   <data name="orderListView" xml:space="preserve">
     <value>Order</value>

@@ -164,6 +164,7 @@ namespace Interlacer
             // Nastaveni sloupcu listview
             pictureListViewEx.Columns[0].Text = Localization.resourcesStrings.GetString("orderListView");
             pictureListViewEx.Columns[1].Text = Localization.resourcesStrings.GetString("pathListView");
+            pictureListViewEx.Columns[2].Text = Localization.resourcesStrings.GetString("nameListView");
         }
 
         private void setPreview()
@@ -806,7 +807,20 @@ namespace Interlacer
         {
             if (e.Data.GetDataPresent(DataFormats.FileDrop))
             {
-                e.Effect = DragDropEffects.Copy;
+                string[] filePaths = (string[])(e.Data.GetData(DataFormats.FileDrop));
+                int lastIndnex = pictureListViewEx.Items.Count;
+
+                foreach (string path in filePaths)
+                {
+                    if (isExtensionValid(path))
+                    {
+                        e.Effect = DragDropEffects.Copy;
+                    }
+                    else
+                    {
+                        e.Effect = DragDropEffects.None;
+                    }
+                }                
             }
             else
             {
@@ -828,16 +842,8 @@ namespace Interlacer
 
                 foreach (string path in filePaths)
                 {
-                    bool valid = isExtensionValid(path);
-                    if (valid)
-                    {
-                        pictureListViewEx.Items.Add(Convert.ToString(order)).SubItems.Add(path);
-                        order++;
-                    }
-                    else
-                    {
-                        e.Effect = DragDropEffects.None;
-                    }                    
+                    pictureListViewEx.Items.Add(Convert.ToString(order)).SubItems.Add(path);
+                    order++;            
                 }
                 reorder();
                 if (filePaths.Length > 0)
@@ -858,18 +864,13 @@ namespace Interlacer
 
         private bool isExtensionValid(String path)
         {
-            if (Path.GetExtension(path) == ".jpg" ||
-                Path.GetExtension(path) == ".JPG" ||
-                Path.GetExtension(path) == ".jpeg" ||
-                Path.GetExtension(path) == ".JPEG" ||
-                Path.GetExtension(path) == ".png" ||
-                Path.GetExtension(path) == ".PNG" ||
-                Path.GetExtension(path) == ".bmp" ||
-                Path.GetExtension(path) == ".BMP" ||
-                Path.GetExtension(path) == ".tiff" ||
-                Path.GetExtension(path) == ".TIFF" ||
-                Path.GetExtension(path) == ".tif" ||
-                Path.GetExtension(path) == ".TIF")
+            String pathExt = path.ToLower();
+            if (Path.GetExtension(pathExt) == ".jpg" ||
+                Path.GetExtension(pathExt) == ".jpeg" ||
+                Path.GetExtension(pathExt) == ".png" ||
+                Path.GetExtension(pathExt) == ".bmp" ||
+                Path.GetExtension(pathExt) == ".tiff" ||
+                Path.GetExtension(pathExt) == ".tif")
             {
                 return true;
             }               

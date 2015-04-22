@@ -188,6 +188,9 @@ Pravděpodobnou příčinou je chybějící Visual C++ Redistributable</value>
   <data name="moveUpTooltip" xml:space="preserve">
     <value>Posunout o jeden nahoru</value>
   </data>
+  <data name="nameListView" xml:space="preserve">
+    <value>Jméno</value>
+  </data>
   <data name="orderListView" xml:space="preserve">
     <value>Pořadí</value>
   </data>

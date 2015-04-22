@@ -703,6 +703,11 @@
               Looks up a localized string similar to Posunout o jeden nahoru.
             </summary>
         </member>
+        <member name="P:Interlacer.StringRes_CZ.nameListView">
+            <summary>
+              Looks up a localized string similar to Jméno.
+            </summary>
+        </member>
         <member name="P:Interlacer.StringRes_CZ.orderListView">
             <summary>
               Looks up a localized string similar to Pořadí.
@@ -816,7 +821,7 @@
         </member>
         <member name="P:Interlacer.StringRes_EN.filterNearestNeighbor">
             <summary>
-              Looks up a localized string similar to Nearest neighbor.
+              Looks up a localized string similar to Nearest neighbour.
             </summary>
         </member>
         <member name="P:Interlacer.StringRes_EN.imageDimensionError">
@@ -878,6 +883,11 @@
         <member name="P:Interlacer.StringRes_EN.moveUpTooltip">
             <summary>
               Looks up a localized string similar to Move up.
+            </summary>
+        </member>
+        <member name="P:Interlacer.StringRes_EN.nameListView">
+            <summary>
+              Looks up a localized string similar to Name.
             </summary>
         </member>
         <member name="P:Interlacer.StringRes_EN.orderListView">

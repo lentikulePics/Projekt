@@ -151,7 +151,7 @@ namespace Interlacer {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Nearest neighbor.
+        ///   Looks up a localized string similar to Nearest neighbour.
         /// </summary>
         internal static string filterNearestNeighbor {
             get {
@@ -265,6 +265,15 @@ namespace Interlacer {
         internal static string moveUpTooltip {
             get {
                 return ResourceManager.GetString("moveUpTooltip", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Name.
+        /// </summary>
+        internal static string nameListView {
+            get {
+                return ResourceManager.GetString("nameListView", resourceCulture);
             }
         }
         
