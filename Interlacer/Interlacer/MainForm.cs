@@ -79,6 +79,22 @@ namespace Interlacer
             }
         }
 
+        private void tryLoadPictures()
+        {
+            for (int i = 0; i < pictureListViewEx.Items.Count; i++)
+            {
+                Picture pic = new Picture(pictureListViewEx.Items[i].SubItems[1].Text);
+                try
+                {
+                    pic.Ping();
+                }
+                catch
+                {
+                    pictureListViewEx.Items[i].SubItems[3].Text = "X";
+                }
+            }
+        }
+
         private void loadSettings()
         {
             settings = new Settings(createSettingOptions());
@@ -381,7 +397,7 @@ namespace Interlacer
 
                     string [] splitName = chosenPictures[i].Split('\\');
                     string picName = splitName[splitName.Length - 1];
-                    ListViewItem item = new ListViewItem(new[] { Convert.ToString(order), chosenPictures[i], picName});
+                    ListViewItem item = new ListViewItem(new[] { Convert.ToString(order), chosenPictures[i], picName, ""});
                     pictureListViewEx.Items.Add(item);
                     //                    pictureListViewEx.Items.Add(Convert.ToString(order)).SubItems.Add(chosenPictures[i]);
                     //pictureListViewEx.Items.Insert(selectedIndex, Convert.ToString(order)).SubItems.Add(chosenPictures[i]);
@@ -489,6 +505,11 @@ namespace Interlacer
             pictureListViewEx.Items[selectedIndex - 1].SubItems[2].Text = pictureListViewEx.Items[selectedIndex].SubItems[2].Text;
             pictureListViewEx.Items[selectedIndex].SubItems[2].Text = tmp;
 
+            tmp = pictureListViewEx.Items[selectedIndex - 1].SubItems[3].Text;
+
+            pictureListViewEx.Items[selectedIndex - 1].SubItems[3].Text = pictureListViewEx.Items[selectedIndex].SubItems[3].Text;
+            pictureListViewEx.Items[selectedIndex].SubItems[3].Text = tmp;
+
             pictureListViewEx.Items[selectedIndex - 1].Selected = true;
             pictureListViewEx.Items[selectedIndex].Selected = false;
         }
@@ -521,6 +542,11 @@ namespace Interlacer
 
             pictureListViewEx.Items[selectedIndex + 1].SubItems[2].Text = pictureListViewEx.Items[selectedIndex].SubItems[2].Text;
             pictureListViewEx.Items[selectedIndex].SubItems[2].Text = tmp;
+            
+            tmp = pictureListViewEx.Items[selectedIndex + 1].SubItems[3].Text;
+
+            pictureListViewEx.Items[selectedIndex + 1].SubItems[3].Text = pictureListViewEx.Items[selectedIndex].SubItems[3].Text;
+            pictureListViewEx.Items[selectedIndex].SubItems[3].Text = tmp;
 
             pictureListViewEx.Items[selectedIndex + 1].Selected = true;
             pictureListViewEx.Items[selectedIndex].Selected = false;
@@ -530,16 +556,19 @@ namespace Interlacer
         {
             List<String> tmp_paths = new List<String>();
             List<String> tmp_picNames = new List<String>();
+            List<String> tmp_loaded = new List<String>();
             for (int i = 0; i < pictureListViewEx.Items.Count; i++)
             {
                 tmp_paths.Add(pictureListViewEx.Items[i].SubItems[1].Text);
                 tmp_picNames.Add(pictureListViewEx.Items[i].SubItems[2].Text);
+                tmp_loaded.Add(pictureListViewEx.Items[i].SubItems[3].Text);
             }
 
             for (int i = 0; i < pictureListViewEx.Items.Count; i++)
             {
                 pictureListViewEx.Items[i].SubItems[1].Text = tmp_paths[tmp_paths.Count - i - 1];
                 pictureListViewEx.Items[i].SubItems[2].Text = tmp_picNames[tmp_picNames.Count - i - 1];
+                pictureListViewEx.Items[i].SubItems[3].Text = tmp_loaded[tmp_loaded.Count - i - 1];
             }
         }
 
@@ -778,6 +807,8 @@ namespace Interlacer
                         subItem1.Text = pictureListViewEx.Items[indeces[i]].SubItems[1].Text;
                         ListViewItem.ListViewSubItem subItem2 = item.SubItems.Add(new ListViewItem.ListViewSubItem());
                         subItem2.Text = pictureListViewEx.Items[indeces[i]].SubItems[2].Text;
+                        ListViewItem.ListViewSubItem subItem3 = item.SubItems.Add(new ListViewItem.ListViewSubItem());
+                        subItem3.Text = pictureListViewEx.Items[indeces[i]].SubItems[3].Text;
                     }
                 }
 
@@ -846,7 +877,7 @@ namespace Interlacer
                     // ***** Pouzito vickrat, dat do vlastni metody *******
                     string[] splitName = path.Split('\\');
                     string picName = splitName[splitName.Length - 1];
-                    ListViewItem item = new ListViewItem(new[] { Convert.ToString(order), path, picName });
+                    ListViewItem item = new ListViewItem(new[] { Convert.ToString(order), path, picName, ""});
                     pictureListViewEx.Items.Add(item);
 
                     //pictureListViewEx.Items.Add(Convert.ToString(order)).SubItems.Add(path);
@@ -985,6 +1016,10 @@ namespace Interlacer
                         tmp = pictureListViewEx.Items[j + 1].SubItems[1].Text;
                         pictureListViewEx.Items[j + 1].SubItems[1].Text = pictureListViewEx.Items[j].SubItems[1].Text;
                         pictureListViewEx.Items[j].SubItems[1].Text = tmp;
+
+                        tmp = pictureListViewEx.Items[j + 1].SubItems[3].Text;
+                        pictureListViewEx.Items[j + 1].SubItems[3].Text = pictureListViewEx.Items[j].SubItems[3].Text;
+                        pictureListViewEx.Items[j].SubItems[3].Text = tmp;
                     }
                 }
             }
