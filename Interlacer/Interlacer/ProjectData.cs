@@ -26,13 +26,18 @@ namespace Interlacer
         {
             return lineData;
         }
-
-        public void Save(String filename)
+        
+        public void Save(String filename, List<String> picturesPaths)
         {
             Thread.CurrentThread.CurrentCulture = new CultureInfo("cs-CZ");  //nastaveni kultury na ceskou, aby se hodnoty ukladaly vzdy s desetinou carkou
             try
             {
-                File.WriteAllText(filename, InterlacingDataToString() + LineDataToString());
+                String pathFile = "NUMBER_OF_PICTURES\t" + picturesPaths.Count + Environment.NewLine;
+                for (int i = 0; i < picturesPaths.Count; i++)
+                {
+                    pathFile = pathFile + "PATH_" + i + "\t" + picturesPaths[i] + Environment.NewLine;
+                }
+                File.WriteAllText(filename, InterlacingDataToString() + LineDataToString() + pathFile);
             }
             catch{
                 Localization.changeCulture();  //vraceni zpet na kultury, ktera je aktualne nastavena
@@ -42,10 +47,11 @@ namespace Interlacer
             Localization.changeCulture();  //vraceni zpet na kultury, ktera je aktualne nastavena
         }
 
-        public void Load(String filename)
+        public List<String> Load(String filename)
         {
             Thread.CurrentThread.CurrentCulture = new CultureInfo("cs-CZ");  //nastaveni kultury na ceskou, aby se hodnoty nacetly vzdy spravne
             Dictionary<string, string> dictionary = new Dictionary<string, string>();
+            List<String> picsPath;
             try
             {
                 String pom = File.ReadAllText(filename);
@@ -53,13 +59,16 @@ namespace Interlacer
                 string[] words = pom.Split('\n');
                 foreach (string word in words)
                 {
-                    string[] line = word.Split(':');
+                    string[] line = word.Split('\t');
                     if (line.Length > 1)
                         dictionary.Add(line[0], line[1].Trim());
                     else
                         dictionary.Add(line[0], "");
                 }
+
+                picsPath = getListPathPictures(dictionary);
             }
+           
             catch
             {
                 Localization.changeCulture();  //vraceni zpet na kultury, ktera je aktualne nastavena
@@ -78,14 +87,27 @@ namespace Interlacer
             }
             
             Localization.changeCulture();  //vraceni zpet na kultury, ktera je aktualne nastavena
+            return picsPath;
+        }
+        
+        private  List<String> getListPathPictures(Dictionary<string, string> dictionary){
+            List<String> picsPath = new List<string>();
+            if (dictionary.ContainsKey("NUMBER_OF_PICTURES") && IsNumeric(dictionary["NUMBER_OF_PICTURES"]))
+            {
+                for (int i = 0; i < Convert.ToInt32(dictionary["NUMBER_OF_PICTURES"]); i++)
+                {
+                    if (dictionary.ContainsKey("PATH_" + i))
+                    {
+                        picsPath.Add(dictionary["PATH_" + i]);
+                    }
+                }
+            }
+            
+            return picsPath;
         }
 
         private bool validateLoadDictionary(Dictionary<string, string> dictionary)
         {
-            if (dictionary.Count != 19)
-            {
-                return false;
-            }
             if (
                     !dictionary.ContainsKey("UNITS_INTERLACING")
                  || !dictionary.ContainsKey("RESOLUTION_UNITS")
@@ -326,30 +348,30 @@ namespace Interlacer
         private String LineDataToString()
         {
             return
-                "UNITS_LINE:" + this.lineData.GetUnits() + Environment.NewLine +
-                "LINE_COLOR:" + this.lineData.GetLineColor().ToArgb() + Environment.NewLine +
-                "BACKGROUND_COLOR:" + this.lineData.GetBackgroundColor().ToArgb() + Environment.NewLine +
-                "FRAME_WIDTH:" + this.lineData.GetFrameWidth() + Environment.NewLine +
-                "INDENT:" + this.lineData.GetIndent() + Environment.NewLine +
-                "LEFT:" + this.lineData.GetLeft() + Environment.NewLine +
-                "TOP:" + this.lineData.GetTop() + Environment.NewLine +
-                "RIGHT:" + this.lineData.GetRight() + Environment.NewLine +
-                "BOTTOM:" + this.lineData.GetBottom() + Environment.NewLine +
-                "CENTER_POSITION:" + this.lineData.GetCenterPosition();
+                "UNITS_LINE\t" + this.lineData.GetUnits() + Environment.NewLine +
+                "LINE_COLOR\t" + this.lineData.GetLineColor().ToArgb() + Environment.NewLine +
+                "BACKGROUND_COLOR\t" + this.lineData.GetBackgroundColor().ToArgb() + Environment.NewLine +
+                "FRAME_WIDTH\t" + this.lineData.GetFrameWidth() + Environment.NewLine +
+                "INDENT\t" + this.lineData.GetIndent() + Environment.NewLine +
+                "LEFT\t" + this.lineData.GetLeft() + Environment.NewLine +
+                "TOP\t" + this.lineData.GetTop() + Environment.NewLine +
+                "RIGHT\t" + this.lineData.GetRight() + Environment.NewLine +
+                "BOTTOM\t" + this.lineData.GetBottom() + Environment.NewLine +
+                "CENTER_POSITION\t" + this.lineData.GetCenterPosition() + Environment.NewLine;
         }
 
         private String InterlacingDataToString()
         {
             return
-                "UNITS_INTERLACING:" + this.interlacingData.GetUnits() + Environment.NewLine +
-                "RESOLUTION_UNITS:" + this.interlacingData.GetResolutionUnits() + Environment.NewLine +
-                "WIDTH:" + this.interlacingData.GetWidth() + Environment.NewLine +
-                "HEIGHT:" + this.interlacingData.GetHeight() + Environment.NewLine +
-                "PICURE_RESOLUTION:" + this.interlacingData.GetPictureResolution() + Environment.NewLine +
-                "LENTICULE_DENSITY:" + this.interlacingData.GetLenticuleDensity() + Environment.NewLine +
-                "DIRECTION:" + this.interlacingData.GetDirection() + Environment.NewLine +
-                "INITIAL_RESIZE_FILTER:" + this.interlacingData.GetInitialResizeFilter().filterNum + Environment.NewLine +
-                "FINAL_RESAMPLE_FILTER:" + this.interlacingData.GetFinalResampleFilter().filterNum + Environment.NewLine;
+                "UNITS_INTERLACING\t" + this.interlacingData.GetUnits() + Environment.NewLine +
+                "RESOLUTION_UNITS\t" + this.interlacingData.GetResolutionUnits() + Environment.NewLine +
+                "WIDTH\t" + this.interlacingData.GetWidth() + Environment.NewLine +
+                "HEIGHT\t" + this.interlacingData.GetHeight() + Environment.NewLine +
+                "PICURE_RESOLUTION\t" + this.interlacingData.GetPictureResolution() + Environment.NewLine +
+                "LENTICULE_DENSITY\t" + this.interlacingData.GetLenticuleDensity() + Environment.NewLine +
+                "DIRECTION\t" + this.interlacingData.GetDirection() + Environment.NewLine +
+                "INITIAL_RESIZE_FILTER\t" + this.interlacingData.GetInitialResizeFilter().filterNum + Environment.NewLine +
+                "FINAL_RESAMPLE_FILTER\t" + this.interlacingData.GetFinalResampleFilter().filterNum + Environment.NewLine;
         }
     }
 }

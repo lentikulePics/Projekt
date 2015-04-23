@@ -951,7 +951,7 @@ namespace Interlacer
         private void ulozToolStripMenuItem_Click(object sender, EventArgs e)
         {
             String filename;
-            saveConfigDialog.Filter = "pix|*.pix";
+            saveConfigDialog.Filter = "int|*.int";
             saveConfigDialog.AddExtension = true;
             if (saveConfigDialog.ShowDialog() == DialogResult.OK)
                 filename = saveConfigDialog.FileName;
@@ -960,14 +960,14 @@ namespace Interlacer
             String[] split = filename.Split('.');
             int lastIndex = split.Length - 1;
 
-            if (split[lastIndex].Equals("pix"))
+            if (split[lastIndex].Equals("int"))
                 saveConfigDialog.AddExtension = false;
             else
-                filename += ".pix";
+                filename += ".int";
 
             try
             {
-                projectData.Save(filename);
+                projectData.Save(filename, getListFromPictureView());
             }
             catch(Exception exc)
             {
@@ -975,10 +975,22 @@ namespace Interlacer
             }
         }
 
+        private List<String> getListFromPictureView()
+        {
+            List<String> list = new List<String>();
+
+            for (int i = 0; i < pictureListViewEx.Items.Count; i++)
+            {
+                list.Add(pictureListViewEx.Items[i].SubItems[1].Text);
+            }
+            
+            return list;
+        }
+
         private void nactiToolStripMenuItem_Click(object sender, EventArgs e)
         {
             String filename;
-            openConfigDialog.Filter = "pix|*.pix";
+            openConfigDialog.Filter = "int|*.int";
             openConfigDialog.AddExtension = true;
             if (openConfigDialog.ShowDialog() == DialogResult.OK)
                 filename = openConfigDialog.FileName;
@@ -986,18 +998,35 @@ namespace Interlacer
 
             try
             {
-                projectData.Load(filename);
+                List<String> pathPics = projectData.Load(filename);
                 projectData.GetInterlacingData().SetUnits(((StringValuePair<Units>)settings.GetSelectedUnits()).value);
                 projectData.GetLineData().SetUnits(((StringValuePair<Units>)settings.GetSelectedUnits()).value);
                 projectData.GetInterlacingData().SetResolutionUnits(((StringValuePair<Units>)settings.GetSelectedResolutionUnits()).value);
                 updateAllComponents();
+                setPictureViewFromList(pathPics);
             }
             catch (Exception exc)
             {
                 MessageBox.Show(exc.Message);
             }
         }
-
+        private void setPictureViewFromList(List<String> pathPics)
+        {
+            for (int i = pictureListViewEx.Items.Count - 1; i >= 0; i--){
+                    pictureListViewEx.Items[i].Remove();
+            }
+            if(pathPics.Count > 0){
+                for (int i = 0; i < pathPics.Count; i++)
+                {
+                    string[] splitName = pathPics[i].Split('\\');
+                    string picName = splitName[splitName.Length - 1];
+                    ListViewItem item = new ListViewItem(new[] { Convert.ToString(order), pathPics[i], picName, "" });
+                    pictureListViewEx.Items.Add(item);
+                    reorder();
+                }
+                tryLoadPictures();
+            }
+        }
         private void sortListView()
         {
             for (int i = 0; i < pictureListViewEx.Items.Count - 1; i++)
