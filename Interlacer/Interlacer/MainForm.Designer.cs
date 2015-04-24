@@ -56,7 +56,6 @@
             this.clearAllButton = new System.Windows.Forms.Button();
             this.revertButton = new System.Windows.Forms.Button();
             this.moveDownButton = new System.Windows.Forms.Button();
-            this.replaceButton = new System.Windows.Forms.Button();
             this.sortButton = new System.Windows.Forms.Button();
             this.moveUpButton = new System.Windows.Forms.Button();
             this.copyPicButton = new System.Windows.Forms.Button();
@@ -283,7 +282,6 @@
             this.tabPage1.Controls.Add(this.clearAllButton);
             this.tabPage1.Controls.Add(this.revertButton);
             this.tabPage1.Controls.Add(this.moveDownButton);
-            this.tabPage1.Controls.Add(this.replaceButton);
             this.tabPage1.Controls.Add(this.sortButton);
             this.tabPage1.Controls.Add(this.moveUpButton);
             this.tabPage1.Controls.Add(this.copyPicButton);
@@ -380,13 +378,6 @@
             this.moveDownButton.Name = "moveDownButton";
             this.moveDownButton.UseVisualStyleBackColor = true;
             this.moveDownButton.Click += new System.EventHandler(this.moveDownButton_Click);
-            // 
-            // replaceButton
-            // 
-            resources.ApplyResources(this.replaceButton, "replaceButton");
-            this.replaceButton.Name = "replaceButton";
-            this.replaceButton.UseVisualStyleBackColor = true;
-            this.replaceButton.Click += new System.EventHandler(this.replaceButton_Click);
             // 
             // sortButton
             // 
@@ -1178,7 +1169,6 @@
         private System.Windows.Forms.ColumnHeader picNameHeader;
         private System.Windows.Forms.Button sortButton;
         private System.Windows.Forms.ColumnHeader loadedHeader;
-        private System.Windows.Forms.Button replaceButton;
 
     }
 }

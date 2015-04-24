@@ -1093,51 +1093,5 @@ namespace Interlacer
         {
             sortListView();
         }
-
-        private void replaceButton_Click(object sender, EventArgs e)
-        {
-            replacePicture();
-        }
-
-        private void replacePicture()
-        {
-            if (pictureListViewEx.SelectedItems.Count > 1 || pictureListViewEx.SelectedItems.Count == 0)
-            {
-                var indeces = pictureListViewEx.SelectedIndices;
-                pictureListViewEx.Focus();
-                for (int i = 0; i < indeces.Count; i++)
-                {
-                    pictureListViewEx.Items[indeces[i]].Selected = true;
-                }
-
-                return;
-            }
-            addPicFileDialog.Multiselect = false;
-            addPicFileDialog.Filter = "Image Files (*.jpeg, *.jpg, *.png, *.bmp, *.tif)|*.jpeg;*.jpg;*.png;*.bmp;*.tif";
-            addPicFileDialog.FilterIndex = 1;
-
-            DialogResult result = addPicFileDialog.ShowDialog();
-
-            if (result == DialogResult.OK)
-            {
-                string chosenPicture = addPicFileDialog.FileName;
-                string[] splitName = chosenPicture.Split('\\');
-                string picName = splitName[splitName.Length - 1];
-
-                pictureListViewEx.SelectedItems[0].SubItems[1].Text = chosenPicture;
-                pictureListViewEx.SelectedItems[0].SubItems[2].Text = picName;
-
-                pictureListViewEx.Focus();
-                pictureListViewEx.Items[0].Selected = true;
-
-                reorder();
-            }
-
-        }
-
-
-
-
-
     }
 }
