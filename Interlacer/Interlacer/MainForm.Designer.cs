@@ -52,7 +52,7 @@
             this.pathHeader = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.picNameHeader = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.loadedHeader = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.button8 = new System.Windows.Forms.Button();
+            this.replaceButton = new System.Windows.Forms.Button();
             this.clearAllButton = new System.Windows.Forms.Button();
             this.revertButton = new System.Windows.Forms.Button();
             this.moveDownButton = new System.Windows.Forms.Button();
@@ -278,7 +278,7 @@
             this.tabPage1.Controls.Add(this.copyCountLabel);
             this.tabPage1.Controls.Add(this.copyCountNumeric);
             this.tabPage1.Controls.Add(this.pictureListViewEx);
-            this.tabPage1.Controls.Add(this.button8);
+            this.tabPage1.Controls.Add(this.replaceButton);
             this.tabPage1.Controls.Add(this.clearAllButton);
             this.tabPage1.Controls.Add(this.revertButton);
             this.tabPage1.Controls.Add(this.moveDownButton);
@@ -352,11 +352,12 @@
             // 
             resources.ApplyResources(this.loadedHeader, "loadedHeader");
             // 
-            // button8
+            // replaceButton
             // 
-            resources.ApplyResources(this.button8, "button8");
-            this.button8.Name = "button8";
-            this.button8.UseVisualStyleBackColor = true;
+            resources.ApplyResources(this.replaceButton, "replaceButton");
+            this.replaceButton.Name = "replaceButton";
+            this.replaceButton.UseVisualStyleBackColor = true;
+            this.replaceButton.Click += new System.EventHandler(this.replaceButton_Click);
             // 
             // clearAllButton
             // 
@@ -1135,7 +1136,7 @@
         private System.Windows.Forms.TextBox widthInPixelsTextBox;
         private System.Windows.Forms.ToolStripMenuItem předvolbyToolStripMenuItem;
         private Bol.WinControls.ListViewEx pictureListViewEx;
-        private System.Windows.Forms.Button button8;
+        private System.Windows.Forms.Button replaceButton;
         private System.Windows.Forms.Button clearAllButton;
         private System.Windows.Forms.Button revertButton;
         private System.Windows.Forms.Button moveDownButton;

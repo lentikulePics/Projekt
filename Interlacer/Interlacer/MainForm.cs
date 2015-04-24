@@ -1093,5 +1093,10 @@ namespace Interlacer
         {
             sortListView();
         }
+
+        private void replaceButton_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
