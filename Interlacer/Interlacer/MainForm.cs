@@ -1126,6 +1126,7 @@ namespace Interlacer
 
                 pictureListViewEx.SelectedItems[0].SubItems[1].Text = chosenPicture;
                 pictureListViewEx.SelectedItems[0].SubItems[2].Text = picName;
+                pictureListViewEx.SelectedItems[0].SubItems[3].Text = "";
 
                 pictureListViewEx.Focus();
                 pictureListViewEx.SelectedItems[0].Selected = true;
