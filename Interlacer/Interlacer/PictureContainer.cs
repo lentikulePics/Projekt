@@ -140,6 +140,10 @@ namespace Interlacer
             return sameSizes;
         }
 
+        /// <summary>
+        /// Vrátí prázdný obrázek, pokud jsou nastaveny pasovací značky připočte jejich šířku či výšku
+        /// </summary>
+        /// <returns>Vrátí prázdný obrázek, pokud jsou nastaveny pasovací značky připočte jejich šířku či výšku</returns>
         private Picture getPictureForMarkToLine()
         {
   
@@ -161,7 +165,7 @@ namespace Interlacer
         }
 
         /// <summary>
-        ///  vrací šířku rámečku s odsazením v px pro pridani pred finalnim resizem vydeleny pomerem
+        ///  Vrací šířku rámečku s odsazením v px pro přidání před finálním resizem vydělený poměrem
         /// </summary>
         /// <param name="ratio">parametr dělení vysledné šířky rámečku</param>
         /// <returns>poměr šířky rámečku / parametr</returns>
@@ -173,7 +177,7 @@ namespace Interlacer
         }
 
         /// <summary>
-        ///  vrací šířku rámečku bez odsazením v px pro pridani pred finalnim resizem vydeleny pomerem
+        ///  Vrací šířku rámečku bez odsazením v px pro pridani pred finalnim resizem vydeleny pomerem
         /// </summary>
         /// <param name="ratio">parametr dělení vysledné šířky rámečku</param>
         /// <returns>poměr šířky rámečku / parametr</returns>
@@ -186,7 +190,7 @@ namespace Interlacer
 
 
         /// <summary>
-        ///  vrací šířku postraního rámečku s pomocnými čarami v px pro pridani pred finalnim resizem
+        ///  Vrací šířku postraního rámečku s pomocnými čarami v px pro pridani pred finalnim resizem
         /// </summary>
         /// <returns>šířku rámečku s pomocnými čarami v px</returns>
         private int getAddWidthForLineAndIndent()
@@ -196,7 +200,7 @@ namespace Interlacer
         }
 
         /// <summary>
-        ///  vrací šířku postraního rámečku na levé straně s pomocnými čarami v px pro pridani pred finalnim resizem
+        ///  Vrací šířku postraního rámečku na levé straně s pomocnými čarami v px pro pridani pred finalnim resizem
         /// </summary>
         /// <returns>šířku rámečku s pomocnými čarami v px</returns>
         private int getAddWidthForLineAndIndentLeft()
@@ -208,7 +212,7 @@ namespace Interlacer
         }
 
         /// <summary>
-        ///  vrací výšku horního nebo spodního rámečku s pomocnými čarami v px pro pridani pred finalnim resizem
+        /// Vrací výšku horního nebo spodního rámečku s pomocnými čarami v px pro pridani pred finalnim resizem
         /// </summary>
         /// <returns>výšku rámečku s pomocnými čarami v px</returns>
         private int getAddHeightForLineAndIndent()
@@ -218,7 +222,7 @@ namespace Interlacer
         }
 
         /// <summary>
-        ///  vrací výšku horního rámečku na levé straně s pomocnými čarami v px pro pridani pred finalnim resizem
+        ///  Vrací výšku horního rámečku na levé straně s pomocnými čarami v px pro pridani pred finalnim resizem
         /// </summary>
         /// <returns>výšku rámečku s pomocnými čarami v px</returns>
         private int getAddHeightForLineAndIndentTop()
@@ -230,7 +234,7 @@ namespace Interlacer
         }
 
         /// <summary>
-        ///  vrací výšku čar horního rámečku bez osazení v px pro pridani pred finalnim resizem
+        ///  Vrací výšku čar horního rámečku bez osazení v px pro pridani pred finalnim resizem
         /// </summary>
         /// <returns>výšku rámečku s pomocnými čarami v px</returns>
         private int getAddHeightForLineTop()
@@ -239,7 +243,7 @@ namespace Interlacer
             return getAddSizeForLineRatio(ratio);
         }
         /// <summary>
-        ///  vrací šířku čar na stranách bez odsazení v px pro pridani pred finalnim resizem
+        ///  Vrací šířku čar na stranách bez odsazení v px pro pridani pred finalnim resizem
         /// </summary>
         /// <returns>výšku rámečku s pomocnými čarami v px</returns>
         private int getAddWidthForLine()
@@ -360,6 +364,11 @@ namespace Interlacer
             makeProgressBarStep();
         }
 
+        /// <summary>
+        /// Zjistí zda na indexu sloupečku může být vykreslena pasovací značka
+        /// </summary>
+        /// <param name="index">index sloupečku obrázku</param>
+        /// <returns>Vratí true pokud na daném indexu může být vykreslena značka</returns>
         private bool getCanBeLineV(int index)
         {
             if (!lineData.GetCenterPosition())
@@ -380,6 +389,11 @@ namespace Interlacer
             }
         }
 
+        /// <summary>
+        /// Zjistí zda na indexu řádku může být vykreslena pasovací značka
+        /// </summary>
+        /// <param name="index">index řádku obrázku</param>
+        /// <returns>Vratí true pokud na daném indexu může být vykreslena značka</returns>
         private bool getCanBeLineH(int index)
         {
             if (!lineData.GetCenterPosition())
@@ -400,13 +414,16 @@ namespace Interlacer
             }
         }
 
+        /// <summary>
+        /// Vykreslí vertikální pasovací značky na levé straně obrázku
+        /// </summary>
         private void drawLinesLeftV()
         {
             int colorValue;
             if (lineData.GetLeft())
             {
            
-                for (int i = 0; i < this.getAddWidthForLineAndIndent(); i++)
+                for (int i = 0; i < this.getAddWidthForLineAndIndent(); i++)    // začínám kreslit od zleva do prava
                 {
                     if (i < this.getAddWidthForLine())
                     {
@@ -426,12 +443,15 @@ namespace Interlacer
             } 
         }
 
+        /// <summary>
+        ///  Vykreslí vertikální pasovací značky na pravé straně obrázku
+        /// </summary>
         private void drawLinesRightV()
         {
             int colorValue = 0;
             if (lineData.GetRight())
             {
-                for (int i = result.GetWidth()-1; i >= (preResamplePictureWidth + this.getAddWidthForLineAndIndentLeft()); i--)
+                for (int i = result.GetWidth()-1; i >= (preResamplePictureWidth + this.getAddWidthForLineAndIndentLeft()); i--) // začínám kreslit z prava do leva
                 {
                     if (i >= (result.GetWidth() - this.getAddWidthForLine()))
                     {
@@ -448,6 +468,9 @@ namespace Interlacer
             }
         }
 
+        /// <summary>
+        ///  Vykreslí vertikální pasovací značky nahoře obrázku
+        /// </summary>
         private void drawLinesTopV(){
             int colorValue = 0;
             if (lineData.GetTop())
@@ -455,10 +478,11 @@ namespace Interlacer
                 int pomLeft = 0;
                 int pomRight = 0;
                 if (lineData.GetLeft())
-                    pomLeft = this.getAddWidthForLine();
+                    pomLeft = this.getAddWidthForLine();    // pokud jsou na levé straně už pasovací značky nekreslím je znova
                 if (lineData.GetRight())
-                    pomRight = this.getAddWidthForLine();
-                for (int i = pomLeft; i < result.GetWidth() - pomRight; i++)
+                    pomRight = this.getAddWidthForLine();   // pokud jsou na pravé straně už pasovací značky nekreslím je znova
+
+                for (int i = pomLeft; i < result.GetWidth() - pomRight; i++)    // začínám kreslit z leva do prava
                 {
                     if (getCanBeLineV(i))
                         colorValue = lineData.GetLineColor().ToArgb();
@@ -473,6 +497,9 @@ namespace Interlacer
             }
         }
 
+        /// <summary>
+        ///  Vykreslí vertikální pasovací značky v dolní části obrázku
+        /// </summary>
         private void drawLinesBottomV()
         {
             int colorValue = 0;
@@ -481,9 +508,9 @@ namespace Interlacer
                 int pomLeft = 0;
                 int pomRight = 0;
                 if (lineData.GetLeft())
-                    pomLeft = this.getAddWidthForLine();
+                    pomLeft = this.getAddWidthForLine();    // pokud jsou na levé straně už pasovací značky nekreslím je znova
                 if (lineData.GetRight())
-                    pomRight = this.getAddWidthForLine();
+                    pomRight = this.getAddWidthForLine();   // pokud jsou na pravé straně už pasovací značky nekreslím je znova
                 for (int i = pomLeft; i < result.GetWidth() - pomRight; i++)
                 {
                     if (getCanBeLineV(i))
@@ -499,6 +526,9 @@ namespace Interlacer
             }
         }
 
+        /// <summary>
+        ///  Vykreslí horizontální pasovací značky na levé straně obrázku
+        /// </summary>
         private void drawLinesLeftH()
         {
             int colorValue;
@@ -507,7 +537,7 @@ namespace Interlacer
 
                 for (int i = 0; i < result.GetHeight(); i++)
                 {
-                    for (int j = 0; j < this.getAddWidthForLineAndIndent(); j++)
+                    for (int j = 0; j < this.getAddWidthForLineAndIndent(); j++) // kreslí se z leva do prava
                     {
                         if (j < this.getAddWidthForLine()) {
                             if (getCanBeLineH(i))
@@ -523,6 +553,9 @@ namespace Interlacer
             }
         }
 
+        /// <summary>
+        ///  Vykreslí horizontální pasovací značky na pravé straně obrázku
+        /// </summary>
         private void drawLinesRightH()
         {
             int colorValue = 0;
@@ -530,7 +563,7 @@ namespace Interlacer
             {
                 for (int i = 0; i < result.GetHeight(); i++)
                 {
-                    for (int j = result.GetWidth()-1; j >= (preResamplePictureWidth + this.getAddWidthForLineAndIndentLeft()); j--)
+                    for (int j = result.GetWidth()-1; j >= (preResamplePictureWidth + this.getAddWidthForLineAndIndentLeft()); j--) // kreslí se z prava do leva
                     {
                         if (j >= (result.GetWidth() - this.getAddWidthForLine()))
                         {
@@ -548,6 +581,9 @@ namespace Interlacer
             }
         }
 
+        /// <summary>
+        ///  Vykreslí horizontální pasovací značky v horní části obrázku
+        /// </summary>
         private void drawLinesTopH()
         {
             int colorValue = 0;
@@ -556,9 +592,9 @@ namespace Interlacer
                 int pomLeft = 0;
                 int pomRight = 0;
                 if (lineData.GetLeft())
-                    pomLeft = this.getAddWidthForLine();
+                    pomLeft = this.getAddWidthForLine();    // pokud je na levé straně pasovací značky nekreslím znova
                 if (lineData.GetRight())
-                    pomRight = this.getAddWidthForLine();
+                    pomRight = this.getAddWidthForLine();   // pokud je na pravé straně pasovací značky nekreslím znova
                 for (int i = 0; i < getAddHeightForLineAndIndentTop(); i++)
                 {
                      if (i < getAddHeightForLineTop())
@@ -578,6 +614,9 @@ namespace Interlacer
             }
         }
 
+        /// <summary>
+        ///  Vykreslí horizontální pasovací značky v dolní části obrázku
+        /// </summary>
         private void drawLinesBottomH()
         {
             int colorValue = 0;
@@ -586,9 +625,9 @@ namespace Interlacer
                 int pomLeft = 0;
                 int pomRight = 0;
                 if (lineData.GetLeft())
-                    pomLeft = this.getAddWidthForLine();
+                    pomLeft = this.getAddWidthForLine();    // pokud je na levé straně pasovací značky nekreslím znova
                 if (lineData.GetRight())
-                    pomRight = this.getAddWidthForLine();
+                    pomRight = this.getAddWidthForLine();   // pokud je na pravé straně pasovací značky nekreslím znova
                 for (int i = result.GetHeight() - 1; i >= (result.GetHeight() - getAddHeightForLineAndIndent()); i--)
                 {
                     if (i > (result.GetHeight() - getAddHeightForLineTop())) {
@@ -604,6 +643,10 @@ namespace Interlacer
                 }
             }
         }
+
+        /// <summary>
+        /// Vykreslí pasovací značky, pokud někde mají být, zavoláním dalších metod
+        /// </summary>
         private void drawLines()
         {
             if (lineData != null)
