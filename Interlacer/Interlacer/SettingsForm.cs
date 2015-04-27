@@ -39,19 +39,12 @@ namespace Interlacer
         {
             Localization.currentLanguage = ((StringValuePair<String>)languageCombobox.SelectedItem).value;
             Localization.changeCulture();
-
-            // Zmeni jazyk pro MainForm
-            parent.changeLanguage();
-            // Zmeni jazyk pro SettingsForm
             changeLanguage();
-
             settings.SetSelectedLanguageIndex(languageCombobox.SelectedIndex);
             settings.SetSelectedUnitsIndex(comboBox1.SelectedIndex);
             settings.SetSelectedResolutionUnitsIndex(comboBox2.SelectedIndex);
-
+            parent.ApplySettings();
             setOptions();
-            
-            this.parent.changeUnits();
         }
 
         private void setOptions(){

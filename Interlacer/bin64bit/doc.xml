@@ -340,18 +340,36 @@
             
             </summary>
         </member>
+        <member name="M:Interlacer.MainForm.trySetValuesFromPictures(System.String[])">
+            <summary>
+            pokusi se nastavit sirku a vysku ze seznamu obrazku
+            pokud se to nepodari, hodnoty zustanou nezmenene
+            </summary>
+            <param name="pictures">pole retezcu cest k obrazkum</param>
+        </member>
+        <member name="M:Interlacer.MainForm.changeUnits">
+            <summary>
+            Prenastavi jednotky ze settings
+            </summary>
+        </member>
         <member name="M:Interlacer.MainForm.changeLanguage">
             <summary>
             
             </summary>
         </member>
-        <member name="M:Interlacer.MainForm.MainForm_DragDrop(System.Object,System.Windows.Forms.DragEventArgs)">
+        <member name="M:Interlacer.MainForm.getIntegerFromString(System.String)">
             <summary>
-            Po dokonceni drag and dropu se zkontroluji koncovky cest k souborum,
-            do listu se pridaji pouze pokud maji platny format (jpg, bmp, tiff, png)
+            Zjisti posledni cislo z nazvu souboru
             </summary>
-            <param name="sender"></param>
-            <param name="e"></param>
+            <param name="word"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Interlacer.MainForm.selectCurrentListItem(System.Windows.Forms.ListView.SelectedIndexCollection)">
+            <summary>
+            nastavi focus na listView a zvyrazni aktualne vybrany radek
+            </summary>
+            <param name="indeces">kolekce indexu vybranych radku</param>
+            <returns>vraci true, pokud v listu neco je, jinak false</returns>
         </member>
         <member name="F:Interlacer.MainForm.components">
             <summary>
@@ -369,6 +387,21 @@
             Required method for Designer support - do not modify
             the contents of this method with the code editor.
             </summary>
+        </member>
+        <member name="M:Interlacer.MainForm.moveUpButton_Click(System.Object,System.EventArgs)">
+            <summary>
+            
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:Interlacer.MainForm.MainForm_DragDrop(System.Object,System.Windows.Forms.DragEventArgs)">
+            <summary>
+            Po dokonceni drag and dropu se zkontroluji koncovky cest k souborum,
+            do listu se pridaji pouze pokud maji platny format (jpg, bmp, tiff, png)
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
         </member>
         <member name="P:Interlacer.MainForm.CreateParams">
             <summary>
@@ -430,11 +463,127 @@
             vykresli do PictureBoxu defaultni obrazek
             </summary>
         </member>
+        <member name="F:Interlacer.ProjectData.interlacingData">
+            <summary>
+            Zde se uchovávají data pro prokládání obrázků
+            </summary>
+        </member>
+        <member name="F:Interlacer.ProjectData.lineData">
+            <summary>
+            Data pro práci s pasovacími značkami 
+            </summary>
+        </member>
+        <member name="M:Interlacer.ProjectData.GetInterlacingData">
+            <summary>
+            Vrátí data pro prokládání obrázků
+            </summary>
+            <returns>Vrátí data pro prokládání obrázků</returns>
+        </member>
+        <member name="M:Interlacer.ProjectData.GetLineData">
+            <summary>
+            Vrátí data pro práci s pasovacími značkami
+            </summary>
+            <returns>Vrátí data pro práci s pasovacími značkami</returns>
+        </member>
+        <member name="M:Interlacer.ProjectData.Save(System.String,System.Collections.Generic.List{System.String})">
+            <summary>
+            Uloží projekt do filename
+            </summary>
+            <param name="filename">Cesta s názvem souboru kam se má soubor uložit</param>
+            <param name="picturesPaths">Cesty obrázků které se uloží do souboru</param>
+        </member>
+        <member name="M:Interlacer.ProjectData.Load(System.String)">
+            <summary>
+            Načte a zvaliduje soubor, pokud se soubor nepodaří načít vyhodí vyjímku.
+            Načtená data se uloží do proměných interlacingData a lineData, pokud nedošlo k chybě.
+            Vrátí List cest obrázků, které se načetly ze souboru
+            </summary>
+            <param name="filename">Soubor, který se má načíst</param>
+            <returns>List cest obrázků, které se načetly ze souboru</returns>
+        </member>
+        <member name="M:Interlacer.ProjectData.getListPathPictures(System.Collections.Generic.Dictionary{System.String,System.String})">
+            <summary>
+            Z dictonary vezme cesty obrázků a uloží je do listu, který pak vrátí
+            </summary>
+            <param name="dictionary">Slovník ve kterém jsou uloženy cesty obrázků</param>
+            <returns>list cest obrázků načtených ze slovníku</returns>
+        </member>
+        <member name="M:Interlacer.ProjectData.validateLoadDictionary(System.Collections.Generic.Dictionary{System.String,System.String})">
+            <summary>
+            Zvaliduje zda se všechna potřebná data uložila do slovníku, pokud vráti false
+            </summary>
+            <param name="dictionary">Slovník, který se má zvalidovat</param>
+            <returns>Vrátí true, pokud nebyly nalezeny žádné chyby</returns>
+        </member>
+        <member name="M:Interlacer.ProjectData.IsNumeric(System.Object)">
+            <summary>
+            Otestuje zda se dá object převést na číslo
+            </summary>
+            <param name="Expression">Objekt, který je testován</param>
+            <returns>Vrátí true pokud je možné převést objekt na číslo</returns>
+        </member>
+        <member name="M:Interlacer.ProjectData.validateLoadNumbers(System.Collections.Generic.Dictionary{System.String,System.String})">
+            <summary>
+            Otestuje zda jsou ve slovníku správně uloženy čísla potřebných dat
+            </summary>
+            <param name="dictionary">Slovník naplněný daty</param>
+            <returns>Vrátí true pokud nebyla nalezena žádná chyby</returns>
+        </member>
+        <member name="M:Interlacer.ProjectData.validateLoadFilters(System.Collections.Generic.Dictionary{System.String,System.String})">
+            <summary>
+            Zvaliduje potřebné filry zda nejsou poškozeny a jsou správně nahrány ve slovníku
+            </summary>
+            <param name="dictionary">Slovník, který je testován</param>
+            <returns>Vrátí true pokud nebyla nalezena žádná chyba</returns>
+        </member>
+        <member name="M:Interlacer.ProjectData.validateLoadUnits(System.Collections.Generic.Dictionary{System.String,System.String})">
+            <summary>
+            Zvaliduje zda jsou ve slovníku načteny správně jednotky
+            </summary>
+            <param name="dictionary">Slovník, který je testován</param>
+            <returns>Vráti true pokud nebyla nalezena žádná chyba</returns>
+        </member>
+        <member name="M:Interlacer.ProjectData.setLinePosition(System.Collections.Generic.Dictionary{System.String,System.String})">
+            <summary>
+            Nastaví pozice pasovacích značek do lineDat podle načtených dat ze slovníku
+            </summary>
+            <param name="dictionary">Slovník ve kterém jsou uloženy pozice pasovacích značek</param>
+        </member>
+        <member name="M:Interlacer.ProjectData.setLineData(System.Collections.Generic.Dictionary{System.String,System.String})">
+            <summary>
+            Nastaví data pro LineData načtených ze slovníku
+            </summary>
+            <param name="dictionary">Slovník, ve kterém jsou nahrány data o pasovacích značkách</param>
+        </member>
         <member name="M:Interlacer.ProjectData.setFilter(System.Collections.Generic.Dictionary{System.String,System.String})">
             <summary>
-            
+             Podle dat ze slovníku načte potřebné filty a uloží je do InterlacingData
             </summary>
-            <param name="dictionary"></param>
+            <param name="dictionary">Slovník, který obsahuje potřebná data pro načtení filtrů</param>
+        </member>
+        <member name="M:Interlacer.ProjectData.setInterlacingUnits(System.Collections.Generic.Dictionary{System.String,System.String})">
+            <summary>
+            Načte ze slovníku data o jednotkách pro prokládání a uloží je do InterlacingData
+            </summary>
+            <param name="dictionary">Slovník, který obsahuje data o jednotkách pro interlacing</param>
+        </member>
+        <member name="M:Interlacer.ProjectData.setInterlacingData(System.Collections.Generic.Dictionary{System.String,System.String})">
+            <summary>
+            Ze slovníku načte data o interlacingu a uloží je do InterlacingData
+            </summary>
+            <param name="dictionary">Slovník, ve kterém jsou data o interlacingu</param>
+        </member>
+        <member name="M:Interlacer.ProjectData.LineDataToString">
+            <summary>
+            Převede data o pasovacích značkách do stringové podoby, kterou pak vrátí
+            </summary>
+            <returns>Vrátí data o pasovacích značkách převedená na řetězec znaků</returns>
+        </member>
+        <member name="M:Interlacer.ProjectData.InterlacingDataToString">
+            <summary>
+            Převede data o samotném interlacingu do stringové podoby, kterou pak vrátí
+            </summary>
+            <returns>Vrátí data o interlacingu převedená na řetězec znaků</returns>
         </member>
         <member name="T:Interlacer.SettingOptions">
             <summary>
@@ -1035,55 +1184,120 @@
             <param name="lineData">data potrebna k pridani pasovacich znacek</param>
             <param name="progressBar">instance progress baru, ktery bude pouzit pro zobrazeni postupu prokladani</param>
         </member>
+        <member name="M:Interlacer.PictureContainer.getPictureForMarkToLine">
+            <summary>
+            Vrátí prázdný obrázek, pokud jsou nastaveny pasovací značky připočte jejich šířku či výšku
+            </summary>
+            <returns>Vrátí prázdný obrázek, pokud jsou nastaveny pasovací značky připočte jejich šířku či výšku</returns>
+        </member>
         <member name="M:Interlacer.PictureContainer.getAddSizeForLineAndIndentRatio(System.Double)">
             <summary>
-             vrací šířku rámečku s odsazením v px pro pridani pred finalnim resizem vydeleny pomerem
+             Vrací šířku rámečku s odsazením v px pro přidání před finálním resizem vydělený poměrem
             </summary>
             <param name="ratio">parametr dělení vysledné šířky rámečku</param>
             <returns>poměr šířky rámečku / parametr</returns>
         </member>
         <member name="M:Interlacer.PictureContainer.getAddSizeForLineRatio(System.Double)">
             <summary>
-             vrací šířku rámečku bez odsazením v px pro pridani pred finalnim resizem vydeleny pomerem
+             Vrací šířku rámečku bez odsazením v px pro pridani pred finalnim resizem vydeleny pomerem
             </summary>
             <param name="ratio">parametr dělení vysledné šířky rámečku</param>
             <returns>poměr šířky rámečku / parametr</returns>
         </member>
         <member name="M:Interlacer.PictureContainer.getAddWidthForLineAndIndent">
             <summary>
-             vrací šířku postraního rámečku s pomocnými čarami v px pro pridani pred finalnim resizem
+             Vrací šířku postraního rámečku s pomocnými čarami v px pro pridani pred finalnim resizem
             </summary>
             <returns>šířku rámečku s pomocnými čarami v px</returns>
         </member>
         <member name="M:Interlacer.PictureContainer.getAddWidthForLineAndIndentLeft">
             <summary>
-             vrací šířku postraního rámečku na levé straně s pomocnými čarami v px pro pridani pred finalnim resizem
+             Vrací šířku postraního rámečku na levé straně s pomocnými čarami v px pro pridani pred finalnim resizem
             </summary>
             <returns>šířku rámečku s pomocnými čarami v px</returns>
         </member>
         <member name="M:Interlacer.PictureContainer.getAddHeightForLineAndIndent">
             <summary>
-             vrací výšku horního nebo spodního rámečku s pomocnými čarami v px pro pridani pred finalnim resizem
+            Vrací výšku horního nebo spodního rámečku s pomocnými čarami v px pro pridani pred finalnim resizem
             </summary>
             <returns>výšku rámečku s pomocnými čarami v px</returns>
         </member>
         <member name="M:Interlacer.PictureContainer.getAddHeightForLineAndIndentTop">
             <summary>
-             vrací výšku horního rámečku na levé straně s pomocnými čarami v px pro pridani pred finalnim resizem
+             Vrací výšku horního rámečku na levé straně s pomocnými čarami v px pro pridani pred finalnim resizem
             </summary>
             <returns>výšku rámečku s pomocnými čarami v px</returns>
         </member>
         <member name="M:Interlacer.PictureContainer.getAddHeightForLineTop">
             <summary>
-             vrací výšku čar horního rámečku bez osazení v px pro pridani pred finalnim resizem
+             Vrací výšku čar horního rámečku bez osazení v px pro pridani pred finalnim resizem
             </summary>
             <returns>výšku rámečku s pomocnými čarami v px</returns>
         </member>
         <member name="M:Interlacer.PictureContainer.getAddWidthForLine">
             <summary>
-             vrací šířku čar na stranách bez odsazení v px pro pridani pred finalnim resizem
+             Vrací šířku čar na stranách bez odsazení v px pro pridani pred finalnim resizem
             </summary>
             <returns>výšku rámečku s pomocnými čarami v px</returns>
+        </member>
+        <member name="M:Interlacer.PictureContainer.getCanBeLineV(System.Int32)">
+            <summary>
+            Zjistí zda na indexu sloupečku může být vykreslena pasovací značka
+            </summary>
+            <param name="index">index sloupečku obrázku</param>
+            <returns>Vratí true pokud na daném indexu může být vykreslena značka</returns>
+        </member>
+        <member name="M:Interlacer.PictureContainer.getCanBeLineH(System.Int32)">
+            <summary>
+            Zjistí zda na indexu řádku může být vykreslena pasovací značka
+            </summary>
+            <param name="index">index řádku obrázku</param>
+            <returns>Vratí true pokud na daném indexu může být vykreslena značka</returns>
+        </member>
+        <member name="M:Interlacer.PictureContainer.drawLinesLeftV">
+            <summary>
+            Vykreslí vertikální pasovací značky na levé straně obrázku
+            </summary>
+        </member>
+        <member name="M:Interlacer.PictureContainer.drawLinesRightV">
+            <summary>
+             Vykreslí vertikální pasovací značky na pravé straně obrázku
+            </summary>
+        </member>
+        <member name="M:Interlacer.PictureContainer.drawLinesTopV">
+            <summary>
+             Vykreslí vertikální pasovací značky nahoře obrázku
+            </summary>
+        </member>
+        <member name="M:Interlacer.PictureContainer.drawLinesBottomV">
+            <summary>
+             Vykreslí vertikální pasovací značky v dolní části obrázku
+            </summary>
+        </member>
+        <member name="M:Interlacer.PictureContainer.drawLinesLeftH">
+            <summary>
+             Vykreslí horizontální pasovací značky na levé straně obrázku
+            </summary>
+        </member>
+        <member name="M:Interlacer.PictureContainer.drawLinesRightH">
+            <summary>
+             Vykreslí horizontální pasovací značky na pravé straně obrázku
+            </summary>
+        </member>
+        <member name="M:Interlacer.PictureContainer.drawLinesTopH">
+            <summary>
+             Vykreslí horizontální pasovací značky v horní části obrázku
+            </summary>
+        </member>
+        <member name="M:Interlacer.PictureContainer.drawLinesBottomH">
+            <summary>
+             Vykreslí horizontální pasovací značky v dolní části obrázku
+            </summary>
+        </member>
+        <member name="M:Interlacer.PictureContainer.drawLines">
+            <summary>
+            Vykreslí pasovací značky, pokud někde mají být, zavoláním dalších metod
+            </summary>
         </member>
         <member name="M:Interlacer.Program.Main">
             <summary>
