@@ -91,7 +91,7 @@ Tøetím parametrem je instance tøídy LineData, která obsahuje všechny parametry p
 Posledním parametrem je instance tøídy System.Windows.Forms.ProgressBar, která je pak použita pro zobrazení postupu prokládání. Pokud je progressBar nastaven na null, postup nebude ukázán nikde, ale prokládání bude fungovat.\\\\
 Pøed samotným proložením je potøeba zavolat metodu CheckPictures, pokud nebude zavolána, prokládání selže a vyhodí výjimku.
 Tato metoda zkontroluje velikost všech obrázkù, pokud bude u všech stejná, vrátí true a pøi prokládání budou obrázky proloženy tak, jak jsou.
-Pokud obrázky nebudou stejnì velké, vrátí false a pøi prokládání pak budou všechny obrázky oøíznuty šíøku nejužšího a výšku nejnižšího.\\\\
+Pokud obrázky nebudou stejnì velké, vrátí false a pøi prokládání pak budou všechny obrázky oøíznuty na šíøku nejužšího a výšku nejnižšího.\\\\
 Pro proložení pak staèí zavolat metodu Interlace a poté metodou GetResult získat výsledný obrázek v podobì instance tøídy Picture.\\\\
 Obrázky, které již byly naèteny pøed prokládáním nebo byly vytvoøeny prvním konstrutkorem (tedy vždy, když metoda IsCreated vrací true) budou rovnou použity.
 Obrázky, které byly vytvoøeny druhým konstruktorem a pøed prokládáním nebyly naèteny (tedy ty, jejichž metoda IsCreated vrací false) budou naèteny pøi prokládání a po nìm rovnou smazány metodou Destroy.
