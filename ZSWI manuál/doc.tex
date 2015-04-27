@@ -47,14 +47,14 @@ public Picture(int width, int height)
 \begin{lstlisting}
 public Picture(String filename)
 \end{lstlisting}
-- vytvoøí instanci tøídy a nastaví, jakého souboru má bıt obrázek naèten, samotné naètení ale provedeno zatím není
+- vytvoøí instanci tøídy a nastaví, z jakého souboru má bıt obrázek naèten, samotné naètení ale provedeno zatím není
 
 Pro naètení obrázku je pak potøeba pouít metodu Load, která naète obrázek ze souboru, jeho název byl pøedán právì tímto konstruktorem.
 Lze také pouít metodu Ping, která pouze naète informace o obrázku (šíøku a vıšku v px, rozlišení...) ale samotná obrazová data naètena nejsou.\\\\
 Infromaci, zda byl obrázek ji vytvoøen, a u prvním konstruktorem nebo naètením metodou Load (ne Ping) lze zjistit metodou IsCreated.\\\\
 Po skonèení práce s obrázkem je dobré zavolat metodu Destroy, která provede dealokaci pamìti.
 Metoda Destroy se sice volá sama v destruktoru, ale ten je volán garbage collectorem a to se mùe stát a v pøípadì, kdy na instanci neexistují reference.\\\\
-K uloení slouí metoda Save, která staèí parametrem pøedat název nebo celou cestu vısledného souboru. Formát uloeného souboru je rozpoznán z koncovky.
+K uloení slouí metoda Save, které staèí parametrem pøedat název nebo celou cestu vısledného souboru. Formát uloeného souboru je rozpoznán z koncovky.
 Napøíklad koncovka .jpg zajistí uloení do formátu JPEG.
 
 \subsection{Filtry pro zmìnu velikosti}
@@ -77,7 +77,7 @@ Mm - milimetry\\
 GfxlibWrapper také obsahuje statickou tøídu UnitConverter (v souboru Units.cs), která obsahuje nìkolik metod pro pøevody jednotek.
 
 \section{Prokládání}
-\subsection{Tøída ProjectData}
+\subsection{Tøída PictureContainer}
 O samotné prokládání se stará tøída PictureContainer.
 Nejdøíve je potøeba vytvoøit její instanci, tøída má pouze jeden konstruktor.
 \begin{lstlisting}
