@@ -1,0 +1,11 @@
+\select@language {czech}
+\contentsline {section}{\numberline {1}\'Uvod}{3}{section.1}
+\contentsline {section}{\numberline {2}GfxlibWrapper}{3}{section.2}
+\contentsline {subsection}{\numberline {2.1}T\v r\IeC {\'\i }da Picture}{3}{subsection.2.1}
+\contentsline {subsection}{\numberline {2.2}Filtry pro zm\v enu velikosti}{4}{subsection.2.2}
+\contentsline {subsection}{\numberline {2.3}Jednotky}{4}{subsection.2.3}
+\contentsline {section}{\numberline {3}Prokl\'ad\'an\IeC {\'\i }}{4}{section.3}
+\contentsline {subsection}{\numberline {3.1}T\v r\IeC {\'\i }da ProjectData}{4}{subsection.3.1}
+\contentsline {subsection}{\numberline {3.2}T\v r\IeC {\'\i }da InterlacingData}{5}{subsection.3.2}
+\contentsline {subsection}{\numberline {3.3}T\v r\IeC {\'\i }da LineData}{6}{subsection.3.3}
+\contentsline {section}{\numberline {4}Propojen\IeC {\'\i } s GUI}{6}{section.4}

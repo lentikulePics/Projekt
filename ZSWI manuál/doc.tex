@@ -1,0 +1,131 @@
+\documentclass[12pt, a4paper]{article}
+\usepackage[cp1250]{inputenc}
+\usepackage[IL2]{fontenc}
+\usepackage[czech]{babel}
+\usepackage{graphicx}
+\usepackage[hidelinks]{hyperref}
+\usepackage{pdfpages}
+\usepackage{listings}
+\usepackage{multirow}
+
+\begin{document}
+\lstset{language=Java, keywordstyle=\color{blue}}
+
+%titulní strana
+\thispagestyle{empty}
+\begin{center}
+{\Huge Manuál ke zdrojovému kódu aplikace Interlacer}
+\end{center}
+\vfill
+\newpage
+%konec titulní strany
+
+%obsah
+\tableofcontents
+\thispagestyle{empty}
+\newpage
+%konec obsahu
+\section{Úvod}
+Tento dokument slouí pro snadnìjší orientaci ve zdrojovém kódu jako celku.
+Obsahuje struènı popis nìkterıch dùleitıch tøíd a popis souvislostí mezi jednotlivımi èastmi aplikace.
+\par
+Dále také obsahuje návod na pouití prokládacího mechanismu jako samostatné èásti pro vytvoøení vıstupního lentikulárního obrázku.
+\par
+Podrobnìjší popis jednotlivıch tøíd, jejich atributù a metod se nachází pøímo ve zdrojovém kódu.
+
+\section{GfxlibWrapper}
+GfxlibWrapper je skupina tøíd, které se starají o komunikace s knihovnou Magick++.
+Jsou v projektu v samostatné sloce a ke svojí plné funkènosti potøebují, aby se v adresáøi odkud je aplikace spuštìna, nacházel soubor Gfxlib.dll, jeho zdrojové kódy v C++ se nacházejí v oddìleném projektu Gfxlib.
+\subsection{Tøída Picture}
+Picture je tøída pro reprezentaci jednotlivıch obrázkù.
+Instanci této tøídy lze vytvoøit dvìma konstruktory:
+\begin{lstlisting}
+public Picture(int width, int height)
+\end{lstlisting}
+- vytvoøí obrázek o zadané šíøce a vıšce
+
+\begin{lstlisting}
+public Picture(String filename)
+\end{lstlisting}
+- vytvoøí instanci tøídy a nastaví, jakého souboru má bıt obrázek naèten, samotné naètení ale provedeno zatím není
+
+Pro naètení obrázku je pak potøeba pouít metodu Load, která naète obrázek ze souboru, jeho název byl pøedán právì tímto konstruktorem.
+Lze také pouít metodu Ping, která pouze naète informace o obrázku (šíøku a vıšku v px, rozlišení...) ale samotná obrazová data naètena nejsou.\\\\
+Infromaci, zda byl obrázek ji vytvoøen, a u prvním konstruktorem nebo naètením metodou Load (ne Ping) lze zjistit metodou IsCreated.\\\\
+Po skonèení práce s obrázkem je dobré zavolat metodu Destroy, která provede dealokaci pamìti.
+Metoda Destroy se sice volá sama v destruktoru, ale ten je volán garbage collectorem a to se mùe stát a v pøípadì, kdy na instanci neexistují reference.\\\\
+K uloení slouí metoda Save, která staèí parametrem pøedat název nebo celou cestu vısledného souboru. Formát uloeného souboru je rozpoznán z koncovky.
+Napøíklad koncovka .jpg zajistí uloení do formátu JPEG.
+
+\subsection{Filtry pro zmìnu velikosti}
+Tøída FilterType obsahuje 4 statické instance sama sebe. Kadná z tìchto instancí reprezentuje jeden typ interpolaèního filteru, kterı lze pouí pro zmìnu velikosti obrázku metodou Resize.
+
+Filtery lze pouít napøíklad takto:
+\begin{lstlisting}
+Picture picture = new ...;
+picture.Resize(500, 400, FilterType.Cubic);
+\end{lstlisting}
+Tento kód zmìní velikost obrázku z pùvodní na 500x400 pixelù s pouitím kubické interpolace.
+
+\subsection{Jednotky}
+Vıètovı typ Units obsahuje tøi prvky, kadı z nich reprezentuje jiné jednotky.\\
+In - palce\\
+Cm - centimetry\\
+Mm - milimetry\\
+
+
+GfxlibWrapper také obsahuje statickou tøídu UnitConverter (v souboru Units.cs), která obsahuje nìkolik metod pro pøevody jednotek.
+
+\section{Prokládání}
+\subsection{Tøída ProjectData}
+O samotné prokládání se stará tøída PictureContainer.
+Nejdøíve je potøeba vytvoøit její instanci, tøída má pouze jeden konstruktor.
+\begin{lstlisting}
+public PictureContainer(List<Picture> pictures,
+InterlacingData interlacingData, LineData lineData,
+ProgressBar progressBar = null)
+\end{lstlisting}
+Prvním parametrem je seznam obrázkù k proloení v podobì instance tøidy List, kde kadı obrázek je reprezentován instancí tøidy Picture z GfxlibWrapperu.\\\\
+Druhım parametrem je instance tøídy InterlacingData, která obsahuje všechny parametry prokládání, viz níe.\\\\
+Tøetím parametrem je instance tøídy LineData, která obsahuje všechny parametry pasovacích znaèek, viz níe.\\\\
+Posledním parametrem je instance tøídy System.Windows.Forms.ProgressBar, která je pak pouita pro zobrazení postupu prokládání. Pokud je progressBar nastaven na null, postup nebude ukázán nikde, ale prokládání bude fungovat.\\\\
+Pøed samotnım proloením je potøeba zavolat metodu CheckPictures, pokud nebude zavolána, prokládání sele a vyhodí vıjimku.
+Tato metoda zkontroluje velikost všech obrázkù, pokud bude u všech stejná, vrátí true a pøi prokládání budou obrázky proloeny tak, jak jsou.
+Pokud obrázky nebudou stejnì velké, vrátí false a pøi prokládání pak budou všechny obrázky oøíznuty šíøku nejušího a vıšku nejnišího.\\\\
+Pro proloení pak staèí zavolat metodu Interlace a poté metodou GetResult získat vıslednı obrázek v podobì instance tøídy Picture.\\\\
+Obrázky, které ji byly naèteny pøed prokládáním nebo byly vytvoøeny prvním konstrutkorem (tedy vdy, kdy metoda IsCreated vrací true) budou rovnou pouity.
+Obrázky, které byly vytvoøeny druhım konstruktorem a pøed prokládáním nebyly naèteny (tedy ty, jejich metoda IsCreated vrací false) budou naèteny pøi prokládání a po nìm rovnou smazány metodou Destroy.
+
+\subsection{Tøída InterlacingData}
+Tato tøída obsahuje všechny parametry prokládání (šíøka, vıška a rozlišení vıstupního obrázku, informace o pouitıch jednotkách, hustota èoèek lentikulární desky, interpolaèní filtry pro obì fáze zmìny velikosti a smìr prokládání) a její instance je pro proloení potøeba.
+Obsahuje pouze atributy a settery a gettery. Jednotky pro rozmìry je moné zmìnit metodou SetUnits, jednotky pro rozlišení a hustotu èoèek je moné zmìnit metodou SetResolutionUnits. Obì metody rovnou pøepoèítají aktuální hodnoty.
+Jakákoliv hodnota nastavená kterımkoliv setterm se pøedpokládá v jednotkách, které jsou aktuálnì nastaveny.
+Metodou KeepAspectRatio lze vypnout nebo zapnout funkci pro zachování pomìru stran. Pokud je zapnuta, pak pøi zmìnì šíøky nebo vıšky je automaticky pøepoèítán i druhı rozmìr.
+Pøed pouitím instance pro proloení je potøeba pomocí setterù nastavit všechny parametry.
+
+\subsection{Tøída LineData}
+Tato tøída obsahuje všechny parametry pasovacích znaèek (šíøku a barvu èar, barvu pozadí, šíøku rámeèku s èarami, odsazení, informace na kterıch okrajích èáry mají bıt, informaci zda mají bıt zarovnány na støed nebo ke kraji) a její instance je pro proloení potøeba.
+Obsahuje pouze atributy a settery a gettery. Jednotky pro šíøku rameèku a odsazení je moné zmìnit metodou SetUnits, která obì hodnoty rovnou pøepoèítá.
+Jakákoliv hodnota nastavená kterımkoliv setterm se pøedpokládá v jednotkách, které jsou aktuálnì nastaveny.
+Pøed pouitím instance pro proloení je potøeba pomocí setterù nastavit všechny parametry.
+
+
+\section{Propojení s GUI}
+Hlavní tøídou GUI je tøída MainForm. Ta je rozdìlena do dvou souborù MainForm.cs a MainFormEvents.cs.\\\\
+Prokládání se nachází v metodì události na stisknutí tlaèítka pro proloení a to vèetnì vytvoøení instance tøídy PictureContainer.\\\\
+Tøída MainForm obsahuje instanci tøídy ProjectData, která v sobì má instance tøíd InterlacingData a LineData, stará se také o naèítání a ukládání projektù.\\\\
+Po jakékoliv zmìnì komponent formuláøe jsou rovnou nové hodnoty zaneseny do InterlacingData a LineData v instanci tøídy ProjectData.
+Zároveò je zavolána metoda UpdateAllComponents, která zajistí, e jsou do všech komponent dodány aktuální hodnoty z InterlacingData a LineData.\\\\
+Tøída MainForm obsahuje instanci tøídy Settings, která obsahuje informaci o aktuálním nastavení aplikace. Informace o tom, co vše lze nastavit je pøedávána prostøednictvím instance tøídy SettingOptions.
+Tøída SettingOptions obsahuje pouze tøi Listy, první obsahuje nastavitelné jazyky, druhı nastavitelné délkové jednotky a tøetí nastavitelné jednotky rozlišení.
+Všechny tyto poloky jsou reprezentovány instancemi tøídy StringValuePair, která slouí k tomu, e vytvoøí dvojici (Jméno, Objekt), kde jméno je typu String a je vraceno metodou toString, Objekt je pak libovolnı objekt, kterı má bıt takto pojmenován.
+Tyto dvojice v podobì instancí tøídy StringValuePair jsou pak vkládány do ComboBoxù formuláøe a pøi zmìnì jazyka se vytvoøí dvojice nové s pojmenováním v daném jazyce a jsou dodány do ComboBoxù.
+O vytvoøení tìchto dvojic se stará metoda createSettingOptions, která je vrací v podobì instance tøídy SettingOptions. Metoda ApplySettings zaøídí promítnutí zmìn v instanci tøídy Settings do formuláøe.\\\\
+Tøída MainForm obsahuje instanci tøidy PictureInfoData, která se stará o získávání informací o obrázcích kvùli zobrazení v dolním pravém rohu formuláøe. Informace o obrázcích si uchovává, aby nebylo nutné stejnı obrázek naèítat vícekrát.
+O samotné zobrazení tìchto informací se stará metoda setPictureInfo, metoda resetPictureInfo pak nastaví potøebné labely na prázdné øetìzce.\\\\
+Tøída MainForm obsahuje instanci tøídy PreviewData, která se stará o zobrazování náhledù. Uchovává si naètené obrázky, aby nebylo potøeba naèítat stejnı obrázek vícekrát.
+V tøídì MainForm je zobrazení náhledu øešeno v metodì setPreview.
+
+
+
+\end{document}
