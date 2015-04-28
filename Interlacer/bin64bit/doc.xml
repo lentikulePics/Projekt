@@ -877,6 +877,11 @@
               Looks up a localized string similar to Odebrat.
             </summary>
         </member>
+        <member name="P:Interlacer.StringRes_CZ.replaceTooltip">
+            <summary>
+              Looks up a localized string similar to Nahradit obrázek za jiný.
+            </summary>
+        </member>
         <member name="P:Interlacer.StringRes_CZ.revertTooltip">
             <summary>
               Looks up a localized string similar to Otočit list obrázků.
@@ -1057,6 +1062,11 @@
         <member name="P:Interlacer.StringRes_EN.removePicTooltip">
             <summary>
               Looks up a localized string similar to Remove.
+            </summary>
+        </member>
+        <member name="P:Interlacer.StringRes_EN.replaceTooltip">
+            <summary>
+              Looks up a localized string similar to Replace image.
             </summary>
         </member>
         <member name="P:Interlacer.StringRes_EN.revertTooltip">

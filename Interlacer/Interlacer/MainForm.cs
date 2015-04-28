@@ -179,6 +179,7 @@ namespace Interlacer
             t.SetToolTip(clearAllButton, Localization.resourcesStrings.GetString("clearAllTooltip"));
             t.SetToolTip(reverseButton, Localization.resourcesStrings.GetString("revertTooltip"));
             t.SetToolTip(sortButton, Localization.resourcesStrings.GetString("sortTooltip"));
+            t.SetToolTip(replaceButton, Localization.resourcesStrings.GetString("replaceTooltip"));
             saveToolStripButton.Text = Localization.resourcesStrings.GetString("saveTooltip");
             loadToolStripButton.Text = Localization.resourcesStrings.GetString("loadTooltip");
             // Nastaveni sloupcu listview

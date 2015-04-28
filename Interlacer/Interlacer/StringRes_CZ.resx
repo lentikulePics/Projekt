@@ -203,6 +203,9 @@ Pravděpodobnou příčinou je chybějící Visual C++ Redistributable</value>
   <data name="removePicTooltip" xml:space="preserve">
     <value>Odebrat</value>
   </data>
+  <data name="replaceTooltip" xml:space="preserve">
+    <value>Nahradit obrázek za jiný</value>
+  </data>
   <data name="revertTooltip" xml:space="preserve">
     <value>Otočit list obrázků</value>
   </data>

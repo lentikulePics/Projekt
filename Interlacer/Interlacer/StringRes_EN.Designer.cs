@@ -314,6 +314,15 @@ namespace Interlacer {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Replace image.
+        /// </summary>
+        internal static string replaceTooltip {
+            get {
+                return ResourceManager.GetString("replaceTooltip", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Reverse list.
         /// </summary>
         internal static string revertTooltip {

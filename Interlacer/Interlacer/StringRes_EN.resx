@@ -202,6 +202,9 @@ Make sure Visual C++ Redistributable is installed.</value>
   <data name="removePicTooltip" xml:space="preserve">
     <value>Remove</value>
   </data>
+  <data name="replaceTooltip" xml:space="preserve">
+    <value>Replace image</value>
+  </data>
   <data name="revertTooltip" xml:space="preserve">
     <value>Reverse list</value>
   </data>

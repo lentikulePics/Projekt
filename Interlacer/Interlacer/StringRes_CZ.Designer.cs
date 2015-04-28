@@ -315,6 +315,15 @@ namespace Interlacer {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Nahradit obrázek za jiný.
+        /// </summary>
+        internal static string replaceTooltip {
+            get {
+                return ResourceManager.GetString("replaceTooltip", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Otočit list obrázků.
         /// </summary>
         internal static string revertTooltip {
