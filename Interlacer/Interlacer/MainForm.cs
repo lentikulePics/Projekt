@@ -273,12 +273,19 @@ namespace Interlacer
             }
         }
         
+        /// <summary>
+        /// Podle počtu obrázků v listu nastaví maximální šířku vodících čar.
+        /// </summary>
         private void changeMaxLineThickness()
         {
             lineThicknessTrackbar.Maximum = Math.Max(1, pictureListViewEx.Items.Count - 1);
             maxPicsUnderLenLabel.Text = Convert.ToString(lineThicknessTrackbar.Maximum);
         }      
 
+        /// <summary>
+        /// Ze seznamu obrázků vybere jejich cesty a naplní jimi List.
+        /// </summary>
+        /// <returns>picList list naplnění cestami k obrázkům.</returns>
         private List<Picture> harvestPicList()
         {
             String path;
@@ -291,6 +298,9 @@ namespace Interlacer
             return picList;
         }
 
+        /// <summary>
+        /// Metoda projde všechny položky seznamu od prvního po poslední a přiřadí jim číslo, které značí jejich pořadí v seznamu.
+        /// </summary>
         private void reorder()
         {
             order = 1;
@@ -302,6 +312,10 @@ namespace Interlacer
             }
         }
         
+        /// <summary>
+        /// Pomocí hodnot ze tříd LineData a InterlacingData se nastaví komponentám příslušné hodnoty.
+        /// Dále se tu upravuje maximální hodnota trackbaru pro šířky čar a vypočítává se počet obrázků pod lentikuli.
+        /// </summary>
         private void updateAllComponents()
         {
             widthNumeric.Text = Convert.ToString(projectData.GetInterlacingData().GetWidth());
@@ -319,6 +333,8 @@ namespace Interlacer
             }
             changeMaxLineThickness();
             actualPicsUnderLenLabel.Text = "" + projectData.GetLineData().GetLineThickness();
+            // Pokud se ze seznamu odebrali obrázky a šířka čar byla větší než je teď maximální hodnota, 
+            // nová hodnota se nastaví na maximální hodnotu trackbaru
             if (Convert.ToInt32(actualPicsUnderLenLabel.Text) > lineThicknessTrackbar.Maximum)
             {
                 lineThicknessTrackbar.Value = lineThicknessTrackbar.Maximum;
@@ -416,6 +432,9 @@ namespace Interlacer
             }
         }
 
+        /// <summary>
+        /// Metoda pro seřazení položek seznamu podle posledního čísla v jejich názvu.
+        /// </summary>
         private void sortListView()
         {
             for (int i = 0; i < pictureListViewEx.Items.Count - 1; i++)
@@ -473,6 +492,11 @@ namespace Interlacer
             return -1;
         }
 
+        /// <summary>
+        /// Metoda pro nahrazení jednoho vybraného obrázku jiným.
+        /// Funguje pouze pokud je vybrán jeden obrázek.
+        /// Po otevření file dialogu je vyplí multi select takže se smí vybrat pouze jeden orbázek.
+        /// </summary>
         private void replacePicture()
         {
             if (pictureListViewEx.SelectedItems.Count > 1 || pictureListViewEx.SelectedItems.Count == 0)
@@ -496,6 +520,7 @@ namespace Interlacer
                 pictureListViewEx.SelectedItems[0].SubItems[1].Text = chosenPicture;
                 pictureListViewEx.SelectedItems[0].SubItems[2].Text = getPicName(chosenPicture);
                 pictureListViewEx.SelectedItems[0].SubItems[3].Text = "";
+                // Vrácení focus na nově vloženou položku
                 pictureListViewEx.Focus();
                 pictureListViewEx.SelectedItems[0].Selected = true;
                 reorder();

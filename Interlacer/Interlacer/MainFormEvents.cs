@@ -13,6 +13,7 @@ namespace Interlacer
         {
             DoubleBuffered = true;
         }
+
         private void reverseButton_Click(object sender, EventArgs e)
         {
             int count = pictureListViewEx.Items.Count;
@@ -27,20 +28,50 @@ namespace Interlacer
                 }
             }
         }
+
+        /// <summary>
+        /// Metoda vyvolaná při změně šířky obrázku.
+        /// Ve třídě InterlacingData se nastaví nově nastavená šířka a všem komponentám se obnoví jejich hodnoty.
+        /// Hodnoty se obnoví, protože šířka má vliv například na celkovou šířku v pixelech, takže je potřeba ji znova přepočítat.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void widthNumeric_ValueChanged(object sender, EventArgs e)
         {
             projectData.GetInterlacingData().SetWidth(Convert.ToDouble(widthNumeric.Value));
             updateAllComponents();
         }
+
+        /// <summary>
+        /// Metoda vyvolaná při změně výšky obrázku.
+        /// Ve třídě InterlacingData se nastaví nově nastavená šířka a všem komponentám se obnoví jejich hodnoty.
+        /// Hodnoty se obnoví, protože šířka má vliv například na celkovou šířku v pixelech, takže je potřeba ji znova přepočítat.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void heightNumeric_ValueChanged(object sender, EventArgs e)
         {
             projectData.GetInterlacingData().SetHeight(Convert.ToDouble(heightNumeric.Value));
             updateAllComponents();
         }
+
+        /// <summary>
+        /// Metoda vyvolaná zaškrtnutím/odškrtnutím checkboxu pro zachování poměru stran.
+        /// Ve třídě InterlacingData se nastaví proměnná keepAspectRatio na true/false.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void keepRatioCheckbox_CheckedChanged(object sender, EventArgs e)
         {
             projectData.GetInterlacingData().KeepAspectRatio(keepRatioCheckbox.Checked);
         }
+
+        /// <summary>
+        /// Timer, který se zapne po přetáhnutí položky/položek v listView drag and dropem.
+        /// Jednotlivým položkám se znova nastaví jejich pořadi a timer se vypne.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void reorderTimer_Tick(object sender, EventArgs e)
         {
             reorder();
@@ -64,48 +95,126 @@ namespace Interlacer
             FilterType filter = ((StringValuePair<FilterType>)c.SelectedItem).value;
             projectData.GetInterlacingData().SetFinalResampleFilter(filter);
         }
+
+        /// <summary>
+        /// Metoda vyvolaná změnou hodnoty DPI.
+        /// Ve tříde InterlacingData se přenastaví hodnota DPI na nově zadanou hodnotu a všechny komponenty se updatnou na nové hodnoty, 
+        /// které DPI mohlo pozměnit. Například šířka a výška výsledného obrázku v pixelech.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void dpiNumeric_ValueChanged(object sender, EventArgs e)
         {
             projectData.GetInterlacingData().SetPictureResolution(Convert.ToDouble(dpiNumeric.Value));
             updateAllComponents();
         }
+
+        /// <summary>
+        /// Metoda vyvolaná změnou hodnoty LPI.
+        /// Ve tříde InterlacingData se přenastaví hodnota LPI na nově zadanou hodnotu a všechny komponenty se updatnou na nové hodnoty, 
+        /// které LPI mohlo pozměnit. Například počet obrázků pod lentikulí.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void lpiNumeric_ValueChanged(object sender, EventArgs e)
         {
             projectData.GetInterlacingData().SetLenticuleDensity(Convert.ToDouble(lpiNumeric.Value));
             updateAllComponents();
         }
+
+        /// <summary>
+        /// Metoda vyvolaná změnou hodnoty sířku rámečku u vodících čar.
+        /// Ve třídě LineData se nastaví nově zadaná šířka rámečku.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void frameWidthNumeric_ValueChanged(object sender, EventArgs e)
         {
             projectData.GetLineData().SetFrameWidth(Convert.ToDouble(frameWidthNumeric.Value));
         }
+
+        /// <summary>
+        /// Metoda vyvolaná změnou hodnoty odsazení vodících čar od obrázku.
+        /// Ve třídě LineData se nastaví nově zadaná šířka rámečku.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void indentNumeric_ValueChanged(object sender, EventArgs e)
         {
             projectData.GetLineData().SetIndent(Convert.ToDouble(indentNumeric.Value));
         }
+
+        /// <summary>
+        /// Metoda vyvolaná změnou hodnoty checkboxu určujícího zda se mají vykreslit horní vodící čáry.
+        /// Ve třídě LineData se nastaví true/false podle toho zda je checkbox zaškrtlý nebo ne.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void topLineCheckBox_CheckedChanged(object sender, EventArgs e)
         {
             projectData.GetLineData().SetTop(topLineCheckBox.Checked);
         }
+
+        /// <summary>
+        /// Metoda vyvolaná změnou hodnoty checkboxu určujícího zda se mají vykreslit dolní vodící čáry.
+        /// Ve třídě LineData se nastaví true/false podle toho zda je checkbox zaškrtlý nebo ne.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void bottomLineCheckBox_CheckedChanged(object sender, EventArgs e)
         {
             projectData.GetLineData().SetBottom(bottomLineCheckBox.Checked);
         }
+
+        /// <summary>
+        /// Metoda vyvolaná změnou hodnoty checkboxu určujícího zda se mají vykreslit levé vodící čáry.
+        /// Ve třídě LineData se nastaví true/false podle toho zda je checkbox zaškrtlý nebo ne.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void leftLineCheckBox_CheckedChanged(object sender, EventArgs e)
         {
             projectData.GetLineData().SetLeft(leftLineCheckBox.Checked);
         }
+
+        /// <summary>
+        /// Metoda vyvolaná změnou hodnoty checkboxu určujícího zda se mají vykreslit pravé vodící čáry.
+        /// Ve třídě LineData se nastaví true/false podle toho zda je checkbox zaškrtlý nebo ne.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void rightLineCheckBox_CheckedChanged(object sender, EventArgs e)
         {
             projectData.GetLineData().SetRight(rightLineCheckBox.Checked);
         }
+
+        /// <summary>
+        /// Metoda vyvolaná při stisku radiobuttonu určujícího zda mají být vodící čáry na středu lentikule.
+        /// Pokud je zaškrtlé, vodící čáry budou na středu lentikule.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void centerRadioButton_CheckedChanged(object sender, EventArgs e)
         {
             projectData.GetLineData().SetCenterPosition(true);
         }
+
+        /// <summary>
+        /// Metoda vyvolaná při stisku radiobuttonu určujícího zda mají být vodící čáry na okraji lentikule.
+        /// Pokud je zaškrtlé, vodící čáry budou na okraji lentikule.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void edgeRadioButton_CheckedChanged(object sender, EventArgs e)
         {
             projectData.GetLineData().SetCenterPosition(false);
         }
+
+        /// <summary>
+        /// Tlačítko, které otevře panel s výběrem barev pro vodící čáry obrázku.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void lineColorButton_Click(object sender, EventArgs e)
         {
             ColorDialog lc = new ColorDialog();
@@ -115,6 +224,12 @@ namespace Interlacer
                 projectData.GetLineData().SetLineColor(lc.Color);
             }
         }
+
+        /// <summary>
+        /// Tlačítko, které otevře panel s výběrem barev pro pozadí vodících čar obrázku.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void backgroundColorButton_Click(object sender, EventArgs e)
         {
             ColorDialog bc = new ColorDialog();
@@ -124,6 +239,14 @@ namespace Interlacer
                 projectData.GetLineData().SetBackgroundColor(bc.Color);
             }
         }
+
+        /// <summary>
+        /// Metoda vyvolaná posouváním jezdce na trackbaru určujícího šířku vodících čar.
+        /// Změní hodnotu labelu určujícího aktuálně vybranou šířku čar.
+        /// Ve třídě LineData nastaví nově zadanou šířku čar.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void lineThicknessTrackbar_ValueChanged(object sender, EventArgs e)
         {
             actualPicsUnderLenLabel.Text = Convert.ToString(lineThicknessTrackbar.Value);
@@ -137,9 +260,16 @@ namespace Interlacer
         {
             projectData.GetInterlacingData().SetDirection(Direction.Horizontal);
         }
+
+        /// <summary>
+        /// Pro označené položky seznamu vytvoří určitý počet kopií.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void copyPicButton_Click(object sender, EventArgs e)
         {
             var indeces = pictureListViewEx.SelectedIndices;
+            // Pokud je vybrána aspoň jedna položka
             if (indeces.Count > 0)
             {
                 for (int i = 0; i < indeces.Count; i++)
@@ -156,6 +286,8 @@ namespace Interlacer
                 }
                 reorder();
                 changeMaxLineThickness();
+
+                // Vrátí focus na položky, které byli původně označené
                 pictureListViewEx.Focus();
                 for (int i = 0; i < indeces.Count; i++)
                 {
@@ -198,10 +330,22 @@ namespace Interlacer
             }
         }
 
+        /// <summary>
+        /// Pokud se s nějakou položkou seznamu pohne drag and dropem. Zapne se timer, který volá metodu na očíslování položek seznamu.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void pictureListViewEx_DragDrop(object sender, DragEventArgs e)
         {
             reorderTimer.Start();
         }
+
+        /// <summary>
+        /// Metoda, která se vyvolá při změne hodnoty počtu kopiií, které se mají udělat při stisku tlačítka na kopírování položek seznamu.
+        /// Slouží k tomu, aby se vrátil focus na ty vybrané položky, které byli vybrané před zvednutím/zmenšením hodnoty komponenty.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void copyCountNumeric_ValueChanged(object sender, EventArgs e)
         {
             var indeces = pictureListViewEx.SelectedIndices;
@@ -211,6 +355,13 @@ namespace Interlacer
                 pictureListViewEx.Items[indeces[i]].Selected = true;
             }
         }
+
+        /// <summary>
+        /// Metoda vyvolaná při zavření formuláře.
+        /// Uloží nastavení jazyka, jednotek a rozlišení.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void MainForm_FormClosed(object sender, FormClosedEventArgs e)
         {
             try
@@ -242,10 +393,22 @@ namespace Interlacer
                 MessageBox.Show(exc.Message);
             }
         }
+
+        /// <summary>
+        /// Metoda vyvolaná při stisku tlačítka pro seřazení seznamu.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void sortButton_Click(object sender, EventArgs e)
         {
             sortListView();
         }
+
+        /// <summary>
+        /// Metoda vyvolaná při stisku tlačítka pro nahrazení jednoho obrázku jiným.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void replaceButton_Click(object sender, EventArgs e)
         {
             replacePicture();
@@ -273,12 +436,19 @@ namespace Interlacer
             }
         }
 
+        /// <summary>
+        /// Metoda, vyvolaná stiskem tlačítka pro posun vybraného obrázku dolů.
+        /// Pokud není vybraná poslední položka seznamu, posune vybraný obrázek o pozici níž.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void moveDownButton_Click(object sender, EventArgs e)
         {
             var indeces = pictureListViewEx.SelectedIndices;
             if (!selectCurrentListItem(indeces))
                 return;
             int selectedIndex = Convert.ToInt32(indeces[0]);
+            // Pokud vybraná položka je na konci sezamu, metoda skončí
             if (selectedIndex == pictureListViewEx.Items.Count - 1)
             {
                 return;
@@ -290,12 +460,14 @@ namespace Interlacer
                 pictureListViewEx.Items[selectedIndex + 1].SubItems[i].Text = pictureListViewEx.Items[selectedIndex].SubItems[i].Text;
                 pictureListViewEx.Items[selectedIndex].SubItems[i].Text = tmp;
             }
+            // Vrácení focusu na posouvanou položku
             pictureListViewEx.Items[selectedIndex + 1].Selected = true;
             pictureListViewEx.Items[selectedIndex].Selected = false;
         }
 
         /// <summary>
-        /// 
+        /// Metoda, vyvolaná stiskem tlačítka pro posun vybraného obrázku nahoru.
+        /// Pokud není vybraná první položka seznamu, posune vybraný obrázek o pozici výš.
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
@@ -305,6 +477,7 @@ namespace Interlacer
             if (!selectCurrentListItem(indeces))
                 return;
             int selectedIndex = Convert.ToInt32(indeces[0]);
+            // Ověření že není vybrána první položka seznamu
             if (selectedIndex == 0)
             {
                 return;
@@ -316,9 +489,16 @@ namespace Interlacer
                 pictureListViewEx.Items[selectedIndex - 1].SubItems[i].Text = pictureListViewEx.Items[selectedIndex].SubItems[i].Text;
                 pictureListViewEx.Items[selectedIndex].SubItems[i].Text = tmp;
             }
+            // Vrácení focusu na posouvanou položku
             pictureListViewEx.Items[selectedIndex - 1].Selected = true;
             pictureListViewEx.Items[selectedIndex].Selected = false;
         }
+
+        /// <summary>
+        /// Metoda, vyvolaná stiskem tlačítka pro odstranění vybraných položek ze seznamu.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void removePicButton_Click(object sender, EventArgs e)
         {
             int count = pictureListViewEx.SelectedItems.Count;
@@ -330,6 +510,12 @@ namespace Interlacer
             updateAllComponents();
             reorder();
         }
+
+        /// <summary>
+        /// Metoda, vyvolaná stiskem tlačítka pro odstranění všech položek seznamu.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void clearAllButton_Click(object sender, EventArgs e)
         {
             pictureListViewEx.Items.Clear();
@@ -362,6 +548,14 @@ namespace Interlacer
                 trySetValuesFromPictures(filePaths);
             }
         }
+
+        /// <summary>
+        /// Metoda vyvolaná při stisku tlačítka pro přidání obrázku.
+        /// Otevře file dialog pro přidání nových obrázků.
+        /// Je povolen multiselect takže se může vybrat několik obrázků najednou.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void addPicButton_Click(object sender, EventArgs e)
         {
             addPicFileDialog.Multiselect = true;

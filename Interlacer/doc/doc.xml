@@ -388,9 +388,215 @@
             the contents of this method with the code editor.
             </summary>
         </member>
+        <member name="M:Interlacer.MainForm.widthNumeric_ValueChanged(System.Object,System.EventArgs)">
+            <summary>
+            Metoda vyvolaná při změně šířky obrázku.
+            Ve třídě InterlacingData se nastaví nově nastavená šířka a všem komponentám se obnoví jejich hodnoty.
+            Hodnoty se obnoví, protože šířka má vliv například na celkovou šířku v pixelech, takže je potřeba ji znova přepočítat.
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:Interlacer.MainForm.heightNumeric_ValueChanged(System.Object,System.EventArgs)">
+            <summary>
+            Metoda vyvolaná při změně výšky obrázku.
+            Ve třídě InterlacingData se nastaví nově nastavená šířka a všem komponentám se obnoví jejich hodnoty.
+            Hodnoty se obnoví, protože šířka má vliv například na celkovou šířku v pixelech, takže je potřeba ji znova přepočítat.
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:Interlacer.MainForm.keepRatioCheckbox_CheckedChanged(System.Object,System.EventArgs)">
+            <summary>
+            Metoda vyvolaná zaškrtnutím/odškrtnutím checkboxu pro zachování poměru stran.
+            Ve třídě InterlacingData se nastaví proměnná keepAspectRatio na true/false.
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:Interlacer.MainForm.reorderTimer_Tick(System.Object,System.EventArgs)">
+            <summary>
+            Timer, který se zapne po přetáhnutí položky/položek v listView drag and dropem.
+            Jednotlivým položkám se znova nastaví jejich pořadi a timer se vypne.
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:Interlacer.MainForm.dpiNumeric_ValueChanged(System.Object,System.EventArgs)">
+            <summary>
+            Metoda vyvolaná změnou hodnoty DPI.
+            Ve tříde InterlacingData se přenastaví hodnota DPI na nově zadanou hodnotu a všechny komponenty se updatnou na nové hodnoty, 
+            které DPI mohlo pozměnit. Například šířka a výška výsledného obrázku v pixelech.
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:Interlacer.MainForm.lpiNumeric_ValueChanged(System.Object,System.EventArgs)">
+            <summary>
+            Metoda vyvolaná změnou hodnoty LPI.
+            Ve tříde InterlacingData se přenastaví hodnota LPI na nově zadanou hodnotu a všechny komponenty se updatnou na nové hodnoty, 
+            které LPI mohlo pozměnit. Například počet obrázků pod lentikulí.
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:Interlacer.MainForm.frameWidthNumeric_ValueChanged(System.Object,System.EventArgs)">
+            <summary>
+            Metoda vyvolaná změnou hodnoty sířku rámečku u vodících čar.
+            Ve třídě LineData se nastaví nově zadaná šířka rámečku.
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:Interlacer.MainForm.indentNumeric_ValueChanged(System.Object,System.EventArgs)">
+            <summary>
+            Metoda vyvolaná změnou hodnoty odsazení vodících čar od obrázku.
+            Ve třídě LineData se nastaví nově zadaná šířka rámečku.
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:Interlacer.MainForm.topLineCheckBox_CheckedChanged(System.Object,System.EventArgs)">
+            <summary>
+            Metoda vyvolaná změnou hodnoty checkboxu určujícího zda se mají vykreslit horní vodící čáry.
+            Ve třídě LineData se nastaví true/false podle toho zda je checkbox zaškrtlý nebo ne.
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:Interlacer.MainForm.bottomLineCheckBox_CheckedChanged(System.Object,System.EventArgs)">
+            <summary>
+            Metoda vyvolaná změnou hodnoty checkboxu určujícího zda se mají vykreslit dolní vodící čáry.
+            Ve třídě LineData se nastaví true/false podle toho zda je checkbox zaškrtlý nebo ne.
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:Interlacer.MainForm.leftLineCheckBox_CheckedChanged(System.Object,System.EventArgs)">
+            <summary>
+            Metoda vyvolaná změnou hodnoty checkboxu určujícího zda se mají vykreslit levé vodící čáry.
+            Ve třídě LineData se nastaví true/false podle toho zda je checkbox zaškrtlý nebo ne.
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:Interlacer.MainForm.rightLineCheckBox_CheckedChanged(System.Object,System.EventArgs)">
+            <summary>
+            Metoda vyvolaná změnou hodnoty checkboxu určujícího zda se mají vykreslit pravé vodící čáry.
+            Ve třídě LineData se nastaví true/false podle toho zda je checkbox zaškrtlý nebo ne.
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:Interlacer.MainForm.centerRadioButton_CheckedChanged(System.Object,System.EventArgs)">
+            <summary>
+            Metoda vyvolaná při stisku radiobuttonu určujícího zda mají být vodící čáry na středu lentikule.
+            Pokud je zaškrtlé, vodící čáry budou na středu lentikule.
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:Interlacer.MainForm.edgeRadioButton_CheckedChanged(System.Object,System.EventArgs)">
+            <summary>
+            Metoda vyvolaná při stisku radiobuttonu určujícího zda mají být vodící čáry na okraji lentikule.
+            Pokud je zaškrtlé, vodící čáry budou na okraji lentikule.
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:Interlacer.MainForm.lineColorButton_Click(System.Object,System.EventArgs)">
+            <summary>
+            Tlačítko, které otevře panel s výběrem barev pro vodící čáry obrázku.
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:Interlacer.MainForm.backgroundColorButton_Click(System.Object,System.EventArgs)">
+            <summary>
+            Tlačítko, které otevře panel s výběrem barev pro pozadí vodících čar obrázku.
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:Interlacer.MainForm.lineThicknessTrackbar_ValueChanged(System.Object,System.EventArgs)">
+            <summary>
+            Metoda vyvolaná posouváním jezdce na trackbaru určujícího šířku vodících čar.
+            Změní hodnotu labelu určujícího aktuálně vybranou šířku čar.
+            Ve třídě LineData nastaví nově zadanou šířku čar.
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:Interlacer.MainForm.copyPicButton_Click(System.Object,System.EventArgs)">
+            <summary>
+            Pro označené položky seznamu vytvoří určitý počet kopií.
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:Interlacer.MainForm.pictureListViewEx_DragDrop(System.Object,System.Windows.Forms.DragEventArgs)">
+            <summary>
+            Pokud se s nějakou položkou seznamu pohne drag and dropem. Zapne se timer, který volá metodu na očíslování položek seznamu.
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:Interlacer.MainForm.copyCountNumeric_ValueChanged(System.Object,System.EventArgs)">
+            <summary>
+            Metoda, která se vyvolá při změne hodnoty počtu kopiií, které se mají udělat při stisku tlačítka na kopírování položek seznamu.
+            Slouží k tomu, aby se vrátil focus na ty vybrané položky, které byli vybrané před zvednutím/zmenšením hodnoty komponenty.
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:Interlacer.MainForm.MainForm_FormClosed(System.Object,System.Windows.Forms.FormClosedEventArgs)">
+            <summary>
+            Metoda vyvolaná při zavření formuláře.
+            Uloží nastavení jazyka, jednotek a rozlišení.
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:Interlacer.MainForm.sortButton_Click(System.Object,System.EventArgs)">
+            <summary>
+            Metoda vyvolaná při stisku tlačítka pro seřazení seznamu.
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:Interlacer.MainForm.replaceButton_Click(System.Object,System.EventArgs)">
+            <summary>
+            Metoda vyvolaná při stisku tlačítka pro nahrazení jednoho obrázku jiným.
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:Interlacer.MainForm.moveDownButton_Click(System.Object,System.EventArgs)">
+            <summary>
+            Metoda, vyvolaná stiskem tlačítka pro posun vybraného obrázku dolů.
+            Pokud není vybraná poslední položka seznamu, posune vybraný obrázek o pozici níž.
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
         <member name="M:Interlacer.MainForm.moveUpButton_Click(System.Object,System.EventArgs)">
             <summary>
-            
+            Metoda, vyvolaná stiskem tlačítka pro posun vybraného obrázku nahoru.
+            Pokud není vybraná první položka seznamu, posune vybraný obrázek o pozici výš.
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:Interlacer.MainForm.removePicButton_Click(System.Object,System.EventArgs)">
+            <summary>
+            Metoda, vyvolaná stiskem tlačítka pro odstranění vybraných položek ze seznamu.
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:Interlacer.MainForm.clearAllButton_Click(System.Object,System.EventArgs)">
+            <summary>
+            Metoda, vyvolaná stiskem tlačítka pro odstranění všech položek seznamu.
             </summary>
             <param name="sender"></param>
             <param name="e"></param>
@@ -399,6 +605,15 @@
             <summary>
             Po dokonceni drag and dropu se zkontroluji koncovky cest k souborum,
             do listu se pridaji pouze pokud maji platny format (jpg, bmp, tiff, png)
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:Interlacer.MainForm.addPicButton_Click(System.Object,System.EventArgs)">
+            <summary>
+            Metoda vyvolaná při stisku tlačítka pro přidání obrázku.
+            Otevře file dialog pro přidání nových obrázků.
+            Je povolen multiselect takže se může vybrat několik obrázků najednou.
             </summary>
             <param name="sender"></param>
             <param name="e"></param>
