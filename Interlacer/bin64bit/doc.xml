@@ -347,6 +347,28 @@
             </summary>
             <param name="pictures">pole retezcu cest k obrazkum</param>
         </member>
+        <member name="M:Interlacer.MainForm.changeMaxLineThickness">
+            <summary>
+            Podle počtu obrázků v listu nastaví maximální šířku vodících čar.
+            </summary>
+        </member>
+        <member name="M:Interlacer.MainForm.harvestPicList">
+            <summary>
+            Ze seznamu obrázků vybere jejich cesty a naplní jimi List.
+            </summary>
+            <returns>picList list naplnění cestami k obrázkům.</returns>
+        </member>
+        <member name="M:Interlacer.MainForm.reorder">
+            <summary>
+            Metoda projde všechny položky seznamu od prvního po poslední a přiřadí jim číslo, které značí jejich pořadí v seznamu.
+            </summary>
+        </member>
+        <member name="M:Interlacer.MainForm.updateAllComponents">
+            <summary>
+            Pomocí hodnot ze tříd LineData a InterlacingData se nastaví komponentám příslušné hodnoty.
+            Dále se tu upravuje maximální hodnota trackbaru pro šířky čar a vypočítává se počet obrázků pod lentikuli.
+            </summary>
+        </member>
         <member name="M:Interlacer.MainForm.changeUnits">
             <summary>
             Prenastavi jednotky ze settings
@@ -357,12 +379,24 @@
             
             </summary>
         </member>
+        <member name="M:Interlacer.MainForm.sortListView">
+            <summary>
+            Metoda pro seřazení položek seznamu podle posledního čísla v jejich názvu.
+            </summary>
+        </member>
         <member name="M:Interlacer.MainForm.getIntegerFromString(System.String)">
             <summary>
             Zjisti posledni cislo z nazvu souboru
             </summary>
             <param name="word"></param>
             <returns></returns>
+        </member>
+        <member name="M:Interlacer.MainForm.replacePicture">
+            <summary>
+            Metoda pro nahrazení jednoho vybraného obrázku jiným.
+            Funguje pouze pokud je vybrán jeden obrázek.
+            Po otevření file dialogu je vyplí multi select takže se smí vybrat pouze jeden orbázek.
+            </summary>
         </member>
         <member name="M:Interlacer.MainForm.selectCurrentListItem(System.Windows.Forms.ListView.SelectedIndexCollection)">
             <summary>
