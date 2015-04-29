@@ -9,8 +9,16 @@ using GfxlibWrapper;
 
 namespace Interlacer
 {
+    /// <summary>
+    /// trida pro prokladani obrazku
+    /// </summary>
     public class PictureContainer
     {
+        /*DULEZITE!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+         pokud ma metoda na konci nazvu velke V, znamena to, ze je to metoda pouze pro vertikalni prokladani
+         pokud ma metoda na konci nazvu velke H, znamena to, ze je to metoda pouze pro horizontalni prokladani
+         ----------------------------------------------------------------------------------------------------*/
+
         /// <summary>
         /// List indexu - klicem je vzdy cesta k souboru, hodnotou je seznam pozic, na kterych se obrazek ma objevit
         /// </summary>
@@ -74,30 +82,36 @@ namespace Interlacer
             this.lineData = lineData;
             this.progressBar = progressBar;
             Dictionary<Picture, List<int>> indexTable = new Dictionary<Picture, List<int>>();
-            for (int i = 0; i < pictures.Count; i++)
+            for (int i = 0; i < pictures.Count; i++)  //vytvoreni seznamu indexu
             {
-                if (indexTable.ContainsKey(pictures[i]))
+                if (indexTable.ContainsKey(pictures[i]))  //pokud se obrazek jiz vyskytuje ve skovniku...
                 {
-                    indexTable[pictures[i]].Add(i);
+                    indexTable[pictures[i]].Add(i);  //...je k nemu pridan index
                 }
-                else
+                else  //pokud seznam neobsahuje dany obrazek...
                 {
-                    indexTable.Add(pictures[i], new List<int>{i});
+                    indexTable.Add(pictures[i], new List<int>{i});  //...je pridan seznam k danemu obrazku a do nej prvni index
                 }
             }
-            indexList = indexTable.ToList();
+            indexList = indexTable.ToList();  //vytvoreni seznamu ze slovniku
         }
 
+        /// <summary>
+        /// nastavi progress bar na vychozi hodnoty
+        /// </summary>
         private void resetProgressBar()
         {
             if (progressBar != null)
             {
-                progressBar.Maximum = pictureCount + 3;
-                progressBar.Step = 1;
+                progressBar.Maximum = pictureCount + 3;  //jeden krok pro kazdy obrazek + 2 x konecny resize + vykresleni pasovacich znacek
+                progressBar.Step = 1;  //velikost kroku
                 progressBar.Value = 0;
             }
         }
 
+        /// <summary>
+        /// udela jeden krok na progess baru
+        /// </summary>
         private void makeProgressBarStep()
         {
             if (progressBar != null)
@@ -108,32 +122,41 @@ namespace Interlacer
             }
         }
 
+        /// <summary>
+        /// orizne obrazek na sirku nejuzsiho a vysku nejnizsiho, obe hodnoty musi byt nejdrive zjisteny metodou CheckPictures
+        /// </summary>
+        /// <param name="picture">obrazek k oriznuti</param>
         private void adjustPictureSize(Picture picture)
         {
             if (picture.GetHeight() > inputPictureHeight || picture.GetWidth() > inputPictureWidth)
                 picture.Clip(0, 0, inputPictureWidth, inputPictureHeight);
         }
 
+        /// <summary>
+        /// zkontroluje vsechny obrazky, pokud maji stejne rozmery, vrati true
+        /// pokud nemaji stejne rozmery, vrati false a 
+        /// </summary>
+        /// <returns>true, pokud jsou obrazky stejne velke, jinak false</returns>
         public bool CheckPictures()
         {
             bool sameSizes = true;
-            for (int i = 0; i < indexList.Count; i++)
+            for (int i = 0; i < indexList.Count; i++)  //cyklus pro kontrolu vsech obrazku
             {
                 Picture pic = indexList[i].Key;
-                if (!pic.IsCreated())
+                if (!pic.IsCreated())  //pokud obrazek neni vytvoren, je potreba ho pingnout
                     pic.Ping();
                 if (i == 0)
                 {
-                    inputPictureHeight = pic.GetHeight();
-                    inputPictureWidth = pic.GetWidth();
+                    inputPictureHeight = pic.GetHeight();  //pocatecni nastaveni vysky vstupnich obrazku
+                    inputPictureWidth = pic.GetWidth();  //pocatecni nastaveni sirky vstupnich obrazku
                 }
-                else if (pic.GetHeight() != indexList[i - 1].Key.GetHeight() ||
-                         pic.GetWidth() != indexList[i - 1].Key.GetWidth())
+                else if (pic.GetHeight() != indexList[i - 1].Key.GetHeight() ||  //kontrola, zda je aktualni obrazek stejne velky
+                         pic.GetWidth() != indexList[i - 1].Key.GetWidth())      //jako predchozi obrazek
                 {
                     sameSizes = false;
-                    if (pic.GetWidth() < inputPictureWidth)
+                    if (pic.GetWidth() < inputPictureWidth)  //pokud je sirka mensi nez aktualne nastavena sirka vstupnich obrazku, je zmenena
                         inputPictureWidth = pic.GetWidth();
-                    if (pic.GetHeight() < inputPictureHeight)
+                    if (pic.GetHeight() < inputPictureHeight)  //pokud je vyska mensi nez aktualne nastavena vyska vstupnich obrazku, je zmenena
                         inputPictureHeight = pic.GetHeight();
                 }
             }
@@ -242,6 +265,7 @@ namespace Interlacer
             double ratio = outputPictureHeight / (double)(preResamplePictureHeight);
             return getAddSizeForLineRatio(ratio);
         }
+
         /// <summary>
         ///  Vrací šířku čar na stranách bez odsazení v px pro pridani pred finalnim resizem
         /// </summary>
@@ -252,19 +276,22 @@ namespace Interlacer
             return getAddSizeForLineRatio(ratio);
         }
 
+        /// <summary>
+        /// metoda, ktera provede prolozeni obrazku a vytvori vystupni obrazek
+        /// </summary>
         public void Interlace()
         {
             switch (interlacingData.GetDirection())
             {
-                case Direction.Vertical:
-                    InterlaceV();
+                case Direction.Vertical:  //pokud je smer vertikalni...
+                    InterlaceV();  //...provede se vertikalni prolozeni
                     break;
-                case Direction.Horizontal:
-                    InterlaceH();
+                case Direction.Horizontal:  //pokud je smer horizontalni...
+                    InterlaceH();  //...provede se horizontalni prolozeni
                     break;
             }
             double pictureResolution = interlacingData.GetPictureResolution();
-            switch (interlacingData.GetResolutionUnits())
+            switch (interlacingData.GetResolutionUnits())  //nastaveni vystupniho rozliseni v korektnich jednotkach
             {
                 case Units.In:
                     result.SetDpi(pictureResolution, pictureResolution);
@@ -278,89 +305,95 @@ namespace Interlacer
             }
         }
 
+        /// <summary>
+        /// metoda pro vertikalni prokladani
+        /// </summary>
         private void InterlaceV()
         {
-            if (inputPictureHeight < 0 || inputPictureWidth < 0)
+            if (inputPictureHeight < 0 || inputPictureWidth < 0)  //pokud jsou rozmery vstupnich obrazku zaporne, znamena to, ze metoda CheckPictures nebyla zavolana
                 throw new InvalidOperationException("CheckPictures was not called");
-            int lenses = (int)(interlacingData.GetInchWidth() * interlacingData.GetLPI());
-            double lensesError = (interlacingData.GetInchWidth() * interlacingData.GetLPI() - lenses) * pictureCount;
-            double errorRatio = lensesError / ((lenses * pictureCount) + lensesError);
-            outputPictureWidth = interlacingData.GetInchWidth() * interlacingData.GetDPI();
-            double finalError = outputPictureWidth * errorRatio;
-            outputPictureWidth -= finalError;
-            outputPictureHeight = interlacingData.GetInchHeight() * interlacingData.GetDPI();
-            preResamplePictureWidth = lenses * pictureCount;
-            preResamplePictureHeight = inputPictureHeight;
+            int lenses = (int)(interlacingData.GetInchWidth() * interlacingData.GetLPI());  //pocet cocek na cely obrazek bez desetinne casti
+            double lensesError = (interlacingData.GetInchWidth() * interlacingData.GetLPI() - lenses) * pictureCount;  //pocet pixelu, ktere jsou navic v sirce obrazku pred finalnim prevzorkovanim, vlivem zaokrouhlovaci chyby
+            double errorRatio = lensesError / ((lenses * pictureCount) + lensesError);  //pomer poctu pixelu, ktere jsou navic a sirky obrazku pred finalnim prevzorkovanim
+            outputPictureWidth = interlacingData.GetInchWidth() * interlacingData.GetDPI();  //sirka vystupniho obrazku
+            double finalError = outputPictureWidth * errorRatio; //pocet pixelu, ktere jsou navic v sirce vystupniho obrazku
+            outputPictureWidth -= finalError;  //odecteni pixelu navic od sirky vystupniho obrazku
+            outputPictureHeight = interlacingData.GetInchHeight() * interlacingData.GetDPI();  //vypocet vysky vystupniho obrazku
+            preResamplePictureWidth = lenses * pictureCount;  //sirka obrazku pred finalnim prevzorkovanim
+            preResamplePictureHeight = inputPictureHeight;  //vyska obrazku pred finalnim prevzorkovanim
             resetProgressBar();
-            for (int i = 0; i < indexList.Count; i++)
+            for (int i = 0; i < indexList.Count; i++)  //cyklus, ktery projde vsechny obrazky a da jejich spravne soupce na spravne misto
             {
-                Picture currentPic = indexList[i].Key;
-                List<int> indexes = indexList[i].Value;
-                bool loadPic = !currentPic.IsCreated();
+                Picture currentPic = indexList[i].Key;  //vytazeni daneho obrazku
+                List<int> indexes = indexList[i].Value;  //seznam indexu, na jejichz pozice ma byt vlozen
+                bool loadPic = !currentPic.IsCreated();  //zjisti, zda se obrazek ma nacist
                 if (loadPic)
                     currentPic.Load();
-                adjustPictureSize(currentPic);
+                adjustPictureSize(currentPic);  //pokud je to potreba, orizne obrazek
                 if (result == null)
-                    result = getPictureForMarkToLine();
-                currentPic.Resize(lenses, preResamplePictureHeight, interlacingData.GetInitialResizeFilter());
-                for (int j = 0; j < indexes.Count; j++)
+                    result = getPictureForMarkToLine();  //vytvoreni prazdneho obrazku pro prolozeni s mistem pro pripadne pasovaci znacky
+                currentPic.Resize(lenses, preResamplePictureHeight, interlacingData.GetInitialResizeFilter());  //zmeni sirku obrazku na pocet cocek (jedna cocka, jeden sloupec)
+                for (int j = 0; j < indexes.Count; j++)  //cyklus, ktery da jednotlive sloupce obrazku na spravne indexy
                 {
-                    for (int k = 0; k < lenses; k++)
+                    for (int k = 0; k < lenses; k++)  //cyklus, ktery da konkretni sloupce, na spravny dany index
                     {
-                        int column = k * pictureCount + (pictureCount - 1 - indexes[j]) + this.getAddWidthForLineAndIndentLeft();
-                        result.CopyColumn(currentPic, k, column, this.getAddHeightForLineAndIndentTop());
+                        int column = k * pictureCount + (pictureCount - 1 - indexes[j]) + this.getAddWidthForLineAndIndentLeft(); //vypocet indexu sloupce
+                        result.CopyColumn(currentPic, k, column, this.getAddHeightForLineAndIndentTop());  //prekopirovani sloupce
                     }
                     makeProgressBarStep();
                 }
-                if (loadPic)
+                if (loadPic)  //pokud byl obrazek nacten v teto metode, je oped smazan
                     currentPic.Destroy();
             }
-            drawLines();
+            drawLines();  //vykresleni pasovacich znacek
             makeProgressBarStep();
-            ResizeResultV();
+            ResizeResultV();  //finalni prevzorkovani
             makeProgressBarStep();
         }
 
+        /// <summary>
+        /// metoda pro horizontalni prokladani
+        /// </summary>
         private void InterlaceH()
         {
-            if (inputPictureHeight < 0 || inputPictureWidth < 0)
+            if (inputPictureHeight < 0 || inputPictureWidth < 0)  //pokud jsou rozmery vstupnich obrazku zaporne, znamena to, ze metoda CheckPictures nebyla zavolana
                 throw new InvalidOperationException("CheckPictures was not called");
-            int lenses = (int)(interlacingData.GetInchHeight() * interlacingData.GetLPI());
-            double lensesError = (interlacingData.GetInchHeight() * interlacingData.GetLPI() - lenses) * pictureCount;
-            double errorRatio = lensesError / ((lenses * pictureCount) + lensesError);
-            outputPictureHeight = interlacingData.GetInchHeight() * interlacingData.GetDPI();
-            double finalError = outputPictureHeight * errorRatio;
-            outputPictureHeight -= finalError;
-            outputPictureWidth = interlacingData.GetInchWidth() * interlacingData.GetDPI();
-            preResamplePictureHeight = lenses * pictureCount;
-            preResamplePictureWidth = inputPictureWidth;
+            int lenses = (int)(interlacingData.GetInchHeight() * interlacingData.GetLPI());  //pocet cocek na cely obrazek bez desetinne casti
+            double lensesError = (interlacingData.GetInchHeight() * interlacingData.GetLPI() - lenses) * pictureCount;  //pocet pixelu, ktere jsou navic ve vysce obrazku pred finalnim prevzorkovanim, vlivem zaokrouhlovaci chyby
+            double errorRatio = lensesError / ((lenses * pictureCount) + lensesError);  //pomer poctu pixelu, ktere jsou navic a vysky obrazku pred finalnim prevzorkovanim
+            outputPictureHeight = interlacingData.GetInchHeight() * interlacingData.GetDPI();  //vyska vystupniho obrazku
+            double finalError = outputPictureHeight * errorRatio; //pocet pixelu, ktere jsou navic ve vysce vystupniho obrazku
+            outputPictureHeight -= finalError;  //odecteni pixelu navic od vysky vystupniho obrazku
+            outputPictureWidth = interlacingData.GetInchWidth() * interlacingData.GetDPI();  //vypocet sirky vystupniho obrazku
+            preResamplePictureHeight = lenses * pictureCount;  //vyska obrazku pred finalnim prevzorkovanim
+            preResamplePictureWidth = inputPictureWidth;  //sirka obrazku pred finalnim prevzorkovanim
             resetProgressBar();
-            for (int i = 0; i < indexList.Count; i++)
+            for (int i = 0; i < indexList.Count; i++)  //cyklus, ktery projde vsechny obrazky a da jejich spravne radky na spravne misto
             {
-                Picture currentPic = indexList[i].Key;
-                List<int> indexes = indexList[i].Value;
-                bool loadPic = !currentPic.IsCreated();
+                Picture currentPic = indexList[i].Key;  //vytazeni daneho obrazku
+                List<int> indexes = indexList[i].Value;  //seznam indexu, na jejichz pozice ma byt vlozen
+                bool loadPic = !currentPic.IsCreated();  //zjisti, zda se obrazek ma nacist
                 if (loadPic)
                     currentPic.Load();
-                adjustPictureSize(currentPic);
+                adjustPictureSize(currentPic);  //pokud je to potreba, orizne obrazek
                 if (result == null)
-                    result = getPictureForMarkToLine();
+                    result = getPictureForMarkToLine();  //vytvoreni prazdneho obrazku pro prolozeni s mistem pro pripadne pasovaci znacky
                 currentPic.Resize(preResamplePictureWidth, lenses, interlacingData.GetInitialResizeFilter());
-                for (int j = 0; j < indexes.Count; j++)
+                for (int j = 0; j < indexes.Count; j++)  //cyklus, ktery da jednotlive radky obrazku na spravne indexy
                 {
-                    for (int k = 0; k < lenses; k++)
+                    for (int k = 0; k < lenses; k++)  //cyklus, ktery da konkretni radek, na spravny dany index
                     {
-                        int row = k * pictureCount + (pictureCount - 1 - indexes[j]) + this.getAddHeightForLineAndIndentTop();
-                        result.CopyRow(currentPic, k, row, this.getAddWidthForLineAndIndentLeft());
+                        int row = k * pictureCount + (pictureCount - 1 - indexes[j]) + this.getAddHeightForLineAndIndentTop(); //vypocet indexu radku
+                        result.CopyRow(currentPic, k, row, this.getAddWidthForLineAndIndentLeft());  //prekopirovani radku
                     }
                     makeProgressBarStep();
                 }
-                if (loadPic)
+                if (loadPic)  //pokud byl obrazek nacten v teto metode, je oped smazan
                     currentPic.Destroy();
             }
-            drawLines();
+            drawLines();  //vykresleni pasovacich znacek
             makeProgressBarStep();
-            ResizeResultH();
+            ResizeResultH();  //finalni prevzorkovani
             makeProgressBarStep();
         }
 
@@ -671,6 +704,9 @@ namespace Interlacer
             }
         }
 
+        /// <summary>
+        /// finalni prevzorkovani pro vertikalni prokladani
+        /// </summary>
         private void ResizeResultV()
         {
             int outputHeight = (int)outputPictureHeight;
@@ -681,15 +717,18 @@ namespace Interlacer
                 if (lineData.GetBottom())
                     outputHeight += (int)((lineData.GetFrameInchWidth() + lineData.GetInchIndent()) * interlacingData.GetDPI());
             }
-            int originalWidth = (int)(interlacingData.GetInchWidth() * interlacingData.GetLPI()) * pictureCount;
-            double widthRatio = outputPictureWidth / originalWidth;
-            int outputWidth = (int)(result.GetWidth() * widthRatio);
-            result.Resize(outputWidth, result.GetHeight(), interlacingData.GetFinalResampleFilter());
+            int originalWidth = (int)(interlacingData.GetInchWidth() * interlacingData.GetLPI()) * pictureCount;  //sirka obrazku pred finalnim prevzorkovanim
+            double widthRatio = outputPictureWidth / originalWidth;  //pomer sirky vystupniho obrazku a sirky obrazku pred finalnim prevzorkovanim
+            int outputWidth = (int)(result.GetWidth() * widthRatio);  //vypocet sirky vystupniho obrazku - timto zpusobem se zbavime zaokrouhlovacich chyb, vzniklych pridanim ramecku pro pasovaci znacky
+            result.Resize(outputWidth, result.GetHeight(), interlacingData.GetFinalResampleFilter());  //prevzorkovani na finalni sirku
             makeProgressBarStep();
-            result.Resize(outputWidth, outputHeight,
+            result.Resize(outputWidth, outputHeight,  //prevzorkovani na finalni vysku
                 interlacingData.GetInitialResizeFilter() == FilterType.None ? FilterType.None : FilterType.Triangle);
         }
 
+        /// <summary>
+        /// finalni prevzorkovani pro horizontalni prokladani
+        /// </summary>
         private void ResizeResultH()
         {
             int outputWidth = (int)outputPictureWidth;
@@ -700,15 +739,19 @@ namespace Interlacer
                 if (lineData.GetRight())
                     outputWidth += (int)((lineData.GetFrameInchWidth() + lineData.GetInchIndent()) * interlacingData.GetDPI());
             }
-            int originalHeight = (int)(interlacingData.GetInchHeight() * interlacingData.GetLPI()) * pictureCount;
-            double heightRatio = outputPictureHeight / originalHeight;
-            int outputHeight = (int)(result.GetHeight() * heightRatio);
-            result.Resize(result.GetWidth(), outputHeight, interlacingData.GetFinalResampleFilter());
+            int originalHeight = (int)(interlacingData.GetInchHeight() * interlacingData.GetLPI()) * pictureCount;  //vyska obrazku pred finalnim prevzorkovanim
+            double heightRatio = outputPictureHeight / originalHeight;  //pomer vysky vystupniho obrazku a vysky obrazku pred finalnim prevzorkovanim
+            int outputHeight = (int)(result.GetHeight() * heightRatio);  //vypocet vysky vystupniho obrazku - timto zpusobem se zbavime zaokrouhlovacich chyb, vzniklych pridanim ramecku pro pasovaci znacky
+            result.Resize(result.GetWidth(), outputHeight, interlacingData.GetFinalResampleFilter());  //prevzorkovani na finalni vysku
             makeProgressBarStep();
-            result.Resize(outputWidth, outputHeight,
+            result.Resize(outputWidth, outputHeight,  //prevzorkovani na finalni sirku
                 interlacingData.GetInitialResizeFilter() == FilterType.None ? FilterType.None : FilterType.Triangle);
         }
 
+        /// <summary>
+        /// vrati vysledny obrazek, pokud byl jiz proveden interlacing
+        /// </summary>
+        /// <returns>vysledny obrazek</returns>
         public Picture GetResult()
         {
             return result;
