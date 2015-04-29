@@ -98,13 +98,13 @@ namespace GfxlibWrapper
             this.height = height;
             try
             {
-                imagePtr = GfxlibCommunicator.createImage(width, height);
-                pixelData = GfxlibCommunicator.getPixelDataPtr(imagePtr);
+                imagePtr = GfxlibCommunicator.createImage(width, height);  //vytvoreni instance tridy Magick::Image
+                pixelData = GfxlibCommunicator.getPixelDataPtr(imagePtr);  //ziskani pole pixelu
             }
             catch (SEHException)
             {
-                Destroy();
-                int errorCode = Marshal.GetExceptionCode();
+                Destroy();  //dealokuje pamet
+                int errorCode = Marshal.GetExceptionCode();  //ziskani chyboveho kodu
                 if (errorCode == (int)GfxlibErrors.OutOfMemory)
                     throw new OutOfMemoryException();
                 throw new PictureCreationFailureException(width, height);
@@ -129,14 +129,14 @@ namespace GfxlibWrapper
                 throw new PictureAlreadyCreatedException();
             try
             {
-                imagePtr = GfxlibCommunicator.pingImage(stringToCharArray(filename));
-                setData();
-                GfxlibCommunicator.deleteImage(imagePtr);
+                imagePtr = GfxlibCommunicator.pingImage(stringToCharArray(filename));  //ziskani instance tridy Magick::Image pingnutim souboru
+                setData();  //nastaveni atributu
+                GfxlibCommunicator.deleteImage(imagePtr);  //opetovne odstraneni instance
                 imagePtr = null;
             }
             catch (SEHException)
             {
-                int errorCode = Marshal.GetExceptionCode();
+                int errorCode = Marshal.GetExceptionCode();  //ziskani chyboveho kodu
                 if (errorCode == (int)GfxlibErrors.PictureWrongFormat)
                     throw new PictureWrongFormatException(filename);
                 throw new PictureLoadFailureException(filename);
@@ -152,20 +152,21 @@ namespace GfxlibWrapper
                 throw new PictureAlreadyCreatedException();
             try
             {
-                imagePtr = GfxlibCommunicator.loadImage(stringToCharArray(filename));
-                setData();
-                pixelData = GfxlibCommunicator.getPixelDataPtr(imagePtr);
+                imagePtr = GfxlibCommunicator.loadImage(stringToCharArray(filename));  //ziskani instance tridy Magick::Image nactnim souboru
+                setData();  //nastaveni potrebnych atributu
+                pixelData = GfxlibCommunicator.getPixelDataPtr(imagePtr);  //ziskani pole pixelu
             }
             catch (SEHException)
             {
-                int errorCode = Marshal.GetExceptionCode();
+                int errorCode = Marshal.GetExceptionCode();  //ziskani chyboveho kodu
                 if (errorCode == (int)GfxlibErrors.PictureLoadFailure)
                     throw new PictureLoadFailureException(filename);
                 else if (errorCode == (int)GfxlibErrors.PictureWrongFormat)
                     throw new PictureWrongFormatException(filename);
                 else
                 {
-                    Destroy();
+                    Destroy();  //dealokace pameti pri chybe vznikle jinde nez pri nacitani souboru
+                                //(pri chybe pri nacitani se o dealokaci stara sama funkce loadImage)
                     if (errorCode == (int)GfxlibErrors.OutOfMemory)
                         throw new OutOfMemoryException();
                     throw new PictureCreationFailureException(width, height);
@@ -189,7 +190,6 @@ namespace GfxlibWrapper
         public bool HasFilenameSet()
         {
             return filename != null;
-            
         }
 
         /// <summary>
@@ -215,7 +215,7 @@ namespace GfxlibWrapper
         }
 
         /// <summary>
-        /// pokud je nastavena cesta k nejakemu souboru, porovna tuto cestu s parametrm jako String, jiank pouziva base.Equals
+        /// pokud je nastavena cesta k nejakemu souboru, porovna tuto cestu s cestou obrazku v parametru jako String, jinak pouziva base.Equals
         /// </summary>
         /// <param name="obj">objekt k porovnani</param>
         /// <returns>pri shode true, jinak false</returns>
@@ -227,7 +227,7 @@ namespace GfxlibWrapper
         }
 
         /// <summary>
-        /// getter sirky bitmapy
+        /// getter sirky v pixelech
         /// </summary>
         /// <returns>sirka bitmapy v pixelech</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
@@ -296,7 +296,7 @@ namespace GfxlibWrapper
         {
             try
             {
-                GfxlibCommunicator.setImageResolution(imagePtr, xResolution, yResolution, resolutionUnits == Units.In ? 1 : 2);
+                GfxlibCommunicator.setImageResolution(imagePtr, xResolution, yResolution, resolutionUnits == Units.In ? 1 : 2);  //nastaveni rozliseni vystupniho obrazku
                 GfxlibCommunicator.saveImage(imagePtr, stringToCharArray(saveFilename));
             }
             catch (SEHException)
@@ -363,7 +363,7 @@ namespace GfxlibWrapper
                 GfxlibCommunicator.resizeImage(imagePtr, newWidth, newHeight, filterType.filterNum);
                 width = newWidth;
                 height = newHeight;
-                pixelData = GfxlibCommunicator.getPixelDataPtr(imagePtr);
+                pixelData = GfxlibCommunicator.getPixelDataPtr(imagePtr);  //ziskani pole pixelu obrazku s novou velikosti
             }
             catch (SEHException)
             {
@@ -392,7 +392,7 @@ namespace GfxlibWrapper
                 GfxlibCommunicator.clipImage(imagePtr, x, y, newWidth, newHeight);
                 width = newWidth;
                 height = newHeight;
-                pixelData = GfxlibCommunicator.getPixelDataPtr(imagePtr);
+                pixelData = GfxlibCommunicator.getPixelDataPtr(imagePtr);  //ziskani pole pixelu noveho, oriznuteho obrazku
             }
             catch (SEHException)
             {

@@ -27,6 +27,8 @@ namespace GfxlibWrapper
 
     /// <summary>
     /// staticka trida, ktera provadi prevod z palcu na jine jednoty a obracene
+    /// pri prohozeni puvodnich a novych jednotek lze pouzit metody pro prevodu jednotek DPI a DPCM
+    /// napr Transfer(600, Units.Cm, Units.In) prevede 600 cm na palce, ale take 600 DPI na DPCM
     /// </summary>
     public static class UnitConverter
     {
@@ -133,31 +135,31 @@ namespace GfxlibWrapper
         /// <returns>prevedena hodnota</returns>
         public static double Transfer(double param, Units sourceUnits, Units targetUnits)
         {
-            if (sourceUnits == Units.In)
+            if (sourceUnits == Units.In)  //pokud jsou puvodni jednotky palce
             {
                 switch (targetUnits)
                 {
-                    case Units.Cm: return inToCm(param);
-                    case Units.Mm: return inToMm(param);
-                    default: return param;
+                    case Units.Cm: return inToCm(param);  //prevod palcu na cm
+                    case Units.Mm: return inToMm(param);  //prevod palcu na mm
+                    default: return param;  //prevod palcu na palce
                 }
             }
-            else if (sourceUnits == Units.Cm)
+            else if (sourceUnits == Units.Cm)  //pokud jsou puvodni jednotky cm
             {
                 switch (targetUnits)
                 {
-                    case Units.Mm: return cmToMm(param);
-                    case Units.In: return cmToIn(param);
-                    default: return param;
+                    case Units.Mm: return cmToMm(param);  //prevod cm na mm
+                    case Units.In: return cmToIn(param);  //prevod cm na palce
+                    default: return param;  //prevod cm na cm
                 }
             }
-            else
+            else  //pokud jsou puvodni jednotky mm
             {
                 switch (targetUnits)
                 {
-                    case Units.Cm: return mmToCm(param);
-                    case Units.In: return mmToIn(param);
-                    default: return param;
+                    case Units.Cm: return mmToCm(param);  //prevod mm na cm
+                    case Units.In: return mmToIn(param);  //prevod mm na palce
+                    default: return param;  //pravod mm na mm
                 }
             }
         }

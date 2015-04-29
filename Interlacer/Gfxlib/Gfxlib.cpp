@@ -259,21 +259,21 @@ void saveImage(void* ptr, char* filename)
 	}
 }
 
-//vrati sirku v pixelech instance tridy Image::Magick, ktera je predana parametrem
+//vrati sirku v pixelech instance tridy Magick::Image, ktera je predana parametrem
 int getImageWidth(void* ptr)
 {
 	Magick::Image* imagePtr = (Magick::Image*)ptr;
 	return (int)imagePtr->columns();
 }
 
-//vrati vysku v pixelech instance tridy Image::Magick, ktera je predana parametrem
+//vrati vysku v pixelech instance tridy Magick::Image, ktera je predana parametrem
 int getImageHeight(void* ptr)
 {
 	Magick::Image* imagePtr = (Magick::Image*)ptr;
 	return (int)imagePtr->rows();
 }
 
-//vrati rozliseni pro osu X instance tridy Image::Magick, ktera je preadana parametrem,
+//vrati rozliseni pro osu X instance tridy Magick::Image, ktera je preadana parametrem,
 //druhy parametr je vystupni a je do nej ulozena informace o jednotkach
 double getImageXResolution(void* ptr, int* unitType)
 {
@@ -294,7 +294,7 @@ double getImageXResolution(void* ptr, int* unitType)
 	}
 }
 
-//vrati rozliseni pro osu Y instance tridy Image::Magick, ktera je preadana parametrem,
+//vrati rozliseni pro osu Y instance tridy Magick::Image, ktera je preadana parametrem,
 //druhy parametr je vystupni a je do nej ulozena informace o jednotkach
 double getImageYResolution(void* ptr, int* unitType)
 {

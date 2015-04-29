@@ -32,17 +32,17 @@ extern "C"
 	//ulozi obrazek do souboru, jehoz nazev je predan parametrem
 	__declspec(dllexport) void saveImage(void*, char*);
 
-	//vrati sirku v pixelech instance tridy Image::Magick, ktera je predana parametrem
+	//vrati sirku v pixelech instance tridy Magick::Image, ktera je predana parametrem
 	__declspec(dllexport) int getImageWidth(void*);
 
-	//vrati vysku v pixelech instance tridy Image::Magick, ktera je predana parametrem
+	//vrati vysku v pixelech instance tridy Magick::Image, ktera je predana parametrem
 	__declspec(dllexport) int getImageHeight(void*);
 
-	//vrati rozliseni pro osu X instance tridy Image::Magick, ktera je preadana parametrem,
+	//vrati rozliseni pro osu X instance tridy Magick::Image, ktera je preadana parametrem,
 	//druhy parametr je vystupni a je do nej ulozena informace o jednotkach
 	__declspec(dllexport) double getImageXResolution(void*, int*);
 
-	//vrati rozliseni pro osu Y instance tridy Image::Magick, ktera je preadana parametrem,
+	//vrati rozliseni pro osu Y instance tridy Magick::Image, ktera je preadana parametrem,
 	//druhy parametr je vystupni a je do nej ulozena informace o jednotkach
 	__declspec(dllexport) double getImageYResolution(void*, int*);
 

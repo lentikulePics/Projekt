@@ -37,6 +37,11 @@ namespace GfxlibWrapper
         /// </summary>
         public readonly int filterNum;
 
+        /// <summary>
+        /// inicializijici konsturktor
+        /// </summary>
+        /// <param name="name">jmeno filtru</param>
+        /// <param name="value">cislo fitrlu pro magick</param>
         private FilterType(String name, int value)
         {
             this.name = name;
