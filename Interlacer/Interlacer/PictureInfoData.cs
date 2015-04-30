@@ -24,7 +24,7 @@ namespace Interlacer
         /// <returns>instance tridy Picture, na kter byla zavolana metoda Ping</returns>
         public Picture GetInfo(String path)
         {
-            if (!pictures.ContainsKey(path))
+            if (!pictures.ContainsKey(path))  //pokud obrazek jeste neni obsazen ve slovniku
             {
                 Picture pic = new Picture(path);
                 pic.Ping();

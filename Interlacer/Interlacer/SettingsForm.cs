@@ -10,11 +10,19 @@ using System.Windows.Forms;
 
 namespace Interlacer
 {
+    /// <summary>
+    /// trida formulare pro nastaveni aplikace
+    /// </summary>
     public partial class SettingsForm : Form
     {
         private MainForm parent;
         private Settings settings;
 
+        /// <summary>
+        /// inicializacni konstruktor
+        /// </summary>
+        /// <param name="parent">instance hlavniho formulare, ze ktereho je tento otevren</param>
+        /// <param name="settings">instance tridy Settings s nastavevnim aplikace</param>
         public SettingsForm(MainForm parent, Settings settings)
         {
             Localization.changeCulture();

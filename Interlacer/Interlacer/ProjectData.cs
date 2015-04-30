@@ -12,6 +12,10 @@ using System.Threading;
 
 namespace Interlacer
 {
+    /// <summary>
+    /// trida obsahujici parametry prokladani a pasovacich znacek v podobe instanci trid InterlacingData a Line data
+    /// stara se o nacitani a ukladani projektu
+    /// </summary>
     public class ProjectData
     {
         /// <summary>
@@ -139,7 +143,7 @@ namespace Interlacer
         }
 
         /// <summary>
-        /// Zvaliduje zda se všechna potřebná data uložila do slovníku, pokud vráti false
+        /// Zvaliduje zda se všechna potřebná data uložila do slovníku, pokud ne vráti false
         /// </summary>
         /// <param name="dictionary">Slovník, který se má zvalidovat</param>
         /// <returns>Vrátí true, pokud nebyly nalezeny žádné chyby</returns>

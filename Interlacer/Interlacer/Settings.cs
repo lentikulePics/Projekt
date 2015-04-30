@@ -71,14 +71,14 @@ namespace Interlacer
         {
             using (StreamReader sr = new StreamReader(filename))
             {
-                selectedLanguageIndex = int.Parse(sr.ReadLine());
-                if (selectedLanguageIndex >= settingOptions.languageOptions.Count)
+                selectedLanguageIndex = int.Parse(sr.ReadLine());  //nateni indexu jazyka
+                if (selectedLanguageIndex >= settingOptions.languageOptions.Count)  //kontrola, zda je index v mezich
                     throw new Exception();
-                selectedUnitsIndex = int.Parse(sr.ReadLine());
-                if (selectedUnitsIndex >= settingOptions.unitsOptions.Count)
+                selectedUnitsIndex = int.Parse(sr.ReadLine());  //nacteni indexu delkovych jednotek
+                if (selectedUnitsIndex >= settingOptions.unitsOptions.Count)  //kontrola, zda je index v mezich
                     throw new Exception();
-                selectedResolutionUnitsIndex = int.Parse(sr.ReadLine());
-                if (selectedResolutionUnitsIndex >= settingOptions.resolutionUnitsOptions.Count)
+                selectedResolutionUnitsIndex = int.Parse(sr.ReadLine());  //nacteni indexu jednotek rozliseni
+                if (selectedResolutionUnitsIndex >= settingOptions.resolutionUnitsOptions.Count)  //kontrola, zda je index v mezich
                     throw new Exception();
             }
         }

@@ -455,7 +455,6 @@ namespace Interlacer
             int colorValue;
             if (lineData.GetLeft())
             {
-           
                 for (int i = 0; i < this.getAddWidthForLineAndIndent(); i++)    // začínám kreslit od zleva do prava
                 {
                     if (i < this.getAddWidthForLine())
@@ -470,8 +469,6 @@ namespace Interlacer
                     for (int j = 0; j < result.GetHeight(); j++) {
                         result.SetPixel(i, j, colorValue);
                     }
-                        
-                       
                 }
             } 
         }

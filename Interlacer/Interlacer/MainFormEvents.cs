@@ -7,6 +7,9 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 namespace Interlacer
 {
+    /// <summary>
+    /// trida hlavniho formulare
+    /// </summary>
     public partial class MainForm : Form
     {
         private void Form1_Load(object sender, EventArgs e)
@@ -268,7 +271,7 @@ namespace Interlacer
         /// <param name="e"></param>
         private void copyPicButton_Click(object sender, EventArgs e)
         {
-            var indeces = pictureListViewEx.SelectedIndices;
+            var indeces = pictureListViewEx.SelectedIndices;  //vybrane radky
             // Pokud je vybrána aspoň jedna položka
             if (indeces.Count > 0)
             {
@@ -276,11 +279,11 @@ namespace Interlacer
                 {
                     for (int j = 0; j < Convert.ToInt32(copyCountNumeric.Value); j++)
                     {
-                        ListViewItem item = pictureListViewEx.Items.Insert(indeces[i] + 1, Convert.ToString(order));
-                        for (int k = 1; k < pictureListViewEx.Items[0].SubItems.Count; k++)
+                        ListViewItem item = pictureListViewEx.Items.Insert(indeces[i] + 1, Convert.ToString(order)); //vlozeni noveho radku do listView a prirazeno tohoto radku do promenne item
+                        for (int k = 1; k < pictureListViewEx.Items[0].SubItems.Count; k++)  //pruchod jednotlivych prvku radku (sloupecku)
                         {
-                            ListViewItem.ListViewSubItem subItem = item.SubItems.Add(new ListViewItem.ListViewSubItem());
-                            subItem.Text = pictureListViewEx.Items[indeces[i]].SubItems[k].Text;                            
+                            ListViewItem.ListViewSubItem subItem = item.SubItems.Add(new ListViewItem.ListViewSubItem());  //pridani novehu subItemu (pro kazdy sloupec) a prirazeni do promenne subItem
+                            subItem.Text = pictureListViewEx.Items[indeces[i]].SubItems[k].Text;  //prirazeni spravneho textu danemu subItemu
                         }
                     }
                 }
@@ -609,57 +612,58 @@ namespace Interlacer
             if (isExtensionValid(filename))
                 savePicFileDialog.AddExtension = false;
 
-            List<Picture> picList = harvestPicList();
-            if (picList.Count == 0)
+            List<Picture> picList = harvestPicList();  //ziskani seznamu obrazku z listView
+            if (picList.Count == 0)  //chyba pri prazdnem seznamu
             {
                 MessageBox.Show(Localization.resourcesStrings.GetString("emptyListError"));
                 return;
             }
-            PictureContainer picCon = new PictureContainer(picList, projectData.GetInterlacingData(), projectData.GetLineData(), interlaceProgressBar);
+            PictureContainer picCon = new PictureContainer(picList, projectData.GetInterlacingData(), projectData.GetLineData(), interlaceProgressBar);  //vytvoreni PictureContaineru
             try
             {
-                if (!picCon.CheckPictures())
+                if (!picCon.CheckPictures())  //kontrola konzistence velikosti jednotlivych obrazku
                 {
+                    /*pokud nejsou stejne velke, aplikace se zepta, zda ma obrazky oriznout a pokracovat*/
                     DialogResult dialogResult = MessageBox.Show(Localization.resourcesStrings.GetString("imageDimensionError"), "", MessageBoxButtons.YesNo);
-                    if (dialogResult == DialogResult.No)
+                    if (dialogResult == DialogResult.No)  //pri odmitnuti je proces ukoncen
                         return;
                 }
-                picCon.Interlace();
+                picCon.Interlace();  //prolozeni
             }
-            catch (PictureLoadFailureException ex)
+            catch (PictureLoadFailureException ex)  //chyba pri nacitani souboru s obrazkem (pravdepodobne chybejici soubor)
             {
                 MessageBox.Show(string.Format(Localization.resourcesStrings.GetString("fileNotFoundError"), ex.filename));
                 interlaceProgressBar.Value = 0;
                 return;
             }
-            catch (PictureWrongFormatException ex)
+            catch (PictureWrongFormatException ex)  //chyba pri chybnem formatu nacitaneho obrazku
             {
                 MessageBox.Show(string.Format(Localization.resourcesStrings.GetString("wrongFormatError"), ex.filename));
                 interlaceProgressBar.Value = 0;
                 return;
             }
-            catch (OutOfMemoryException)
+            catch (OutOfMemoryException)  //chyba nedostatku pameti
             {
                 MessageBox.Show(Localization.resourcesStrings.GetString("memoryError"));
                 interlaceProgressBar.Value = 0;
                 return;
             }
-            catch (PictureProcessException)
+            catch (PictureProcessException)  //chyba pri chybne nastavenych parametrech prokladani
             {
                 MessageBox.Show(Localization.resourcesStrings.GetString("interlacingError"));
                 interlaceProgressBar.Value = 0;
                 return;
             }
-            Picture result = picCon.GetResult();
+            Picture result = picCon.GetResult();  //ziskani vysledneho obrazku
             try
             {
-                result.Save(filename);
+                result.Save(filename);  //ulozeni obrazku
             }
-            catch (PictureSaveFailureException ex)
+            catch (PictureSaveFailureException ex)  //chyba pri ukladani obrazku
             {
                 MessageBox.Show(string.Format(Localization.resourcesStrings.GetString("imageSaveError"), ex.filename));
             }
-            result.Destroy();
+            result.Destroy();  //dealokace obrazku
             MessageBox.Show(Localization.resourcesStrings.GetString("doneMessage"));
         }
     }

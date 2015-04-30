@@ -27,7 +27,7 @@ namespace GfxlibWrapper
 
     /// <summary>
     /// staticka trida, ktera provadi prevod z palcu na jine jednoty a obracene
-    /// pri prohozeni puvodnich a novych jednotek lze pouzit metody pro prevodu jednotek DPI a DPCM
+    /// pri prohozeni puvodnich a novych jednotek lze pouzit metody pro prevod jednotek DPI a DPCM
     /// napr Transfer(600, Units.Cm, Units.In) prevede 600 cm na palce, ale take 600 DPI na DPCM
     /// </summary>
     public static class UnitConverter

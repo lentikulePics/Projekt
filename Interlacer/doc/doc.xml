@@ -70,6 +70,13 @@
             cislo filteru odpovidajici danemu filteru v knihovne Magick++
             </summary>
         </member>
+        <member name="M:GfxlibWrapper.FilterType.#ctor(System.String,System.Int32)">
+            <summary>
+            inicializijici konsturktor
+            </summary>
+            <param name="name">jmeno filtru</param>
+            <param name="value">cislo fitrlu pro magick</param>
+        </member>
         <member name="M:GfxlibWrapper.FilterType.ToString">
             <summary>
             vraci nazev filteru
@@ -86,6 +93,455 @@
             otestuje, zda lze volat funkce z Gfxlib.dll, pokud ne, indikuje to chybne nacteni souboru
             </summary>
             <returns>true, pokud je knihovna nactena spravne, false, pokud ne</returns>
+        </member>
+        <member name="M:GfxlibWrapper.GfxlibCommunicator.setResourceLimits">
+            <summary>
+            nastaveni pametovych limitu knihovny
+            </summary>
+        </member>
+        <member name="M:GfxlibWrapper.GfxlibCommunicator.createImage(System.Int32,System.Int32)">
+            <summary>
+            vytvori instanci tridy Magick::Image o dane sirce a vysce a vrati ji jako void* pointer
+            </summary>
+            <param name="w">sirka obrazku</param>
+            <param name="h">vyska obrazku</param>
+            <returns>vytvorena instance tridy Magick::Image</returns>
+        </member>
+        <member name="M:GfxlibWrapper.GfxlibCommunicator.deleteImage(System.Void*)">
+            <summary>
+            smaze danou instnanci tridy Magick::Image
+            </summary>
+            <param name="ptr">instance ke smazani</param>
+        </member>
+        <member name="M:GfxlibWrapper.GfxlibCommunicator.getPixelDataPtr(System.Void*)">
+            <summary>
+            vrati pole pixelu dane instance tridy Magick::Image, ktera je predana parametrem
+            </summary>
+            <param name="ptr">instance tridy Magick::Image</param>
+            <returns>ukazatel na pole pixelu</returns>
+        </member>
+        <member name="M:GfxlibWrapper.GfxlibCommunicator.loadImage(System.Char[])">
+            <summary>
+            nacte obrazek ze souboru, jehoz nazev je predan parametrem a vrati ho v podobe instance tridy Magick::Image
+            </summary>
+            <param name="filename">nazev souboru</param>
+            <returns>vytvorena instance tridy Magick::Image</returns>
+        </member>
+        <member name="M:GfxlibWrapper.GfxlibCommunicator.pingImage(System.Char[])">
+            <summary>
+            nacte obrazek bez obrazovych dat (pouze info) ze souboru, jehoz nazev je predan parametrem a vrati ho v podobe instance tridy Magick::Image
+            </summary>
+            <param name="filename">nazev souboru</param>
+            <returns>instance tridy Magick::Image</returns>
+        </member>
+        <member name="M:GfxlibWrapper.GfxlibCommunicator.saveImage(System.Void*,System.Char[])">
+            <summary>
+            ulozi obrazek do souboru, jehoz nazev je predan parametrem
+            </summary>
+            <param name="ptr">instance tridy Magick::Image</param>
+            <param name="filename">nazev souboru</param>
+        </member>
+        <member name="M:GfxlibWrapper.GfxlibCommunicator.getImageWidth(System.Void*)">
+            <summary>
+            vrati sirku v pixelech instance tridy Magick::Image, ktera je predana parametrem
+            </summary>
+            <param name="ptr">instnace tridy Magick::Image</param>
+            <returns>sirka v px</returns>
+        </member>
+        <member name="M:GfxlibWrapper.GfxlibCommunicator.getImageHeight(System.Void*)">
+            <summary>
+            vrati vysku v pixelech instance tridy Magick::Image, ktera je predana parametrem
+            </summary>
+            <param name="ptr">instance tridy Magick::Image</param>
+            <returns>vyska v px</returns>
+        </member>
+        <member name="M:GfxlibWrapper.GfxlibCommunicator.getImageXResolution(System.Void*,System.Int32*)">
+            <summary>
+            vrati rozliseni pro osu X instance tridy Magick::Image, ktera je preadana parametrem,
+            druhy parametr je vystupni a je do nej ulozena informace o jednotkach
+            </summary>
+            <param name="ptr">instance tridy Magick::Image</param>
+            <param name="unitType">vystupni parametr pro informaci o jednotkach</param>
+            <returns>rozliseni na ose X</returns>
+        </member>
+        <member name="M:GfxlibWrapper.GfxlibCommunicator.getImageYResolution(System.Void*,System.Int32*)">
+            <summary>
+            vrati rozliseni pro osu Y instance tridy Magick::Image, ktera je preadana parametrem,
+            druhy parametr je vystupni a je do nej ulozena informace o jednotkach
+            </summary>
+            <param name="ptr">instance tridy Magick::Image</param>
+            <param name="unitType">vystupni parametr pro informaci o jednotkach</param>
+            <returns>rozliseni na ose Y</returns>
+        </member>
+        <member name="M:GfxlibWrapper.GfxlibCommunicator.setImageResolution(System.Void*,System.Double,System.Double,System.Int32)">
+            <summary>
+            nastavi rozliseni pro instanci tridy Magick::Image, ktera je predana parametrem, posledni parametr je informace o jednotkach
+            </summary>
+            <param name="ptr">instance tridy Magick::Image</param>
+            <param name="xRes">rozliseni na ose X</param>
+            <param name="yRes">rozliseni na ose Y</param>
+            <param name="unitType">informace o jednotkach (1 - DPI, 2 - DPCM)</param>
+        </member>
+        <member name="M:GfxlibWrapper.GfxlibCommunicator.resizeImage(System.Void*,System.Int32,System.Int32,System.Int32)">
+            <summary>
+            zmeni velikost obrazku v instanci tridy Magick::Image predane parametrem, posledni parametr je cislo pouziteho filtru
+            </summary>
+            <param name="ptr">instance tridy Magick::Image</param>
+            <param name="w">nova sirka</param>
+            <param name="h">nova vyska</param>
+            <param name="filterType">cislo filtru</param>
+        </member>
+        <member name="M:GfxlibWrapper.GfxlibCommunicator.clipImage(System.Void*,System.Int32,System.Int32,System.Int32,System.Int32)">
+            <summary>
+            orizne obrazek v instanci tridy Magick::Image predane parametrem na dany obdelnik
+            </summary>
+            <param name="ptr">instance tridy Magick::Image</param>
+            <param name="x">x souradnice vyriznuteho obdelniku</param>
+            <param name="y">y souradnice vyriznuteho obdelniku</param>
+            <param name="w">sirka vyryznuteho obdelniku</param>
+            <param name="h">vyska vyriznuteho obdelniku</param>
+        </member>
+        <member name="T:GfxlibWrapper.PictureLoadFailureException">
+            <summary>
+            vyjimka pro chybu pri nacteni obrazku
+            </summary>
+        </member>
+        <member name="F:GfxlibWrapper.PictureLoadFailureException.filename">
+            <summary>
+            nazev souboru daneho obrazku
+            </summary>
+        </member>
+        <member name="M:GfxlibWrapper.PictureLoadFailureException.#ctor(System.String)">
+            <summary>
+            inicializujici konstruktor
+            </summary>
+            <param name="filename">nazev souboru daneho obrazku</param>
+        </member>
+        <member name="T:GfxlibWrapper.PictureSaveFailureException">
+            <summary>
+            vyjimka pro chybu pri ulozeni obrazku
+            </summary>
+        </member>
+        <member name="F:GfxlibWrapper.PictureSaveFailureException.filename">
+            <summary>
+            nazev souboru daneho obrazku
+            </summary>
+        </member>
+        <member name="M:GfxlibWrapper.PictureSaveFailureException.#ctor(System.String)">
+            <summary>
+            inicializujici konstruktor
+            </summary>
+            <param name="filename">nazev souboru daneho obrazku</param>
+        </member>
+        <member name="T:GfxlibWrapper.PictureProcessException">
+            <summary>
+            vyjimka pro chyby pri praci z obrazky
+            </summary>
+        </member>
+        <member name="T:GfxlibWrapper.PictureCreationFailureException">
+            <summary>
+            vyjimka pro chybu pri vytvareni obrazku
+            </summary>
+        </member>
+        <member name="F:GfxlibWrapper.PictureCreationFailureException.width">
+            <summary>
+            sirka chteneho obrazku
+            </summary>
+        </member>
+        <member name="F:GfxlibWrapper.PictureCreationFailureException.height">
+            <summary>
+            vyska chteneho obrazku
+            </summary>
+        </member>
+        <member name="M:GfxlibWrapper.PictureCreationFailureException.#ctor(System.Int32,System.Int32)">
+            <summary>
+            inicializujici konstruktor
+            </summary>
+            <param name="width">sirka chteneho obrazku</param>
+            <param name="height">vyska chteneho obrazku</param>
+        </member>
+        <member name="T:GfxlibWrapper.PictureResizeFailureException">
+            <summary>
+            vyjimka pro chybu pri zmene velikosti obrazku
+            </summary>
+        </member>
+        <member name="F:GfxlibWrapper.PictureResizeFailureException.width">
+            <summary>
+            nova sirka obrazku
+            </summary>
+        </member>
+        <member name="F:GfxlibWrapper.PictureResizeFailureException.height">
+            <summary>
+            nova vyska obrazku
+            </summary>
+        </member>
+        <member name="M:GfxlibWrapper.PictureResizeFailureException.#ctor(System.Int32,System.Int32)">
+            <summary>
+            inicializujici konstruktor
+            </summary>
+            <param name="width">nova sirka obrazku</param>
+            <param name="height">nova vyska obrazku</param>
+        </member>
+        <member name="T:GfxlibWrapper.PictureClipFailureException">
+            <summary>
+            vyjimka pro chybu pri orezavani obrazku
+            </summary>
+        </member>
+        <member name="F:GfxlibWrapper.PictureClipFailureException.width">
+            <summary>
+            nova sirka obrazku
+            </summary>
+        </member>
+        <member name="F:GfxlibWrapper.PictureClipFailureException.height">
+            <summary>
+            nova vyska obrazku
+            </summary>
+        </member>
+        <member name="M:GfxlibWrapper.PictureClipFailureException.#ctor(System.Int32,System.Int32)">
+            <summary>
+            inicializujici konstruktor
+            </summary>
+            <param name="width">nova sirka obrazku</param>
+            <param name="height">nova vyska obrazku</param>
+        </member>
+        <member name="T:GfxlibWrapper.PictureWrongFormatException">
+            <summary>
+            vyjimka pro pripad, kdy format nacitaneho obrazku je chybny
+            </summary>
+        </member>
+        <member name="F:GfxlibWrapper.PictureWrongFormatException.filename">
+            <summary>
+            nazev souboru obrazku
+            </summary>
+        </member>
+        <member name="M:GfxlibWrapper.PictureWrongFormatException.#ctor(System.String)">
+            <summary>
+            inicializujici konstruktor
+            </summary>
+            <param name="filename">nazev souboru obrazku</param>
+        </member>
+        <member name="T:GfxlibWrapper.PictureAlreadyCreatedException">
+            <summary>
+            vyjimka pro pripad, kdy se nekdo pokusi nad instanci tridy Picture zavolat Load nebo Ping, pokud jiz obrazek byl vytvoren nebo nacten metodou Load
+            </summary>
+        </member>
+        <member name="T:Interlacer.InterlacingData">
+            <summary>
+            trida obsahujici parametry prokladani
+            </summary>
+        </member>
+        <member name="T:Interlacer.IProcessData">
+            <summary>
+            interface pro tridy LineData a InterlacingData
+            </summary>
+        </member>
+        <member name="M:Interlacer.IProcessData.SetUnits(GfxlibWrapper.Units)">
+            <summary>
+            metoda pro nastaveni jednotek
+            </summary>
+            <param name="units">nove jednotky</param>
+        </member>
+        <member name="M:Interlacer.IProcessData.GetUnits">
+            <summary>
+            metoda pro zjisteni aktualne nastavenych jednotek
+            </summary>
+            <returns>aktualne nastavene jednotky</returns>
+        </member>
+        <member name="F:Interlacer.InterlacingData.width">
+            <summary>
+            sirka vystupniho obrazku v aktualne nastavenych jednotkach
+            </summary>
+        </member>
+        <member name="F:Interlacer.InterlacingData.height">
+            <summary>
+            vyska vystupniho obrazku v aktualne nastavenych jednotkach
+            </summary>
+        </member>
+        <member name="F:Interlacer.InterlacingData.pictureResolution">
+            <summary>
+            tiskove rozliseni vystupniho obrazku v aktualne nastavenych jednotkach
+            </summary>
+        </member>
+        <member name="F:Interlacer.InterlacingData.lenticuleDensity">
+            <summary>
+            hustota cocek lentikularni desky v aktualne nastavenych jednotkach
+            </summary>
+        </member>
+        <member name="F:Interlacer.InterlacingData.initialResizeFilter">
+            <summary>
+            filtr pro prvotni zmenu velikosti vstupnich obrazku
+            </summary>
+        </member>
+        <member name="F:Interlacer.InterlacingData.finalResampleFilter">
+            <summary>
+            filtr pro finalni prevzorkovani vystupniho obrazku
+            </summary>
+        </member>
+        <member name="F:Interlacer.InterlacingData.keepAspectRatio">
+            <summary>
+            indikator, zda ma byt zachovat pomer stran pri zmene jednoho rozmeru
+            </summary>
+        </member>
+        <member name="F:Interlacer.InterlacingData.units">
+            <summary>
+            delkove jednotky
+            </summary>
+        </member>
+        <member name="F:Interlacer.InterlacingData.resolutionUnits">
+            <summary>
+            jednotky rozliseni (Units.In je DPI, Units.Cm je DPCM, pripadne Units.Mm je DPMM)
+            </summary>
+        </member>
+        <member name="F:Interlacer.InterlacingData.direction">
+            <summary>
+            smer prokladani (horizontalni nebo vertikalni)
+            </summary>
+        </member>
+        <member name="M:Interlacer.InterlacingData.SetUnits(GfxlibWrapper.Units)">
+            <summary>
+            nastavi delkove jednotky a prepocita hodnoty
+            </summary>
+            <param name="units">nove jednotky</param>
+        </member>
+        <member name="M:Interlacer.InterlacingData.GetUnits">
+            <summary>
+            vrati aktualne nastavene jednotky
+            </summary>
+            <returns>aktualne nastavene jednotky</returns>
+        </member>
+        <member name="M:Interlacer.InterlacingData.SetResolutionUnits(GfxlibWrapper.Units)">
+            <summary>
+            nastavi jednotky rozliseni a prepocita hodnoty (Units.In - DPI, Units.Cm - DPCM)
+            </summary>
+            <param name="units">nove jednotky rozliseni (Units.In - DPI, Units.Cm - DPCM)</param>
+        </member>
+        <member name="M:Interlacer.InterlacingData.GetResolutionUnits">
+            <summary>
+            vrati aktualne nastavene jednotky rozliseni (Units.In - DPI, Units.Cm - DPCM)
+            </summary>
+            <returns>aktualne nastavene jednotky rozliseni (Units.In - DPI, Units.Cm - DPCM)</returns>
+        </member>
+        <member name="M:Interlacer.InterlacingData.GetInchWidth">
+            <summary>
+            vraci sirku vystupniho obrazku v palcich
+            </summary>
+            <returns>sirka vystupniho obrazkuv palcich</returns>
+        </member>
+        <member name="M:Interlacer.InterlacingData.GetInchHeight">
+            <summary>
+            vraci vysku vystupniho obrazku v palcich
+            </summary>
+            <returns>vyska vystupniho obrzaku v palcich</returns>
+        </member>
+        <member name="M:Interlacer.InterlacingData.SetWidth(System.Double)">
+            <summary>
+            nastavi sirku vystupniho obrazku v aktualne nastavenych
+            pokud je atribut keepAspektRatio nastaven na true, provede prepocet vysky
+            </summary>
+            <param name="width">nova sirka vystupniho obrazku v aktualne nastavenych jednotkach</param>
+        </member>
+        <member name="M:Interlacer.InterlacingData.GetWidth">
+            <summary>
+            vrati sirku vystupniho obrazku v aktualne nastavenych jednotkach
+            </summary>
+            <returns>sirka vystupniho obrazku v aktualne nastavenych jednotkach</returns>
+        </member>
+        <member name="M:Interlacer.InterlacingData.SetHeight(System.Double)">
+            <summary>
+            nastavi vysku vystupniho obrazku v aktualne nastavenych
+            pokud je atribut keepAspektRatio nastaven na true, provede prepocet sirky
+            </summary>
+            <param name="height">nova vyska vystupniho obrazku v aktualne nastavenych jednotkach</param>
+        </member>
+        <member name="M:Interlacer.InterlacingData.GetHeight">
+            <summary>
+            vrati vysku vystupniho obrazku v aktualne nastavenych jednotkach
+            </summary>
+            <returns>vyska vystupniho obrazku v aktualne nastavenych jednotkach</returns>
+        </member>
+        <member name="M:Interlacer.InterlacingData.GetDPI">
+            <summary>
+            vrati tiskove rozliseni vystupniho obrazku v DPI
+            </summary>
+            <returns>tiskove rozliseni vystupniho obrazku v DPI</returns>
+        </member>
+        <member name="M:Interlacer.InterlacingData.SetPictureResolution(System.Double)">
+            <summary>
+            nastavi tiskove rozliseni vystupniho obrazku v aktualne nastavenych jednotkach rozliseni
+            </summary>
+            <param name="resolution">nove tiskove rozliseni vystupniho obrazku v aktualne nastavenych jednotkach rozliseni</param>
+        </member>
+        <member name="M:Interlacer.InterlacingData.GetPictureResolution">
+            <summary>
+            vrati tiskove rozliseni vystupniho obrazku v aktualne nastavenych jednotkach rozliseni
+            </summary>
+            <returns>tiskove rozliseni vystupniho obrazku v aktualne nastavenych jednotkach rozliseni</returns>
+        </member>
+        <member name="M:Interlacer.InterlacingData.GetLPI">
+            <summary>
+            vrati hustotu cocek lentikularni desky v LPI
+            </summary>
+            <returns>hustota cocek lentikularni desky v LPI</returns>
+        </member>
+        <member name="M:Interlacer.InterlacingData.SetLenticuleDensity(System.Double)">
+            <summary>
+            nastavi hustotu cocek lentikularni desky v aktualne nastavenych jednotkach rozliseni
+            </summary>
+            <param name="density">nova hustota cocek lentikularni desky v aktualne nastavenych jednotkach rozliseni</param>
+        </member>
+        <member name="M:Interlacer.InterlacingData.GetLenticuleDensity">
+            <summary>
+            vrati hustotu cocek lentikularni desky v aktualne nastavenych jednotkach rozliseni
+            </summary>
+            <returns>hustota cocek lentikularni desky v aktualne nastavenych jednotkach rozliseni</returns>
+        </member>
+        <member name="M:Interlacer.InterlacingData.GetInitialResizeFilter">
+            <summary>
+            vraci aktualne nastaveny filtr pro prvotni zmenu velikosti vstupnich obrazku
+            </summary>
+            <returns>aktualne nastaveny filtr pro prvotni zmenu velikosti vstupnich obrazku</returns>
+        </member>
+        <member name="M:Interlacer.InterlacingData.SetInitialResizeFilter(GfxlibWrapper.FilterType)">
+            <summary>
+            nastavi filtr pro prvotni zmenu velikosti vstupnich obrazku
+            </summary>
+            <param name="filter">novy filtr pro prvnotni zmenu velikosti vstupnich obrazku</param>
+        </member>
+        <member name="M:Interlacer.InterlacingData.GetFinalResampleFilter">
+            <summary>
+            vrati filtr pro finalni prevzorkovani vystupniho obrazku
+            </summary>
+            <returns>filtr pro finalni prevzorkovani vystupniho obrazku</returns>
+        </member>
+        <member name="M:Interlacer.InterlacingData.SetFinalResampleFilter(GfxlibWrapper.FilterType)">
+            <summary>
+            nastavi filtr pro finalni prevzorkovani vystupniho obrazku
+            </summary>
+            <param name="filter">novy filtr pro finalni prevzorkovani vystupniho obrazku</param>
+        </member>
+        <member name="M:Interlacer.InterlacingData.KeepAspectRatio(System.Boolean)">
+            <summary>
+            nastavi, zda ma byt zapnuta funkce pro zachovani pomeru stran
+            </summary>
+            <param name="keepAspectRatio">true pro zapnuti, false pro vypnuti funkce pro zachovana pomeru stran</param>
+        </member>
+        <member name="M:Interlacer.InterlacingData.getKeepAspectRatio">
+            <summary>
+            vraci true, pokud je zapnuta funkce pro zachovani pomeru stran, jinak false
+            </summary>
+            <returns>true, pokud je zapnuta funkce pro zachovani pomeru stran, jinak false</returns>
+        </member>
+        <member name="M:Interlacer.InterlacingData.SetDirection(Interlacer.Direction)">
+            <summary>
+            nastavi smer prokladani
+            </summary>
+            <param name="direction">novy smer prokladani</param>
+        </member>
+        <member name="M:Interlacer.InterlacingData.GetDirection">
+            <summary>
+            vrati aktualne nastaveny smer prokladani
+            </summary>
+            <returns>aktualne nastaveny smer prokladani</returns>
         </member>
         <member name="F:Interlacer.LineData.lineThickness">
             <summary>
@@ -214,14 +670,14 @@
         </member>
         <member name="M:GfxlibWrapper.Picture.Equals(System.Object)">
             <summary>
-            pokud je nastavena cesta k nejakemu souboru, porovna tuto cestu s parametrm jako String, jiank pouziva base.Equals
+            pokud je nastavena cesta k nejakemu souboru, porovna tuto cestu s cestou obrazku v parametru jako String, jinak pouziva base.Equals
             </summary>
             <param name="obj">objekt k porovnani</param>
             <returns>pri shode true, jinak false</returns>
         </member>
         <member name="M:GfxlibWrapper.Picture.GetWidth">
             <summary>
-            getter sirky bitmapy
+            getter sirky v pixelech
             </summary>
             <returns>sirka bitmapy v pixelech</returns>
         </member>
@@ -335,14 +791,128 @@
             <param name="destRow">index ciloveho radku tohoto obrazku</param>
             <param name="destXBegin">index pocatecni x souradnice, od ktere se zacne radek kopirovat do tohoto obrazku</param>
         </member>
+        <member name="T:Interlacer.MainForm">
+            <summary>
+            trida hlavniho formulare
+            </summary>
+            <summary>
+            trida hlavniho formulare
+            </summary>
+        </member>
+        <member name="F:Interlacer.MainForm.stringOfInputExtensions">
+            <summary>
+            retezc koncovek pro vstupni file dialog
+            </summary>
+        </member>
+        <member name="F:Interlacer.MainForm.stringOfOutputExenstions">
+            <summary>
+            retezec koncovek pro vystupni file dialog
+            </summary>
+        </member>
+        <member name="F:Interlacer.MainForm.settingsFilename">
+            <summary>
+            nazev souboru pro ulozeni nastaveni
+            </summary>
+        </member>
+        <member name="F:Interlacer.MainForm.settings">
+            <summary>
+            reference pro budouci instanci, ktera obsahuje aktualni nastaveni aplikace
+            </summary>
+        </member>
+        <member name="F:Interlacer.MainForm.settingsForm">
+            <summary>
+            reference pro budouci instanci formulare pro nastaveni
+            </summary>
+        </member>
+        <member name="F:Interlacer.MainForm.order">
+            <summary>
+            poradi nasledujiciho obrazku v seznamu
+            </summary>
+        </member>
+        <member name="F:Interlacer.MainForm.projectData">
+            <summary>
+            instance tridy project data, ktera obsahuje interlacingData a lineData a stara se o ukladani a nacitani projektu
+            </summary>
+        </member>
+        <member name="F:Interlacer.MainForm.previewData">
+            <summary>
+            reference pro budouci instanci tridy PreviewData, ktera se stara o zobrazovani nahledu
+            </summary>
+        </member>
+        <member name="F:Interlacer.MainForm.infoData">
+            <summary>
+            instance tridy PictureInfoData, ktera se stara o zobrazovani informaci o obrazcich
+            </summary>
+        </member>
+        <member name="F:Interlacer.MainForm.t">
+            <summary>
+            instance pro nastavovani tool tipu
+            </summary>
+        </member>
+        <member name="M:Interlacer.MainForm.#ctor">
+            <summary>
+            konstruktor pro inicializaci hlavniho formulare
+            </summary>
+        </member>
+        <member name="M:Interlacer.MainForm.isExtensionValid(System.String)">
+            <summary>
+            overeni koncovky
+            </summary>
+            <param name="path">nazev souboru</param>
+            <returns>true pokud je koncovka validni, false pokud neni</returns>
+        </member>
+        <member name="M:Interlacer.MainForm.tryLoadPictures">
+            <summary>
+            metoda pro overeni validnich nazvu obrazku pri nacteni projektu
+            </summary>
+        </member>
+        <member name="M:Interlacer.MainForm.loadSettings">
+            <summary>
+            nacte aktualni nastaveni ze souboru settings
+            </summary>
+        </member>
+        <member name="M:Interlacer.MainForm.getPicName(System.String)">
+            <summary>
+            vrati hazev samotny nazev souboru bez absolutni cesty
+            </summary>
+            <param name="path">nazev souboru s cestou</param>
+            <returns>nazev souboru bez cesty</returns>
+        </member>
+        <member name="M:Interlacer.MainForm.createSettingOptions">
+            <summary>
+            vytvori instanci tridy SettingOptions podle aktualne nastaveneho jazyka
+            </summary>
+            <returns>instance tridy SettingOptions</returns>
+        </member>
         <member name="M:Interlacer.MainForm.updateTexts">
             <summary>
-            
+            nastavi vsechny texty na hodnoty podle aktualne nastaveneho jazyka
             </summary>
+        </member>
+        <member name="M:Interlacer.MainForm.setPreview">
+            <summary>
+            nastavi nahledovy PictureBox na aktualne vybrany obrazek
+            </summary>
+        </member>
+        <member name="M:Interlacer.MainForm.resetPictureInfo">
+            <summary>
+            smaze informace o obrazku v dolnim pravem roho formulare
+            </summary>
+        </member>
+        <member name="M:Interlacer.MainForm.setPictureInfo">
+            <summary>
+            nastavi informace o obrazku v pravem dolnim rohu podle aktualne vybraneho radku
+            </summary>
+        </member>
+        <member name="M:Interlacer.MainForm.setValuesFromPicture(GfxlibWrapper.Picture)">
+            <summary>
+            nastavi sirku a vysku z daneho obrazku
+            </summary>
+            <param name="picture">obrazek, ze ktereho maji byt rozmery nastaveny</param>
         </member>
         <member name="M:Interlacer.MainForm.trySetValuesFromPictures(System.String[])">
             <summary>
-            pokusi se nastavit sirku a vysku ze seznamu obrazku
+            pokusi se nastavit sirku a vysku ze seznamu obrazku (aktualne z prvniho z obrazku)
             pokud se to nepodari, hodnoty zustanou nezmenene
             </summary>
             <param name="pictures">pole retezcu cest k obrazkum</param>
@@ -356,7 +926,7 @@
             <summary>
             Ze seznamu obrázků vybere jejich cesty a naplní jimi List.
             </summary>
-            <returns>picList list naplnění cestami k obrázkům.</returns>
+            <returns>list naplněný cestami k obrázkům.</returns>
         </member>
         <member name="M:Interlacer.MainForm.reorder">
             <summary>
@@ -376,8 +946,25 @@
         </member>
         <member name="M:Interlacer.MainForm.changeLanguage">
             <summary>
-            
+            nastavi vsechen text formulare vcetne textu vsech komponent podle aktualne nastaveneho jazyka
             </summary>
+        </member>
+        <member name="M:Interlacer.MainForm.ApplySettings">
+            <summary>
+            aplikuje aktualni nastavni v atributu settings
+            </summary>
+        </member>
+        <member name="M:Interlacer.MainForm.getListFromPictureView">
+            <summary>
+            vrati seznam cest vsech obrazku v listView
+            </summary>
+            <returns>seznam cest vsech obrazku</returns>
+        </member>
+        <member name="M:Interlacer.MainForm.setPictureViewFromList(System.Collections.Generic.List{System.String})">
+            <summary>
+            vymaze listView s obrzky a prida do nej obrazky z listu, ktery je predan parametrem
+            </summary>
+            <param name="pathPics">seznam cest obrazku, ktere maji byt pridany do listView</param>
         </member>
         <member name="M:Interlacer.MainForm.sortListView">
             <summary>
@@ -388,14 +975,14 @@
             <summary>
             Zjisti posledni cislo z nazvu souboru
             </summary>
-            <param name="word"></param>
-            <returns></returns>
+            <param name="word">nazev souboru</param>
+            <returns>zjistene cislo</returns>
         </member>
         <member name="M:Interlacer.MainForm.replacePicture">
             <summary>
             Metoda pro nahrazení jednoho vybraného obrázku jiným.
             Funguje pouze pokud je vybrán jeden obrázek.
-            Po otevření file dialogu je vyplí multi select takže se smí vybrat pouze jeden orbázek.
+            Po otevření file dialogu je vyplý multiselect takže se smí vybrat pouze jeden obrázek.
             </summary>
         </member>
         <member name="M:Interlacer.MainForm.selectCurrentListItem(System.Windows.Forms.ListView.SelectedIndexCollection)">
@@ -712,6 +1299,12 @@
             vykresli do PictureBoxu defaultni obrazek
             </summary>
         </member>
+        <member name="T:Interlacer.ProjectData">
+            <summary>
+            trida obsahujici parametry prokladani a pasovacich znacek v podobe instanci trid InterlacingData a Line data
+            stara se o nacitani a ukladani projektu
+            </summary>
+        </member>
         <member name="F:Interlacer.ProjectData.interlacingData">
             <summary>
             Zde se uchovávají data pro prokládání obrázků
@@ -759,7 +1352,7 @@
         </member>
         <member name="M:Interlacer.ProjectData.validateLoadDictionary(System.Collections.Generic.Dictionary{System.String,System.String})">
             <summary>
-            Zvaliduje zda se všechna potřebná data uložila do slovníku, pokud vráti false
+            Zvaliduje zda se všechna potřebná data uložila do slovníku, pokud ne vráti false
             </summary>
             <param name="dictionary">Slovník, který se má zvalidovat</param>
             <returns>Vrátí true, pokud nebyly nalezeny žádné chyby</returns>
@@ -1374,6 +1967,11 @@
             </summary>
             <returns>jmeno</returns>
         </member>
+        <member name="T:Interlacer.PictureContainer">
+            <summary>
+            trida pro prokladani obrazku
+            </summary>
+        </member>
         <member name="F:Interlacer.PictureContainer.indexList">
             <summary>
             List indexu - klicem je vzdy cesta k souboru, hodnotou je seznam pozic, na kterych se obrazek ma objevit
@@ -1443,6 +2041,29 @@
             <param name="lineData">data potrebna k pridani pasovacich znacek</param>
             <param name="progressBar">instance progress baru, ktery bude pouzit pro zobrazeni postupu prokladani</param>
         </member>
+        <member name="M:Interlacer.PictureContainer.resetProgressBar">
+            <summary>
+            nastavi progress bar na vychozi hodnoty
+            </summary>
+        </member>
+        <member name="M:Interlacer.PictureContainer.makeProgressBarStep">
+            <summary>
+            udela jeden krok na progess baru
+            </summary>
+        </member>
+        <member name="M:Interlacer.PictureContainer.adjustPictureSize(GfxlibWrapper.Picture)">
+            <summary>
+            orizne obrazek na sirku nejuzsiho a vysku nejnizsiho, obe hodnoty musi byt nejdrive zjisteny metodou CheckPictures
+            </summary>
+            <param name="picture">obrazek k oriznuti</param>
+        </member>
+        <member name="M:Interlacer.PictureContainer.CheckPictures">
+            <summary>
+            zkontroluje vsechny obrazky, pokud maji stejne rozmery, vrati true
+            pokud nemaji stejne rozmery, vrati false a 
+            </summary>
+            <returns>true, pokud jsou obrazky stejne velke, jinak false</returns>
+        </member>
         <member name="M:Interlacer.PictureContainer.getPictureForMarkToLine">
             <summary>
             Vrátí prázdný obrázek, pokud jsou nastaveny pasovací značky připočte jejich šířku či výšku
@@ -1498,6 +2119,21 @@
              Vrací šířku čar na stranách bez odsazení v px pro pridani pred finalnim resizem
             </summary>
             <returns>výšku rámečku s pomocnými čarami v px</returns>
+        </member>
+        <member name="M:Interlacer.PictureContainer.Interlace">
+            <summary>
+            metoda, ktera provede prolozeni obrazku a vytvori vystupni obrazek
+            </summary>
+        </member>
+        <member name="M:Interlacer.PictureContainer.InterlaceV">
+            <summary>
+            metoda pro vertikalni prokladani
+            </summary>
+        </member>
+        <member name="M:Interlacer.PictureContainer.InterlaceH">
+            <summary>
+            metoda pro horizontalni prokladani
+            </summary>
         </member>
         <member name="M:Interlacer.PictureContainer.getCanBeLineV(System.Int32)">
             <summary>
@@ -1558,10 +2194,38 @@
             Vykreslí pasovací značky, pokud někde mají být, zavoláním dalších metod
             </summary>
         </member>
+        <member name="M:Interlacer.PictureContainer.ResizeResultV">
+            <summary>
+            finalni prevzorkovani pro vertikalni prokladani
+            </summary>
+        </member>
+        <member name="M:Interlacer.PictureContainer.ResizeResultH">
+            <summary>
+            finalni prevzorkovani pro horizontalni prokladani
+            </summary>
+        </member>
+        <member name="M:Interlacer.PictureContainer.GetResult">
+            <summary>
+            vrati vysledny obrazek, pokud byl jiz proveden interlacing
+            </summary>
+            <returns>vysledny obrazek</returns>
+        </member>
         <member name="M:Interlacer.Program.Main">
             <summary>
             The main entry point for the application.
             </summary>
+        </member>
+        <member name="T:Interlacer.SettingsForm">
+            <summary>
+            trida formulare pro nastaveni aplikace
+            </summary>
+        </member>
+        <member name="M:Interlacer.SettingsForm.#ctor(Interlacer.MainForm,Interlacer.Settings)">
+            <summary>
+            inicializacni konstruktor
+            </summary>
+            <param name="parent">instance hlavniho formulare, ze ktereho je tento otevren</param>
+            <param name="settings">instance tridy Settings s nastavevnim aplikace</param>
         </member>
         <member name="F:Interlacer.SettingsForm.components">
             <summary>
@@ -1603,6 +2267,8 @@
         <member name="T:GfxlibWrapper.UnitConverter">
             <summary>
             staticka trida, ktera provadi prevod z palcu na jine jednoty a obracene
+            pri prohozeni puvodnich a novych jednotek lze pouzit metody pro prevod jednotek DPI a DPCM
+            napr Transfer(600, Units.Cm, Units.In) prevede 600 cm na palce, ale take 600 DPI na DPCM
             </summary>
         </member>
         <member name="M:GfxlibWrapper.UnitConverter.GetUnitsFromIn(System.Double,GfxlibWrapper.Units)">

@@ -14,21 +14,64 @@ using System.IO;
 
 namespace Interlacer
 {
+    /// <summary>
+    /// trida hlavniho formulare
+    /// </summary>
     public partial class MainForm : Form
     {
+        /// <summary>
+        /// retezc koncovek pro vstupni file dialog
+        /// </summary>
         private const String stringOfInputExtensions = "Image Files (*.jpeg, *.jpg, *.png, *.bmp, *.tif)|*.jpeg;*.jpg;*.png;*.bmp;*.tif";
+
+        /// <summary>
+        /// retezec koncovek pro vystupni file dialog
+        /// </summary>
         private const String stringOfOutputExenstions = "JPEG|*.jpg;*.jpeg|PNG|*.png|BMP|*.bmp|TIF|*.tif";
+
+        /// <summary>
+        /// nazev souboru pro ulozeni nastaveni
+        /// </summary>
         private const String settingsFilename = "settings";
+
+        /// <summary>
+        /// reference pro budouci instanci, ktera obsahuje aktualni nastaveni aplikace
+        /// </summary>
         private Settings settings;
+
+        /// <summary>
+        /// reference pro budouci instanci formulare pro nastaveni
+        /// </summary>
         private SettingsForm settingsForm;
 
+        /// <summary>
+        /// poradi nasledujiciho obrazku v seznamu
+        /// </summary>
         private int order = 1;
+
+        /// <summary>
+        /// instance tridy project data, ktera obsahuje interlacingData a lineData a stara se o ukladani a nacitani projektu
+        /// </summary>
         private ProjectData projectData = new ProjectData();
+
+        /// <summary>
+        /// reference pro budouci instanci tridy PreviewData, ktera se stara o zobrazovani nahledu
+        /// </summary>
         private PreviewData previewData;
+
+        /// <summary>
+        /// instance tridy PictureInfoData, ktera se stara o zobrazovani informaci o obrazcich
+        /// </summary>
         private PictureInfoData infoData = new PictureInfoData();
 
+        /// <summary>
+        /// instance pro nastavovani tool tipu
+        /// </summary>
         private ToolTip t = new ToolTip();        
 
+        /// <summary>
+        /// konstruktor pro inicializaci hlavniho formulare
+        /// </summary>
         public MainForm()
         {
             if (!GfxlibCommunicator.Test())
@@ -37,9 +80,9 @@ namespace Interlacer
                 System.Environment.Exit(0);
             }
             InitializeComponent();
+            /*nastaveni defaultnich hodnot*/
             projectData.GetInterlacingData().KeepAspectRatio(keepRatioCheckbox.Checked);
             reorderTimer.Stop();
-            resetPictureInfo();
             previewData = new PreviewData(previewPicBox, previewPicBox.Image);
             lineColorButton.BackColor = Color.Black;
             backgroundColorButton.BackColor = Color.White;
@@ -48,11 +91,11 @@ namespace Interlacer
             edgeRadioButton.Checked = true;
             projectData.GetLineData().SetLineThickness(1);
             actualPicsUnderLenLabel.Text = Convert.ToString(lineThicknessTrackbar.Value);
-            loadSettings();
-            Localization.currentLanguage = settings.GetSelectedLanguage().value;
-            Localization.changeCulture();
-            changeLanguage();
-            changeUnits();
+            loadSettings();  //nacteni akutalniho nastaveni do atributu settings
+            Localization.currentLanguage = settings.GetSelectedLanguage().value;  //zjisteni aktualne nastaveneho jazyka z atributu settings
+            Localization.changeCulture();  //nastaveni kultury formulare na dany jazyk
+            changeLanguage();  //nastaveni vsech textu na texty ve spravnem jazyce, vcetne textu komponent
+            changeUnits();  //nastaveni jednotek podle aktualnich jednotek v atributu settings
             pictureListViewEx.MultiSelect = true;
             interpol1ComboBox.SelectedIndex = 0;
             interpol2ComboBox.SelectedIndex = 0;
@@ -72,6 +115,11 @@ namespace Interlacer
             }
         }
 
+        /// <summary>
+        /// overeni koncovky
+        /// </summary>
+        /// <param name="path">nazev souboru</param>
+        /// <returns>true pokud je koncovka validni, false pokud neni</returns>
         private bool isExtensionValid(String path)
         {
             String pathExt = path.ToLower();
@@ -87,6 +135,9 @@ namespace Interlacer
             return false;
         }
 
+        /// <summary>
+        /// metoda pro overeni validnich nazvu obrazku pri nacteni projektu
+        /// </summary>
         private void tryLoadPictures()
         {
             for (int i = 0; i < pictureListViewEx.Items.Count; i++)
@@ -94,23 +145,26 @@ namespace Interlacer
                 Picture pic = new Picture(pictureListViewEx.Items[i].SubItems[1].Text);
                 try
                 {
-                    pic.Ping();
+                    pic.Ping();  //pokus o nacteni
                 }
-                catch
+                catch  //pokud soubor nelze nacist
                 {
                     pictureListViewEx.Items[i].SubItems[3].Text = "X";
                 }
             }
         }
 
+        /// <summary>
+        /// nacte aktualni nastaveni ze souboru settings
+        /// </summary>
         private void loadSettings()
         {
             settings = new Settings(createSettingOptions());
             try
             {
-                settings.Load(settingsFilename);
+                settings.Load(settingsFilename);  //pokus o nacteni
             }
-            catch
+            catch  //pokud se nacteni nezdari, jsou pouzity defaultni hodnoty (same 0)
             {
                 settings.SetSelectedLanguageIndex(0);
                 settings.SetSelectedUnitsIndex(0);
@@ -118,27 +172,36 @@ namespace Interlacer
             }
         }
 
+        /// <summary>
+        /// vrati hazev samotny nazev souboru bez absolutni cesty
+        /// </summary>
+        /// <param name="path">nazev souboru s cestou</param>
+        /// <returns>nazev souboru bez cesty</returns>
         private string getPicName(string path)
         {
             string[] splitName = path.Split('\\');
             return splitName[splitName.Length - 1];
         }
 
+        /// <summary>
+        /// vytvori instanci tridy SettingOptions podle aktualne nastaveneho jazyka
+        /// </summary>
+        /// <returns>instance tridy SettingOptions</returns>
         private SettingOptions createSettingOptions()
         {
             SettingOptions settingOptions = new SettingOptions();
-            settingOptions.languageOptions = new List<StringValuePair<String>>
+            settingOptions.languageOptions = new List<StringValuePair<String>>  //seznam moznosti jazyku
             {
                 new StringValuePair<String>(Localization.resourcesStrings.GetString("langCzech"), "cs-CZ"),
                 new StringValuePair<String>(Localization.resourcesStrings.GetString("langEnglish"), "en")
             };
-            settingOptions.unitsOptions = new List<StringValuePair<Units>>
+            settingOptions.unitsOptions = new List<StringValuePair<Units>>  //seznam moznosti delkovych jednotek
             {
                 new StringValuePair<Units>("cm", Units.Cm),
                 new StringValuePair<Units>("mm", Units.Mm),
                 new StringValuePair<Units>(Localization.resourcesStrings.GetString("unitsInches"), Units.In)
             };
-            settingOptions.resolutionUnitsOptions = new List<StringValuePair<Units>>
+            settingOptions.resolutionUnitsOptions = new List<StringValuePair<Units>>  //seznam moznosti jednotek rozliseni
             {
                 new StringValuePair<Units>("DPI, LPI", Units.In),
                 new StringValuePair<Units>("DPCM, LPCM", Units.Cm)
@@ -147,12 +210,12 @@ namespace Interlacer
         }
 
         /// <summary>
-        /// 
+        /// nastavi vsechny texty na hodnoty podle aktualne nastaveneho jazyka
         /// </summary>
         public void updateTexts()
         {
-            settings.SetSettingOptions(createSettingOptions());
-            if (interpol1ComboBox.Items.Count == 0 && interpol2ComboBox.Items.Count == 0)
+            settings.SetSettingOptions(createSettingOptions());  //prideleni novych moznosti nastaveni atributu settings podle aktualne nastaveneho jazyka
+            if (interpol1ComboBox.Items.Count == 0 && interpol2ComboBox.Items.Count == 0)  //pridani prazdnych prvku do combo boxu pro filtry
             {
                 interpol1ComboBox.Items.Add("");
                 interpol1ComboBox.Items.Add("");
@@ -162,7 +225,8 @@ namespace Interlacer
                 interpol2ComboBox.Items.Add("");
                 interpol2ComboBox.Items.Add("");
                 interpol2ComboBox.Items.Add("");
-            }            
+            }
+            /*nastaveni filtru do combo boxu s popisem v aktualne nastavenem jazyce*/
             interpol1ComboBox.Items[0] = new StringValuePair<FilterType>(Localization.resourcesStrings.GetString("filterNearestNeighbor"), FilterType.None);
             interpol1ComboBox.Items[1] = new StringValuePair<FilterType>(Localization.resourcesStrings.GetString("filterLinear"), FilterType.Triangle);
             interpol1ComboBox.Items[2] = new StringValuePair<FilterType>(Localization.resourcesStrings.GetString("filterCubic"), FilterType.Cubic);
@@ -171,6 +235,7 @@ namespace Interlacer
             interpol2ComboBox.Items[1] = new StringValuePair<FilterType>(Localization.resourcesStrings.GetString("filterLinear"), FilterType.Triangle);
             interpol2ComboBox.Items[2] = new StringValuePair<FilterType>(Localization.resourcesStrings.GetString("filterCubic"), FilterType.Cubic);
             interpol2ComboBox.Items[3] = new StringValuePair<FilterType>(Localization.resourcesStrings.GetString("filterLanczos"), FilterType.Lanczos);
+            /*nastaveni tool tipu v aktualne nastavenem jazyce*/
             t.SetToolTip(addPicButton, Localization.resourcesStrings.GetString("addPicTooltip"));
             t.SetToolTip(removePicButton, Localization.resourcesStrings.GetString("removePicTooltip"));
             t.SetToolTip(copyPicButton, Localization.resourcesStrings.GetString("copyPicTooltip"));
@@ -182,27 +247,33 @@ namespace Interlacer
             t.SetToolTip(replaceButton, Localization.resourcesStrings.GetString("replaceTooltip"));
             saveToolStripButton.Text = Localization.resourcesStrings.GetString("saveTooltip");
             loadToolStripButton.Text = Localization.resourcesStrings.GetString("loadTooltip");
-            // Nastaveni sloupcu listview
+            /*Nastaveni sloupcu listview*/
             pictureListViewEx.Columns[0].Text = Localization.resourcesStrings.GetString("orderListView");
             pictureListViewEx.Columns[1].Text = Localization.resourcesStrings.GetString("pathListView");
             pictureListViewEx.Columns[2].Text = Localization.resourcesStrings.GetString("nameListView");
         }
 
+        /// <summary>
+        /// nastavi nahledovy PictureBox na aktualne vybrany obrazek
+        /// </summary>
         private void setPreview()
         {
             try
             {
-                ListView.SelectedListViewItemCollection selectedItems = pictureListViewEx.SelectedItems;
+                ListView.SelectedListViewItemCollection selectedItems = pictureListViewEx.SelectedItems;  //ziskani vybranych radku
                 if (selectedItems.Count > 0)
-                    previewData.Show(selectedItems[0].SubItems[1].Text);
+                    previewData.Show(selectedItems[0].SubItems[1].Text);  //nastaveni nahledu na prvniho z nich
             }
-            catch
+            catch  //pripad, kdy se obrazek nepodari nacist
             {
                 MessageBox.Show(Localization.resourcesStrings.GetString("previewError"));
-                previewData.ShowDefaultImage();
+                previewData.ShowDefaultImage();  //zobrazeni defaultniho obrazku
             }
         }
 
+        /// <summary>
+        /// smaze informace o obrazku v dolnim pravem roho formulare
+        /// </summary>
         private void resetPictureInfo()
         {
             infoFilenameLabel.Text = "";
@@ -211,19 +282,22 @@ namespace Interlacer
             infoHeightLabel.Text = "";
         }
 
+        /// <summary>
+        /// nastavi informace o obrazku v pravem dolnim rohu podle aktualne vybraneho radku
+        /// </summary>
         private void setPictureInfo()
         {
             try
             {
-                ListView.SelectedListViewItemCollection selectedItems = pictureListViewEx.SelectedItems;
+                ListView.SelectedListViewItemCollection selectedItems = pictureListViewEx.SelectedItems;  //ziskani aktualne vybranych radku
                 if (selectedItems.Count > 0)
                 {
-                    String path = selectedItems[0].SubItems[1].Text;
-                    Picture pic = infoData.GetInfo(path);
+                    String path = selectedItems[0].SubItems[1].Text;  //ziskani nazvu souboru prvniho z vybranych
+                    Picture pic = infoData.GetInfo(path);  //ziskani pouze pingnuteho obrazku s informacemi
+                    /*nastaveni labelu na spravne hodnoty*/
                     infoDpiLabel.Text = "" + pic.GetXDpi();
                     infoWidthLabel.Text = "" + pic.GetWidth();
                     infoHeightLabel.Text = "" + pic.GetHeight();
-
                     infoFilenameLabel.Text = getPicName(path);
                 }
             }
@@ -234,14 +308,20 @@ namespace Interlacer
             }
         }
 
+        /// <summary>
+        /// nastavi sirku a vysku z daneho obrazku
+        /// </summary>
+        /// <param name="picture">obrazek, ze ktereho maji byt rozmery nastaveny</param>
         private void setValuesFromPicture(Picture picture)
         {
             InterlacingData interlacingData = projectData.GetInterlacingData();
+            /*sirka se nastavi pouze pokud DPI obrazku neni nulove a pokud aktualni sirka je nulova*/
             if (interlacingData.GetWidth() == 0 && picture.GetXDpi() != 0)
             {
                 double width = UnitConverter.Transfer(picture.GetWidth() / picture.GetXDpi(), Units.In, interlacingData.GetUnits());
                 interlacingData.SetWidth(width);
             }
+            /*vyska se nastavi pouze pokud DPI obrazku neni nulove a pokud aktualni vyska je nulova*/
             if (interlacingData.GetHeight() == 0 && picture.GetXDpi() != 0)
             {
                 double height = UnitConverter.Transfer(picture.GetHeight() / picture.GetXDpi(), Units.In, interlacingData.GetUnits());
@@ -251,7 +331,7 @@ namespace Interlacer
         }
 
         /// <summary>
-        /// pokusi se nastavit sirku a vysku ze seznamu obrazku
+        /// pokusi se nastavit sirku a vysku ze seznamu obrazku (aktualne z prvniho z obrazku)
         /// pokud se to nepodari, hodnoty zustanou nezmenene
         /// </summary>
         /// <param name="pictures">pole retezcu cest k obrazkum</param>
@@ -259,7 +339,6 @@ namespace Interlacer
         {
             if (pictures.Length > 0)
             {
-                // pouzito vickrat, dat do vlastni metody!
                 Picture pic = new Picture(pictures[0]);
                 try
                 {
@@ -269,7 +348,7 @@ namespace Interlacer
                 {
                     return;  //pri neuspesnem nacteni obrazku se v teto fazi pouze nenastavi komponenty formulare
                 }
-                setValuesFromPicture(pic);
+                setValuesFromPicture(pic);  //nastaveni sirky a vysky z aktualniho obrazku
             }
         }
         
@@ -285,7 +364,7 @@ namespace Interlacer
         /// <summary>
         /// Ze seznamu obrázků vybere jejich cesty a naplní jimi List.
         /// </summary>
-        /// <returns>picList list naplnění cestami k obrázkům.</returns>
+        /// <returns>list naplněný cestami k obrázkům.</returns>
         private List<Picture> harvestPicList()
         {
             String path;
@@ -348,10 +427,10 @@ namespace Interlacer
             {
                 verticalRadiobutton.Checked = true;
             }
-            for (int i = 0; i < interpol1ComboBox.Items.Count; i++)
+            for (int i = 0; i < interpol1ComboBox.Items.Count; i++)  //nastaveni filtru pro prvotni zmenu velikosti z interlacingData
                 if (projectData.GetInterlacingData().GetInitialResizeFilter() == ((StringValuePair<FilterType>)interpol1ComboBox.Items[i]).value)
                     interpol1ComboBox.SelectedIndex = i;
-            for (int i = 0; i < interpol2ComboBox.Items.Count; i++)
+            for (int i = 0; i < interpol2ComboBox.Items.Count; i++)  //nastaveni filtru pro finalni prevzorkovani z interlacingData
                 if (projectData.GetInterlacingData().GetFinalResampleFilter() == ((StringValuePair<FilterType>)interpol2ComboBox.Items[i]).value)
                     interpol2ComboBox.SelectedIndex = i;
             lineColorButton.BackColor = projectData.GetLineData().GetLineColor();
@@ -371,30 +450,32 @@ namespace Interlacer
         /// </summary>
         private void changeUnits()
         {
-            projectData.GetInterlacingData().SetUnits(((StringValuePair<Units>)settings.GetSelectedUnits()).value);
-            projectData.GetLineData().SetUnits(((StringValuePair<Units>)settings.GetSelectedUnits()).value);
-            projectData.GetInterlacingData().SetResolutionUnits(((StringValuePair<Units>)settings.GetSelectedResolutionUnits()).value);
-            string measureUnits = settings.GetSelectedUnits().ToString();
-            string[] resolutionUnits = settings.GetSelectedResolutionUnits().ToString().Split(new char[] { ',', ' ' });
+            projectData.GetInterlacingData().SetUnits(settings.GetSelectedUnits().value);
+            projectData.GetLineData().SetUnits(settings.GetSelectedUnits().value);
+            projectData.GetInterlacingData().SetResolutionUnits(settings.GetSelectedResolutionUnits().value);
+            string measureUnits = settings.GetSelectedUnits().ToString();  //vrati jmeno aktualne vybranych delkovych jednotek
+            string[] resolutionUnits = settings.GetSelectedResolutionUnits().ToString().Split(new char[] { ',', ' ' });  //vrati jmeno aktualne vybranych jednotek rozliseni (napr. "DPI, LPI") a rozdeli ho pres carku
             unitsLabel.Text = measureUnits;
             unitsLabel2.Text = measureUnits;
             unitsLabel3.Text = measureUnits;
             unitsLabel4.Text = measureUnits;
-            dpiLabel.Text = resolutionUnits[0];
-            lpiLabel.Text = resolutionUnits[2];
+            dpiLabel.Text = resolutionUnits[0];  //nastavi label pro jednotky rozliseni obrazku na prvni cast nazvu jednotek rozliseni
+            lpiLabel.Text = resolutionUnits[2];  //nastavi label pro hustotu cocek na druhou cast nazvu jednotek rozliseni
         }
 
         /// <summary>
-        /// 
+        /// nastavi vsechen text formulare vcetne textu vsech komponent podle aktualne nastaveneho jazyka
         /// </summary>
         private void changeLanguage()
         {
-            // Updatuje texty v komboboxech
             Localization.iterateOverControls(this, Localization.resourcesMain);
             updateTexts();
             Invalidate();
         }
 
+        /// <summary>
+        /// aplikuje aktualni nastavni v atributu settings
+        /// </summary>
         public void ApplySettings()
         {
             changeLanguage();
@@ -403,6 +484,10 @@ namespace Interlacer
             resetPictureInfo();
         }
 
+        /// <summary>
+        /// vrati seznam cest vsech obrazku v listView
+        /// </summary>
+        /// <returns>seznam cest vsech obrazku</returns>
         private List<String> getListFromPictureView()
         {
             List<String> list = new List<String>();
@@ -413,7 +498,10 @@ namespace Interlacer
             return list;
         }
 
-        
+        /// <summary>
+        /// vymaze listView s obrzky a prida do nej obrazky z listu, ktery je predan parametrem
+        /// </summary>
+        /// <param name="pathPics">seznam cest obrazku, ktere maji byt pridany do listView</param>
         private void setPictureViewFromList(List<String> pathPics)
         {
             for (int i = pictureListViewEx.Items.Count - 1; i >= 0; i--)
@@ -428,7 +516,7 @@ namespace Interlacer
                     pictureListViewEx.Items.Add(item);
                     reorder();
                 }
-                tryLoadPictures();
+                tryLoadPictures();  //kontrola, zda jdou obrazky nacist, pokud ne, je k nim prirazeno "X"
             }
         }
 
@@ -461,8 +549,8 @@ namespace Interlacer
         /// <summary>
         /// Zjisti posledni cislo z nazvu souboru
         /// </summary>
-        /// <param name="word"></param>
-        /// <returns></returns>
+        /// <param name="word">nazev souboru</param>
+        /// <returns>zjistene cislo</returns>
         private int getIntegerFromString(String word)
         {
             int start = word.Length;
@@ -495,7 +583,7 @@ namespace Interlacer
         /// <summary>
         /// Metoda pro nahrazení jednoho vybraného obrázku jiným.
         /// Funguje pouze pokud je vybrán jeden obrázek.
-        /// Po otevření file dialogu je vyplí multi select takže se smí vybrat pouze jeden orbázek.
+        /// Po otevření file dialogu je vyplý multiselect takže se smí vybrat pouze jeden obrázek.
         /// </summary>
         private void replacePicture()
         {
@@ -503,11 +591,10 @@ namespace Interlacer
             {
                 var indeces = pictureListViewEx.SelectedIndices;
                 pictureListViewEx.Focus();
-                for (int i = 0; i < indeces.Count; i++)
+                for (int i = 0; i < indeces.Count; i++)  //znovuoznaceni vybranych radku pri ztrate focusu zpusobene kliknutim na tlacitko
                 {
                     pictureListViewEx.Items[indeces[i]].Selected = true;
                 }
-
                 return;
             }
             addPicFileDialog.Multiselect = false;

@@ -43,20 +43,20 @@ namespace Interlacer
         /// <param name="path">cesta k obrazku</param>
         public void Show(String path)
         {
-            if (images.ContainsKey(path))
+            if (images.ContainsKey(path))  //pokud obrazek jiz je ve slovniku
             {
-                pictureBox.Image = images[path];
+                pictureBox.Image = images[path];  //je zobrazen
             }
-            else
+            else  //pokud obrazek jeste neni ve slovniku
             {
                 int baseSize = 300;
-                Image image = Image.FromFile(path);
-                double ratio = image.Width / (double)image.Height;
+                Image image = Image.FromFile(path);  //nacteni obrazku
+                double ratio = image.Width / (double)image.Height;  //zjisteni pomeru stran
                 int w = baseSize;
                 int h = (int)(baseSize / ratio);
-                Bitmap bmp = new Bitmap(image, new Size(w, h));
-                images.Add(path, bmp);
-                pictureBox.Image = bmp;
+                Bitmap bmp = new Bitmap(image, new Size(w, h));  //nastaveni sirky na 300 a vysky podle pomeru
+                images.Add(path, bmp);  //pridani obrazku do slovniku
+                pictureBox.Image = bmp;  //zobrazeni obrazku
             }
         }
 

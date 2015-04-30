@@ -115,3 +115,4 @@ c:\Users\Jan\Documents\GitHub\Interlacer\bin64bit\doc.xml
 c:\Users\Jan\Documents\GitHub\Interlacer\bin64bit\cs-CZ\Interlacer.resources.dll
 c:\Users\Jan\Documents\GitHub\Interlacer\Interlacer\obj\x64\Release\cs-CZ\Interlacer.resources.dll
 c:\Users\Jan\Documents\GitHub\Interlacer\Interlacer\obj\x64\Release\Interlacer.pdb
+C:\Users\Luckin\Desktop\Interlacer Github\Projekt\Interlacer\Interlacer\obj\x64\Release\Interlacer.csprojResolveAssemblyReference.cache
