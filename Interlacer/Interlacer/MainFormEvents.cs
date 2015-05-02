@@ -8,15 +8,21 @@ using System.Windows.Forms;
 namespace Interlacer
 {
     /// <summary>
-    /// trida hlavniho formulare
+    /// trida hlavniho formulare, obsahuje vsechny metody udalosti na uzivatelske akce
     /// </summary>
     public partial class MainForm : Form
     {
         private void Form1_Load(object sender, EventArgs e)
-        {
+        {         
             DoubleBuffered = true;
         }
 
+        /// <summary>
+        /// Metoda vyvolana pri kliknuti na tlacitko pro otoceni listu obrazku.
+        /// 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void reverseButton_Click(object sender, EventArgs e)
         {
             int count = pictureListViewEx.Items.Count;
@@ -298,6 +304,12 @@ namespace Interlacer
                 }
             }
         }
+
+        /// <summary>
+        /// Metoda vyvolaná při zaškrtnutí/odškrtnutí checkboxu pro zobrazení náhledu.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void imagePreviewCheckBox_CheckedChanged(object sender, EventArgs e)
         {
             if (imagePreviewCheckBox.Checked)
@@ -309,6 +321,13 @@ namespace Interlacer
                 previewData.ShowDefaultImage();
             }
         }
+
+        /// <summary>
+        /// Metoda vyvolaná při tažení souboru přes hlavní formulář.
+        /// Ověří se, zda přetahovaný soubor/soubory má/mají validní koncovku.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void MainForm_DragEnter(object sender, DragEventArgs e)
         {
             if (e.Data.GetDataPresent(DataFormats.FileDrop))
@@ -530,8 +549,8 @@ namespace Interlacer
             previewData.ShowDefaultImage();
         }
         /// <summary>
-        /// Po dokonceni drag and dropu se zkontroluji koncovky cest k souborum,
-        /// do listu se pridaji pouze pokud maji platny format (jpg, bmp, tiff, png)
+        /// Metoda vyvolaná po dokončení akce drag and drop.    
+        /// Pro každou cestu přetahovaného souboru vytvoříme položku v listu.
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>

@@ -19,20 +19,42 @@
             vertikalni
             </summary>
         </member>
+        <member name="T:Interlacer.Localization">
+            <summary>
+            Statická třída sloužící ke změně jazyka
+            </summary>
+        </member>
         <member name="F:Interlacer.Localization.currentLanguage">
             <summary>
             Udava, na jaky jazyk je program nastaven
             </summary>
         </member>
+        <member name="F:Interlacer.Localization.resourcesMain">
+            <summary>
+            Resource manager pro tridu MainForm, obsahuje vsechny texty a preklady pro nazvy jednotlivych komponent
+            </summary>
+        </member>
+        <member name="F:Interlacer.Localization.resourcesSettings">
+            <summary>
+            Rseource manager pro tridu SettingsForm, obsahuje vsechny texty a preklady pro nazvy jednotlivych komponent
+            </summary>
+        </member>
+        <member name="F:Interlacer.Localization.resourcesStrings">
+            <summary>
+            Resource manager slouzici k ulozeni vsech ostatnich textu(chybovych hlasek, tooltipu, polozek comboboxu...) vcetne jejich prekladu
+            </summary>
+        </member>
         <member name="M:Interlacer.Localization.changeCulture">
             <summary>
-            Meni nastaveni kultury programu podle promenne currentLanguage
+            Meni nastaveni kultury programu podle promenne currentLanguage.
+            Podle aktualniho nastaveni jazyka vybere, jaky soubor se pouzije pro resource manager.
             </summary>
         </member>
         <member name="M:Interlacer.Localization.iterateOverControls(System.Windows.Forms.Control,System.ComponentModel.ComponentResourceManager)">
             <summary>
             Rekurzivne projde vsechny komponenty formu a nastavi jim aktualne pouzivany jazyk
             </summary>
+            /// <param name="res">urcuje, pro jaky formular chceme zmenit jazyk</param>
             <param name="parent">Kopmonenta pres kterou se bude iterovat</param>
         </member>
         <member name="T:GfxlibWrapper.FilterType">
@@ -543,9 +565,24 @@
             </summary>
             <returns>aktualne nastaveny smer prokladani</returns>
         </member>
+        <member name="T:Interlacer.LineData">
+            <summary>
+            Třída, která v sobě drží všechny potřebná data o pasovacích značkách
+            </summary>
+        </member>
         <member name="F:Interlacer.LineData.lineThickness">
             <summary>
              šírka čáry na lentikuli kolik je obrázků
+            </summary>
+        </member>
+        <member name="F:Interlacer.LineData.lineColor">
+            <summary>
+            barva pasovacích značek
+            </summary>
+        </member>
+        <member name="F:Interlacer.LineData.backgroundColor">
+            <summary>
+            pozadí vedle pasovacích značek
             </summary>
         </member>
         <member name="F:Interlacer.LineData.frameWidth">
@@ -553,11 +590,184 @@
              šířka rámečku čár
             </summary>
         </member>
+        <member name="F:Interlacer.LineData.indent">
+            <summary>
+            odsazení obrázku od pasovacích značek
+            </summary>
+        </member>
+        <member name="F:Interlacer.LineData.left">
+            <summary>
+            na jakých pozicích se mají čáry vykreslit
+            </summary>
+        </member>
+        <member name="F:Interlacer.LineData.top">
+            <summary>
+            na jakých pozicích se mají čáry vykreslit
+            </summary>
+        </member>
+        <member name="F:Interlacer.LineData.right">
+            <summary>
+            na jakých pozicích se mají čáry vykreslit
+            </summary>
+        </member>
+        <member name="F:Interlacer.LineData.bottom">
+            <summary>
+            na jakých pozicích se mají čáry vykreslit
+            </summary>
+        </member>
+        <member name="F:Interlacer.LineData.centerPosition">
+            <summary>
+            je čára zarovnaná na střed
+            </summary>
+        </member>
+        <member name="F:Interlacer.LineData.units">
+            <summary>
+            v jakých jednotkách jsou míry uvedeny
+            </summary>
+        </member>
         <member name="M:Interlacer.LineData.SetUnits(GfxlibWrapper.Units)">
             <summary>
-            
+            Nastaví jednotky pro pasovací značky
             </summary>
-            <param name="units"></param>
+            <param name="units">Do jakých jednotek se mají hodnoty převést</param>
+        </member>
+        <member name="M:Interlacer.LineData.GetUnits">
+            <summary>
+            Vrátí jednotky pasovacích čar
+            </summary>
+            <returns>Jednotky pasovacích čar</returns>
+        </member>
+        <member name="M:Interlacer.LineData.GetLineThickness">
+            <summary>
+            Vrátí šírku pasovacích čar, kolik zabírá sloupečků pod lentikulí
+            </summary>
+            <returns>Šírku pasovacích čar, kolik zabírá sloupečků pod lentikulí</returns>
+        </member>
+        <member name="M:Interlacer.LineData.SetLineThickness(System.Int32)">
+            <summary>
+            Nastaví šírku pasovacích čar, kolik zabírá jedna pasovací značka sloupečků obrázku pod lentikulí
+            </summary>
+            <param name="lineThickness">Nastaví šírku pasovacích čar, kolik zabírá jedna pasovací značka sloupečků obrázku pod lentikulí</param>
+        </member>
+        <member name="M:Interlacer.LineData.GetLineColor">
+            <summary>
+            Vrátí barvu pasovacích čar
+            </summary>
+            <returns>Vrátí barvu pasovacích čar</returns>
+        </member>
+        <member name="M:Interlacer.LineData.SetLineColor(System.Drawing.Color)">
+            <summary>
+            Nastaví barvu pasovacích čar
+            </summary>
+            <param name="lineColor">Barva pasovacích čar</param>
+        </member>
+        <member name="M:Interlacer.LineData.GetBackgroundColor">
+            <summary>
+            Vrátí pozadí vedle pasovacíc čar
+            </summary>
+            <returns>Vrátí pozadí vedle pasovacíc čar</returns>
+        </member>
+        <member name="M:Interlacer.LineData.SetBackgroundColor(System.Drawing.Color)">
+            <summary>
+            Nastaví pozadí vedle pasovacích čar
+            </summary>
+            <param name="backgroundColor">Barva pozadí vedle pasovacích čar</param>
+        </member>
+        <member name="M:Interlacer.LineData.GetFrameInchWidth">
+            <summary>
+            Vrátí šířka rámečku pasovacích značek v palcích
+            </summary>
+            <returns>Vrátí šířka rámečku pasovacích značek v palcích</returns>
+        </member>
+        <member name="M:Interlacer.LineData.SetFrameWidth(System.Double)">
+            <summary>
+            Nastaví šířku rámečku pasovacích značek
+            </summary>
+            <param name="frameWidth">Šířka rámečku pasovacích značek</param>
+        </member>
+        <member name="M:Interlacer.LineData.GetFrameWidth">
+            <summary>
+            Vrátí šířku rámčku pasovacích značke v nastavených jednotkách
+            </summary>
+            <returns>Vrátí šířku rámčku pasovacích značke v nastavených jednotkách</returns>
+        </member>
+        <member name="M:Interlacer.LineData.GetInchIndent">
+            <summary>
+            Vrátí šířku odsazení pasovacích značek od obrázku v palcích
+            </summary>
+            <returns>Vrátí šířku odsazení pasovacích značek od obrázku v palcích</returns>
+        </member>
+        <member name="M:Interlacer.LineData.SetIndent(System.Double)">
+            <summary>
+            Nastaí šířku odsazení pasovacích značek od obrázku v nastavených jednotkách
+            </summary>
+            <param name="indent">Šířku odsazení pasovacích značek od obrázku v nastavených jednotkách</param>
+        </member>
+        <member name="M:Interlacer.LineData.GetIndent">
+            <summary>
+            Vrátí šířku odsazení pasovacích značek od obrázku
+            </summary>
+            <returns>Vrátí šířku odsazení pasovacích značek od obrázku</returns>
+        </member>
+        <member name="M:Interlacer.LineData.GetLeft">
+            <summary>
+            Vrátí true, pokud se mají pasovací značky vykreslit nalevo od obrázku
+            </summary>
+            <returns>Vrátí true, pokud se mají pasovací znakčy vykreslit nalevo od obrázku</returns>
+        </member>
+        <member name="M:Interlacer.LineData.SetLeft(System.Boolean)">
+            <summary>
+            Nastaví zda se mají vykreslit pasovacích značek nalevo vedle obrázku
+            </summary>
+            <param name="left">Nastavení vykreslení pasovacích značek nalevo vedle obrázku</param>
+        </member>
+        <member name="M:Interlacer.LineData.GetTop">
+            <summary>
+            Vrátí true pokud se pasovací značky mají vykreslit nahoře nad obrázkem
+            </summary>
+            <returns>Vrátí true pokud se pasovací značky mají vykreslit nahoře nad obrázkem</returns>
+        </member>
+        <member name="M:Interlacer.LineData.SetTop(System.Boolean)">
+            <summary>
+            Nastaví  zda se mají vykreslit pasovacích značek nahoře nad obrázkem
+            </summary>
+            <param name="top">Nastaví vykreslení pasovacích značek nahoře nad obrázkem</param>
+        </member>
+        <member name="M:Interlacer.LineData.GetRight">
+            <summary>
+            Vrátí true pokud se pasovací značky mají vykreslit napravo vedel obrázku
+            </summary>
+            <returns>Vrátí true pokud se pasovací značky mají vykreslit napravo vedel obrázku</returns>
+        </member>
+        <member name="M:Interlacer.LineData.SetRight(System.Boolean)">
+            <summary>
+            Nastaví zda se mají vykreslit pasovacích čar napravo od obrázku
+            </summary>
+            <param name="right">Nastavení vykreslení pasovacích čar napravo od obrázku</param>
+        </member>
+        <member name="M:Interlacer.LineData.GetBottom">
+            <summary>
+            Vrátí true pokud se pasovací značky mají vykreslit pod obrázkem
+            </summary>
+            <returns>Vrátí true pokud se pasovací značky mají vykreslit pod obrázkem</returns>
+        </member>
+        <member name="M:Interlacer.LineData.SetBottom(System.Boolean)">
+            <summary>
+            Nastaví zda se mají vykreslit pasovací čary pod obrázkem
+            </summary>
+            <param name="bottom">Nastavení vykreslení pasovacích čar pod obrázkem</param>
+        </member>
+        <member name="M:Interlacer.LineData.GetCenterPosition">
+            <summary>
+            Vrátí true, pokud se pasovací značka vykresluje na středu lentikule
+            </summary>
+            <returns>Vrátí true, pokud se pasovací značka vykresluje na středu lentikule</returns>
+        </member>
+        <member name="M:Interlacer.LineData.SetCenterPosition(System.Boolean)">
+            <summary>
+            Nastaví pozici pasovacích značek na střed lentikule
+            </summary>
+            <param name="centerPosition">Nastaví pozici pasovacích značek na střed lentikule</param>
         </member>
         <member name="T:GfxlibWrapper.Picture">
             <summary>
@@ -793,10 +1003,10 @@
         </member>
         <member name="T:Interlacer.MainForm">
             <summary>
-            trida hlavniho formulare
+            Třída hlavního formuláře
             </summary>
             <summary>
-            trida hlavniho formulare
+            trida hlavniho formulare, obsahuje vsechny metody udalosti na uzivatelske akce
             </summary>
         </member>
         <member name="F:Interlacer.MainForm.stringOfInputExtensions">
@@ -856,9 +1066,9 @@
         </member>
         <member name="M:Interlacer.MainForm.isExtensionValid(System.String)">
             <summary>
-            overeni koncovky
+            Metoda pro ověření přípony souboru.
             </summary>
-            <param name="path">nazev souboru</param>
+            <param name="path">cesta k souboru</param>
             <returns>true pokud je koncovka validni, false pokud neni</returns>
         </member>
         <member name="M:Interlacer.MainForm.tryLoadPictures">
@@ -873,7 +1083,7 @@
         </member>
         <member name="M:Interlacer.MainForm.getPicName(System.String)">
             <summary>
-            vrati hazev samotny nazev souboru bez absolutni cesty
+            vrati samotny nazev souboru bez absolutni cesty
             </summary>
             <param name="path">nazev souboru s cestou</param>
             <returns>nazev souboru bez cesty</returns>
@@ -1008,6 +1218,14 @@
             Required method for Designer support - do not modify
             the contents of this method with the code editor.
             </summary>
+        </member>
+        <member name="M:Interlacer.MainForm.reverseButton_Click(System.Object,System.EventArgs)">
+            <summary>
+            Metoda vyvolana pri kliknuti na tlacitko pro otoceni listu obrazku.
+            
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
         </member>
         <member name="M:Interlacer.MainForm.widthNumeric_ValueChanged(System.Object,System.EventArgs)">
             <summary>
@@ -1155,6 +1373,21 @@
             <param name="sender"></param>
             <param name="e"></param>
         </member>
+        <member name="M:Interlacer.MainForm.imagePreviewCheckBox_CheckedChanged(System.Object,System.EventArgs)">
+            <summary>
+            Metoda vyvolaná při zaškrtnutí/odškrtnutí checkboxu pro zobrazení náhledu.
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:Interlacer.MainForm.MainForm_DragEnter(System.Object,System.Windows.Forms.DragEventArgs)">
+            <summary>
+            Metoda vyvolaná při tažení souboru přes hlavní formulář.
+            Ověří se, zda přetahovaný soubor/soubory má/mají validní koncovku.
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
         <member name="M:Interlacer.MainForm.pictureListViewEx_DragDrop(System.Object,System.Windows.Forms.DragEventArgs)">
             <summary>
             Pokud se s nějakou položkou seznamu pohne drag and dropem. Zapne se timer, který volá metodu na očíslování položek seznamu.
@@ -1224,8 +1457,8 @@
         </member>
         <member name="M:Interlacer.MainForm.MainForm_DragDrop(System.Object,System.Windows.Forms.DragEventArgs)">
             <summary>
-            Po dokonceni drag and dropu se zkontroluji koncovky cest k souborum,
-            do listu se pridaji pouze pokud maji platny format (jpg, bmp, tiff, png)
+            Metoda vyvolaná po dokončení akce drag and drop.    
+            Pro každou cestu přetahovaného souboru vytvoříme položku v listu.
             </summary>
             <param name="sender"></param>
             <param name="e"></param>

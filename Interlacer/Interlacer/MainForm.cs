@@ -15,7 +15,7 @@ using System.IO;
 namespace Interlacer
 {
     /// <summary>
-    /// trida hlavniho formulare
+    /// Třída hlavního formuláře
     /// </summary>
     public partial class MainForm : Form
     {
@@ -116,9 +116,9 @@ namespace Interlacer
         }
 
         /// <summary>
-        /// overeni koncovky
+        /// Metoda pro ověření přípony souboru.
         /// </summary>
-        /// <param name="path">nazev souboru</param>
+        /// <param name="path">cesta k souboru</param>
         /// <returns>true pokud je koncovka validni, false pokud neni</returns>
         private bool isExtensionValid(String path)
         {
@@ -173,7 +173,7 @@ namespace Interlacer
         }
 
         /// <summary>
-        /// vrati hazev samotny nazev souboru bez absolutni cesty
+        /// vrati samotny nazev souboru bez absolutni cesty
         /// </summary>
         /// <param name="path">nazev souboru s cestou</param>
         /// <returns>nazev souboru bez cesty</returns>

@@ -10,15 +10,26 @@ using System.ComponentModel;
 
 namespace Interlacer
 {
+    /// <summary>
+    /// Statická třída sloužící ke změně jazyka
+    /// </summary>
     static class Localization
     {
         /// <summary>
         /// Udava, na jaky jazyk je program nastaven
         /// </summary>
         public static string currentLanguage = "cs-CZ";
-
+        /// <summary>
+        /// Resource manager pro tridu MainForm, obsahuje vsechny texty a preklady pro nazvy jednotlivych komponent
+        /// </summary>
         public static ComponentResourceManager resourcesMain = new ComponentResourceManager(typeof(MainForm));
+        /// <summary>
+        /// Rseource manager pro tridu SettingsForm, obsahuje vsechny texty a preklady pro nazvy jednotlivych komponent
+        /// </summary>
         public static ComponentResourceManager resourcesSettings = new ComponentResourceManager(typeof(SettingsForm));
+        /// <summary>
+        /// Resource manager slouzici k ulozeni vsech ostatnich textu(chybovych hlasek, tooltipu, polozek comboboxu...) vcetne jejich prekladu
+        /// </summary>
         public static ComponentResourceManager resourcesStrings;
 
         static Localization()
@@ -27,7 +38,8 @@ namespace Interlacer
         }
 
         /// <summary>
-        /// Meni nastaveni kultury programu podle promenne currentLanguage
+        /// Meni nastaveni kultury programu podle promenne currentLanguage.
+        /// Podle aktualniho nastaveni jazyka vybere, jaky soubor se pouzije pro resource manager.
         /// </summary>
         public static void changeCulture()
         {
@@ -47,6 +59,7 @@ namespace Interlacer
         /// <summary>
         /// Rekurzivne projde vsechny komponenty formu a nastavi jim aktualne pouzivany jazyk
         /// </summary>
+        /// /// <param name="res">urcuje, pro jaky formular chceme zmenit jazyk</param>
         /// <param name="parent">Kopmonenta pres kterou se bude iterovat</param>
         public static void iterateOverControls(Control parent, ComponentResourceManager res)
         {
