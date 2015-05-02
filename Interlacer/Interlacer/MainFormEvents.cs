@@ -392,23 +392,28 @@ namespace Interlacer
             }
             catch { } //pri vyjimce se soubor proste neulozi
         }
+        /// <summary>
+        /// uloží projekt data do souboru pojmenovaný uživatelem s koncovkou .int
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void ulozToolStripMenuItem_Click(object sender, EventArgs e)
         {
             String filename;
-            saveConfigDialog.Filter = "int|*.int";
+            saveConfigDialog.Filter = "int|*.int";  // na vyber koncovaka int
             saveConfigDialog.AddExtension = true;
             if (saveConfigDialog.ShowDialog() == DialogResult.OK)
                 filename = saveConfigDialog.FileName;
             else return;
-            String[] split = filename.Split('.');
+            String[] split = filename.Split('.');    
             int lastIndex = split.Length - 1;
-            if (split[lastIndex].Equals("int"))
+            if (split[lastIndex].Equals("int"))         // pokud už končí nepřidávam koncovku
                 saveConfigDialog.AddExtension = false;
             else
                 filename += ".int";
             try
             {
-                projectData.Save(filename, getListFromPictureView());
+                projectData.Save(filename, getListFromPictureView());   // uložení konfirace s jménem souboru filename a listem obázků z formuláře
             }
             catch (Exception exc)
             {
@@ -435,6 +440,11 @@ namespace Interlacer
         {
             replacePicture();
         }
+        /// <summary>
+        /// Načte konfigurační soubor s koncovkou int a pokusí se ho nahrát do Mainformu
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void nactiToolStripMenuItem_Click(object sender, EventArgs e)
         {
             String filename;
@@ -445,12 +455,12 @@ namespace Interlacer
             else return;
             try
             {
-                List<String> pathPics = projectData.Load(filename);
-                projectData.GetInterlacingData().SetUnits(((StringValuePair<Units>)settings.GetSelectedUnits()).value);
+                List<String> pathPics = projectData.Load(filename);     //načtu si cesty obrázků a v metode Load nastavím do LineData a Interlacing dat požadované data
+                projectData.GetInterlacingData().SetUnits(((StringValuePair<Units>)settings.GetSelectedUnits()).value);     // nastavím jednotky, které jsou momentálně v mainformu nastaveny
                 projectData.GetLineData().SetUnits(((StringValuePair<Units>)settings.GetSelectedUnits()).value);
                 projectData.GetInterlacingData().SetResolutionUnits(((StringValuePair<Units>)settings.GetSelectedResolutionUnits()).value);
-                updateAllComponents();
-                setPictureViewFromList(pathPics);
+                updateAllComponents();      // updatuju celý mainform aby se provedli změny v gui
+                setPictureViewFromList(pathPics);       // nastavím i cesty k novým obrázkům
             }
             catch (Exception exc)
             {
