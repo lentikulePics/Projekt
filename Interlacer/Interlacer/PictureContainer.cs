@@ -176,9 +176,9 @@ namespace Interlacer
                 return new Picture(preResamplePictureWidth, preResamplePictureHeight);
             
             if (lineData.GetLeft())
-                addWidth = getAddWidthForLineAndIndent();
+                addWidth = getAddWidthForLineAndIndent();   //připočtu šířku pasovacích značek vůči zmenšenému obrázku 
             if (lineData.GetRight())
-                addWidth = addWidth + getAddWidthForLineAndIndent();
+                addWidth = addWidth + getAddWidthForLineAndIndent();  //připočtu výšku pasovacích značek vůči zmenšenému obrázku 
             if (lineData.GetTop())
                 addHeight = getAddHeightForLineAndIndent();
             if (lineData.GetBottom())
@@ -404,19 +404,28 @@ namespace Interlacer
         /// <returns>Vratí true pokud na daném indexu může být vykreslena značka</returns>
         private bool getCanBeLineV(int index)
         {
-            if (!lineData.GetCenterPosition())
+            if (!lineData.GetCenterPosition())  // pokud čára není zarovnaná na střed lentikule
             {
+                // zde se testuje zda je na indexu sloupečku obrázku možné vykreslit čáru
+                // getAddWidthForLineAndIndentLeft() % pictureCount - pro zarovnání čar k prvnímu sloupečku obrázku se musí odečíst kolik sloupečku pod letikulí je navíc v levé části obrázku a aby nedošlo k % záporného čísla musím připočíst alespon 2*počet čar
+                // celkové číslo % počtem obrázků a zjistím na jakém sloupečku v lentikuli se nacházím, pokud jsem na indexu sloupečku menším než je počet čar mohu zde vykreslit čáru
+
                 if (((index + 2*pictureCount - getAddWidthForLineAndIndentLeft() % pictureCount) % pictureCount) < lineData.GetLineThickness())
-                {                   
-                    return true;
+                {
+                    return true;    // mohu na indexu vykreslit čáru
                 }
                 else
                     return false;
             }
-            else
+            else                                // pokud čára je zarovnaná na střed  lentikule
             {
+                // zde se testuje zda je na indexu sloupečku obrázku možné vykreslit čáru
+                // getAddWidthForLineAndIndentLeft() % pictureCount - pro zarovnání čar k prvnímu sloupečku obrázku se musí odečíst kolik sloupečku pod letikulí je navíc v levé části obrázku a aby nedošlo k % záporného čísla musím připočíst alespon 2*počet čar
+                // (pictureCount / 2 - lineData.GetLineThickness() / 2) - odečku velikost posunu čáry od levé strany lentikule a mohu počítat stejným způsobem jako při počítání zarovnání čáry nalevo
+                // celkové číslo % počtem obrázků a zjistím na jakém sloupečku v lentikuli se nacházím, pokud jsem na indexu sloupečku menším než je počet čar mohu zde vykreslit čáru
+
                 if (((index + 2*pictureCount - (pictureCount / 2 - lineData.GetLineThickness() / 2)  - getAddWidthForLineAndIndentLeft() % pictureCount) % pictureCount) < lineData.GetLineThickness())
-                    return true;
+                    return true;    // mohu na indexu vykreslit čáru
                 else
                     return false;
             }
@@ -429,19 +438,28 @@ namespace Interlacer
         /// <returns>Vratí true pokud na daném indexu může být vykreslena značka</returns>
         private bool getCanBeLineH(int index)
         {
-            if (!lineData.GetCenterPosition())
+            if (!lineData.GetCenterPosition())  //pokud čára není zarovnaná na střed lentikule
             {
+                // zde se testuje zda je na indexu řádku obrázku možné vykreslit čáru
+                // getAddHeightForLineAndIndentTop() % pictureCount - pro zarovnání čar k prvnímu řádku obrázku se musí odečíst kolik řádku pod letikulí je navíc v horní části obrázku a aby nedošlo k % záporného čísla musím připočíst alespon 2*počet čar
+                // celkové číslo % počtem obrázků a zjistím na jakém řádku v lentikuli se nacházím, pokud jsem na indexu řádku menším než je počet čar mohu zde vykreslit čáru
+             
                 if (((index + 2*pictureCount - getAddHeightForLineAndIndentTop() % pictureCount) % pictureCount) < lineData.GetLineThickness())
                 {
-                    return true;
+                    return true;    // mohu na indexu vykreslit čáru
                 }
                 else
                     return false;
             }
-            else
+            else                              // pokud čára není zarovnaná na střed lentikule
             {
+                // zde se testuje zda je na indexu řádku obrázku možné vykreslit čáru
+                // getAddHeightForLineAndIndentTop() % pictureCount - pro zarovnání čar k prvnímu řádku obrázku se musí odečíst kolik řádku pod letikulí je navíc v horní části obrázku a aby nedošlo k % záporného čísla musím připočíst alespon 2*počet čar
+                // (pictureCount / 2 - lineData.GetLineThickness() / 2) - odečku velikost posunu čáry v lentikuli a mohu počítat stejným způsobem
+                // celkové číslo % počtem obrázků a zjistím na jakém řádku v lentikuli se nacházím, pokud jsem na indexu řádku menším než je počet čar mohu zde vykreslit čáru
+
                 if (((index + 2*pictureCount - (pictureCount / 2 - lineData.GetLineThickness() / 2) - getAddHeightForLineAndIndentTop() % pictureCount) % pictureCount) < lineData.GetLineThickness())
-                    return true;
+                    return true;    // mohu na indexu vykreslit čáru
                 else
                     return false;
             }
@@ -455,18 +473,18 @@ namespace Interlacer
             int colorValue;
             if (lineData.GetLeft())
             {
-                for (int i = 0; i < this.getAddWidthForLineAndIndent(); i++)    // začínám kreslit od zleva do prava
+                for (int i = 0; i < this.getAddWidthForLineAndIndent(); i++)    // začínám kreslit od zleva do prava do začátku již proloženého obrázku
                 {
-                    if (i < this.getAddWidthForLine())
+                    if (i < this.getAddWidthForLine())                          // testuji zda jsem ještě v prosturu kde se mohou vykreslit pasovací značky a né v odsazení pasovacích značek od obrázku
                     {
-                        if (getCanBeLineV(i))
-                            colorValue = lineData.GetLineColor().ToArgb();
+                        if (getCanBeLineV(i))                                   // zda může být na daném indexu vykreslena pasovací značka  
+                            colorValue = lineData.GetLineColor().ToArgb();      // pokud ano přidám barvu do proměné pro vykreslení pixelu pasovací značky
                         else
-                            colorValue = lineData.GetBackgroundColor().ToArgb();
+                            colorValue = lineData.GetBackgroundColor().ToArgb();    // pokud né přidám barvu do proměné pro vykreslení pixelu pozadí vedle pasovacích značek
                     }
                     else
-                        colorValue = Color.White.ToArgb();
-                    for (int j = 0; j < result.GetHeight(); j++) {
+                        colorValue = Color.White.ToArgb();                      // jsem již za hranicí pasovacích značek a přidám bílou default barvu
+                    for (int j = 0; j < result.GetHeight(); j++) {              // obarvím celý sloupeček
                         result.SetPixel(i, j, colorValue);
                     }
                 }
@@ -481,18 +499,18 @@ namespace Interlacer
             int colorValue = 0;
             if (lineData.GetRight())
             {
-                for (int i = result.GetWidth()-1; i >= (preResamplePictureWidth + this.getAddWidthForLineAndIndentLeft()); i--) // začínám kreslit z prava do leva
+                for (int i = result.GetWidth()-1; i >= (preResamplePictureWidth + this.getAddWidthForLineAndIndentLeft()); i--) // začínám kreslit od posledního sloupečku do prvního sloupečku již vykreslené časti obrázku
                 {
-                    if (i >= (result.GetWidth() - this.getAddWidthForLine()))
+                    if (i >= (result.GetWidth() - this.getAddWidthForLine()))       // testuji zda jsem ještě v prosturu kde se mohou vykreslit pasovací značky a né v odsazení pasovacích značek od obrázku
                     {
-                        if (getCanBeLineV(i))
-                            colorValue = lineData.GetLineColor().ToArgb();
+                        if (getCanBeLineV(i))                                       // zda může být na daném indexu vykreslena pasovací značka  
+                            colorValue = lineData.GetLineColor().ToArgb();          // pokud ano přidám barvu do proměné pro vykreslení pixelu pasovací značky
                         else
-                            colorValue = lineData.GetBackgroundColor().ToArgb();
+                            colorValue = lineData.GetBackgroundColor().ToArgb();    // pokud né přidám barvu do proměné pro vykreslení pixelu pozadí vedle pasovacích značek
                     }
                     else
-                        colorValue = Color.White.ToArgb();
-                    for (int j = 0; j < result.GetHeight(); j++)
+                        colorValue = Color.White.ToArgb();                      // jsem již za hranicí pasovacích značek a přidám bílou default barvu
+                    for (int j = 0; j < result.GetHeight(); j++)                // obarvím celý sloupeček
                         result.SetPixel(i, j, colorValue);
                 }
             }
@@ -508,20 +526,23 @@ namespace Interlacer
                 int pomLeft = 0;
                 int pomRight = 0;
                 if (lineData.GetLeft())
-                    pomLeft = this.getAddWidthForLine();    // pokud jsou na levé straně už pasovací značky nekreslím je znova
+                    pomLeft = this.getAddWidthForLine();    // pokud jsou na levé straně už pasovací značky nekreslím je znova a posunu se na indexu začátku nevykreslené části
                 if (lineData.GetRight())
-                    pomRight = this.getAddWidthForLine();   // pokud jsou na pravé straně už pasovací značky nekreslím je znova
+                    pomRight = this.getAddWidthForLine();   // pokud jsou na pravé straně už pasovací značky nekreslím je znova a posunu se na indexu konce nevykreslené části
 
                 for (int i = pomLeft; i < result.GetWidth() - pomRight; i++)    // začínám kreslit z leva do prava
                 {
-                    if (getCanBeLineV(i))
-                        colorValue = lineData.GetLineColor().ToArgb();
+                    if (getCanBeLineV(i))                                // zda může být na daném indexu vykreslena pasovací značka  
+                        colorValue = lineData.GetLineColor().ToArgb();  // pokud ano přidám barvu do proměné pro vykreslení pixelu pasovací značky
                     else
-                        colorValue = lineData.GetBackgroundColor().ToArgb();
-                    for (int j = 0; j <= getAddHeightForLineTop(); j++)
+                        colorValue = lineData.GetBackgroundColor().ToArgb();    // pokud né přidám barvu do proměné pro vykreslení pixelu pozadí vedle pasovacích značek
+
+                    for (int j = 0; j <= getAddHeightForLineTop(); j++)     // barvou obarvním celý sloupeček do odsazení
                         result.SetPixel(i, j, colorValue);
-                    colorValue = Color.White.ToArgb();
-                    for (int j = getAddHeightForLineTop()+1; j < getAddHeightForLineAndIndent(); j++)
+
+                    colorValue = Color.White.ToArgb();              // jsem již za hranicí pasovacích značek a přidám bílou default barvu
+
+                    for (int j = getAddHeightForLineTop()+1; j < getAddHeightForLineAndIndent(); j++)   // barvou obarvím sloupeček od osazení do začátku již proloženého obrázku
                         result.SetPixel(i, j, colorValue);
                 }
             }
@@ -538,19 +559,22 @@ namespace Interlacer
                 int pomLeft = 0;
                 int pomRight = 0;
                 if (lineData.GetLeft())
-                    pomLeft = this.getAddWidthForLine();    // pokud jsou na levé straně už pasovací značky nekreslím je znova
+                    pomLeft = this.getAddWidthForLine();    // pokud jsou na levé straně už pasovací značky nekreslím je znova a posunu se na indexu začátku nevykreslené části
                 if (lineData.GetRight())
-                    pomRight = this.getAddWidthForLine();   // pokud jsou na pravé straně už pasovací značky nekreslím je znova
+                    pomRight = this.getAddWidthForLine();   // pokud jsou na pravé straně už pasovací značky nekreslím je znova a posunu se na indexu konce nevykreslené části
                 for (int i = pomLeft; i < result.GetWidth() - pomRight; i++)
                 {
-                    if (getCanBeLineV(i))
-                        colorValue = lineData.GetLineColor().ToArgb();
+                    if (getCanBeLineV(i))                                // zda může být na daném indexu vykreslena pasovací značka
+                        colorValue = lineData.GetLineColor().ToArgb();      // pokud ano přidám barvu do proměné pro vykreslení pixelu pasovací značky
                     else
-                        colorValue = lineData.GetBackgroundColor().ToArgb();
-                    for (int j = result.GetHeight() - 1; j >= (result.GetHeight() - getAddHeightForLineTop()); j--)
+                        colorValue = lineData.GetBackgroundColor().ToArgb();    // pokud né přidám barvu do proměné pro vykreslení pixelu pozadí vedle pasovacích značek
+
+                    for (int j = result.GetHeight() - 1; j >= (result.GetHeight() - getAddHeightForLineTop()); j--) // barvou obarvním celý sloupeček do odsazení
                         result.SetPixel(i, j, colorValue);
-                    colorValue = Color.White.ToArgb();
-                    for (int j = (result.GetHeight() - getAddHeightForLineTop()-1); j >= (result.GetHeight() - getAddHeightForLineAndIndent()); j--)
+
+                    colorValue = Color.White.ToArgb();                             // jsem již za hranicí pasovacích značek a přidám bílou default barvu
+
+                    for (int j = (result.GetHeight() - getAddHeightForLineTop() - 1); j >= (result.GetHeight() - getAddHeightForLineAndIndent()); j--)    // barvou obarvím sloupeček od osazení do začátku již proloženého obrázku
                         result.SetPixel(i, j, colorValue);
                 }
             }
@@ -565,19 +589,19 @@ namespace Interlacer
             if (lineData.GetLeft())
             {
 
-                for (int i = 0; i < result.GetHeight(); i++)
+                for (int i = 0; i < result.GetHeight(); i++)            // kreslím postupně od prvního řádku do posledního
                 {
-                    for (int j = 0; j < this.getAddWidthForLineAndIndent(); j++) // kreslí se z leva do prava
+                    for (int j = 0; j < this.getAddWidthForLineAndIndent(); j++) // vykresluji řádky od prvního sloupečku obrázku do prvního sloupečku již proloženého obrázku
                     {
-                        if (j < this.getAddWidthForLine()) {
-                            if (getCanBeLineH(i))
-                                colorValue = lineData.GetLineColor().ToArgb();
+                        if (j < this.getAddWidthForLine()) {              // testuji zda jsem ještě v prosturu kde se mohou vykreslit pasovací značky a né v odsazení pasovacích značek od obrázku
+                            if (getCanBeLineH(i))                                           // zda na daném indexu řádku může být vykreslena pasovací značka
+                                colorValue = lineData.GetLineColor().ToArgb();              // pokud ano přidám barvu do proměné pro vykreslení pixelu pasovací značky
                             else
-                                colorValue = lineData.GetBackgroundColor().ToArgb();
+                                colorValue = lineData.GetBackgroundColor().ToArgb();        // pokud né přidám barvu do proměné pro vykreslení pixelu pozadí vedle pasovacích značek
                             }
                         else
-                            colorValue = Color.White.ToArgb();
-                        result.SetPixel(j, i, colorValue);
+                            colorValue = Color.White.ToArgb();          // jsem již za hranicí pasovacích značek a přidám bílou default barvu
+                        result.SetPixel(j, i, colorValue);               // vykreslím celý řádek touto barvou
                     }  
                 }
             }
@@ -591,20 +615,21 @@ namespace Interlacer
             int colorValue = 0;
             if (lineData.GetRight())
             {
-                for (int i = 0; i < result.GetHeight(); i++)
+                for (int i = 0; i < result.GetHeight(); i++)        // kreslím postupně od prvního řádku do posledního
                 {
-                    for (int j = result.GetWidth()-1; j >= (preResamplePictureWidth + this.getAddWidthForLineAndIndentLeft()); j--) // kreslí se z prava do leva
+                    for (int j = result.GetWidth()-1; j >= (preResamplePictureWidth + this.getAddWidthForLineAndIndentLeft()); j--) // vykresluji řádky od posledního sloupečku obrázku do posledního sloupečku již proloženého obrázku
                     {
-                        if (j >= (result.GetWidth() - this.getAddWidthForLine()))
+                        if (j >= (result.GetWidth() - this.getAddWidthForLine()))   // testuji zda jsem ještě v prosturu kde se mohou vykreslit pasovací značky a né v odsazení pasovacích značek od obrázku
                         {
-                            if (getCanBeLineH(i))
-                                colorValue = lineData.GetLineColor().ToArgb();
+                            if (getCanBeLineH(i))                                   // zda na daném indexu řádku může být vykreslena pasovací značka
+                                colorValue = lineData.GetLineColor().ToArgb();       // pokud ano přidám barvu do proměné pro vykreslení pixelu pasovací značky
                             else
-                                colorValue = lineData.GetBackgroundColor().ToArgb();
+                                colorValue = lineData.GetBackgroundColor().ToArgb();   // pokud né přidám barvu do proměné pro vykreslení pixelu pozadí vedle pasovacích značek
                         }
                         else
-                            colorValue = Color.White.ToArgb();
-                        result.SetPixel(j, i, colorValue);
+                            colorValue = Color.White.ToArgb();          // jsem již za hranicí pasovacích značek a přidám bílou default barvu
+
+                        result.SetPixel(j, i, colorValue);              // vykreslím celý řádek touto barvou
                     }
                         
                 }
@@ -622,22 +647,23 @@ namespace Interlacer
                 int pomLeft = 0;
                 int pomRight = 0;
                 if (lineData.GetLeft())
-                    pomLeft = this.getAddWidthForLine();    // pokud je na levé straně pasovací značky nekreslím znova
+                    pomLeft = this.getAddWidthForLine();    // pokud je na levé straně pasovací značky nekreslím znova a posunu se na indexu začátku nevykreslené části
                 if (lineData.GetRight())
-                    pomRight = this.getAddWidthForLine();   // pokud je na pravé straně pasovací značky nekreslím znova
-                for (int i = 0; i < getAddHeightForLineAndIndentTop(); i++)
+                    pomRight = this.getAddWidthForLine();   // pokud je na pravé straně pasovací značky nekreslím znova a posunu se na indexu konce nevykreslené části
+
+                for (int i = 0; i < getAddHeightForLineAndIndentTop(); i++) // kreslím od prvního řádku obrázku do prvního řádku již proloženého obrázku
                 {
-                     if (i < getAddHeightForLineTop())
+                     if (i < getAddHeightForLineTop())                       // testuji zda jsem ještě v prosturu kde se mohou vykreslit pasovací značky a né v odsazení pasovacích značek od obrázku
                      {
-                         if (getCanBeLineH(i))
-                             colorValue = lineData.GetLineColor().ToArgb();
+                         if (getCanBeLineH(i))                                  // zda na daném indexu řádku může být vykreslena pasovací značka
+                             colorValue = lineData.GetLineColor().ToArgb();      // pokud ano přidám barvu do proměné pro vykreslení pixelu pasovací značky
                          else
-                             colorValue = lineData.GetBackgroundColor().ToArgb();
+                             colorValue = lineData.GetBackgroundColor().ToArgb();     // pokud né přidám barvu do proměné pro vykreslení pixelu pozadí vedle pasovacích značek
                      }
                      else
-                         colorValue = Color.White.ToArgb();
+                         colorValue = Color.White.ToArgb();                 // jsem již za hranicí pasovacích značek a přidám bílou default barvu
                     
-                     for (int j = pomLeft; j < result.GetWidth() - pomRight; j++){
+                     for (int j = pomLeft; j < result.GetWidth() - pomRight; j++){      // danou barvou vykreslím doposud nevykreslený řádek
                           result.SetPixel(j, i, colorValue);
                      }
                 }
@@ -655,20 +681,22 @@ namespace Interlacer
                 int pomLeft = 0;
                 int pomRight = 0;
                 if (lineData.GetLeft())
-                    pomLeft = this.getAddWidthForLine();    // pokud je na levé straně pasovací značky nekreslím znova
+                    pomLeft = this.getAddWidthForLine();    // pokud jsou na levé straně pasovací značky nekreslím znova a posunu se na indexu začátku nevykreslené části
                 if (lineData.GetRight())
-                    pomRight = this.getAddWidthForLine();   // pokud je na pravé straně pasovací značky nekreslím znova
-                for (int i = result.GetHeight() - 1; i >= (result.GetHeight() - getAddHeightForLineAndIndent()); i--)
+                    pomRight = this.getAddWidthForLine();   // pokud jsou na pravé straně pasovací značky nekreslím znova a posunu se na indexu konec nevykreslené části
+
+                for (int i = result.GetHeight() - 1; i >= (result.GetHeight() - getAddHeightForLineAndIndent()); i--)   // kreslím od posledního řádku obrázku nahoru do začátku dolního řádku již proloženého obrázku
                 {
-                    if (i > (result.GetHeight() - getAddHeightForLineTop())) {
-                        if (getCanBeLineH(i))
+                    if (i > (result.GetHeight() - getAddHeightForLineTop())) {      // testuji zda řádek ještě náleží do rámečku pro vykreslení pasovacích značek
+                        if (getCanBeLineH(i))                                       // testuji zda na indexu řádku může být pasovací značka 
                             colorValue = lineData.GetLineColor().ToArgb();
                         else
-                            colorValue = lineData.GetBackgroundColor().ToArgb();
+                            colorValue = lineData.GetBackgroundColor().ToArgb();    // pokud né přidám barvu pozadí
                     }
                     else
-                        colorValue = Color.White.ToArgb();
-                    for (int j = pomLeft; j < result.GetWidth() - pomRight; j++)
+                        colorValue = Color.White.ToArgb();                          // barva v odsazení pasovacích značek od obrázku je default bílá
+
+                    for (int j = pomLeft; j < result.GetWidth() - pomRight; j++)    // samotné vykreslení již zjištěné barvy na příslušném pixelu celkového obrázku
                         result.SetPixel(j, i, colorValue);
                 }
             }
@@ -681,19 +709,19 @@ namespace Interlacer
         {
             if (lineData != null)
             {
-                switch (interlacingData.GetDirection())
+                switch (interlacingData.GetDirection()) // zjistím v jakém směru se provádí prokládání
                 {
-                    case Direction.Vertical:
-                        drawLinesLeftV();
-                        drawLinesRightV();
-                        drawLinesTopV();
-                        drawLinesBottomV();
+                    case Direction.Vertical:        // vertikální prokládání 
+                        drawLinesLeftV();           // vykreslení pasovacích značek v levé části obrázku
+                        drawLinesRightV();          // vykreslení pasovacích značek v pravé části obrázku
+                        drawLinesTopV();            // vykreslení pasovacích značek v horní části obrázku
+                        drawLinesBottomV();         // vykreslení pasovacích značek v dolní části obrázku
                         break;
-                    case Direction.Horizontal:
-                        drawLinesLeftH();
-                        drawLinesRightH();
-                        drawLinesTopH();
-                        drawLinesBottomH();
+                    case Direction.Horizontal:      // horizontální prokládání 
+                        drawLinesLeftH();           // vykreslení pasovacích značek v levé části obrázku
+                        drawLinesRightH();          // vykreslení pasovacích značek v pravé části obrázku
+                        drawLinesTopH();            // vykreslení pasovacích značek v horní části obrázku
+                        drawLinesBottomH();         // vykreslení pasovacích značek v dolní části obrázku
                         break;
                 }
        

@@ -553,29 +553,29 @@ namespace Interlacer
         /// <returns>zjistene cislo</returns>
         private int getIntegerFromString(String word)
         {
-            int start = word.Length;
+            int start = word.Length;    // začínám procháze slovo od posledního písmene
             int end = 0;
-            for (int i = word.Length - 1; i >= 0; i--)
+            for (int i = word.Length - 1; i >= 0; i--)       // začínám procháze slovo od posledního písmene do prvního
             {
-                if (word[i] >= '0' && word[i] <= '9')
+                if (word[i] >= '0' && word[i] <= '9')       // pokud jsem narazil na číslo 
                 {
-                    if (end == 0)
+                    if (end == 0)                           // pamatuji index konce tohoto čísla
                     {
                         end = i + 1;
                     }
-                    start = i;
+                    start = i;                              // posunu začátek indexu nalezeného konce
                 }
                 else
                 {
-                    if (end != 0)
+                    if (end != 0)                           // pokud již na indexu není číslo a už jsem nějaké našel ukončuji cyklus
                     {
                         break;
                     }
                 }
             }
-            if (end != 0)
+            if (end != 0)       // pokud jsem našel číslo převedu ho na integer a vrátím jinak vrátím -1
             {
-                return Convert.ToInt32(word.Substring(start, end - start));
+                return Convert.ToInt32(word.Substring(start, end - start)); 
             }
             return -1;
         }
