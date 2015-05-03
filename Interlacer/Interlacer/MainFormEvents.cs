@@ -88,7 +88,7 @@ namespace Interlacer
         }
 
         /// <summary>
-        /// 
+        /// nastavi nahled a informace o obrazku v dolnim pravem rohu formulare pri zmene vyberu radku v seznamu obrazku
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
@@ -654,11 +654,23 @@ namespace Interlacer
                 trySetValuesFromPictures(chosenPictures);
             }
         }
+
+        /// <summary>
+        /// otevre formular pro nastaveni aplikace
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void settingsToolStripMenuItem_Click(object sender, EventArgs e)
         {
             settingsForm = new SettingsForm(this, settings);
             settingsForm.ShowDialog();
         }
+
+        /// <summary>
+        /// vyzada si zadani cesty a jmena vystupniho souboru a provede prolozeni
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void interlaceButton_Click(object sender, EventArgs e)
         {
             String filename;

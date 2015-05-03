@@ -83,6 +83,9 @@
     <CodeAnalysisRuleSet>ManagedMinimumRules.ruleset</CodeAnalysisRuleSet>
     <Prefer32Bit>true</Prefer32Bit>
   </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>icon.ico</ApplicationIcon>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="DragAndDropListView">
       <HintPath>..\..\..\..\..\Desktop\DragAndDropListView.dll</HintPath>
@@ -190,6 +193,9 @@
     <Compile Include="..\Gfxlib\GfxlibErrors.h">
       <Link>GfxlibWrapper\GfxlibErrors.h</Link>
     </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="icon.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

@@ -19,10 +19,13 @@ namespace Interlacer
         /// Odkaz na rodičovský formulář
         /// </summary>
         private MainForm parent;
+        /// <summary>
+        /// instance tridy Settings s nastavenim aplikace
+        /// </summary>
         private Settings settings;
 
         /// <summary>
-        /// 
+        /// inicializacni konstruktor
         /// </summary>
         /// <param name="parent">instance hlavniho formulare, ze ktereho je tento otevren</param>
         /// <param name="settings">instance tridy Settings s nastavevnim aplikace</param>
@@ -59,7 +62,7 @@ namespace Interlacer
         }
 
         /// <summary>
-        /// 
+        /// aplikuje aktulani nastaveni
         /// </summary>
         private void applyChangedOptions()
         {

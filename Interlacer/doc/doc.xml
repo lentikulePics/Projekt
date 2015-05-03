@@ -1263,7 +1263,7 @@
         </member>
         <member name="M:Interlacer.MainForm.pictureListViewEx_ItemSelectionChanged(System.Object,System.Windows.Forms.ListViewItemSelectionChangedEventArgs)">
             <summary>
-            
+            nastavi nahled a informace o obrazku v dolnim pravem rohu formulare pri zmene vyberu radku v seznamu obrazku
             </summary>
             <param name="sender"></param>
             <param name="e"></param>
@@ -1519,6 +1519,20 @@
             Metoda vyvolaná při stisku tlačítka pro přidání obrázku.
             Otevře file dialog pro přidání nových obrázků.
             Je povolen multiselect takže se může vybrat několik obrázků najednou.
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:Interlacer.MainForm.settingsToolStripMenuItem_Click(System.Object,System.EventArgs)">
+            <summary>
+            otevre formular pro nastaveni aplikace
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:Interlacer.MainForm.interlaceButton_Click(System.Object,System.EventArgs)">
+            <summary>
+            vyzada si zadani cesty a jmena vystupniho souboru a provede prolozeni
             </summary>
             <param name="sender"></param>
             <param name="e"></param>
@@ -2509,9 +2523,14 @@
             Odkaz na rodičovský formulář
             </summary>
         </member>
+        <member name="F:Interlacer.SettingsForm.settings">
+            <summary>
+            instance tridy Settings s nastavenim aplikace
+            </summary>
+        </member>
         <member name="M:Interlacer.SettingsForm.#ctor(Interlacer.MainForm,Interlacer.Settings)">
             <summary>
-            
+            inicializacni konstruktor
             </summary>
             <param name="parent">instance hlavniho formulare, ze ktereho je tento otevren</param>
             <param name="settings">instance tridy Settings s nastavevnim aplikace</param>
@@ -2534,7 +2553,7 @@
         </member>
         <member name="M:Interlacer.SettingsForm.applyChangedOptions">
             <summary>
-            
+            aplikuje aktulani nastaveni
             </summary>
         </member>
         <member name="M:Interlacer.SettingsForm.setOptions">
