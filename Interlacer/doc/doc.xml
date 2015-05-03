@@ -1261,6 +1261,29 @@
             <param name="sender"></param>
             <param name="e"></param>
         </member>
+        <member name="M:Interlacer.MainForm.pictureListViewEx_ItemSelectionChanged(System.Object,System.Windows.Forms.ListViewItemSelectionChangedEventArgs)">
+            <summary>
+            
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:Interlacer.MainForm.interpol1ComboBox_SelectedIndexChanged(System.Object,System.EventArgs)">
+            <summary>
+            Metoda vyvolená při změně položky v comboboxu pro první interpolační algoritmus.
+            Nastaví hodnotu výchozího filtru pro první Interpolaci
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:Interlacer.MainForm.interpol2ComboBox_SelectedIndexChanged(System.Object,System.EventArgs)">
+            <summary>
+            Metoda vyvolená při změně položky v comboboxu pro druhý interpolační algoritmus.
+            Nastaví hodnotu výchozího filtru pro druhou Interpolaci
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
         <member name="M:Interlacer.MainForm.dpiNumeric_ValueChanged(System.Object,System.EventArgs)">
             <summary>
             Metoda vyvolaná změnou hodnoty DPI.
@@ -1366,6 +1389,20 @@
             <param name="sender"></param>
             <param name="e"></param>
         </member>
+        <member name="M:Interlacer.MainForm.verticalRadiobutton_CheckedChanged(System.Object,System.EventArgs)">
+            <summary>
+            Nastaví směr prokládání na vertikální
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:Interlacer.MainForm.horizontalRadiobutton_CheckedChanged(System.Object,System.EventArgs)">
+            <summary>
+            Nastaví směr prokládání na horizontální
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
         <member name="M:Interlacer.MainForm.copyPicButton_Click(System.Object,System.EventArgs)">
             <summary>
             Pro označené položky seznamu vytvoří určitý počet kopií.
@@ -1411,6 +1448,13 @@
             <param name="sender"></param>
             <param name="e"></param>
         </member>
+        <member name="M:Interlacer.MainForm.ulozToolStripMenuItem_Click(System.Object,System.EventArgs)">
+            <summary>
+            uloží projekt data do souboru pojmenovaný uživatelem s koncovkou .int
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
         <member name="M:Interlacer.MainForm.sortButton_Click(System.Object,System.EventArgs)">
             <summary>
             Metoda vyvolaná při stisku tlačítka pro seřazení seznamu.
@@ -1421,6 +1465,13 @@
         <member name="M:Interlacer.MainForm.replaceButton_Click(System.Object,System.EventArgs)">
             <summary>
             Metoda vyvolaná při stisku tlačítka pro nahrazení jednoho obrázku jiným.
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:Interlacer.MainForm.nactiToolStripMenuItem_Click(System.Object,System.EventArgs)">
+            <summary>
+            Načte konfigurační soubor s koncovkou int a pokusí se ho nahrát do Mainformu
             </summary>
             <param name="sender"></param>
             <param name="e"></param>
@@ -2450,15 +2501,60 @@
         </member>
         <member name="T:Interlacer.SettingsForm">
             <summary>
-            trida formulare pro nastaveni aplikace
+            Formulář pro zobrazení nastavení aplikace.
+            </summary>
+        </member>
+        <member name="F:Interlacer.SettingsForm.parent">
+            <summary>
+            Odkaz na rodičovský formulář
             </summary>
         </member>
         <member name="M:Interlacer.SettingsForm.#ctor(Interlacer.MainForm,Interlacer.Settings)">
             <summary>
-            inicializacni konstruktor
+            
             </summary>
             <param name="parent">instance hlavniho formulare, ze ktereho je tento otevren</param>
             <param name="settings">instance tridy Settings s nastavevnim aplikace</param>
+        </member>
+        <member name="M:Interlacer.SettingsForm.SettingsForm_Load(System.Object,System.EventArgs)">
+            <summary>
+            Metoda, která se zavolá po načtení formuláře.
+            
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:Interlacer.SettingsForm.applyButton_Click(System.Object,System.EventArgs)">
+            <summary>
+            Metoda, která se zavolá po stisku tlačítka apply.
+            Aktualizuje provedené změny ve formuláři.
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:Interlacer.SettingsForm.applyChangedOptions">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:Interlacer.SettingsForm.setOptions">
+            <summary>
+            Všem komponentám nastaví aktuální nastavení
+            </summary>
+        </member>
+        <member name="M:Interlacer.SettingsForm.okButton_Click(System.Object,System.EventArgs)">
+            <summary>
+            Metoda, která se zavolá po stisku tlačítka OK.
+            Provede se to samé, jako při stisku tlačítka apply,
+            po provedení se však formulář zavře.
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:Interlacer.SettingsForm.changeLanguage">
+            <summary>
+            Metoda pro změnu jazyka
+            </summary>
         </member>
         <member name="F:Interlacer.SettingsForm.components">
             <summary>

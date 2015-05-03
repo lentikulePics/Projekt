@@ -86,18 +86,38 @@ namespace Interlacer
             reorder();
             reorderTimer.Stop();
         }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void pictureListViewEx_ItemSelectionChanged(object sender, ListViewItemSelectionChangedEventArgs e)
         {
             if (imagePreviewCheckBox.Checked)
                 setPreview();
             setPictureInfo();
         }
+
+        /// <summary>
+        /// Metoda vyvolená při změně položky v comboboxu pro první interpolační algoritmus.
+        /// Nastaví hodnotu výchozího filtru pro první Interpolaci
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void interpol1ComboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
             ComboBox c = (ComboBox)sender;
             FilterType filter = ((StringValuePair<FilterType>)c.SelectedItem).value;
             projectData.GetInterlacingData().SetInitialResizeFilter(filter);
         }
+
+        /// <summary>
+        /// Metoda vyvolená při změně položky v comboboxu pro druhý interpolační algoritmus.
+        /// Nastaví hodnotu výchozího filtru pro druhou Interpolaci
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void interpol2ComboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
             ComboBox c = (ComboBox)sender;
@@ -261,10 +281,21 @@ namespace Interlacer
             actualPicsUnderLenLabel.Text = Convert.ToString(lineThicknessTrackbar.Value);
             projectData.GetLineData().SetLineThickness(lineThicknessTrackbar.Value);
         }
+
+        /// <summary>
+        /// Nastaví směr prokládání na vertikální
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void verticalRadiobutton_CheckedChanged(object sender, EventArgs e)
         {
             projectData.GetInterlacingData().SetDirection(Direction.Vertical);
         }
+        /// <summary>
+        /// Nastaví směr prokládání na horizontální
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void horizontalRadiobutton_CheckedChanged(object sender, EventArgs e)
         {
             projectData.GetInterlacingData().SetDirection(Direction.Horizontal);

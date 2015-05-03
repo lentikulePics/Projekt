@@ -125,7 +125,16 @@ Tøída MainForm obsahuje instanci tøidy PictureInfoData, která se stará o získává
 O samotné zobrazení tìchto informací se stará metoda setPictureInfo, metoda resetPictureInfo pak nastaví potøebné labely na prázdné øetìzce.\\\\
 Tøída MainForm obsahuje instanci tøídy PreviewData, která se stará o zobrazování náhledù. Uchovává si naètené obrázky, aby nebylo potøeba naèítat stejný obrázek vícekrát.
 V tøídì MainForm je zobrazení náhledu øešeno v metodì setPreview.
+\section{Lokalizace aplikace}
+Aplikace je pøeložena do dvou jazykù. Do èeštiny a angliètiny. Nastavení jazyka je možno provést v aplikaci v menu \verb|nastavení|. Zmìna jazyka se projeví ihned po stisknutí tlaèítka \verb|OK| nebo tlaèítka \verb|apply|. Nastavení jazyka se po ukonèení aplikace uloží do souboru a pøi opìtovném spuštìní si aplikace nastavení jazyka z tohoto souboru naète.
 
+\subsection{Pøidání textu komponentì}
+Døíve, než pøidáváme jakoukoliv novou komponentu do aplikace nebo upravujeme text již vytvoøené komponenty, ujistíme se, že formuláøi, do kterého komponentu pøidáváme, je nastavena hodnota Language na \verb|default|. To znamená, že formuláø je právì nastaven na anglický jazyk a veškeré texty komponent budeme zadávat v anglickém jazyce. Po zadání textu komponentì se její text vèetnì jejích atributù ihned uloží do resource souboru \verb|MainForm.resx|. Pro pøeklad textu komponenty do èeského jazyka pøepneme formuláøi nastavení hodnoty Language na \verb|Czech (Czech republic)|, nikoliv pouze \verb|Czech|. Stejným zpùsobem pøidáme text komponentì, nyní v èeském jazyce. Text se uloží do resource souboru \verb|MainForm.cs-CZ.resx|.
+\subsection{Pøidání jiného textu}
+Pokud pøidáváme jakýkoliv jiný text (výpis chybové hlášky, tooltip komponenty, položky comboboxù...), musíme dané texty pøidat do resource souborù manuálnì. Pro každý jazyk je vytvoøen zvláštní resource soubor oddìlený od hlavního souboru s texty komponent. Pro èeštinu se nazývá \verb|StringRes_CZ.resx| a pro angliètinu \verb|StringRes_EN.resx|. Pokud tedy napøíklad pøidáváme novou chybovou hlášku, v resource souborech jí pøidìlíme nìjaké jméno (sloupec \verb|Name|), pod kterým k ní budeme pøistupovat a do sloupce \verb|Value| napíšeme v odpovídajícím jazyce její text. V kodu budeme k tìmto textùm pøistupovat pomocí statické tøídy \verb|Localization|. V této tøídì je definovaný ComponentResourceManager nazvaný \verb|resourcesStrings| pomocí nìhož budeme pøistupovat k tìmto resource souborùm. Jsou tam definovány ještì dva další ComponentResourceManagery, každý pro správu jednoho formuláøe.
 
-
+Pøíklad pøístupu k textu pomocí jeho jména:
+\begin{lstlisting}
+Localization.resourcesStrings.GetString("Name")
+\end{lstlisting}
 \end{document}

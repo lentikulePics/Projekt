@@ -11,15 +11,18 @@ using System.Windows.Forms;
 namespace Interlacer
 {
     /// <summary>
-    /// trida formulare pro nastaveni aplikace
+    /// Formulář pro zobrazení nastavení aplikace.
     /// </summary>
     public partial class SettingsForm : Form
     {
+        /// <summary>
+        /// Odkaz na rodičovský formulář
+        /// </summary>
         private MainForm parent;
         private Settings settings;
 
         /// <summary>
-        /// inicializacni konstruktor
+        /// 
         /// </summary>
         /// <param name="parent">instance hlavniho formulare, ze ktereho je tento otevren</param>
         /// <param name="settings">instance tridy Settings s nastavevnim aplikace</param>
@@ -33,16 +36,31 @@ namespace Interlacer
             this.settings = settings;
         }
 
+        /// <summary>
+        /// Metoda, která se zavolá po načtení formuláře.
+        /// 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void SettingsForm_Load(object sender, EventArgs e)
         {            
             setOptions();
         }
 
+        /// <summary>
+        /// Metoda, která se zavolá po stisku tlačítka apply.
+        /// Aktualizuje provedené změny ve formuláři.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void applyButton_Click(object sender, EventArgs e)
         {
             applyChangedOptions();
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
         private void applyChangedOptions()
         {
             Localization.currentLanguage = ((StringValuePair<String>)languageCombobox.SelectedItem).value;
@@ -55,6 +73,9 @@ namespace Interlacer
             setOptions();
         }
 
+        /// <summary>
+        /// Všem komponentám nastaví aktuální nastavení
+        /// </summary>
         private void setOptions(){
             languageCombobox.Items.Clear();
             languageCombobox.Items.Add(settings.GetSettingOptions().languageOptions[0]);
@@ -82,12 +103,23 @@ namespace Interlacer
             languageCombobox.SelectedIndex = settings.GetSelectedLanguageIndex();
         }
 
+        /// <summary>
+        /// Metoda, která se zavolá po stisku tlačítka OK.
+        /// Provede se to samé, jako při stisku tlačítka apply,
+        /// po provedení se však formulář zavře.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+    
         private void okButton_Click(object sender, EventArgs e)
         {
             applyChangedOptions();
             this.Close();
         }
 
+        /// <summary>
+        /// Metoda pro změnu jazyka
+        /// </summary>
         private void changeLanguage()
         {
             Localization.iterateOverControls(this, Localization.resourcesSettings);
